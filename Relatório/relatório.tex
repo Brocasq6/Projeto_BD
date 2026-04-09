@@ -55,8 +55,74 @@
 
         \section{Definição do Sistema}
                 \subsection{Contexto de aplicação}
+                
+                José Bumblebee, professor universitário durante mais de três décadas, sempre nutriu uma paixão 
+                pela partilha de conhecimento e pelos eventos académicos que ao longo da sua carreira organizou 
+                e frequentou. 
+                
+                Após a sua reforma, ao continuar ligado ao mundo dos eventos, deparou-se repetidamente 
+                com um problema que conhecia bem: a organização de eventos era, na sua grande maioria, 
+                fragmentada e ineficiente, assente em processos manuais e ferramentas dispersas que dificultavam 
+                a gestão dos participantes, horários e recursos. 
+                
+                Determinado a encontrar uma solução, José Bumblebee decidiu colocar a sua experiência ao serviço de 
+                um novo projeto e criar uma plataforma própria de gestão de eventos — assim nasceu a EvenSync.
+                
+                Ciente de que um projeto desta natureza exigia uma base sólida de dados, José Bumblebee estabeleceu uma parceria com a equipa de 
+                desenvolvimento da Universidade do Minho, que se propôs a desenvolver um Sistema de Gestão de Base de Dados (SGBD) relacional capaz de 
+                suportar toda a informação associada ao EvenSync. O objetivo seria criar uma estrutura que garantisse a organização, integridade e acessibilidade 
+                dos dados, permitindo ao mesmo tempo a gestão eficaz de eventos de diferentes tipologias e a interação entre os vários intervenientes no processo.
+                
                 \subsection{Motivação e Objetivos do Trabalho}
+
+                Atualmente, a maioria das organizações que promove eventos recorre a um conjunto fragmentado de ferramentas 
+                para gerir as diferentes componentes do processo: folhas de cálculo para controlo de inscrições, plataformas 
+                de email para comunicação com participantes, sistemas de pagamento independentes e documentos isolados para a 
+                gestão de salas e horários. Foi precisamente este cenário que José Bumblebee, professor universitário durante 
+                mais de três décadas, encontrou ao continuar ligado ao mundo dos eventos após a sua reforma. Habituado a organizar 
+                e participar em conferências e seminários académicos, deparou-se repetidamente com a mesma realidade: a informação 
+                encontrava-se dispersa, sem qualquer ligação entre si, tornando-se cada vez mais difícil de manter — um participante 
+                inscrito não estava automaticamente associado à sua fatura, nem ao certificado que lhe devia ser emitido.
+                
+                A falta de uma estrutura centralizada provocava não apenas a perda de contexto e detalhes importantes, mas
+                também a impossibilidade de realizar análises eficazes sobre a atividade da organização. Dados sobre taxas 
+                de ocupação de salas, participação por tipo de evento ou receitas geradas ficavam inacessíveis ou exigiam 
+                um esforço manual considerável para serem compilados. Determinado a resolver este problema, José Bumblebee 
+                decidiu tomar a iniciativa e criar a sua própria solução.
+                
+                Perante esta situação, e em parceria com a equipa de desenvolvimento da Universidade do Minho, considerou-se
+                que a solução passaria por um Sistema de Gestão de Base de Dados que permitisse catalogar, gerir e consultar
+                toda a informação associada aos eventos de forma estruturada e duradoura. Inspirados por esta necessidade, 
+                definiram-se os seguintes objetivos para o EvenSync:
+
+                \begin{itemize}
+                        \item Estruturar a informação relacionada com eventos, participantes, oradores, salas, inscrições, pagamentos e certificados, suportando múltiplas tipologias de eventos em simultâneo;
+                        \item Facilitar o armazenamento e recuperação de dados, garantindo que a informação se mantém organizada, íntegra e facilmente acessível;
+                        \item Apoiar a gestão operacional dos eventos, fornecendo mecanismos de consulta, vistas e relatórios que respondam às necessidades dos utilizadores do sistema;
+                        \item Assegurar a integridade referencial dos dados através da definição rigorosa de restrições, procedimentos e gatilhos;
+                        \item Garantir o crescimento contínuo do sistema sem comprometer o seu desempenho, através de uma indexação adequada e de uma estimativa realista do espaço em base de dados.
+                \end{itemize}
+                
                 \subsection{Análise de Viabilidade do Processo}
+                Atualmente, muitas organizações enfrentam dificuldades em manter um registo coerente e sustentável das suas atividades de eventos, 
+                que acabam dispersas entre ferramentas genéricas, comunicações por email e documentos físicos sem qualquer
+                estrutura comum. Surge, assim, a necessidade de um sistema que centralize toda esta informação de forma duradoura e consultável.
+               
+                Do ponto de vista técnico, o projeto é totalmente viável. As tecnologias selecionadas — nomeadamente o PostgreSQL 
+                como SGBD relacional — são amplamente utilizadas, estáveis, bem documentadas e suportam facilmente o volume de dados
+                previsto para uma aplicação desta natureza. A equipa possui os conhecimentos necessários para a sua utilização, adquiridos 
+                no âmbito da unidade curricular de Bases de Dados e de outras disciplinas do plano de estudos.
+                
+                Do ponto de vista económico, o investimento necessário é praticamente nulo, uma vez que todas as 
+                ferramentas e tecnologias utilizadas são gratuitas ou de código aberto, e o projeto é desenvolvido 
+                em ambiente académico sem custos de infraestrutura adicional.
+                
+                Do ponto de vista temporal, o projeto foi planeado para ser desenvolvido entre a data de lançamento do
+                enunciado e o dia 10 de maio de 2026, prazo de entrega definido pelo docente. Este período considera-se suficiente 
+                para completar todas as fases previstas, desde que o plano de execução definido na secção 1.5 seja respeitado.
+                
+                Deste modo, considera-se que o EvenSync é um projeto viável e sustentável, tanto no âmbito técnico como académico.
+
                 \subsection{Recursos e Equipa de Trabalho}
                 \subsection{Plano de Execução do Projeto}
         \section{Levantamento e Análise de Requisitos}
