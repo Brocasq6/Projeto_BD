@@ -1,0 +1,77 @@
+Bases de Dados
+
+Licenciatura em Ciências da Computação
+Ano Letivo de 2025/2026
+2º Semestre
+
+Enunciado do Trabalho Prático
+1. Objetivos
+Com a realização deste trabalho prático pretende-se introduzir e familiarizar os alunos da
+unidade curricular de Bases de Dados ao planeamento e à execução de projetos de Sistemas de
+Bases de Dados (SBD), dando especial destaque às fases de análise, planeamento, modelação,
+arquitetura e implementação destes sistemas.
+
+2. Desenvolvimento
+Pretende-se que cada grupo de alunos desenvolva um trabalho que inclua análise, planeamento,
+arquitetura e implementação de um SBD relacional, tendo por base um caso de estudo no
+domínio da “Organização de Eventos com Inscrições”. Este caso de aplicação deverá ser
+concebido, especificado e desenvolvido por cada grupo. Na realização do trabalho prático, cada
+grupo deverá seguir a metodologia apresentada e discutida na bibliografia recomendada.
+Após a identificação e caracterização dos diferentes cenários aplicacionais associados ao caso
+de estudo definido, cada grupo deverá desenvolver o seu projeto tendo obrigatoriamente em
+consideração os seguintes pontos:
+1. Definição do Sistema
+1.1 Contexto de aplicação
+1.2 Motivação e Objetivos do Trabalho
+1.3 Análise da Viabilidade do processo
+1.4 Recursos e Equipa de Trabalho
+1.5 Plano de Execução do Projeto
+2. Levantamento e Análise de Requisitos
+2.1 Método de Levantamento e de Análise de Requisitos Adotado
+2.2 Organização dos Requisitos Levantados
+2.3 Análise e Validação Geral dos Requisitos
+3. Modelação Conceptual
+3.1 Apresentação da Abordagem de Modelação Realizada
+3.2 Identificação e Caracterização das Entidades
+3.3 Identificação e Caracterização dos Relacionamentos
+3.4 Identificação e Caracterização dos Atributos das Entidades e dos
+Relacionamentos.
+3.5 Apresentação e Explicação do Diagrama ER Produzido
+4. Modelação Lógica
+4.1 Construção e Validação do Modelo de Dados Lógico
+4.2 Apresentação e Explicação do Modelo Lógico Produzido
+4.3 Normalização de Dados
+4.4 Validação do Modelo com Interrogações do Utilizador
+5. Implementação Física
+
+5.1 Apresentação e explicação da base de dados implementada
+5.2 Criação de utilizadores da base de dados
+5.3 Povoamento da base de dados
+5.4 Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)
+5.5 Definição e caracterização de vistas de utilização em SQL
+5.6 Tradução das interrogações do utilizador para SQL
+5.7 Indexação do Sistema de Dados
+5.8 Implementação de procedimentos, funções e gatilhos
+6. Conclusões e Trabalho Futuro
+7. Bibliografia
+Anexos
+
+3. Relatório
+No final do trabalho, cada grupo deverá elaborar um relatório técnico claro e sucinto, tendo em
+consideração todos os pontos anteriormente apresentados (Secção 2). O relatório deverá
+apresentar e documentar de forma completa e detalhada o sistema projetado e implementado,
+bem como as principais estratégias de desenvolvimento adotadas ao longo do processo.
+Na área da unidade curricular na plataforma de e-Learning encontra-se disponível o template
+que deverá ser utilizado na redação do relatório do trabalho prático.
+É permitida a utilização de ferramentas de Inteligência Artificial como apoio à realização do
+trabalho (por exemplo, para apoio à redação, clarificação de conceitos ou auxílio na geração de
+código SQL), desde que essa utilização seja devidamente documentada no relatório. Cada grupo
+deverá identificar explicitamente as ferramentas utilizadas, descrever o tipo de apoio obtido e
+justificar de forma crítica a sua utilização, assumindo inteira responsabilidade pelo conteúdo
+apresentado.
+
+4. Entrega e Discussão do Trabalho
+O relatório final do trabalho prático deverá ser submetido na Blackboard, até às 24 horas do dia
+10 de maio de 2026. Por sua vez, a discussão será feita nas datas definidas.
+
+
