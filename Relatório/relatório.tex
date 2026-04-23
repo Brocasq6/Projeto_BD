@@ -4,8 +4,12 @@
 %
 \documentclass[runningheads]{llncs}
 %
+\usepackage{float}
+\usepackage{placeins}
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{longtable}
 % T1 fonts will be used to generate the final print and online PDFs,
 % so please use T1 fonts in your manuscript whenever possible.
 % Other font encondings may result in incorrect characters.
@@ -146,29 +150,108 @@
                 
                 A calendarização das diferentes fases foi estruturada ao longo das semanas de desenvolvimento, culminando na entrega a 10 de maio, tal como ilustrado na Tabela \ref{tab:plano_execucao}.
                 
-                \begin{table}[h]
-                \centering
-                \caption{Plano de Execução do Projeto}
-                \label{tab:plano_execucao}
-                \renewcommand{\arraystretch}{1.3}
-                \begin{tabular}{|c|p{7.5cm}|l|}
-                \hline
-                \textbf{Fase} & \textbf{Descrição das Tarefas} & \textbf{Período Previsto} \\ \hline
-                \textbf{1} & Definição do Sistema, Viabilidade e Planeamento & Semanas 1 e 2 \\ \hline
-                \textbf{2} & Levantamento e Análise de Requisitos & Semana 3 \\ \hline
-                \textbf{3} & Modelação Conceptual (Diagrama ER) & Semanas 4 e 5 \\ \hline
-                \textbf{4} & Modelação Lógica e Normalização & Semana 6 \\ \hline
-                \textbf{5} & Implementação Física em PostgreSQL & Semanas 7 e 8 \\ \hline
-                \textbf{6} & Validação, Revisão e Entrega do Relatório final & Semana 9 (até 10/05) \\ \hline
-                \end{tabular}
-                \end{table}
+        \begin{table}[H]
+        \centering
+        \caption{Plano de Execução do Projeto}
+        \label{tab:plano_execucao}
+        \begin{tabular}{|c|l|l|}
+        \hline
+        \textbf{Fase} & \textbf{Descrição das Tarefas} & \textbf{Período Previsto} \\
+        \hline
+        1 & Definição do Sistema, Viabilidade e Planeamento & Semanas 1 e 2 \\
+        \hline
+        2 & Levantamento e Análise de Requisitos & Semana 3 \\
+        \hline
+        3 & Modelação Conceptual (Diagrama ER) & Semanas 4 e 5 \\
+        \hline
+        4 & Modelação Lógica e Normalização & Semana 6 \\
+        \hline
+        5 & Implementação Física em PostgreSQL & Semanas 7 e 8 \\
+        \hline
+        6 & Validação, Revisão e Entrega do Relatório final & Semana 9 (até 10/05) \\
+        \hline
+        \end{tabular}
+        \end{table}
+        
 
         % PONTO 2
         \section{Levantamento e Análise de Requisitos}
-                \subsection{Metodo de Levantamento e de Análise de Requisitos Adotado}
-                \subsection{Orgamização dos Requisitos Levantados}
 
-                \subsection{Analise e validacao geral dos requisitos}
+                \subsection{Método de Levantamento e de Análise de Requisitos Adotado}
+
+                Para o levantamento dos requisitos do EvenSync, a equipa adotou como técnica principal a
+                \textbf{entrevista com o cliente} --- José Bumblebee, idealizador do projeto. Foram realizadas
+                reuniões ao longo da semana 3 do plano de execução, nas quais cada elemento da equipa ficou
+                responsável por entrevistar o cliente sobre um subconjunto de funcionalidades do sistema,
+                registando as respostas obtidas numa folha de levantamento partilhada. Esta abordagem permitiu
+                distribuir o trabalho de forma organizada e garantir que todos os membros participaram
+                ativamente na recolha de informação.
+
+                A escolha da entrevista como técnica principal justifica-se pela disponibilidade do cliente e
+                pela riqueza de detalhe que uma conversa direta permite obter, nomeadamente no que diz respeito
+                a prioridades, restrições operacionais e casos de uso específicos do domínio da gestão de eventos.
+                Os requisitos levantados refletem diretamente as respostas fornecidas pelo José Bumblebee,
+                tendo sido posteriormente analisados e validados pela equipa antes de integrarem o modelo de dados.
+
+                \subsection{Organização dos Requisitos Levantados}
+
+                Após o levantamento, os requisitos foram organizados segundo três categorias:
+                \textbf{Dados} (informação que o sistema deve armazenar),
+                \textbf{Manipulação} (operações que o sistema deve suportar) e
+                \textbf{Controlo} (restrições e regras de negócio a garantir).
+                A cada requisito foi atribuído um identificador único para facilitar a rastreabilidade nas fases seguintes.
+
+                \begin{longtable}{|c|p{0.62\textwidth}|c|}
+                \caption{Requisitos Levantados do EvenSync} \label{tab:requisitos} \\
+                \hline
+                \textbf{ID} & \textbf{Descrição do Requisito} & \textbf{Analista} \\ \hline
+                \endfirsthead
+                \hline
+                \textbf{ID} & \textbf{Descrição do Requisito} & \textbf{Analista} \\ \hline
+                \endhead
+                D1 & O sistema deve permitir registar eventos com um identificador único, nome, tipo (conferência, workshop, corporativo, entre outros), número de edição, datas de início e fim, localização, capacidade máxima e descrição. & João Ribeiro \\ \hline
+                D2 & O sistema deve permitir registar organizadores com um identificador único, nome, email e telefone. & João Ribeiro \\ \hline
+                D3 & O sistema deve permitir associar um ou mais organizadores a cada evento, sendo que um organizador pode gerir múltiplos eventos. & João Ribeiro \\ \hline
+                D4 & O sistema deve permitir registar sessões associadas a um evento, com um identificador único, título, sala, data, hora de início, hora de fim e descrição. & João Ribeiro \\ \hline
+                D5 & O sistema deve permitir registar oradores com um identificador único, nome, email, biografia e especialidade. & Tiago Santos \\ \hline
+                D6 & O sistema deve permitir associar um ou mais oradores a cada sessão, sendo que um orador pode apresentar múltiplas sessões. & Bruno Freitas \\ \hline
+                D7 & O sistema deve permitir registar participantes com um identificador único, nome, email, telefone e organização ou instituição. & Bruno Freitas \\ \hline
+                D8 & O sistema deve permitir registar inscrições de participantes em eventos, com um identificador único, data de inscrição e estado (confirmada, pendente ou cancelada). & João Ribeiro \\ \hline
+                D9 & O sistema deve permitir registar pagamentos associados a inscrições, com um identificador único, valor, data de pagamento, método de pagamento e estado. & André Marques \\ \hline
+                M1 & Deve ser possível consultar todos os eventos registados no sistema, com possibilidade de filtrar por tipo, data ou localização. & André Marques \\ \hline
+                M2 & Deve ser possível consultar o programa completo de um evento, listando todas as sessões com os respetivos horários, salas e oradores associados. & André Marques \\ \hline
+                M3 & Deve ser possível consultar todos os inscritos num determinado evento, bem como o estado da sua inscrição. & André Marques \\ \hline
+                M4 & Deve ser possível consultar o histórico de inscrições de um participante, incluindo os eventos em que participou e os respetivos estados. & Nelson Antunes \\ \hline
+                M5 & Deve ser possível consultar o total de receitas geradas por um evento, com base nos pagamentos com estado pago. & Nelson Antunes \\ \hline
+                M6 & Deve ser possível obter a lista de eventos com maior taxa de ocupação, calculada com base no rácio entre o número de inscrições confirmadas e a capacidade máxima do evento. & Nelson Antunes \\ \hline
+                M7 & Deve ser possível consultar os oradores que apresentam sessões de um determinado evento. & Nelson Antunes \\ \hline
+                C1 & O sistema deve garantir que um participante não pode ter mais do que uma inscrição ativa no mesmo evento. & Tiago Santos \\ \hline
+                C2 & O sistema deve garantir que cada inscrição tem, no máximo, um pagamento associado. & Tiago Santos \\ \hline
+                C3 & O sistema deve garantir que o email de cada participante, orador e organizador é único no sistema. & João Ribeiro \\ \hline
+                C4 & Apenas os utilizadores com perfil de administrador ou organizador podem criar, editar ou eliminar eventos. & João Ribeiro \\ \hline
+                C5 & Apenas os utilizadores com perfil de administrador ou organizador podem gerir os dados de participantes e emitir relatórios financeiros. & João Ribeiro \\ \hline
+                C6 & O sistema deve impedir o registo de sessões com sobreposição de horário na mesma sala e no mesmo evento. & João Ribeiro \\ \hline
+                \end{longtable}
+
+                \subsection{Análise e Validação Geral dos Requisitos}
+
+                Após a organização dos requisitos, a equipa procedeu à sua análise crítica com o objetivo de
+                garantir que o conjunto final estava isento de erros, inconsistências, redundâncias e ambiguidades,
+                conforme recomendado pela metodologia de desenvolvimento de Sistemas de Bases de Dados.
+
+                Os requisitos são \textbf{completos}: cobrem as principais entidades e processos do domínio ---
+                eventos, sessões, organizadores, oradores, participantes, inscrições e pagamentos --- alinhando-se
+                com os objetivos definidos na Secção 1.2.
+
+                Os requisitos são \textbf{consistentes}: as regras de controlo (C1--C6) complementam e reforçam
+                os requisitos de dados (D1--D9) e de manipulação (M1--M7) sem os contradizer. A restrição C3,
+                por exemplo, está diretamente relacionada com os atributos de email presentes em D2, D5 e D7.
+
+                Os requisitos são \textbf{não ambíguos}: cada requisito tem um significado claro e foi reformulado
+                sempre que a linguagem original da entrevista era vaga ou imprecisa.
+
+                A validação final foi realizada com o cliente José Bumblebee, que confirmou que os requisitos
+                refletem fielmente as suas necessidades para o EvenSync.
 
         % PONTO 3
         \section{Modelação Conceptual}
@@ -187,7 +270,6 @@
                 \subsection{Apresentação da Abordagem do Modelo Logico Produzido}
                 
                 \subsection{Normalização dos dados}
-                ele e cientista da computacao,
                 \subsection{Validação do Modelo com Interrogação do Utilizador}
 
         %PONTO 5
