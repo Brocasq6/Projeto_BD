@@ -67,7 +67,7 @@
         José Bumblebee demonstrou, ao longo da sua carreira académica, uma grande paixão por partilhar conhecimento e organizar eventos. Contudo, a falta de uma estrutura centralizada provocava a perda de detalhes importantes e dificultava a gestão de inscrições e de pagamentos. Perante esta situação, considerou que a solução para o problema passaria pela criação de um Sistema de Gestão de Bases de Dados (SGBD) que permitisse armazenar e organizar de forma estruturada toda a informação da sua plataforma \textit{EvenSync}, tendo encomendado o seu desenvolvimento a um grupo de alunos da Licenciatura em Engenharia Informática da Universidade do Minho.
 
         \vspace{0.3cm}
-        Este documento descreve o processo de desenvolvimento realizado pela equipa de alunos. Numa fase inicial, o cliente expôs a necessidade de criação de uma base de dados e definiu o contexto em que esta seria desenvolvida. Seguiu-se a definição do plano de execução do projeto e do método de levantamento de requisitos. Os requisitos foram recolhidos através de entrevistas detalhadas com o cliente, sendo posteriormente organizados e validados de forma estruturada.
+        Este documento descreve o processo de desenvolvimento realizado pela equipa de alunos. Numa fase inicial, o cliente expôs a necessidade de criação de uma base de dados e definiu o contexto em que esta seria desenvolvida. Seguiu-se a definição do plano de execução do projeto e do método de levantamento de requisitos. Os requisitos foram recolhidos e consolidados através de uma abordagem híbrida que combinou entrevistas detalhadas com o cliente, análise documental, \textit{benchmarking} de mercado e sessões de \textit{brainstorming} da equipa, sendo posteriormente organizados e validados de forma estruturada.
 
         \vspace{0.3cm}
         Com base nos requisitos identificados, procedeu-se à criação e documentação de um diagrama Entidade-Relacionamento (ER), que foi posteriormente transformado num modelo lógico relacional. Este modelo foi normalizado até à Terceira Forma Normal (3FN), de modo a garantir a integridade dos dados e a redução de redundância. A validação do modelo lógico foi realizada através da definição e análise de interrogações recorrendo à álgebra relacional.
@@ -224,28 +224,38 @@
                 \subsection{Método de Levantamento e de Análise de Requisitos Adotado}
 
                 A definição de uma base de dados adequada ao contexto do EvenSync exigiu, numa primeira etapa, uma
-                compreensão aprofundada das necessidades reais do cliente. Para tal, a equipa optou por realizar
-                \textbf{entrevistas estruturadas} com José Bumblebee, o idealizador do projeto, por se tratar da
-                técnica que mais facilmente permite capturar não só os requisitos explícitos, mas também as
-                preferências, prioridades e restrições operacionais que raramente emergem através de questionários
-                escritos.
+                compreensão aprofundada das necessidades reais do cliente. Para tal, a equipa adotou uma abordagem
+                híbrida e colaborativa, combinando \textbf{entrevistas estruturadas} com sessões de \textbf{\textit{brainstorming}}.
+                As entrevistas com José Bumblebee, idealizador do projeto, permitiram capturar requisitos explícitos,
+                preferências e restrições operacionais que dificilmente emergiriam em questionários escritos.
 
                 \vspace{0.2cm}
 
-                As entrevistas decorreram ao longo da terceira semana do plano de execução, sendo que cada membro
-                da equipa ficou responsável por conduzir a sessão relativa a um subconjunto de funcionalidades do
-                sistema. As respostas foram registadas numa folha de levantamento partilhada, garantindo
-                consistência na recolha de informação e facilitando a sua posterior análise conjunta.
+                Estas entrevistas decorreram ao longo da terceira semana do plano de execução. Cada membro
+                da equipa ficou responsável por conduzir a análise relativa a um subconjunto de funcionalidades do
+                sistema. Posteriormente, a equipa reuniu-se em sessões de \textit{brainstorming} para cruzar
+                ideias, detetar requisitos implícitos (que o cliente não expressou diretamente, mas que são
+                essenciais para a consistência do sistema) e resolver possíveis conflitos lógicos.
 
                 \vspace{0.2cm}
 
-                Esta abordagem revelou-se particularmente adequada dado que o cliente tinha já uma visão clara
-                do problema que pretendia resolver, o que tornou as entrevistas objetivas e produtivas. O contacto
-                direto permitiu esclarecer ambiguidades no momento, evitando retrabalho nas fases seguintes do
-                projeto. Após a realização das entrevistas, os requisitos recolhidos foram analisados criticamente
-                pela equipa, validados internamente e organizados de forma estruturada, conforme apresentado na
-                subsecção seguinte.
+                Para além destas abordagens interativas, o processo foi complementado por uma rigorosa
+                \textbf{análise documental} do caso de estudo fundacional e pela técnica de
+                \textbf{\textit{benchmarking}}. A equipa analisou plataformas reais de mercado (como a
+                \textit{Eventbrite} e o \textit{Meetup}) para aferir as melhores práticas da indústria,
+                garantindo que não fossem negligenciados dados essenciais de registo ou características típicas
+                da gestão profissional de eventos.
 
+                \vspace{0.2cm}
+
+                A combinação das entrevistas e \textit{brainstorming} com a pesquisa documental e de mercado
+                revelou-se altamente eficaz. O contacto com o cliente esclareceu ambiguidades funcionais,
+                enquanto as sessões de debate interno e a análise de sistemas similares garantiram que a
+                arquitetura planeada seria técnica e logicamente robusta. Após esta fase iterativa, os
+                requisitos recolhidos foram validados e organizados de forma estruturada, conforme apresentado
+                na subsecção seguinte.
+
+                \newpage
                 \subsection{Organização dos Requisitos Levantados}
 
                 \subsubsection{Critérios de Classificação}\mbox{}\\

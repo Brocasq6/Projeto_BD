@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1777030209.68029 "/home/tiago_santos/Projeto_BD/Relatório/relatório.tex" "relatório.pdf" "relatório" 1777030210.56996 0
+["pdflatex"] 1777047648.98285 "/home/tiago_santos/Projeto_BD/Relatório/relatório.tex" "relatório.pdf" "relatório" 1777047649.8778 0
   "../imagens/UM.png" 1776872880.15083 22313 723f6c8cbcf1f2d5d893f7dc5637aea9 ""
   "/etc/texmf/web2c/texmf.cnf" 1776898409.30035 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/tiago_santos/Projeto_BD/Relatório/relatório.tex" 1777030209.38278 44576 8d33d1403af8e33d89f09cade0283032 ""
+  "/home/tiago_santos/Projeto_BD/Relatório/relatório.tex" 1777047648.69086 45439 aac2b20f8550c528a686544686e077da ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbi1000.tfm" 1136768653 3072 e6fe53b666f9cbd66cb135c6fdea66d3 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm" 1136768653 3584 1a7de6c99457381c64abc1a7c545505f ""
@@ -71,11 +71,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1776898433.49803 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1776898567 8214803 75ec8e7f6a4a0177f8c91fb1417cadf0 ""
-  "relatório.aux" 1777030210.4867 6635 43b67ed3def5b067943cbacb8e8502d2 "pdflatex"
-  "relatório.lof" 1777030210.4877 33 e37f84d12b50aa32dade73d7d1c52b61 "pdflatex"
-  "relatório.lot" 1777030210.4877 508 69941e0710dc3b26575b924719387d69 "pdflatex"
-  "relatório.tex" 1777030209.38278 44576 8d33d1403af8e33d89f09cade0283032 ""
-  "relatório.toc" 1777030210.4877 3876 989df43ff11fe73eb852a5e05a9bf02d "pdflatex"
+  "relatório.aux" 1777047649.80786 6637 16bdc3d9d13d78e934110a5cd04ef158 "pdflatex"
+  "relatório.lof" 1777047649.80886 33 e37f84d12b50aa32dade73d7d1c52b61 "pdflatex"
+  "relatório.lot" 1777047649.80886 508 367f8c9761caea566d128e19d7e1a19f "pdflatex"
+  "relatório.tex" 1777047648.69086 45439 aac2b20f8550c528a686544686e077da ""
+  "relatório.toc" 1777047649.80886 3878 3089dbb28e8986ae36654053cfc38798 "pdflatex"
   (generated)
   "relatório.aux"
   "relatório.lof"
