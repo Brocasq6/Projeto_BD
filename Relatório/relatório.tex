@@ -4,8 +4,16 @@
 %
 \documentclass[runningheads]{llncs}
 %
+\usepackage{float}
+\usepackage{placeins}
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[portuguese]{babel}
+\raggedbottom
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 % T1 fonts will be used to generate the final print and online PDFs,
 % so please use T1 fonts in your manuscript whenever possible.
 % Other font encondings may result in incorrect characters.
@@ -19,11 +27,13 @@
 %\usepackage{color}
 %\renewcommand\UrlFont{\color{blue}\rmfamily}
 %\urlstyle{rm}
-%
+% 
+\pagestyle{plain}
 \begin{document}
+        \thispagestyle{empty}
 
         \begin{center}
-                \includegraphics[width=0.5\textwidth]{../Imagens/UM.png}\\
+                \includegraphics[width=0.5\textwidth]{../imagens/UM.png}\\
                 \vspace{0.1cm}
                 {\large \textbf{Unidade Curricular de Base de Dados 2025/2026}}
                 \title{Relatório : FestivaliUM}
@@ -52,6 +62,38 @@
         \end{center}
 
         \newpage
+        \pagenumbering{roman}
+        \begin{abstract}
+        José Bumblebee demonstrou, ao longo da sua carreira académica, uma grande paixão por partilhar conhecimento e organizar eventos. Contudo, a falta de uma estrutura centralizada provocava a perda de detalhes importantes e dificultava a gestão de inscrições e de pagamentos. Perante esta situação, considerou que a solução para o problema passaria pela criação de um Sistema de Gestão de Bases de Dados (SGBD) que permitisse armazenar e organizar de forma estruturada toda a informação da sua plataforma \textit{EvenSync}, tendo encomendado o seu desenvolvimento a um grupo de alunos da Licenciatura em Engenharia Informática da Universidade do Minho.
+
+        \vspace{0.3cm}
+        Este documento descreve o processo de desenvolvimento realizado pela equipa de alunos. Numa fase inicial, o cliente expôs a necessidade de criação de uma base de dados e definiu o contexto em que esta seria desenvolvida. Seguiu-se a definição do plano de execução do projeto e do método de levantamento de requisitos. Os requisitos foram recolhidos através de entrevistas detalhadas com o cliente, sendo posteriormente organizados e validados de forma estruturada.
+
+        \vspace{0.3cm}
+        Com base nos requisitos identificados, procedeu-se à criação e documentação de um diagrama Entidade-Relacionamento (ER), que foi posteriormente transformado num modelo lógico relacional. Este modelo foi normalizado até à Terceira Forma Normal (3FN), de modo a garantir a integridade dos dados e a redução de redundância. A validação do modelo lógico foi realizada através da definição e análise de interrogações recorrendo à álgebra relacional.
+
+        \vspace{0.3cm}
+        O modelo lógico validado foi convertido para um modelo físico no Sistema de Gestão de Bases de Dados MySQL. Nesta fase foram criados utilizadores da base de dados com diferentes níveis de privilégio, procedeu-se ao povoamento da base de dados e à implementação das interrogações em SQL. Adicionalmente, foram definidas vistas de utilização, índices, bem como alguns procedimentos, funções e gatilhos essenciais, com o objetivo de garantir o cumprimento das regras de negócio, melhorar o desempenho das consultas e assegurar a consistência dos dados armazenados.
+        
+        \vspace{0.5cm}
+        \noindent \textbf{Área de Aplicação:} Desenho e Arquitetura de Sistemas de Bases de Dados
+        
+        \noindent \textbf{Palavras-Chave:} Bases de Dados, Diagramas Entidade-Relacionamento, Modelo Relacional, Normalização de Bases de Dados Relacionais, Álgebra Relacional, SQL, MySQL
+        \end{abstract}
+
+        \newpage
+        \renewcommand{\contentsname}{Índice}
+        \tableofcontents
+        \thispagestyle{plain}
+        
+        \newpage
+        \listoffigures
+        
+        \newpage
+        \listoftables
+        
+        \newpage
+        \pagenumbering{arabic}
 
         \section{Definição do Sistema}
                 \subsection{Contexto de aplicação}
@@ -60,14 +102,17 @@
                 pela partilha de conhecimento e pelos eventos académicos que ao longo da sua carreira organizou 
                 e frequentou. 
                 
+                \vspace{0.3cm}
                 Após a sua reforma, ao continuar ligado ao mundo dos eventos, deparou-se repetidamente 
                 com um problema que conhecia bem: a organização de eventos era, na sua grande maioria, 
                 fragmentada e ineficiente, assente em processos manuais e ferramentas dispersas que dificultavam 
                 a gestão dos participantes, horários e recursos. 
                 
+                \vspace{0.3cm}
                 Determinado a encontrar uma solução, José Bumblebee decidiu colocar a sua experiência ao serviço de 
                 um novo projeto e criar uma plataforma própria de gestão de eventos — assim nasceu a EvenSync.
                 
+                \vspace{0.3cm}
                 Ciente de que um projeto desta natureza exigia uma base sólida de dados, José Bumblebee estabeleceu uma parceria com a equipa de 
                 desenvolvimento da Universidade do Minho, que se propôs a desenvolver um Sistema de Gestão de Base de Dados (SGBD) relacional capaz de 
                 suportar toda a informação associada ao EvenSync. O objetivo seria criar uma estrutura que garantisse a organização, integridade e acessibilidade 
@@ -84,12 +129,14 @@
                 encontrava-se dispersa, sem qualquer ligação entre si, tornando-se cada vez mais difícil de manter — um participante 
                 inscrito não estava automaticamente associado à sua fatura, nem ao certificado que lhe devia ser emitido.
                 
+                \vspace{0.3cm}
                 A falta de uma estrutura centralizada provocava não apenas a perda de contexto e detalhes importantes, mas
                 também a impossibilidade de realizar análises eficazes sobre a atividade da organização. Dados sobre taxas 
                 de ocupação de salas, participação por tipo de evento ou receitas geradas ficavam inacessíveis ou exigiam 
                 um esforço manual considerável para serem compilados. Determinado a resolver este problema, José Bumblebee 
                 decidiu tomar a iniciativa e criar a sua própria solução.
                 
+                \vspace{0.3cm}
                 Perante esta situação, e em parceria com a equipa de desenvolvimento da Universidade do Minho, considerou-se
                 que a solução passaria por um Sistema de Gestão de Base de Dados que permitisse catalogar, gerir e consultar
                 toda a informação associada aos eventos de forma estruturada e duradoura. Inspirados por esta necessidade, 
@@ -108,33 +155,33 @@
                 que acabam dispersas entre ferramentas genéricas, comunicações por email e documentos físicos sem qualquer
                 estrutura comum. Surge, assim, a necessidade de um sistema que centralize toda esta informação de forma duradoura e consultável.
                
-                Do ponto de vista técnico, o projeto é totalmente viável. As tecnologias selecionadas — nomeadamente o PostgreSQL 
+                \vspace{0.3cm}
+                Do ponto de vista \textbf{técnico}, o projeto é totalmente viável. As tecnologias selecionadas — nomeadamente o MySQL 
                 como SGBD relacional — são amplamente utilizadas, estáveis, bem documentadas e suportam facilmente o volume de dados
                 previsto para uma aplicação desta natureza. A equipa possui os conhecimentos necessários para a sua utilização, adquiridos 
                 no âmbito da unidade curricular de Bases de Dados e de outras disciplinas do plano de estudos.
                 
-                Do ponto de vista económico, o investimento necessário é praticamente nulo, uma vez que todas as 
+                \vspace{0.3cm}
+                Do ponto de vista \textbf{económico}, o investimento necessário é praticamente nulo, uma vez que todas as 
                 ferramentas e tecnologias utilizadas são gratuitas ou de código aberto, e o projeto é desenvolvido 
                 em ambiente académico sem custos de infraestrutura adicional.
                 
-                Do ponto de vista temporal, o projeto foi planeado para ser desenvolvido entre a data de lançamento do
+                \vspace{0.3cm}
+                Do ponto de vista \textbf{temporal}, o projeto foi planeado para ser desenvolvido entre a data de lançamento do
                 enunciado e o dia 10 de maio de 2026, prazo de entrega definido pelo docente. Este período considera-se suficiente 
                 para completar todas as fases previstas, desde que o plano de execução definido na secção 1.5 seja respeitado.
                 
                 Deste modo, considera-se que o EvenSync é um projeto viável e sustentável, tanto no âmbito técnico como académico.
 
                 \subsection{Recursos e Equipa de Trabalho}
-                Os recursos humanos necessários para o projeto, divididos pelas categorias "pessoal interno" e "pessoal externo", 
-                são constituídos pelo idealizador do projeto e pela equipa de desenvolvimento informático.
+                No âmbito deste projeto, os recursos humanos estão divididos em duas categorias: \textbf{pessoal interno} e \textbf{pessoal externo}. O \textit{pessoal interno} corresponde ao cliente — ou seja, a pessoa que identificou o problema, idealizou a solução e encomendou o seu desenvolvimento. O \textit{pessoal externo} corresponde à equipa técnica que foi recrutada para concretizar o projeto.
 
-                O "pessoal interno" é composto pelo seguinte indivíduo, que representa o cliente e deu origem à necessidade que motivou o desenvolvimento do EvenSync:
+                O ``pessoal interno'' é representado pelo seguinte indivíduo:
                 \begin{itemize}
-                        \item José Bumblebee: estudante da Licenciatura em Engenharia de Sistemas e Informática da Universidade do Minho, Mestrado em Informática de Gestão, Doutorado em informática e idealizador do projeto. Após ter participado 
-                        na organização de um seminário académico, confrontou-se com as dificuldades práticas da gestão manual de inscrições, presenças e certificados, o 
-                        que o levou a conceber a ideia de uma plataforma centralizada de gestão de eventos. Ciente de que não conseguiria
-                        concretizar sozinho o projeto, procurou o apoio de alunos com competências complementares.
+                        \item \textbf{José Bumblebee:} Licenciado em Engenharia de Sistemas e Informática, Mestre em Informática de Gestão e Doutorado em Informática pela Universidade do Minho. É o idealizador do projeto EvenSync. Após ter participado na organização de um seminário académico, confrontou-se com as dificuldades práticas da gestão manual de inscrições, presenças e certificados, o que o levou a conceber a ideia de uma plataforma centralizada de gestão de eventos. Ciente de que não conseguiria concretizar sozinho o projeto, procurou o apoio de uma equipa com competências técnicas em Bases de Dados.
                 \end{itemize}
 
+                \vspace{0.3cm}
                 O "pessoal externo" é constituído pela equipa de cinco alunos de Ciências da Computação recrutada pelo próprio José Bumblebee, responsável pelo desenvolvimento 
                 do sistema, pela sua implementação e testagem. Apresentam conhecimentos sólidos em modelação de bases de dados, programação em SQL, design de sistemas de informação 
                 e metodologias de desenvolvimento. Os nomes dos integrantes desta equipa são André Marques, Bruno Freitas, João Ribeiro, Tiago Santos e Nelson Antunes, todos estudantes da Licenciatura em Ciências da Computação da Universidade do Minho. 
@@ -142,30 +189,475 @@
 
                 \subsection{Plano de Execução do Projeto}
 
+                Para garantir a conclusão bem-sucedida do EvenSync dentro do prazo estipulado (10 de maio de 2026), a equipa definiu um plano de execução baseado, alinhado com as metodologias de desenvolvimento de Sistemas de Bases de Dados. As tarefas foram estruturadas nas seguintes fases:
+                
+                A calendarização das diferentes fases foi estruturada ao longo das semanas de desenvolvimento, culminando na entrega a 10 de maio, tal como ilustrado na Tabela \ref{tab:plano_execucao}.
+                
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|l|l|}
+        \hline
+        \textbf{Fase} & \textbf{Descrição das Tarefas} & \textbf{Período Previsto} \\
+        \hline
+        1 & Definição do Sistema, Viabilidade e Planeamento & Semanas 1 e 2 \\
+        \hline
+        2 & Levantamento e Análise de Requisitos & Semana 3 \\
+        \hline
+        3 & Modelação Conceptual (Diagrama ER) & Semanas 4 e 5 \\
+        \hline
+        4 & Modelação Lógica e Normalização & Semana 6 \\
+        \hline
+        5 & Implementação Física em MySQL & Semanas 7 e 8 \\
+        \hline
+        6 & Validação, Revisão e Entrega do Relatório final & Semana 9 (até 10/05) \\
+        \hline
+        \end{tabular}
+        \vspace{0.2cm}
+        \caption{Plano de Execução do Projeto}
+        \label{tab:plano_execucao}
+        \end{table}
+        
+
+        % PONTO 2
         \section{Levantamento e Análise de Requisitos}
-                \subsection{Metodo de Levantamento e de Análise de Requisitos Adotado}
-                \subsection{Orgamização dos Requisitos Levantados}
 
-                \subsection{Analise e validacao geral dos requisitos}
+                \subsection{Método de Levantamento e de Análise de Requisitos Adotado}
 
+                A definição de uma base de dados adequada ao contexto do EvenSync exigiu, numa primeira etapa, uma
+                compreensão aprofundada das necessidades reais do cliente. Para tal, a equipa optou por realizar
+                \textbf{entrevistas estruturadas} com José Bumblebee, o idealizador do projeto, por se tratar da
+                técnica que mais facilmente permite capturar não só os requisitos explícitos, mas também as
+                preferências, prioridades e restrições operacionais que raramente emergem através de questionários
+                escritos.
+
+                \vspace{0.2cm}
+
+                As entrevistas decorreram ao longo da terceira semana do plano de execução, sendo que cada membro
+                da equipa ficou responsável por conduzir a sessão relativa a um subconjunto de funcionalidades do
+                sistema. As respostas foram registadas numa folha de levantamento partilhada, garantindo
+                consistência na recolha de informação e facilitando a sua posterior análise conjunta.
+
+                \vspace{0.2cm}
+
+                Esta abordagem revelou-se particularmente adequada dado que o cliente tinha já uma visão clara
+                do problema que pretendia resolver, o que tornou as entrevistas objetivas e produtivas. O contacto
+                direto permitiu esclarecer ambiguidades no momento, evitando retrabalho nas fases seguintes do
+                projeto. Após a realização das entrevistas, os requisitos recolhidos foram analisados criticamente
+                pela equipa, validados internamente e organizados de forma estruturada, conforme apresentado na
+                subsecção seguinte.
+
+                \subsection{Organização dos Requisitos Levantados}
+
+                \subsubsection{Critérios de Classificação}\mbox{}\\
+
+                Concluída a fase de recolha, os requisitos foram sistematizados segundo três categorias distintas,
+                seguindo a classificação clássica da engenharia de bases de dados: \textbf{Descrição} (toda a informação
+                que o sistema deverá armazenar de forma persistente), \textbf{Manipulação} (as operações e
+                consultas que o sistema deverá disponibilizar aos seus utilizadores) e \textbf{Controlo}
+                (as restrições e regras de negócio que o sistema deverá impor de forma automática). A cada
+                requisito foi atribuído um identificador único --- RD para Descrição (Dados), RM para Manipulação e RC para
+                Controlo --- de modo a garantir a rastreabilidade do mesmo nas fases subsequentes do projeto.
+
+                \subsubsection{Organização dos Requisitos Levantados}\mbox{}\\
+
+                Após a aplicação do método de levantamento descrito na Secção~2.1, foi obtido um conjunto
+                de requisitos para o sistema EvenSync. Posteriormente, os requisitos foram divididos em três
+                tabelas distintas, de acordo com a sua categoria: Requisitos de Descrição (RD), Requisitos de
+                Manipulação (RM) e Requisitos de Controlo (RC), para facilitar a consulta, validação e posterior
+                utilização nas fases de modelação conceptual, lógica e implementação física.
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|c|p{0.62\textwidth}|c|}
+                \hline
+                \textbf{ID} & \textbf{Requisitos de Descrição (RD)} & \textbf{Analista} \\ \hline
+                RD1 & O sistema deve permitir registar eventos com um identificador único, nome, tipo (conferência, workshop, corporativo, entre outros), número de edição, datas de início e fim, localização, capacidade máxima e descrição. & João Ribeiro \\ \hline
+                RD2 & O sistema deve permitir registar organizadores com um identificador único, nome, email e telefone. & João Ribeiro \\ \hline
+                RD3 & O sistema deve permitir associar um ou mais organizadores a cada evento, sendo que um organizador pode gerir múltiplos eventos. & João Ribeiro \\ \hline
+                RD4 & O sistema deve permitir registar sessões associadas a um evento, com um identificador único, título, sala, data, hora de início, hora de fim e descrição. & João Ribeiro \\ \hline
+                RD5 & O sistema deve permitir registar oradores com um identificador único, nome, email, biografia e especialidade. & Tiago Santos \\ \hline
+                RD6 & O sistema deve permitir associar um ou mais oradores a cada sessão, sendo que um orador pode apresentar múltiplas sessões. & Bruno Freitas \\ \hline
+                RD7 & O sistema deve permitir registar participantes com um identificador único, nome, email, telefone e organização ou instituição. & Bruno Freitas \\ \hline
+                RD8 & O sistema deve permitir registar inscrições de participantes em eventos, com um identificador único, data de inscrição e estado (confirmada, pendente ou cancelada). & João Ribeiro \\ \hline
+                RD9 & O sistema deve permitir registar pagamentos associados a inscrições, com um identificador único, valor, data de pagamento, método de pagamento e estado. & André Marques \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Requisitos de Descrição do EvenSync} \label{tab:requisitos_rd}
+                \end{table}
+
+                \vspace{0.2cm}
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|c|p{0.62\textwidth}|c|}
+                \hline
+                \textbf{ID} & \textbf{Requisitos de Manipulação (RM)} & \textbf{Analista} \\ \hline
+                RM1 & Deve ser possível consultar todos os eventos registados no sistema, com possibilidade de filtrar por tipo, data ou localização. & André Marques \\ \hline
+                RM2 & Deve ser possível consultar o programa completo de um evento, listando todas as sessões com os respetivos horários, salas e oradores associados. & André Marques \\ \hline
+                RM3 & Deve ser possível consultar todos os inscritos num determinado evento, bem como o estado da sua inscrição. & André Marques \\ \hline
+                RM4 & Deve ser possível consultar o histórico de inscrições de um participante, incluindo os eventos em que participou e os respetivos estados. & Nelson Antunes \\ \hline
+                RM5 & Deve ser possível consultar o total de receitas geradas por um evento, com base nos pagamentos com estado pago. & Nelson Antunes \\ \hline
+                RM6 & Deve ser possível obter a lista de eventos com maior taxa de ocupação, calculada com base no rácio entre o número de inscrições confirmadas e a capacidade máxima do evento. & Nelson Antunes \\ \hline
+                RM7 & Deve ser possível consultar os oradores que apresentam sessões de um determinado evento. & Nelson Antunes \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Requisitos de Manipulação do EvenSync} \label{tab:requisitos_rm}
+                \end{table}
+
+                \vspace{0.2cm}
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|c|p{0.62\textwidth}|c|}
+                \hline
+                \textbf{ID} & \textbf{Requisitos de Controlo (RC)} & \textbf{Analista} \\ \hline
+                RC1 & O sistema deve garantir que um participante não pode ter mais do que uma inscrição ativa no mesmo evento. & Tiago Santos \\ \hline
+                RC2 & O sistema deve garantir que cada inscrição tem, no máximo, um pagamento associado. & Tiago Santos \\ \hline
+                RC3 & O sistema deve garantir que o email de cada participante, orador e organizador é único no sistema. & João Ribeiro \\ \hline
+                RC4 & Apenas os utilizadores com perfil de administrador ou organizador podem criar, editar ou eliminar eventos. & João Ribeiro \\ \hline
+                RC5 & Apenas os utilizadores com perfil de administrador ou organizador podem gerir os dados de participantes e emitir relatórios financeiros. & João Ribeiro \\ \hline
+                RC6 & O sistema deve impedir o registo de sessões com sobreposição de horário na mesma sala e no mesmo evento. & João Ribeiro \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Requisitos de Controlo do EvenSync} \label{tab:requisitos_rc}
+                \end{table}
+
+                \newpage
+                \subsubsection{Resumo dos Requisitos Identificados}\mbox{}\\
+
+                O processo de levantamento resultou na identificação de um total de 22 requisitos,
+                distribuídos da seguinte forma:
+                \begin{itemize}
+                    \item Requisitos de Descrição (RD): 9 requisitos
+                    \item Requisitos de Manipulação (RM): 7 requisitos
+                    \item Requisitos de Controlo (RC): 6 requisitos
+                \end{itemize}
+
+                Os requisitos abrangem as 7 entidades principais do sistema identificadas para a
+                plataforma: Evento, Organizador, Sessão, Orador, Participante, Inscrição e Pagamento. A
+                análise e validação geral dos requisitos é apresentada na Secção~2.3.
+
+                \subsubsection{Ligação à Fase Seguinte}\mbox{}\\
+
+                Os requisitos levantados nesta fase constituem o alicerce direto da modelação conceptual
+                apresentada na Secção~3. Cada entidade identificada no Diagrama Entidade-Relacionamento
+                decorre diretamente de um ou mais requisitos de descrição (RD1--RD9), e cada restrição de
+                cardinalidade ou regra de integridade definida no modelo corresponde a um requisito de
+                controlo (RC1--RC6). Esta rastreabilidade garante que nenhuma decisão de modelação
+                foi tomada de forma arbitrária, mas sim fundamentada nas necessidades reais do cliente.
+
+                \subsection{Análise e Validação Geral dos Requisitos}
+
+                Concluída a organização dos requisitos, a equipa procedeu a uma análise crítica e detalhada
+                do conjunto obtido, com o objetivo de verificar a sua qualidade antes de o utilizar como base
+                para a modelação conceptual. Esta validação incidiu sobre três propriedades fundamentais:
+                completude, consistência e não ambiguidade.
+
+                \vspace{0.2cm}
+
+                \textbf{Completude.} Os requisitos cobrem de forma abrangente todas as entidades centrais
+                do domínio do EvenSync --- eventos, sessões, organizadores, oradores, participantes,
+                inscrições e pagamentos --- estando diretamente alinhados com os objetivos enunciados
+                na Secção~1.2. Não foi identificada nenhuma funcionalidade essencial em falta.
+
+                \vspace{0.2cm}
+
+                \textbf{Consistência.} As regras de controlo (RC1--RC6) foram definidas de forma complementar
+                e coerente com os requisitos de descrição (RD1--RD9) e de manipulação (RM1--RM7), não existindo
+                qualquer contradição entre eles. A título de exemplo, a restrição RC3 (unicidade de email)
+                decorre naturalmente da existência dos atributos de email definidos em RD2, RD5 e RD7,
+                reforçando a integridade do sistema sem criar conflitos.
+
+                \vspace{0.2cm}
+
+                \textbf{Não Ambiguidade.} Cada requisito foi redigido com linguagem precisa e objetiva.
+                Sempre que as respostas do cliente apresentavam formulações vagas ou passíveis de
+                interpretações múltiplas, a equipa procedeu à sua reformulação em conjunto com o cliente,
+                garantindo que o significado final era único e inequívoco.
+
+                \vspace{0.2cm}
+
+                \textbf{Validação com o Cliente.} Por fim, o conjunto de requisitos foi submetido a uma
+                validação final com o próprio José Bumblebee, que confirmou que os requisitos levantados
+                refletem fielmente as suas expectativas e necessidades para a plataforma EvenSync,
+                podendo assim servir de alicerce à fase de modelação que se segue.
+
+        % PONTO 3
+        \newpage
         \section{Modelação Conceptual}
                 \subsection{Apresentação da Abordagem de Modelação Realizada}
-                
+
+                Concluída a recolha e análise dos requisitos (Capítulo~2), a equipa iniciou o planeamento
+                da estrutura da base de dados. A modelação conceptual teve como objetivo representar, de
+                forma rigorosa e estruturada, o domínio do sistema EvenSync, servindo de ponte entre o
+                catálogo de requisitos e as fases posteriores de modelação lógica e implementação física.
+
+                \vspace{0.2cm}
+
+                A abordagem seguida combinou uma perspetiva \textbf{\textit{top-down}} com validações
+                \textbf{\textit{bottom-up}}. A partir dos Requisitos de Descrição (RD1--RD9) e da narrativa do
+                caso de estudo, foram identificados os objetos com identidade própria e relevância
+                operacional. Os Requisitos de Controlo (RC1--RC6) orientaram a definição de restrições de
+                cardinalidade e regras de negócio. Os Requisitos de Manipulação (RM1--RM7) serviram como
+                critério de validação, garantindo que cada consulta prevista é respondível através das
+                entidades e relacionamentos modelados.
+
+                \vspace{0.2cm}
+
+                Desta análise resultaram \textbf{7 entidades principais}:
+                \begin{itemize}
+                    \item \textbf{Evento} (RD1, RD3) --- entidade central do sistema; representa as conferências, workshops e eventos corporativos a gerir;
+                    \item \textbf{Organizador} (RD2, RD3) --- responsável pela gestão e supervisão de um ou vários eventos;
+                    \item \textbf{Sessão} (RD4) --- atividade ou palestra que ocorre dentro de um determinado evento;
+                    \item \textbf{Orador} (RD5, RD6) --- especialista ou convidado que apresenta numa ou mais sessões;
+                    \item \textbf{Participante} (RD7, RD8) --- utilizador que se regista na plataforma e se inscreve em eventos;
+                    \item \textbf{Inscrição} (RD8, RC1, RC2) --- registo formal da participação de um utilizador num evento;
+                    \item \textbf{Pagamento} (RD9, RC2) --- transação financeira que valida e confirma uma inscrição.
+                \end{itemize}
+
+                \vspace{0.2cm}
+
+                O modelo conceptual foi construído recorrendo ao \textbf{Modelo Entidade-Relacionamento
+                (ER)}, utilizando o \textbf{brModelo} para a produção do diagrama. Foram definidas entidades
+                fortes, relacionamentos binários com cardinalidades explícitas (1:1, 1:N, N:M) e atributos
+                simples e compostos, em conformidade com as regras de negócio observadas nos requisitos.
+
+                \vspace{0.2cm}
+
+                Assim, a equipa começou por identificar as entidades e os relacionamentos entre elas
+                (Secções~3.2 e~3.3), caracterizou depois os atributos de cada entidade (Secção~3.4),
+                e finalmente produziu o Diagrama ER completo do sistema (Secção~3.5).
+
+
                 \subsection{Identificação e Caracterização das Entidades}
-                
+
+                A identificação das entidades resulta da análise dos Requisitos de Descrição (RD1--RD9)
+                apresentados no Capítulo~2. Uma entidade representa um conjunto de objetos com existência
+                independente que partilham propriedades comuns e necessitam de armazenamento persistente.
+
+                \vspace{0.2cm}
+
+                A Tabela~\ref{tab:entidades} apresenta uma síntese das 7 entidades identificadas para
+                o sistema EvenSync.
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|p{0.18\textwidth}|p{0.45\textwidth}|p{0.22\textwidth}|}
+                \hline
+                \textbf{Entidade} & \textbf{Descrição} & \textbf{Requisitos} \\ \hline
+                Evento       & Conferência, workshop ou evento corporativo a gerir na plataforma & RD1, RD3 \\ \hline
+                Organizador  & Pessoa responsável pela gestão e supervisão de um ou vários eventos & RD2, RD3 \\ \hline
+                Sessão       & Atividade ou palestra que ocorre dentro de um determinado evento & RD4 \\ \hline
+                Orador       & Especialista ou convidado que apresenta numa ou mais sessões & RD5, RD6 \\ \hline
+                Participante & Utilizador que se regista na plataforma e se inscreve em eventos & RD7, RD8 \\ \hline
+                Inscrição    & Registo formal da participação de um utilizador num evento & RD8, RC1, RC2 \\ \hline
+                Pagamento    & Transação financeira que valida e confirma uma inscrição & RD9, RC2 \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Entidades do Sistema EvenSync}
+                \label{tab:entidades}
+                \end{table}
+
+                Nas subsecções seguintes apresenta-se a caracterização detalhada de cada entidade,
+                incluindo justificação, atributos principais e relacionamentos.
+
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Evento}\mbox{}\\
+                A entidade \textbf{Evento} foi identificada a partir de RD1 e RD3. Representa a entidade
+                central do sistema EvenSync, correspondendo a qualquer conferência, workshop ou evento
+                corporativo que o cliente José Bumblebee pretende gerir. Possui existência independente
+                e é referenciada por praticamente todas as outras entidades do sistema.
+
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
+                \begin{itemize}
+                    \item \texttt{id\_evento} (chave primária)
+                    \item \texttt{nome} (obrigatório --- RD1)
+                    \item \texttt{tipo} (obrigatório --- RD1: conferência, workshop, corporativo, entre outros)
+                    \item \texttt{capacidade} (obrigatório --- RD1: número máximo de participantes)
+                    \item \texttt{descricao} (opcional --- RD1)
+                    \item \texttt{data\_inicio} e \texttt{data\_fim} (obrigatórios --- RD1)
+                    \item \texttt{localizacao} (obrigatório --- RD1)
+                \end{itemize}
+
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
+                \begin{itemize}
+                    \item Um Evento é gerido por um ou mais Organizadores (N:M --- RD3)
+                    \item Um Evento possui várias Sessões (1:N --- RD4)
+                    \item Um Evento recebe várias Inscrições de Participantes (1:N --- RD8)
+                \end{itemize}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Organizador}\mbox{}\\
+                A entidade \textbf{Organizador} foi identificada a partir de RD2 e RD3. Representa a
+                pessoa ou entidade responsável pela criação e gestão operacional dos eventos na
+                plataforma EvenSync.
+
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
+                \begin{itemize}
+                    \item \texttt{id\_organizador} (chave primária)
+                    \item \texttt{nome} (obrigatório --- RD2)
+                    \item \texttt{email} (obrigatório, único --- RD2, RC3)
+                    \item \texttt{telefone} (obrigatório --- RD2)
+                \end{itemize}
+
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
+                \begin{itemize}
+                    \item Um Organizador pode gerir múltiplos Eventos (N:M --- RD3)
+                \end{itemize}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Sessão}\mbox{}\\
+                A entidade \textbf{Sessão} foi identificada a partir de RD4. Representa uma atividade
+                ou palestra específica que decorre dentro de um evento, com hora e sala próprias.
+
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
+                \begin{itemize}
+                    \item \texttt{id\_sessao} (chave primária)
+                    \item \texttt{tema} (obrigatório --- RD4)
+                    \item \texttt{sala} (obrigatório --- RD4, RC6)
+                    \item \texttt{data} (obrigatório --- RD4)
+                    \item \texttt{hora\_inicio} e \texttt{hora\_fim} (obrigatórios --- RD4, RC6)
+                \end{itemize}
+
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
+                \begin{itemize}
+                    \item Uma Sessão pertence a um único Evento (N:1 --- RD4)
+                    \item Uma Sessão é apresentada por um ou mais Oradores (N:M --- RD6)
+                \end{itemize}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Orador}\mbox{}\\
+                A entidade \textbf{Orador} foi identificada a partir de RD5 e RD6. Representa um
+                especialista ou convidado responsável por apresentar o conteúdo de uma ou mais sessões
+                do evento.
+
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
+                \begin{itemize}
+                    \item \texttt{id\_orador} (chave primária)
+                    \item \texttt{nome} (obrigatório --- RD5)
+                    \item \texttt{email} (obrigatório, único --- RD5, RC3)
+                    \item \texttt{especialidade} (obrigatório --- RD5)
+                \end{itemize}
+
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
+                \begin{itemize}
+                    \item Um Orador pode apresentar múltiplas Sessões (N:M --- RD6)
+                \end{itemize}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Participante}\mbox{}\\
+                A entidade \textbf{Participante} foi identificada a partir de RD7 e RD8. Representa
+                qualquer pessoa que se regista na plataforma EvenSync com o intuito de participar
+                em eventos.
+
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
+                \begin{itemize}
+                    \item \texttt{id\_participante} (chave primária)
+                    \item \texttt{nome} (obrigatório --- RD7)
+                    \item \texttt{email} (obrigatório, único --- RD7, RC3)
+                    \item \texttt{telemovel} (obrigatório --- RD7)
+                    \item \texttt{organizacao} (opcional --- RD7: instituição ou empresa de origem)
+                \end{itemize}
+
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
+                \begin{itemize}
+                    \item Um Participante pode realizar múltiplas Inscrições (1:N --- RD8, RC1)
+                \end{itemize}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Inscrição}\mbox{}\\
+                A entidade \textbf{Inscrição} foi identificada a partir de RD8, RC1 e RC2. Representa
+                o registo formal da intenção de participação de um Participante num Evento. Trata-se
+                de uma entidade associativa, pois resulta do relacionamento entre Participante e Evento.
+
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
+                \begin{itemize}
+                    \item \texttt{id\_inscricao} (chave primária)
+                    \item \texttt{data\_inscricao} (obrigatório --- RD8)
+                    \item \texttt{estado} (obrigatório --- RD8: confirmada, pendente ou cancelada)
+                \end{itemize}
+
+                \vspace{0.2cm}
+                \noindent\textit{Restrição crítica (RC1):} Um Participante não pode ter mais do que uma inscrição
+                ativa no mesmo Evento. Esta regra é garantida através de uma chave candidata composta
+                por \texttt{(id\_participante, id\_evento)}.
+
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
+                \begin{itemize}
+                    \item Uma Inscrição é realizada por um Participante (N:1)
+                    \item Uma Inscrição refere-se a um Evento (N:1)
+                    \item Uma Inscrição tem, no máximo, um Pagamento associado (1:1 --- RC2)
+                \end{itemize}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Pagamento}\mbox{}\\
+                A entidade \textbf{Pagamento} foi identificada a partir de RD9 e RC2. Representa a
+                transação financeira que confirma e valida uma inscrição num evento.
+
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
+                \begin{itemize}
+                    \item \texttt{id\_pagamento} (chave primária)
+                    \item \texttt{valor} (obrigatório --- RD9)
+                    \item \texttt{data\_pagamento} (obrigatório --- RD9)
+                    \item \texttt{metodo} (obrigatório --- RD9: cartão, transferência, MBWay, entre outros)
+                    \item \texttt{estado} (obrigatório --- RD9: pago, pendente, reembolsado)
+                \end{itemize}
+
+                \vspace{0.2cm}
+                \noindent\textit{Restrição crítica (RC2):} Cada Inscrição tem, no máximo, um Pagamento associado,
+                garantindo a unicidade da transação por inscrição.
+
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
+                \begin{itemize}
+                    \item Um Pagamento está associado a uma única Inscrição (1:1 --- RC2)
+                \end{itemize}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                Esta identificação e caracterização das entidades estabelece a base para a definição
+                dos relacionamentos (Secção~3.3) e dos atributos detalhados de cada entidade (Secção~3.4).
+
+
                 \subsection{Identificação e Caracterização dos Relacionamentos}
-                
+
                 \subsection{Identificação e Caracterização dos Atributos das Entidades}
                 \subsection{Apresentação e Explicação do Diagrama ER produzido}
-
+        %PONTO 5
         \section{Modelação Lógica}
                 \subsection{Construção do Modelo de Dados Lógico}
                 
                 \subsection{Apresentação da Abordagem do Modelo Logico Produzido}
                 
                 \subsection{Normalização dos dados}
-                ele e cientista da computacao,
                 \subsection{Validação do Modelo com Interrogação do Utilizador}
+
+        %PONTO 5
         \section{Implementação Fisica}
                 \subsection{Apresentação e Explicação da Base de Dados Implementada}
                 \subsection{Criação de utilizadores da base de dados}
