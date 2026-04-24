@@ -11,6 +11,7 @@
 \usepackage{array}
 \usepackage{longtable}
 \usepackage[portuguese]{babel}
+\raggedbottom
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 % T1 fonts will be used to generate the final print and online PDFs,
@@ -247,74 +248,102 @@
 
                 \subsection{Organização dos Requisitos Levantados}
 
-                \subsubsection{Critérios de Classificação}
+                \subsubsection{Critérios de Classificação}\mbox{}\\
 
                 Concluída a fase de recolha, os requisitos foram sistematizados segundo três categorias distintas,
-                seguindo a classificação clássica da engenharia de bases de dados: \textbf{Dados} (toda a informação
+                seguindo a classificação clássica da engenharia de bases de dados: \textbf{Descrição} (toda a informação
                 que o sistema deverá armazenar de forma persistente), \textbf{Manipulação} (as operações e
                 consultas que o sistema deverá disponibilizar aos seus utilizadores) e \textbf{Controlo}
                 (as restrições e regras de negócio que o sistema deverá impor de forma automática). A cada
-                requisito foi atribuído um identificador único --- D para Dados, M para Manipulação e C para
+                requisito foi atribuído um identificador único --- RD para Descrição (Dados), RM para Manipulação e RC para
                 Controlo --- de modo a garantir a rastreabilidade do mesmo nas fases subsequentes do projeto.
 
-                \subsubsection{Tabela de Requisitos}
+                \subsubsection{Organização dos Requisitos Levantados}\mbox{}\\
 
                 Após a aplicação do método de levantamento descrito na Secção~2.1, foi obtido um conjunto
-                de requisitos para o sistema EvenSync. Nesta secção, esses requisitos são apresentados e
-                estruturados de forma a facilitar a sua consulta, validação e posterior utilização nas fases
-                de modelação conceptual, lógica e implementação física, conforme planeado no Plano de
-                Execução do Projeto. A tabela seguinte sintetiza todos os requisitos identificados,
-                indicando o respetivo identificador, descrição detalhada e o membro da equipa responsável
-                pela sua análise.
+                de requisitos para o sistema EvenSync. Posteriormente, os requisitos foram divididos em três
+                tabelas distintas, de acordo com a sua categoria: Requisitos de Descrição (RD), Requisitos de
+                Manipulação (RM) e Requisitos de Controlo (RC), para facilitar a consulta, validação e posterior
+                utilização nas fases de modelação conceptual, lógica e implementação física.
 
-                \begin{longtable}{|c|p{0.62\textwidth}|c|}
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|c|p{0.62\textwidth}|c|}
                 \hline
-                \textbf{ID} & \textbf{Descrição do Requisito} & \textbf{Analista} \\ \hline
-                \endfirsthead
+                \textbf{ID} & \textbf{Requisitos de Descrição (RD)} & \textbf{Analista} \\ \hline
+                RD1 & O sistema deve permitir registar eventos com um identificador único, nome, tipo (conferência, workshop, corporativo, entre outros), número de edição, datas de início e fim, localização, capacidade máxima e descrição. & João Ribeiro \\ \hline
+                RD2 & O sistema deve permitir registar organizadores com um identificador único, nome, email e telefone. & João Ribeiro \\ \hline
+                RD3 & O sistema deve permitir associar um ou mais organizadores a cada evento, sendo que um organizador pode gerir múltiplos eventos. & João Ribeiro \\ \hline
+                RD4 & O sistema deve permitir registar sessões associadas a um evento, com um identificador único, título, sala, data, hora de início, hora de fim e descrição. & João Ribeiro \\ \hline
+                RD5 & O sistema deve permitir registar oradores com um identificador único, nome, email, biografia e especialidade. & Tiago Santos \\ \hline
+                RD6 & O sistema deve permitir associar um ou mais oradores a cada sessão, sendo que um orador pode apresentar múltiplas sessões. & Bruno Freitas \\ \hline
+                RD7 & O sistema deve permitir registar participantes com um identificador único, nome, email, telefone e organização ou instituição. & Bruno Freitas \\ \hline
+                RD8 & O sistema deve permitir registar inscrições de participantes em eventos, com um identificador único, data de inscrição e estado (confirmada, pendente ou cancelada). & João Ribeiro \\ \hline
+                RD9 & O sistema deve permitir registar pagamentos associados a inscrições, com um identificador único, valor, data de pagamento, método de pagamento e estado. & André Marques \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Requisitos de Descrição do EvenSync} \label{tab:requisitos_rd}
+                \end{table}
+
+                \vspace{0.2cm}
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|c|p{0.62\textwidth}|c|}
                 \hline
-                \textbf{ID} & \textbf{Descrição do Requisito} & \textbf{Analista} \\ \hline
-                \endhead
-                D1 & O sistema deve permitir registar eventos com um identificador único, nome, tipo (conferência, workshop, corporativo, entre outros), número de edição, datas de início e fim, localização, capacidade máxima e descrição. & João Ribeiro \\ \hline
-                D2 & O sistema deve permitir registar organizadores com um identificador único, nome, email e telefone. & João Ribeiro \\ \hline
-                D3 & O sistema deve permitir associar um ou mais organizadores a cada evento, sendo que um organizador pode gerir múltiplos eventos. & João Ribeiro \\ \hline
-                D4 & O sistema deve permitir registar sessões associadas a um evento, com um identificador único, título, sala, data, hora de início, hora de fim e descrição. & João Ribeiro \\ \hline
-                D5 & O sistema deve permitir registar oradores com um identificador único, nome, email, biografia e especialidade. & Tiago Santos \\ \hline
-                D6 & O sistema deve permitir associar um ou mais oradores a cada sessão, sendo que um orador pode apresentar múltiplas sessões. & Bruno Freitas \\ \hline
-                D7 & O sistema deve permitir registar participantes com um identificador único, nome, email, telefone e organização ou instituição. & Bruno Freitas \\ \hline
-                D8 & O sistema deve permitir registar inscrições de participantes em eventos, com um identificador único, data de inscrição e estado (confirmada, pendente ou cancelada). & João Ribeiro \\ \hline
-                D9 & O sistema deve permitir registar pagamentos associados a inscrições, com um identificador único, valor, data de pagamento, método de pagamento e estado. & André Marques \\ \hline
-                M1 & Deve ser possível consultar todos os eventos registados no sistema, com possibilidade de filtrar por tipo, data ou localização. & André Marques \\ \hline
-                M2 & Deve ser possível consultar o programa completo de um evento, listando todas as sessões com os respetivos horários, salas e oradores associados. & André Marques \\ \hline
-                M3 & Deve ser possível consultar todos os inscritos num determinado evento, bem como o estado da sua inscrição. & André Marques \\ \hline
-                M4 & Deve ser possível consultar o histórico de inscrições de um participante, incluindo os eventos em que participou e os respetivos estados. & Nelson Antunes \\ \hline
-                M5 & Deve ser possível consultar o total de receitas geradas por um evento, com base nos pagamentos com estado pago. & Nelson Antunes \\ \hline
-                M6 & Deve ser possível obter a lista de eventos com maior taxa de ocupação, calculada com base no rácio entre o número de inscrições confirmadas e a capacidade máxima do evento. & Nelson Antunes \\ \hline
-                M7 & Deve ser possível consultar os oradores que apresentam sessões de um determinado evento. & Nelson Antunes \\ \hline
-                C1 & O sistema deve garantir que um participante não pode ter mais do que uma inscrição ativa no mesmo evento. & Tiago Santos \\ \hline
-                C2 & O sistema deve garantir que cada inscrição tem, no máximo, um pagamento associado. & Tiago Santos \\ \hline
-                C3 & O sistema deve garantir que o email de cada participante, orador e organizador é único no sistema. & João Ribeiro \\ \hline
-                C4 & Apenas os utilizadores com perfil de administrador ou organizador podem criar, editar ou eliminar eventos. & João Ribeiro \\ \hline
-                C5 & Apenas os utilizadores com perfil de administrador ou organizador podem gerir os dados de participantes e emitir relatórios financeiros. & João Ribeiro \\ \hline
-                C6 & O sistema deve impedir o registo de sessões com sobreposição de horário na mesma sala e no mesmo evento. & João Ribeiro \\ \hline
-                \caption{Requisitos Levantados do EvenSync} \label{tab:requisitos} \\
-                \end{longtable}
+                \textbf{ID} & \textbf{Requisitos de Manipulação (RM)} & \textbf{Analista} \\ \hline
+                RM1 & Deve ser possível consultar todos os eventos registados no sistema, com possibilidade de filtrar por tipo, data ou localização. & André Marques \\ \hline
+                RM2 & Deve ser possível consultar o programa completo de um evento, listando todas as sessões com os respetivos horários, salas e oradores associados. & André Marques \\ \hline
+                RM3 & Deve ser possível consultar todos os inscritos num determinado evento, bem como o estado da sua inscrição. & André Marques \\ \hline
+                RM4 & Deve ser possível consultar o histórico de inscrições de um participante, incluindo os eventos em que participou e os respetivos estados. & Nelson Antunes \\ \hline
+                RM5 & Deve ser possível consultar o total de receitas geradas por um evento, com base nos pagamentos com estado pago. & Nelson Antunes \\ \hline
+                RM6 & Deve ser possível obter a lista de eventos com maior taxa de ocupação, calculada com base no rácio entre o número de inscrições confirmadas e a capacidade máxima do evento. & Nelson Antunes \\ \hline
+                RM7 & Deve ser possível consultar os oradores que apresentam sessões de um determinado evento. & Nelson Antunes \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Requisitos de Manipulação do EvenSync} \label{tab:requisitos_rm}
+                \end{table}
 
-                \subsubsection{Sumário dos Requisitos}
+                \vspace{0.2cm}
 
-                No total, foram identificados \textbf{22 requisitos}: 9 de Dados (D1--D9), 7 de Manipulação
-                (M1--M7) e 6 de Controlo (C1--C6). O conjunto cobre de forma abrangente as sete entidades
-                centrais do domínio do EvenSync: \textit{Evento}, \textit{Sessão}, \textit{Organizador},
-                \textit{Orador}, \textit{Participante}, \textit{Inscrição} e \textit{Pagamento}. Todos
-                os membros da equipa participaram na análise, assegurando uma distribuição equilibrada do
-                trabalho e uma cobertura completa do sistema.
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|c|p{0.62\textwidth}|c|}
+                \hline
+                \textbf{ID} & \textbf{Requisitos de Controlo (RC)} & \textbf{Analista} \\ \hline
+                RC1 & O sistema deve garantir que um participante não pode ter mais do que uma inscrição ativa no mesmo evento. & Tiago Santos \\ \hline
+                RC2 & O sistema deve garantir que cada inscrição tem, no máximo, um pagamento associado. & Tiago Santos \\ \hline
+                RC3 & O sistema deve garantir que o email de cada participante, orador e organizador é único no sistema. & João Ribeiro \\ \hline
+                RC4 & Apenas os utilizadores com perfil de administrador ou organizador podem criar, editar ou eliminar eventos. & João Ribeiro \\ \hline
+                RC5 & Apenas os utilizadores com perfil de administrador ou organizador podem gerir os dados de participantes e emitir relatórios financeiros. & João Ribeiro \\ \hline
+                RC6 & O sistema deve impedir o registo de sessões com sobreposição de horário na mesma sala e no mesmo evento. & João Ribeiro \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Requisitos de Controlo do EvenSync} \label{tab:requisitos_rc}
+                \end{table}
 
-                \subsubsection{Ligação à Fase Seguinte}
+                \newpage
+                \subsubsection{Resumo dos Requisitos Identificados}\mbox{}\\
+
+                O processo de levantamento resultou na identificação de um total de 22 requisitos,
+                distribuídos da seguinte forma:
+                \begin{itemize}
+                    \item Requisitos de Descrição (RD): 9 requisitos
+                    \item Requisitos de Manipulação (RM): 7 requisitos
+                    \item Requisitos de Controlo (RC): 6 requisitos
+                \end{itemize}
+
+                Os requisitos abrangem as 7 entidades principais do sistema identificadas para a
+                plataforma: Evento, Organizador, Sessão, Orador, Participante, Inscrição e Pagamento. A
+                análise e validação geral dos requisitos é apresentada na Secção~2.3.
+
+                \subsubsection{Ligação à Fase Seguinte}\mbox{}\\
 
                 Os requisitos levantados nesta fase constituem o alicerce direto da modelação conceptual
                 apresentada na Secção~3. Cada entidade identificada no Diagrama Entidade-Relacionamento
-                decorre diretamente de um ou mais requisitos de dados (D1--D9), e cada restrição de
+                decorre diretamente de um ou mais requisitos de descrição (RD1--RD9), e cada restrição de
                 cardinalidade ou regra de integridade definida no modelo corresponde a um requisito de
-                controlo (C1--C6). Esta rastreabilidade garante que nenhuma decisão de modelao
+                controlo (RC1--RC6). Esta rastreabilidade garante que nenhuma decisão de modelao
                 foi tomada de forma arbitrária, mas sim fundamentada nas necessidades reais do cliente.
 
                 \subsection{Análise e Validação Geral dos Requisitos}
@@ -333,10 +362,10 @@
 
                 \vspace{0.2cm}
 
-                \textbf{Consistência.} As regras de controlo (C1--C6) foram definidas de forma complementar
-                e coerente com os requisitos de dados (D1--D9) e de manipulação (M1--M7), não existindo
-                qualquer contradição entre eles. A título de exemplo, a restrição C3 (unicidade de email)
-                decorre naturalmente da existência dos atributos de email definidos em D2, D5 e D7,
+                \textbf{Consistência.} As regras de controlo (RC1--RC6) foram definidas de forma complementar
+                e coerente com os requisitos de descrição (RD1--RD9) e de manipulação (RM1--RM7), não existindo
+                qualquer contradição entre eles. A título de exemplo, a restrição RC3 (unicidade de email)
+                decorre naturalmente da existência dos atributos de email definidos em RD2, RD5 e RD7,
                 reforçando a integridade do sistema sem criar conflitos.
 
                 \vspace{0.2cm}
@@ -366,10 +395,10 @@
                 \vspace{0.2cm}
 
                 A abordagem seguida combinou uma perspetiva \textbf{\textit{top-down}} com validações
-                \textbf{\textit{bottom-up}}. A partir dos Requisitos de Dados (D1--D9) e da narrativa do
+                \textbf{\textit{bottom-up}}. A partir dos Requisitos de Descrição (RD1--RD9) e da narrativa do
                 caso de estudo, foram identificados os objetos com identidade própria e relevância
-                operacional. Os Requisitos de Controlo (C1--C6) orientaram a definição de restrições de
-                cardinalidade e regras de negócio. Os Requisitos de Manipulação (M1--M7) serviram como
+                operacional. Os Requisitos de Controlo (RC1--RC6) orientaram a definição de restrições de
+                cardinalidade e regras de negócio. Os Requisitos de Manipulação (RM1--RM7) serviram como
                 critério de validação, garantindo que cada consulta prevista é respondível através das
                 entidades e relacionamentos modelados.
 
@@ -377,13 +406,13 @@
 
                 Desta análise resultaram \textbf{7 entidades principais}:
                 \begin{itemize}
-                    \item \textbf{Evento} (D1, D3) --- entidade central do sistema; representa as conferências, workshops e eventos corporativos a gerir;
-                    \item \textbf{Organizador} (D2, D3) --- responsável pela gestão e supervisão de um ou vários eventos;
-                    \item \textbf{Sessão} (D4) --- atividade ou palestra que ocorre dentro de um determinado evento;
-                    \item \textbf{Orador} (D5, D6) --- especialista ou convidado que apresenta numa ou mais sessões;
-                    \item \textbf{Participante} (D7, D8) --- utilizador que se regista na plataforma e se inscreve em eventos;
-                    \item \textbf{Inscrição} (D8, C1, C2) --- registo formal da participação de um utilizador num evento;
-                    \item \textbf{Pagamento} (D9, C2) --- transação financeira que valida e confirma uma inscrição.
+                    \item \textbf{Evento} (RD1, RD3) --- entidade central do sistema; representa as conferências, workshops e eventos corporativos a gerir;
+                    \item \textbf{Organizador} (RD2, RD3) --- responsável pela gestão e supervisão de um ou vários eventos;
+                    \item \textbf{Sessão} (RD4) --- atividade ou palestra que ocorre dentro de um determinado evento;
+                    \item \textbf{Orador} (RD5, RD6) --- especialista ou convidado que apresenta numa ou mais sessões;
+                    \item \textbf{Participante} (RD7, RD8) --- utilizador que se regista na plataforma e se inscreve em eventos;
+                    \item \textbf{Inscrição} (RD8, RC1, RC2) --- registo formal da participação de um utilizador num evento;
+                    \item \textbf{Pagamento} (RD9, RC2) --- transação financeira que valida e confirma uma inscrição.
                 \end{itemize}
 
                 \vspace{0.2cm}
@@ -402,7 +431,7 @@
 
                 \subsection{Identificação e Caracterização das Entidades}
 
-                A identificação das entidades resulta da análise dos Requisitos de Dados (D1--D9)
+                A identificação das entidades resulta da análise dos Requisitos de Descrição (RD1--RD9)
                 apresentados no Capítulo~2. Uma entidade representa um conjunto de objetos com existência
                 independente que partilham propriedades comuns e necessitam de armazenamento persistente.
 
@@ -416,13 +445,13 @@
                 \begin{tabular}{|p{0.18\textwidth}|p{0.45\textwidth}|p{0.22\textwidth}|}
                 \hline
                 \textbf{Entidade} & \textbf{Descrição} & \textbf{Requisitos} \\ \hline
-                Evento       & Conferência, workshop ou evento corporativo a gerir na plataforma & D1, D3 \\ \hline
-                Organizador  & Pessoa responsável pela gestão e supervisão de um ou vários eventos & D2, D3 \\ \hline
-                Sessão       & Atividade ou palestra que ocorre dentro de um determinado evento & D4 \\ \hline
-                Orador       & Especialista ou convidado que apresenta numa ou mais sessões & D5, D6 \\ \hline
-                Participante & Utilizador que se regista na plataforma e se inscreve em eventos & D7, D8 \\ \hline
-                Inscrição    & Registo formal da participação de um utilizador num evento & D8, C1, C2 \\ \hline
-                Pagamento    & Transação financeira que valida e confirma uma inscrição & D9, C2 \\ \hline
+                Evento       & Conferência, workshop ou evento corporativo a gerir na plataforma & RD1, RD3 \\ \hline
+                Organizador  & Pessoa responsável pela gestão e supervisão de um ou vários eventos & RD2, RD3 \\ \hline
+                Sessão       & Atividade ou palestra que ocorre dentro de um determinado evento & RD4 \\ \hline
+                Orador       & Especialista ou convidado que apresenta numa ou mais sessões & RD5, RD6 \\ \hline
+                Participante & Utilizador que se regista na plataforma e se inscreve em eventos & RD7, RD8 \\ \hline
+                Inscrição    & Registo formal da participação de um utilizador num evento & RD8, RC1, RC2 \\ \hline
+                Pagamento    & Transação financeira que valida e confirma uma inscrição & RD9, RC2 \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
                 \caption{Entidades do Sistema EvenSync}
@@ -432,155 +461,185 @@
                 Nas subsecções seguintes apresenta-se a caracterização detalhada de cada entidade,
                 incluindo justificação, atributos principais e relacionamentos.
 
-                \subsubsection{Entidade: Evento}
-
-                A entidade \textbf{Evento} foi identificada a partir de D1 e D3. Representa a entidade
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Evento}\mbox{}\\
+                A entidade \textbf{Evento} foi identificada a partir de RD1 e RD3. Representa a entidade
                 central do sistema EvenSync, correspondendo a qualquer conferência, workshop ou evento
                 corporativo que o cliente José Bumblebee pretende gerir. Possui existência independente
                 e é referenciada por praticamente todas as outras entidades do sistema.
 
-                \textit{Atributos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
                 \begin{itemize}
                     \item \texttt{id\_evento} (chave primária)
-                    \item \texttt{nome} (obrigatório --- D1)
-                    \item \texttt{tipo} (obrigatório --- D1: conferência, workshop, corporativo, entre outros)
-                    \item \texttt{capacidade} (obrigatório --- D1: número máximo de participantes)
-                    \item \texttt{descricao} (opcional --- D1)
-                    \item \texttt{data\_inicio} e \texttt{data\_fim} (obrigatórios --- D1)
-                    \item \texttt{localizacao} (obrigatório --- D1)
+                    \item \texttt{nome} (obrigatório --- RD1)
+                    \item \texttt{tipo} (obrigatório --- RD1: conferência, workshop, corporativo, entre outros)
+                    \item \texttt{capacidade} (obrigatório --- RD1: número máximo de participantes)
+                    \item \texttt{descricao} (opcional --- RD1)
+                    \item \texttt{data\_inicio} e \texttt{data\_fim} (obrigatórios --- RD1)
+                    \item \texttt{localizacao} (obrigatório --- RD1)
                 \end{itemize}
 
-                \textit{Relacionamentos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
                 \begin{itemize}
-                    \item Um Evento é gerido por um ou mais Organizadores (N:M --- D3)
-                    \item Um Evento possui várias Sessões (1:N --- D4)
-                    \item Um Evento recebe várias Inscrições de Participantes (1:N --- D8)
+                    \item Um Evento é gerido por um ou mais Organizadores (N:M --- RD3)
+                    \item Um Evento possui várias Sessões (1:N --- RD4)
+                    \item Um Evento recebe várias Inscrições de Participantes (1:N --- RD8)
                 \end{itemize}
+                \end{minipage}
 
-                \subsubsection{Entidade: Organizador}
-
-                A entidade \textbf{Organizador} foi identificada a partir de D2 e D3. Representa a
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Organizador}\mbox{}\\
+                A entidade \textbf{Organizador} foi identificada a partir de RD2 e RD3. Representa a
                 pessoa ou entidade responsável pela criação e gestão operacional dos eventos na
                 plataforma EvenSync.
 
-                \textit{Atributos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
                 \begin{itemize}
                     \item \texttt{id\_organizador} (chave primária)
-                    \item \texttt{nome} (obrigatório --- D2)
-                    \item \texttt{email} (obrigatório, único --- D2, C3)
-                    \item \texttt{telefone} (obrigatório --- D2)
+                    \item \texttt{nome} (obrigatório --- RD2)
+                    \item \texttt{email} (obrigatório, único --- RD2, RC3)
+                    \item \texttt{telefone} (obrigatório --- RD2)
                 \end{itemize}
 
-                \textit{Relacionamentos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
                 \begin{itemize}
-                    \item Um Organizador pode gerir múltiplos Eventos (N:M --- D3)
+                    \item Um Organizador pode gerir múltiplos Eventos (N:M --- RD3)
                 \end{itemize}
+                \end{minipage}
 
-                \subsubsection{Entidade: Sessão}
-
-                A entidade \textbf{Sessão} foi identificada a partir de D4. Representa uma atividade
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Sessão}\mbox{}\\
+                A entidade \textbf{Sessão} foi identificada a partir de RD4. Representa uma atividade
                 ou palestra específica que decorre dentro de um evento, com hora e sala próprias.
 
-                \textit{Atributos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
                 \begin{itemize}
                     \item \texttt{id\_sessao} (chave primária)
-                    \item \texttt{tema} (obrigatório --- D4)
-                    \item \texttt{sala} (obrigatório --- D4, C6)
-                    \item \texttt{data} (obrigatório --- D4)
-                    \item \texttt{hora\_inicio} e \texttt{hora\_fim} (obrigatórios --- D4, C6)
+                    \item \texttt{tema} (obrigatório --- RD4)
+                    \item \texttt{sala} (obrigatório --- RD4, RC6)
+                    \item \texttt{data} (obrigatório --- RD4)
+                    \item \texttt{hora\_inicio} e \texttt{hora\_fim} (obrigatórios --- RD4, RC6)
                 \end{itemize}
 
-                \textit{Relacionamentos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
                 \begin{itemize}
-                    \item Uma Sessão pertence a um único Evento (N:1 --- D4)
-                    \item Uma Sessão é apresentada por um ou mais Oradores (N:M --- D6)
+                    \item Uma Sessão pertence a um único Evento (N:1 --- RD4)
+                    \item Uma Sessão é apresentada por um ou mais Oradores (N:M --- RD6)
                 \end{itemize}
+                \end{minipage}
 
-                \subsubsection{Entidade: Orador}
-
-                A entidade \textbf{Orador} foi identificada a partir de D5 e D6. Representa um
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Orador}\mbox{}\\
+                A entidade \textbf{Orador} foi identificada a partir de RD5 e RD6. Representa um
                 especialista ou convidado responsável por apresentar o conteúdo de uma ou mais sessões
                 do evento.
 
-                \textit{Atributos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
                 \begin{itemize}
                     \item \texttt{id\_orador} (chave primária)
-                    \item \texttt{nome} (obrigatório --- D5)
-                    \item \texttt{email} (obrigatório, único --- D5, C3)
-                    \item \texttt{especialidade} (obrigatório --- D5)
+                    \item \texttt{nome} (obrigatório --- RD5)
+                    \item \texttt{email} (obrigatório, único --- RD5, RC3)
+                    \item \texttt{especialidade} (obrigatório --- RD5)
                 \end{itemize}
 
-                \textit{Relacionamentos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
                 \begin{itemize}
-                    \item Um Orador pode apresentar múltiplas Sessões (N:M --- D6)
+                    \item Um Orador pode apresentar múltiplas Sessões (N:M --- RD6)
                 \end{itemize}
+                \end{minipage}
 
-                \subsubsection{Entidade: Participante}
-
-                A entidade \textbf{Participante} foi identificada a partir de D7 e D8. Representa
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Participante}\mbox{}\\
+                A entidade \textbf{Participante} foi identificada a partir de RD7 e RD8. Representa
                 qualquer pessoa que se regista na plataforma EvenSync com o intuito de participar
                 em eventos.
 
-                \textit{Atributos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
                 \begin{itemize}
                     \item \texttt{id\_participante} (chave primária)
-                    \item \texttt{nome} (obrigatório --- D7)
-                    \item \texttt{email} (obrigatório, único --- D7, C3)
-                    \item \texttt{telemovel} (obrigatório --- D7)
-                    \item \texttt{organizacao} (opcional --- D7: instituição ou empresa de origem)
+                    \item \texttt{nome} (obrigatório --- RD7)
+                    \item \texttt{email} (obrigatório, único --- RD7, RC3)
+                    \item \texttt{telemovel} (obrigatório --- RD7)
+                    \item \texttt{organizacao} (opcional --- RD7: instituição ou empresa de origem)
                 \end{itemize}
 
-                \textit{Relacionamentos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
                 \begin{itemize}
-                    \item Um Participante pode realizar múltiplas Inscrições (1:N --- D8, C1)
+                    \item Um Participante pode realizar múltiplas Inscrições (1:N --- RD8, RC1)
                 \end{itemize}
+                \end{minipage}
 
-                \subsubsection{Entidade: Inscrição}
-
-                A entidade \textbf{Inscrição} foi identificada a partir de D8, C1 e C2. Representa
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Inscrição}\mbox{}\\
+                A entidade \textbf{Inscrição} foi identificada a partir de RD8, RC1 e RC2. Representa
                 o registo formal da intenção de participação de um Participante num Evento. Trata-se
                 de uma entidade associativa, pois resulta do relacionamento entre Participante e Evento.
 
-                \textit{Atributos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
                 \begin{itemize}
                     \item \texttt{id\_inscricao} (chave primária)
-                    \item \texttt{data\_inscricao} (obrigatório --- D8)
-                    \item \texttt{estado} (obrigatório --- D8: confirmada, pendente ou cancelada)
+                    \item \texttt{data\_inscricao} (obrigatório --- RD8)
+                    \item \texttt{estado} (obrigatório --- RD8: confirmada, pendente ou cancelada)
                 \end{itemize}
 
-                \textit{Restrição crítica (C1):} Um Participante não pode ter mais do que uma inscrição
+                \vspace{0.2cm}
+                \noindent\textit{Restrição crítica (RC1):} Um Participante não pode ter mais do que uma inscrição
                 ativa no mesmo Evento. Esta regra é garantida através de uma chave candidata composta
                 por \texttt{(id\_participante, id\_evento)}.
 
-                \textit{Relacionamentos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
                 \begin{itemize}
                     \item Uma Inscrição é realizada por um Participante (N:1)
                     \item Uma Inscrição refere-se a um Evento (N:1)
-                    \item Uma Inscrição tem, no máximo, um Pagamento associado (1:1 --- C2)
+                    \item Uma Inscrição tem, no máximo, um Pagamento associado (1:1 --- RC2)
                 \end{itemize}
+                \end{minipage}
 
-                \subsubsection{Entidade: Pagamento}
-
-                A entidade \textbf{Pagamento} foi identificada a partir de D9 e C2. Representa a
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Entidade: Pagamento}\mbox{}\\
+                A entidade \textbf{Pagamento} foi identificada a partir de RD9 e RC2. Representa a
                 transação financeira que confirma e valida uma inscrição num evento.
 
-                \textit{Atributos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Atributos principais:}
                 \begin{itemize}
                     \item \texttt{id\_pagamento} (chave primária)
-                    \item \texttt{valor} (obrigatório --- D9)
-                    \item \texttt{data\_pagamento} (obrigatório --- D9)
-                    \item \texttt{metodo} (obrigatório --- D9: cartão, transferência, MBWay, entre outros)
-                    \item \texttt{estado} (obrigatório --- D9: pago, pendente, reembolsado)
+                    \item \texttt{valor} (obrigatório --- RD9)
+                    \item \texttt{data\_pagamento} (obrigatório --- RD9)
+                    \item \texttt{metodo} (obrigatório --- RD9: cartão, transferência, MBWay, entre outros)
+                    \item \texttt{estado} (obrigatório --- RD9: pago, pendente, reembolsado)
                 \end{itemize}
 
-                \textit{Restrição crítica (C2):} Cada Inscrição tem, no máximo, um Pagamento associado,
+                \vspace{0.2cm}
+                \noindent\textit{Restrição crítica (RC2):} Cada Inscrição tem, no máximo, um Pagamento associado,
                 garantindo a unicidade da transação por inscrição.
 
-                \textit{Relacionamentos principais:}
+                \vspace{0.2cm}
+                \noindent\textit{Relacionamentos principais:}
                 \begin{itemize}
-                    \item Um Pagamento está associado a uma única Inscrição (1:1 --- C2)
+                    \item Um Pagamento está associado a uma única Inscrição (1:1 --- RC2)
                 \end{itemize}
+                \end{minipage}
 
+                \vspace{0.4cm}
                 Esta identificação e caracterização das entidades estabelece a base para a definição
                 dos relacionamentos (Secção~3.3) e dos atributos detalhados de cada entidade (Secção~3.4).
 
