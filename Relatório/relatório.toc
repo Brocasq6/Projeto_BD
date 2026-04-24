@@ -23,22 +23,35 @@
 \contentsline {subsubsection}{\numberline {3.2.5}Entidade: Participante}{13}{}%
 \contentsline {subsubsection}{\numberline {3.2.6}Entidade: Inscrição}{14}{}%
 \contentsline {subsubsection}{\numberline {3.2.7}Entidade: Pagamento}{14}{}%
-\contentsline {subsection}{\numberline {3.3}Identificação e Caracterização dos Relacionamentos}{15}{}%
-\contentsline {subsection}{\numberline {3.4}Identificação e Caracterização dos Atributos das Entidades}{15}{}%
-\contentsline {subsection}{\numberline {3.5}Apresentação e Explicação do Diagrama ER produzido}{15}{}%
-\contentsline {section}{\numberline {4}Modelação Lógica}{15}{}%
-\contentsline {subsection}{\numberline {4.1}Construção do Modelo de Dados Lógico}{15}{}%
-\contentsline {subsection}{\numberline {4.2}Apresentação da Abordagem do Modelo Logico Produzido}{15}{}%
-\contentsline {subsection}{\numberline {4.3}Normalização dos dados}{15}{}%
-\contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogação do Utilizador}{15}{}%
-\contentsline {section}{\numberline {5}Implementação Fisica}{15}{}%
-\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{15}{}%
-\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{15}{}%
-\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{15}{}%
-\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{15}{}%
-\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{15}{}%
-\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{15}{}%
-\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{15}{}%
-\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{15}{}%
-\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{15}{}%
-\contentsline {section}{\numberline {7}Bibliografia}{15}{}%
+\contentsline {subsection}{\numberline {3.3}Identificação e Caracterização dos Relacionamentos}{14}{}%
+\contentsline {subsubsection}{\numberline {3.3.1}R1 — realiza (Participante — Inscrição)}{14}{}%
+\contentsline {subsubsection}{\numberline {3.3.2}R2 — pertence (Inscrição — Evento)}{15}{}%
+\contentsline {subsubsection}{\numberline {3.3.3}R3 — precisa (Inscrição — Pagamento)}{15}{}%
+\contentsline {subsubsection}{\numberline {3.3.4}R4 — gere (Organizador — Evento)}{15}{}%
+\contentsline {subsubsection}{\numberline {3.3.5}R5 — tem (Evento — Sessão)}{15}{}%
+\contentsline {subsubsection}{\numberline {3.3.6}R6 — apresentada (Sessão — Orador)}{15}{}%
+\contentsline {subsection}{\numberline {3.4}Identificação e Caracterização dos Atributos das Entidades}{16}{}%
+\contentsline {subsubsection}{\numberline {3.4.1}Entidade: Participante}{16}{}%
+\contentsline {subsubsection}{\numberline {3.4.2}Entidade: Inscrição}{16}{}%
+\contentsline {subsubsection}{\numberline {3.4.3}Entidade: Pagamento}{16}{}%
+\contentsline {subsubsection}{\numberline {3.4.4}Entidade: Evento}{17}{}%
+\contentsline {subsubsection}{\numberline {3.4.5}Entidade: Organizador}{17}{}%
+\contentsline {subsubsection}{\numberline {3.4.6}Entidade: Sessão}{17}{}%
+\contentsline {subsubsection}{\numberline {3.4.7}Entidade: Orador}{17}{}%
+\contentsline {subsection}{\numberline {3.5}Apresentação e Explicação do Diagrama ER produzido}{18}{}%
+\contentsline {section}{\numberline {4}Modelação Lógica}{18}{}%
+\contentsline {subsection}{\numberline {4.1}Construção do Modelo de Dados Lógico}{18}{}%
+\contentsline {subsection}{\numberline {4.2}Apresentação da Abordagem do Modelo Logico Produzido}{18}{}%
+\contentsline {subsection}{\numberline {4.3}Normalização dos dados}{18}{}%
+\contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogação do Utilizador}{18}{}%
+\contentsline {section}{\numberline {5}Implementação Fisica}{18}{}%
+\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{18}{}%
+\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{18}{}%
+\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{18}{}%
+\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{18}{}%
+\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{18}{}%
+\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{18}{}%
+\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{18}{}%
+\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{18}{}%
+\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{18}{}%
+\contentsline {section}{\numberline {7}Bibliografia}{18}{}%

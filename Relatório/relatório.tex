@@ -655,8 +655,120 @@
 
 
                 \subsection{Identificação e Caracterização dos Relacionamentos}
+                    \subsubsection{R1 — realiza (Participante — Inscrição)}
+                        O relacionamento realiza estabelece a ligação entre um participante e as inscrições que 
+                        este efetua no sistema. Um participante pode realizar zero ou várias inscrições, refletindo 
+                        o facto de que um utilizador registado no sistema pode nunca ter participado em nenhum evento, 
+                        ou, em contrapartida, ter-se inscrito em múltiplos eventos ao longo do tempo. Do lado da inscrição, 
+                        a participação é total e obrigatória: toda e qualquer inscrição tem de estar necessariamente associada 
+                        a um participante, pois não faz sentido existir uma inscrição sem que haja alguém que a tenha 
+                        efetuado. Este relacionamento é do tipo 1:N.
+                    
+                    \subsubsection{R2 — pertence (Inscrição — Evento)}
+                        O relacionamento pertence associa cada inscrição ao evento a que diz respeito. Cada inscrição pertence 
+                        obrigatoriamente a um único evento, o que garante que não existem inscrições "soltas" no sistema, sem destino definido. 
+                        Do lado do evento, a participação é parcial: um evento pode existir no sistema sem que nenhuma inscrição lhe tenha sido 
+                        associada ainda, por exemplo, num período anterior à abertura das inscrições. Este relacionamento é também do tipo 1:N, 
+                        onde um evento pode acumular várias inscrições ao longo do tempo.
+                    
+                    \subsubsection{R3 — precisa (Inscrição — Pagamento)}
+                        O relacionamento precisa representa a dependência direta e obrigatória entre uma inscrição e o respetivo pagamento. 
+                        Trata-se do único relacionamento do tipo 1:1 neste modelo, com participação total em ambos os lados: toda a inscrição 
+                        necessita de um pagamento associado para ser válida, e todo o pagamento existe no contexto de uma inscrição específica. 
+                        Esta restrição reflete uma regra de negócio clara — não é possível concluir uma inscrição sem que exista um registo de 
+                        pagamento correspondente, nem pode existir um pagamento que não esteja associado a nenhuma inscrição.
+                    
+                    \subsubsection{R4 — gere (Organizador — Evento)}
+                        O relacionamento gere traduz a responsabilidade que os organizadores têm sobre os eventos do sistema. Um organizador pode 
+                        ser responsável por gerir um ou vários eventos, e um evento pode ser gerido por um ou vários organizadores em simultâneo. 
+                        A participação é total em ambos os lados: todo o organizador tem de gerir pelo menos um evento, e todo o evento tem de ter 
+                        pelo menos um organizador responsável. Por ser um relacionamento N:M com estas características, a sua implementação no modelo 
+                        lógico exigirá a criação de uma tabela associativa.
+                    
+                    \subsubsection{R5 — tem (Evento — Sessão)}
+                        O relacionamento tem expressa a composição de um evento em sessões. Um evento é constituído por uma ou várias sessões, e 
+                        uma sessão pode estar associada a um ou vários eventos, o que permite, por exemplo, que uma sessão plenária seja partilhada 
+                        por múltiplos eventos. A participação é total em ambos os lados: um evento tem obrigatoriamente pelo menos uma sessão, e uma 
+                        sessão existe sempre no âmbito de pelo menos um evento. Trata-se de um relacionamento N:M, que no modelo lógico dará 
+                        igualmente origem a uma tabela associativa.
+                    
+                    \subsubsection{R6 — apresentada (Sessão — Orador)}
+                        O relacionamento apresentada liga as sessões aos oradores que nelas intervêm. Uma sessão é apresentada por um ou vários oradores, 
+                        e um orador pode participar em uma ou várias sessões, refletindo a realidade de eventos onde os mesmos especialistas podem ser 
+                        convidados a intervir em múltiplas ocasiões. A participação é total em ambos os lados: não existem sessões sem orador(es) atribuído(s), 
+                        nem oradores registados no sistema que não estejam associados a pelo menos uma sessão. À semelhança dos relacionamentos anteriores de 
+                        tipo N:M, a sua tradução para o modelo lógico implicará a criação de uma tabela associativa.
+                    
+                    \subsection{Identificação e Caracterização dos Atributos das Entidades}
 
-                \subsection{Identificação e Caracterização dos Atributos das Entidades}
+                        \subsubsection{Entidade: Participante}
+                            A entidade \textit{Participante} é caracterizada pelos dados pessoais e de contacto de cada 
+                            pessoa registada no sistema. O atributo \texttt{id\_participante} constitui a chave primária da 
+                            entidade, sendo um identificador único gerado internamente pelo sistema que permite 
+                            distinguir inequivocamente cada participante. O atributo \texttt{nome} regista o nome completo 
+                            do participante, sendo de preenchimento obrigatório. O atributo \texttt{e-mail} armazena o 
+                            endereço de correio eletrónico do participante, devendo ser único no sistema dado que serve 
+                            também como meio de identificação e contacto. O atributo \texttt{telemovel} guarda o número 
+                            de contacto telefónico, de preenchimento opcional. Por fim, o atributo 
+                            \texttt{organização/instituição} indica a entidade à qual o participante está afiliado, sendo 
+                            igualmente opcional, pois nem todos os participantes representam necessariamente uma organização.
+
+                        \subsubsection{Entidade: Inscrição}
+                            A entidade \textit{Inscrição} regista os dados relativos ao ato de inscrição de um participante 
+                            num evento. O atributo \texttt{id\_inscrição} é a chave primária, identificando de forma única 
+                            cada registo de inscrição no sistema. O atributo \texttt{data\_inscrição} armazena a data em 
+                            que a inscrição foi efetuada, sendo obrigatório para fins de controlo e rastreabilidade. 
+                            O atributo \texttt{estado} indica a situação atual da inscrição (por exemplo: pendente, 
+                            confirmada ou cancelada), sendo fundamental para a gestão do processo. Os atributos 
+                            \texttt{id\_participante} e \texttt{id\_evento} surgem como atributos derivados do relacionamento, 
+                            funcionando como chaves estrangeiras que estabelecem a ligação desta entidade às entidades 
+                            \textit{Participante} e \textit{Evento}, respetivamente.
+
+                        \subsubsection{Entidade: Pagamento}
+                            A entidade \textit{Pagamento} armazena toda a informação relativa ao pagamento associado a 
+                            uma inscrição. O atributo \texttt{id\_pagamento} é a chave primária que identifica univocamente 
+                            cada registo de pagamento. O atributo \texttt{estado} indica se o pagamento foi concluído, 
+                            está pendente ou foi rejeitado. O atributo \texttt{metodo} especifica a forma de pagamento 
+                            utilizada (por exemplo: cartão de crédito, transferência bancária ou MB Way). O atributo 
+                            \texttt{data\_pagamento} regista a data em que o pagamento foi processado. O atributo 
+                            \texttt{valor} indica o montante pago. Por fim, o atributo \texttt{id\_inscrição} surge como 
+                            chave estrangeira que liga o pagamento à inscrição correspondente, garantindo a integridade 
+                            referencial com a entidade \textit{Inscrição}.
+
+                        \subsubsection{Entidade: Evento}
+                            A entidade \textit{Evento} é a entidade central do modelo, agregando a informação descritiva 
+                            de cada evento gerido pelo sistema. O atributo \texttt{id\_evento} é a chave primária. 
+                            O atributo \texttt{Nome} identifica o evento de forma textual. O atributo \texttt{Tipo} 
+                            classifica o evento segundo a sua natureza (por exemplo: conferência, workshop, seminário). 
+                            Os atributos \texttt{data\_inicio} e \texttt{data\_fim} delimitam o período de realização 
+                            do evento. O atributo \texttt{localização} indica o local onde o evento decorre. O atributo 
+                            \texttt{descrição} permite registar uma apresentação mais detalhada do evento. Por último, 
+                            o atributo \texttt{capacidade} define o número máximo de participantes admitidos, sendo 
+                            relevante para o controlo das inscrições.
+
+                        \subsubsection{Entidade: Organizador}
+                            A entidade \textit{Organizador} representa as pessoas responsáveis pela gestão dos eventos. 
+                            O atributo \texttt{id\_organizador} é a chave primária e identificador único de cada 
+                            organizador no sistema. O atributo \texttt{nome} regista o nome completo do organizador. 
+                            O atributo \texttt{e-mail} armazena o endereço de correio eletrónico, sendo um meio 
+                            privilegiado de contacto e devendo ser único. O atributo \texttt{telefone} guarda o número 
+                            de contacto telefónico do organizador, de preenchimento opcional.
+
+                        \subsubsection{Entidade: Sessão}
+                            A entidade \textit{Sessão} representa cada sessão individual que compõe um evento. 
+                            O atributo \texttt{id\_sessao} é a chave primária. O atributo \texttt{Tema} descreve o 
+                            tópico ou assunto abordado na sessão. O atributo \texttt{data} indica o dia em que a 
+                            sessão decorre. Os atributos \texttt{hora\_inicio} e \texttt{hora\_fim} delimitam o 
+                            intervalo temporal da sessão dentro do dia. Por fim, o atributo \texttt{sala} identifica 
+                            o espaço físico onde a sessão tem lugar, sendo relevante para a gestão logística do evento.
+
+                        \subsubsection{Entidade: Orador}
+                            A entidade \textit{Orador} regista os dados dos especialistas que apresentam as sessões. 
+                            O atributo \texttt{id\_orador} é a chave primária, identificando univocamente cada orador 
+                            no sistema. O atributo \texttt{nome} armazena o nome completo do orador. O atributo 
+                            \texttt{e-mail} guarda o contacto eletrónico, sendo também potencialmente único. 
+                            O atributo \texttt{especialidade} descreve a área de conhecimento ou domínio de atuação 
+                            do orador, sendo relevante para a organização e divulgação do evento.
                 \subsection{Apresentação e Explicação do Diagrama ER produzido}
         %PONTO 5
         \section{Modelação Lógica}
