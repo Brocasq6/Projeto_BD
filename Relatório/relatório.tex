@@ -676,15 +676,54 @@
                 dos relacionamentos (Secção~3.3) e dos atributos detalhados de cada entidade (Secção~3.4).
 
 
+                \newpage
                 \subsection{Identificação e Caracterização dos Relacionamentos}
-                    \subsubsection{R1 — realiza (Participante — Inscrição)}\mbox{}\\
+                
+                Nesta secção apresentam-se os relacionamentos identificados entre as 7 entidades
+                do sistema EvenSync (Evento, Organizador, Sessão, Orador, Participante, Inscrição e Pagamento), 
+                incluindo o seu significado, cardinalidades, participação (total/parcial) e os 
+                requisitos de negócio que os originaram.
 
+                \subsubsection{Visão Global dos Relacionamentos}\mbox{}\\
+
+                A Tabela~\ref{tab:relacionamentos} apresenta a síntese dos 6 relacionamentos 
+                identificados no sistema:
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|c|l|l|c|c|c|p{0.22\textwidth}|}
+                \hline
+                \textbf{ID} & \textbf{Relacionamento} & \textbf{Entidades} & \textbf{Card.} & \textbf{Partic.} & \textbf{Requisitos} & \textbf{Descrição} \\ \hline
+                \textbf{R1} & realiza     & Participante $\rightarrow$ Inscrição & 1:N & P:T & RD8, RC1 & Registo de inscrições. \\ \hline
+                \textbf{R2} & pertence    & Inscrição $\rightarrow$ Evento       & N:1 & T:P & RD8      & Associação ao evento. \\ \hline
+                \textbf{R3} & precisa     & Inscrição $\rightarrow$ Pagamento    & 1:1 & T:T & RD9, RC2 & Ligação da transação. \\ \hline
+                \textbf{R4} & gere        & Organizador $\rightarrow$ Evento     & N:M & T:T & RD3      & Gestão do evento. \\ \hline
+                \textbf{R5} & tem         & Evento $\rightarrow$ Sessão          & N:M & T:T & RD4      & Composição do evento. \\ \hline
+                \textbf{R6} & apresentada & Sessão $\rightarrow$ Orador          & N:M & T:T & RD6      & Atribuição de oradores. \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Síntese dos Relacionamentos do Sistema EvenSync}
+                \label{tab:relacionamentos}
+                \end{table}
+
+                Os relacionamentos acima refletem a lógica de negócio descrita na secção de entidades. 
+                Nas subsecções seguintes, detalha-se cada um destes relacionamentos individualmente.
+
+                \vspace{0.4cm}
+                \newpage
+                \subsubsection{Caracterização Detalhada dos Relacionamentos}\mbox{}\\
+                
+                    \vspace{0.2cm}
+                    \noindent\begin{minipage}{\textwidth}
+                    \noindent\textbf{R1 — realiza (Participante — Inscrição)}\mbox{}\\[0.2cm]
                     \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.6\textwidth]{../imagens/participante_realiza_inscricao.png}
                         \caption{Relacionamento \textit{realiza} entre Participante e Inscrição}
                         \label{fig:realiza}
                     \end{figure}
+                    \end{minipage}
                         
                     O relacionamento realiza estabelece a ligação entre um participante e as inscrições que 
                     este efetua no sistema. Um participante pode realizar zero ou várias inscrições, refletindo 
@@ -693,83 +732,97 @@
                     a participação é total e obrigatória: toda e qualquer inscrição tem de estar necessariamente associada 
                     a um participante, pois não faz sentido existir uma inscrição sem que haja alguém que a tenha 
                     efetuado. Este relacionamento é do tipo 1:N.
+                    \vspace{0.4cm}
                     
-                    \subsubsection{R2 — pertence (Inscrição — Evento)}\mbox{}\\
-
+                    \noindent\begin{minipage}{\textwidth}
+                    \noindent\textbf{R2 — pertence (Inscrição — Evento)}\mbox{}\\[0.2cm]
                         \begin{figure}[H]
                             \centering
                             \includegraphics[width=0.6\textwidth]{../imagens/inscricao_evento.png}
                             \caption{Relacionamento \textit{pertence} entre Inscrição e Evento}
                             \label{fig:pertence}
                         \end{figure}
+                    \end{minipage}
 
                         O relacionamento pertence associa cada inscrição ao evento a que diz respeito. Cada inscrição pertence 
                         obrigatoriamente a um único evento, o que garante que não existem inscrições "soltas" no sistema, sem destino definido. 
                         Do lado do evento, a participação é parcial: um evento pode existir no sistema sem que nenhuma inscrição lhe tenha sido 
                         associada ainda, por exemplo, num período anterior à abertura das inscrições. Este relacionamento é também do tipo 1:N, 
                         onde um evento pode acumular várias inscrições ao longo do tempo.
+                    \vspace{0.4cm}
                     
-                    \subsubsection{R3 — precisa (Inscrição — Pagamento)}\mbox{}\\
-
+                    \noindent\begin{minipage}{\textwidth}
+                    \noindent\textbf{R3 — precisa (Inscrição — Pagamento)}\mbox{}\\[0.2cm]
                     \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.6\textwidth]{../imagens/inscricao_precisa_pagamento.png}
                         \caption{Relacionamento \textit{precisa} entre Inscrição e Pagamento}
                         \label{fig:precisa}
                     \end{figure}
+                    \end{minipage}
 
                         O relacionamento precisa representa a dependência direta e obrigatória entre uma inscrição e o respetivo pagamento. 
                         Trata-se do único relacionamento do tipo 1:1 neste modelo, com participação total em ambos os lados: toda a inscrição 
                         necessita de um pagamento associado para ser válida, e todo o pagamento existe no contexto de uma inscrição específica. 
                         Esta restrição reflete uma regra de negócio clara — não é possível concluir uma inscrição sem que exista um registo de 
                         pagamento correspondente, nem pode existir um pagamento que não esteja associado a nenhuma inscrição.
+                    \vspace{0.4cm}
                     
-                    \subsubsection{R4 — gere (Organizador — Evento)}\mbox{}\\
-
+                    \noindent\begin{minipage}{\textwidth}
+                    \noindent\textbf{R4 — gere (Organizador — Evento)}\mbox{}\\[0.2cm]
                         \begin{figure}[H]
                             \centering
                             \includegraphics[width=0.6\textwidth]{../imagens/organizador_gere_evento.png}
                             \caption{Relacionamento \textit{gere} entre Organizador e Evento}
                             \label{fig:gere}
                         \end{figure}
+                    \end{minipage}
 
                         O relacionamento gere traduz a responsabilidade que os organizadores têm sobre os eventos do sistema. Um organizador pode 
                         ser responsável por gerir um ou vários eventos, e um evento pode ser gerido por um ou vários organizadores em simultâneo. 
                         A participação é total em ambos os lados: todo o organizador tem de gerir pelo menos um evento, e todo o evento tem de ter 
                         pelo menos um organizador responsável. Por ser um relacionamento N:M com estas características, a sua implementação no modelo 
                         lógico exigirá a criação de uma tabela associativa.
+                    \vspace{0.4cm}
                     
-                    \subsubsection{R5 — tem (Evento — Sessão)}\mbox{}\\
+                    \noindent\begin{minipage}{\textwidth}
+                    \noindent\textbf{R5 — tem (Evento — Sessão)}\mbox{}\\[0.2cm]
                         \begin{figure}[H]
                             \centering
-                            \includegraphics[width=0.6\textwidth]{../imagens/rel_evento_tem_sessao.png}
+                            \includegraphics[width=0.3\textwidth]{../imagens/rel_evento_tem_sessao.png}
                             \caption{Relacionamento \textit{tem} entre Evento e Sessão}
                             \label{fig:tem}
                         \end{figure}
+                    \end{minipage}
 
                         O relacionamento tem expressa a composição de um evento em sessões. Um evento é constituído por uma ou várias sessões, e 
                         uma sessão pode estar associada a um ou vários eventos, o que permite, por exemplo, que uma sessão plenária seja partilhada 
                         por múltiplos eventos. A participação é total em ambos os lados: um evento tem obrigatoriamente pelo menos uma sessão, e uma 
                         sessão existe sempre no âmbito de pelo menos um evento. Trata-se de um relacionamento N:M, que no modelo lógico dará 
                         igualmente origem a uma tabela associativa.
+                    \vspace{0.4cm}
                     
-                    \subsubsection{R6 — apresentada (Sessão — Orador)}\mbox{}\\
-
+                    \noindent\begin{minipage}{\textwidth}
+                    \noindent\textbf{R6 — apresentada (Sessão — Orador)}\mbox{}\\[0.2cm]
                         \begin{figure}[H]
                             \centering
                             \includegraphics[width=0.6\textwidth]{../imagens/rel_sessao_apr_orador.png}
                             \caption{Relacionamento \textit{apresentada} entre Sessão e Orador}
                             \label{fig:apresentada}
                         \end{figure}
+                    \end{minipage}
 
                         O relacionamento apresentada liga as sessões aos oradores que nelas intervêm. Uma sessão é apresentada por um ou vários oradores, 
                         e um orador pode participar em uma ou várias sessões, refletindo a realidade de eventos onde os mesmos especialistas podem ser 
                         convidados a intervir em múltiplas ocasiões. A participação é total em ambos os lados: não existem sessões sem orador(es) atribuído(s), 
                         nem oradores registados no sistema que não estejam associados a pelo menos uma sessão. À semelhança dos relacionamentos anteriores de 
                         tipo N:M, a sua tradução para o modelo lógico implicará a criação de uma tabela associativa.
+                    \vspace{0.4cm}
                 
+                \newpage
                 \subsection{Identificação e Caracterização dos Atributos das Entidades}
                 
+                    \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Participante}\mbox{}\\
 
                     A entidade \textit{Participante} é caracterizada pelos dados pessoais e de contacto de cada 
@@ -785,21 +838,31 @@
 
                     \begin{table}[H]
                     \centering
-                    \begin{tabular}{|p{0.32\textwidth}|p{0.16\textwidth}|p{0.23\textwidth}|p{0.20\textwidth}|}
+                    \renewcommand{\arraystretch}{1.5}
+                    \resizebox{\textwidth}{!}{
+                    \begin{tabular}{|l|p{0.35\textwidth}|l|c|l|c|}
                     \hline
-                    \textbf{Atributo} & \textbf{Tipo} & \textbf{Obrigatoriedade} & \textbf{Observações} \\ \hline
-                    \texttt{id\_participante}        & Identificador & Obrigatório & Chave primária   \\ \hline
-                    \texttt{nome}                    & Simples       & Obrigatório & ---              \\ \hline
-                    \texttt{e-mail}                  & Simples       & Obrigatório & Deverá ser único \\ \hline
-                    \texttt{telemovel}               & Simples       & Opcional    & ---              \\ \hline
-                    \texttt{organização/instituição} & Simples       & Opcional    & ---              \\ \hline
+                    \textbf{Atributo} & \textbf{Descrição} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Exemplo} & \textbf{Req} \\ \hline
+                    \texttt{id\_participante}        & Identificador sequencial & \texttt{INT} & N & 1 & --- \\ \hline
+                    \texttt{nome}                    & Nome completo do participante & \texttt{VARCHAR(100)} & N & Tiago Santos & RD1 \\ \hline
+                    \texttt{e-mail}                  & Endereço eletrónico & \texttt{VARCHAR(100)} & N & tiago@email.com & RD1 \\ \hline
+                    \texttt{telemovel}               & Número de telemóvel & \texttt{VARCHAR(15)} & S & 912345678 & RD1 \\ \hline
+                    \texttt{organização}             & Instituição que representa & \texttt{VARCHAR(100)} & S & UMinho & RD1 \\ \hline
                     \end{tabular}
+                    }
                     \vspace{0.2cm}
                     \caption{Atributos da entidade Participante}
                     \label{tab:participante}
                     \end{table}
+                    \vspace{0.1cm}
+                    \noindent\textbf{Restrições:}\\
+                    \indent $\triangleright$ \texttt{id\_participante} PRIMARY KEY\\
+                    \indent $\triangleright$ \texttt{e-mail} UNIQUE
+                    \end{minipage}
+                    \vspace{0.4cm}
 
                     % ─────────────────────────────────────────
+                    \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Inscrição}\mbox{}\\
 
                     A entidade \textit{Inscrição} regista os dados relativos ao ato de inscrição de um participante 
@@ -814,21 +877,33 @@
 
                     \begin{table}[H]
                     \centering
-                    \begin{tabular}{|p{0.22\textwidth}|p{0.16\textwidth}|p{0.22\textwidth}|p{0.42\textwidth}|}
+                    \renewcommand{\arraystretch}{1.5}
+                    \resizebox{\textwidth}{!}{
+                    \begin{tabular}{|l|p{0.35\textwidth}|l|c|l|c|}
                     \hline
-                    \textbf{Atributo} & \textbf{Tipo} & \textbf{Obrigatoriedade} & \textbf{Observações} \\ \hline
-                    \texttt{id\_inscrição}    & Identificador & Obrigatório & Chave primária                   \\ \hline
-                    \texttt{data\_inscrição}  & Simples       & Obrigatório & ---                              \\ \hline
-                    \texttt{estado}           & Simples       & Obrigatório & Ex: pendente, confirmada         \\ \hline
-                    \texttt{id\_participante} & Simples       & Obrigatório & Chave estrangeira → Participante \\ \hline
-                    \texttt{id\_evento}       & Simples       & Obrigatório & Chave estrangeira → Evento       \\ \hline
+                    \textbf{Atributo} & \textbf{Descrição} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Exemplo} & \textbf{Req} \\ \hline
+                    \texttt{id\_inscrição}    & Identificador sequencial & \texttt{INT} & N & 100 & --- \\ \hline
+                    \texttt{data\_inscrição}  & Data do registo & \texttt{DATETIME} & N & 2026-05-10 10:00 & RD8 \\ \hline
+                    \texttt{estado}           & Situação atual & \texttt{VARCHAR(15)} & N & confirmada & RC1 \\ \hline
+                    \texttt{id\_participante} & Participante associado & \texttt{INT} & N & 1 & R1 \\ \hline
+                    \texttt{id\_evento}       & Evento de destino & \texttt{INT} & N & 5 & R2 \\ \hline
                     \end{tabular}
+                    }
                     \vspace{0.2cm}
                     \caption{Atributos da entidade Inscrição}
                     \label{tab:inscricao}
                     \end{table}
+                    \vspace{0.1cm}
+                    \noindent\textbf{Restrições:}\\
+                    \indent $\triangleright$ \texttt{id\_inscrição} PRIMARY KEY\\
+                    \indent $\triangleright$ \texttt{id\_participante} FK $\rightarrow$ Participante(id\_participante)\\
+                    \indent $\triangleright$ \texttt{id\_evento} FK $\rightarrow$ Evento(id\_evento)\\
+                    \indent $\triangleright$ \texttt{estado} IN \{'pendente', 'confirmada', 'cancelada'\}
+                    \end{minipage}
+                    \vspace{0.4cm}
 
                     % ─────────────────────────────────────────
+                    \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Pagamento}\mbox{}\\
 
                     A entidade \textit{Pagamento} armazena toda a informação relativa ao pagamento associado a 
@@ -843,22 +918,34 @@
 
                     \begin{table}[H]
                     \centering
-                    \begin{tabular}{|p{0.22\textwidth}|p{0.18\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+                    \renewcommand{\arraystretch}{1.5}
+                    \resizebox{\textwidth}{!}{
+                    \begin{tabular}{|l|p{0.35\textwidth}|l|c|l|c|}
                     \hline
-                    \textbf{Atributo} & \textbf{Tipo} & \textbf{Obrigatoriedade} & \textbf{Observações} \\ \hline
-                    \texttt{id\_pagamento}   & Identificador & Obrigatório & Chave primária                \\ \hline
-                    \texttt{estado}          & Simples       & Obrigatório & Ex: pago, pendente, rejeitado \\ \hline
-                    \texttt{metodo}          & Simples       & Obrigatório & Ex: cartão, transferência     \\ \hline
-                    \texttt{data\_pagamento} & Simples       & Obrigatório & ---                           \\ \hline
-                    \texttt{valor}           & Simples       & Obrigatório & ---                           \\ \hline
-                    \texttt{id\_inscrição}   & Simples       & Obrigatório & Chave estrangeira → Inscrição \\ \hline
+                    \textbf{Atributo} & \textbf{Descrição} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Exemplo} & \textbf{Req} \\ \hline
+                    \texttt{id\_pagamento}   & Identificador sequencial & \texttt{INT} & N & 200 & --- \\ \hline
+                    \texttt{estado}          & Ponto de situação & \texttt{VARCHAR(15)} & N & pago & RD9 \\ \hline
+                    \texttt{metodo}          & Forma de pagamento & \texttt{VARCHAR(20)} & N & MBWay & RD9 \\ \hline
+                    \texttt{data\_pagamento} & Data de processamento & \texttt{DATETIME} & N & 2026-05-10 10:05 & RD9 \\ \hline
+                    \texttt{valor}           & Montante em euros & \texttt{DECIMAL(6,2)} & N & 25.50 & RD9 \\ \hline
+                    \texttt{id\_inscrição}   & Inscrição a pagar & \texttt{INT} & N & 100 & R3 \\ \hline
                     \end{tabular}
+                    }
                     \vspace{0.2cm}
                     \caption{Atributos da entidade Pagamento}
                     \label{tab:pagamento}
                     \end{table}
+                    \vspace{0.1cm}
+                    \noindent\textbf{Restrições:}\\
+                    \indent $\triangleright$ \texttt{id\_pagamento} PRIMARY KEY\\
+                    \indent $\triangleright$ \texttt{id\_inscrição} FK $\rightarrow$ Inscrição(id\_inscrição)\\
+                    \indent $\triangleright$ \texttt{estado} IN \{'pago', 'pendente', 'rejeitado'\}\\
+                    \indent $\triangleright$ \texttt{metodo} IN \{'cartão', 'transferência', 'MBWay'\}
+                    \end{minipage}
+                    \vspace{0.4cm}
 
                     % ─────────────────────────────────────────
+                    \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Evento}\mbox{}\\
 
                     A entidade \textit{Evento} é a entidade central do modelo, agregando a informação descritiva 
@@ -873,24 +960,34 @@
 
                     \begin{table}[H]
                     \centering
-                    \begin{tabular}{|p{0.22\textwidth}|p{0.18\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+                    \renewcommand{\arraystretch}{1.5}
+                    \resizebox{\textwidth}{!}{
+                    \begin{tabular}{|l|p{0.35\textwidth}|l|c|l|c|}
                     \hline
-                    \textbf{Atributo} & \textbf{Tipo} & \textbf{Obrigatoriedade} & \textbf{Observações} \\ \hline
-                    \texttt{id\_evento}   & Identificador & Obrigatório & Chave primária             \\ \hline
-                    \texttt{Nome}         & Simples       & Obrigatório & ---                        \\ \hline
-                    \texttt{Tipo}         & Simples       & Obrigatório & Ex: conferência, workshop  \\ \hline
-                    \texttt{data\_inicio} & Simples       & Obrigatório & ---                        \\ \hline
-                    \texttt{data\_fim}    & Simples       & Obrigatório & ---                        \\ \hline
-                    \texttt{localização}  & Simples       & Obrigatório & ---                        \\ \hline
-                    \texttt{descrição}    & Simples       & Opcional    & ---                        \\ \hline
-                    \texttt{capacidade}   & Simples       & Obrigatório & Nº máximo de participantes \\ \hline
+                    \textbf{Atributo} & \textbf{Descrição} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Exemplo} & \textbf{Req} \\ \hline
+                    \texttt{id\_evento}   & Identificador sequencial & \texttt{INT} & N & 5 & --- \\ \hline
+                    \texttt{Nome}         & Nome do evento & \texttt{VARCHAR(150)} & N & FestivaliUM & RD1 \\ \hline
+                    \texttt{Tipo}         & Categoria do evento & \texttt{VARCHAR(50)} & N & Conferência & RD1 \\ \hline
+                    \texttt{data\_inicio} & Data de início & \texttt{DATE} & N & 2026-06-01 & RD1 \\ \hline
+                    \texttt{data\_fim}    & Data de término & \texttt{DATE} & N & 2026-06-05 & RD1 \\ \hline
+                    \texttt{localização}  & Sede principal & \texttt{VARCHAR(150)} & N & Braga & RD1 \\ \hline
+                    \texttt{descrição}    & Detalhes do evento & \texttt{TEXT} & S & O maior evento... & RD1 \\ \hline
+                    \texttt{capacidade}   & Lotação máxima & \texttt{INT} & N & 500 & RD1 \\ \hline
                     \end{tabular}
+                    }
                     \vspace{0.2cm}
                     \caption{Atributos da entidade Evento}
                     \label{tab:evento}
                     \end{table}
+                    \vspace{0.1cm}
+                    \noindent\textbf{Restrições:}\\
+                    \indent $\triangleright$ \texttt{id\_evento} PRIMARY KEY\\
+                    \indent $\triangleright$ \texttt{data\_inicio} $\le$ \texttt{data\_fim}
+                    \end{minipage}
+                    \vspace{0.4cm}
 
                     % ─────────────────────────────────────────
+                    \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Organizador}\mbox{}\\
 
                     A entidade \textit{Organizador} representa as pessoas responsáveis pela gestão dos eventos. 
@@ -902,20 +999,30 @@
 
                     \begin{table}[H]
                     \centering
-                    \begin{tabular}{|p{0.22\textwidth}|p{0.18\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+                    \renewcommand{\arraystretch}{1.5}
+                    \resizebox{\textwidth}{!}{
+                    \begin{tabular}{|l|p{0.35\textwidth}|l|c|l|c|}
                     \hline
-                    \textbf{Atributo} & \textbf{Tipo} & \textbf{Obrigatoriedade} & \textbf{Observações} \\ \hline
-                    \texttt{id\_organizador} & Identificador & Obrigatório & Chave primária   \\ \hline
-                    \texttt{nome}            & Simples       & Obrigatório & ---              \\ \hline
-                    \texttt{e-mail}          & Simples       & Obrigatório & Deverá ser único \\ \hline
-                    \texttt{telefone}        & Simples       & Opcional    & ---              \\ \hline
+                    \textbf{Atributo} & \textbf{Descrição} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Exemplo} & \textbf{Req} \\ \hline
+                    \texttt{id\_organizador} & Identificador sequencial & \texttt{INT} & N & 10 & --- \\ \hline
+                    \texttt{nome}            & Nome do responsável & \texttt{VARCHAR(100)} & N & Maria Silva & RD2 \\ \hline
+                    \texttt{e-mail}          & Endereço eletrónico & \texttt{VARCHAR(100)} & N & maria@org.pt & RD2 \\ \hline
+                    \texttt{telefone}        & Número de contacto & \texttt{VARCHAR(15)} & S & 919876543 & RD2 \\ \hline
                     \end{tabular}
+                    }
                     \vspace{0.2cm}
                     \caption{Atributos da entidade Organizador}
                     \label{tab:organizador}
                     \end{table}
+                    \vspace{0.1cm}
+                    \noindent\textbf{Restrições:}\\
+                    \indent $\triangleright$ \texttt{id\_organizador} PRIMARY KEY\\
+                    \indent $\triangleright$ \texttt{e-mail} UNIQUE
+                    \end{minipage}
+                    \vspace{0.4cm}
 
                     % ─────────────────────────────────────────
+                    \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Sessão}\mbox{}\\
 
                     A entidade \textit{Sessão} representa cada sessão individual que compõe um evento. 
@@ -927,22 +1034,31 @@
 
                     \begin{table}[H]
                     \centering
-                    \begin{tabular}{|p{0.22\textwidth}|p{0.18\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+                    \renewcommand{\arraystretch}{1.5}
+                    \resizebox{\textwidth}{!}{
+                    \begin{tabular}{|l|p{0.35\textwidth}|l|c|l|c|}
                     \hline
-                    \textbf{Atributo} & \textbf{Tipo} & \textbf{Obrigatoriedade} & \textbf{Observações} \\ \hline
-                    \texttt{id\_sessao}   & Identificador & Obrigatório & Chave primária \\ \hline
-                    \texttt{Tema}         & Simples       & Obrigatório & ---            \\ \hline
-                    \texttt{data}         & Simples       & Obrigatório & ---            \\ \hline
-                    \texttt{hora\_inicio} & Simples       & Obrigatório & ---            \\ \hline
-                    \texttt{hora\_fim}    & Simples       & Obrigatório & ---            \\ \hline
-                    \texttt{sala}         & Simples       & Opcional    & ---            \\ \hline
+                    \textbf{Atributo} & \textbf{Descrição} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Exemplo} & \textbf{Req} \\ \hline
+                    \texttt{id\_sessao}   & Identificador sequencial & \texttt{INT} & N & 50 & --- \\ \hline
+                    \texttt{Tema}         & Tópico a abordar & \texttt{VARCHAR(150)} & N & IA no Futuro & RD4 \\ \hline
+                    \texttt{data}         & Data de realização & \texttt{DATE} & N & 2026-06-02 & RD4 \\ \hline
+                    \texttt{hora\_inicio} & Início da sessão & \texttt{TIME} & N & 14:00 & RD4 \\ \hline
+                    \texttt{hora\_fim}    & Fim da sessão & \texttt{TIME} & N & 16:00 & RD4 \\ \hline
+                    \texttt{sala}         & Espaço físico alocado & \texttt{VARCHAR(50)} & S & Auditório B1 & RD4 \\ \hline
                     \end{tabular}
+                    }
                     \vspace{0.2cm}
                     \caption{Atributos da entidade Sessão}
                     \label{tab:sessao}
                     \end{table}
+                    \vspace{0.1cm}
+                    \noindent\textbf{Restrições:}\\
+                    \indent $\triangleright$ \texttt{id\_sessao} PRIMARY KEY
+                    \end{minipage}
+                    \vspace{0.4cm}
 
                     % ─────────────────────────────────────────
+                    \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Orador}\mbox{}\\
 
                     A entidade \textit{Orador} regista os dados dos especialistas que apresentam as sessões. 
@@ -954,22 +1070,31 @@
 
                     \begin{table}[H]
                     \centering
-                    \begin{tabular}{|p{0.22\textwidth}|p{0.18\textwidth}|p{0.20\textwidth}|p{0.25\textwidth}|}
+                    \renewcommand{\arraystretch}{1.5}
+                    \resizebox{\textwidth}{!}{
+                    \begin{tabular}{|l|p{0.35\textwidth}|l|c|l|c|}
                     \hline
-                    \textbf{Atributo} & \textbf{Tipo} & \textbf{Obrigatoriedade} & \textbf{Observações} \\ \hline
-                    \texttt{id\_orador}    & Identificador & Obrigatório & Chave primária   \\ \hline
-                    \texttt{nome}          & Simples       & Obrigatório & ---              \\ \hline
-                    \texttt{e-mail}        & Simples       & Obrigatório & Deverá ser único \\ \hline
-                    \texttt{especialidade} & Simples       & Obrigatório & ---              \\ \hline
+                    \textbf{Atributo} & \textbf{Descrição} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Exemplo} & \textbf{Req} \\ \hline
+                    \texttt{id\_orador}    & Identificador sequencial & \texttt{INT} & N & 20 & --- \\ \hline
+                    \texttt{nome}          & Nome completo & \texttt{VARCHAR(100)} & N & João Oliveira & RD3 \\ \hline
+                    \texttt{e-mail}        & Endereço eletrónico & \texttt{VARCHAR(100)} & N & joao@email.pt & RD3 \\ \hline
+                    \texttt{especialidade} & Área de atuação & \texttt{VARCHAR(100)} & N & Cibersegurança & RD3 \\ \hline
                     \end{tabular}
+                    }
                     \vspace{0.2cm}
                     \caption{Atributos da entidade Orador}
                     \label{tab:orador}
                     \end{table}
+                    \vspace{0.1cm}
+                    \noindent\textbf{Restrições:}\\
+                    \indent $\triangleright$ \texttt{id\_orador} PRIMARY KEY\\
+                    \indent $\triangleright$ \texttt{e-mail} UNIQUE
+                    \end{minipage}
+                    \vspace{0.4cm}
                 \subsection{Apresentação e Explicação do Diagrama ER Produzido}
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=\textwidth]{../imagens/mod_conceptual.PNG}
+                        \makebox[\textwidth][c]{\includegraphics[width=1.25\textwidth]{../imagens/mod_conceptual.png}}
                         \caption{Diagrama Entidade-Relacionamento do sistema EvenSync}
                         \label{fig:diagrama_er}
                     \end{figure}
@@ -1008,7 +1133,6 @@
                 \subsection{Construção do Modelo de Dados Lógico}
                 
                 \subsection{Apresentação da Abordagem do Modelo Logico Produzido}
-                
                 \subsection{Normalização dos dados}
                 \subsection{Validação do Modelo com Interrogação do Utilizador}
 

@@ -1,8 +1,8 @@
 \babel@toc {portuguese}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Relacionamento \textit {realiza} entre Participante e Inscrição}}{15}{}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Relacionamento \textit {pertence} entre Inscrição e Evento}}{15}{}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Relacionamento \textit {precisa} entre Inscrição e Pagamento}}{16}{}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Relacionamento \textit {gere} entre Organizador e Evento}}{17}{}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Relacionamento \textit {tem} entre Evento e Sessão}}{18}{}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Relacionamento \textit {apresentada} entre Sessão e Orador}}{19}{}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Diagrama Entidade-Relacionamento do sistema EvenSync}}{24}{}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Relacionamento \textit {realiza} entre Participante e Inscrição}}{16}{}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Relacionamento \textit {pertence} entre Inscrição e Evento}}{16}{}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Relacionamento \textit {precisa} entre Inscrição e Pagamento}}{17}{}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Relacionamento \textit {gere} entre Organizador e Evento}}{18}{}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Relacionamento \textit {tem} entre Evento e Sessão}}{19}{}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Relacionamento \textit {apresentada} entre Sessão e Orador}}{20}{}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Diagrama Entidade-Relacionamento do sistema EvenSync}}{28}{}%
