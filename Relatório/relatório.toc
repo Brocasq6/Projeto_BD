@@ -37,17 +37,17 @@
 \contentsline {subsection}{\numberline {3.5}Apresentação e Explicação do Diagrama ER Produzido}{28}{}%
 \contentsline {section}{\numberline {4}Modelação Lógica}{29}{}%
 \contentsline {subsection}{\numberline {4.1}Construção do Modelo de Dados Lógico}{29}{}%
-\contentsline {subsection}{\numberline {4.2}Apresentação da Abordagem do Modelo Logico Produzido}{29}{}%
-\contentsline {subsection}{\numberline {4.3}Normalização dos dados}{29}{}%
-\contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogação do Utilizador}{29}{}%
-\contentsline {section}{\numberline {5}Implementação Fisica}{29}{}%
-\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{29}{}%
-\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{29}{}%
-\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{29}{}%
-\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{29}{}%
-\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{29}{}%
-\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{29}{}%
-\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{29}{}%
-\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{29}{}%
-\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{29}{}%
-\contentsline {section}{\numberline {7}Bibliografia}{29}{}%
+\contentsline {subsection}{\numberline {4.2}Apresentação e Explicação do Modelo Lógico Produzido}{29}{}%
+\contentsline {subsection}{\numberline {4.3}Normalização dos Dados}{32}{}%
+\contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogações do Utilizador}{33}{}%
+\contentsline {section}{\numberline {5}Implementação Fisica}{35}{}%
+\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{35}{}%
+\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{35}{}%
+\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{35}{}%
+\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{35}{}%
+\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{35}{}%
+\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{35}{}%
+\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{35}{}%
+\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{35}{}%
+\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{35}{}%
+\contentsline {section}{\numberline {7}Bibliografia}{35}{}%

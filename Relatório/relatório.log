@@ -1,57 +1,55 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.22)  25 APR 2026 19:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.23)  27 APR 2026 14:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/tiago_santos/Projeto_BD/Relat贸rio/relat贸rio.tex
-(/home/tiago_santos/Projeto_BD/Relat贸rio/relat贸rio.tex
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
-(/usr/share/texlive/texmf-dist/tex/latex/llncs/llncs.cls
-Document Class: llncs 2024/01/29 v2.24 
+**/Users/andremarques44/Projeto_BD/Relat贸rio/relat贸rio.tex
+(/Users/andremarques44/Projeto_BD/Relat贸rio/relat贸rio.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/usr/local/texlive/2026/texmf-dist/tex/latex/llncs/llncs.cls
+Document Class: llncs 2025/02/25 v2.26 
  LaTeX document class for Lecture Notes in Computer Science
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count187
-\c@section=\count188
-\c@subsection=\count189
-\c@subsubsection=\count190
-\c@paragraph=\count191
-\c@subparagraph=\count192
-\c@figure=\count193
-\c@table=\count194
-\abovecaptionskip=\skip48
-\belowcaptionskip=\skip49
-\bibindent=\dimen140
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
-\c@tracingmulticols=\count195
-\mult@box=\box51
-\multicol@leftmargin=\dimen141
-\c@unbalance=\count196
-\c@collectmore=\count197
-\doublecol@number=\count198
-\multicoltolerance=\count199
-\multicolpretolerance=\count266
-\full@width=\dimen142
-\page@free=\dimen143
-\premulticols=\dimen144
-\postmulticols=\dimen145
-\multicolsep=\skip50
-\multicolbaselineskip=\skip51
-\partial@page=\box52
-\last@line=\box53
-\mc@boxedresult=\box54
-\maxbalancingoverflow=\dimen146
-\mult@rightbox=\box55
-\mult@grightbox=\box56
-\mult@firstbox=\box57
-\mult@gfirstbox=\box58
-\@tempa=\box59
-\@tempa=\box60
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
+\c@tracingmulticols=\count283
+\mult@box=\box53
+\multicol@leftmargin=\dimen149
+\c@unbalance=\count284
+\c@collectmore=\count285
+\doublecol@number=\count286
+\multicoltolerance=\count287
+\multicolpretolerance=\count288
+\full@width=\dimen150
+\page@free=\dimen151
+\premulticols=\dimen152
+\postmulticols=\dimen153
+\multicolsep=\skip51
+\multicolbaselineskip=\skip52
+\partial@page=\box54
+\last@line=\box55
+\mc@boxedresult=\box56
+\maxbalancingoverflow=\dimen154
+\mult@rightbox=\box57
+\mult@grightbox=\box58
+\mult@firstbox=\box59
+\mult@gfirstbox=\box60
 \@tempa=\box61
 \@tempa=\box62
 \@tempa=\box63
@@ -86,19 +84,22 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \@tempa=\box92
 \@tempa=\box93
 \@tempa=\box94
-\c@minrows=\count267
-\c@columnbadness=\count268
-\c@finalcolumnbadness=\count269
-\last@try=\dimen147
-\multicolovershoot=\dimen148
-\multicolundershoot=\dimen149
-\mult@nat@firstbox=\box95
-\colbreak@box=\box96
-\mc@col@check@num=\count270
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/aliascnt.sty
-Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
+\@tempa=\box95
+\@tempa=\box96
+\c@minrows=\count289
+\c@columnbadness=\count290
+\c@finalcolumnbadness=\count291
+\last@try=\dimen155
+\multicolovershoot=\dimen156
+\multicolundershoot=\dimen157
+\mult@nat@firstbox=\box97
+\colbreak@box=\box98
+\mc@col@check@num=\count292
+\g__mc_curr_col_int=\count293
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/aliascnt/aliascnt.sty
+Package: aliascnt 2026-03-08 v1.7 Alias counters (HO)
 )
-\c@chapter=\count271
+\c@chapter=\count294
 LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 379.
 LaTeX Font Info:    Redeclaring math symbol \Delta on input line 380.
 LaTeX Font Info:    Redeclaring math symbol \Theta on input line 381.
@@ -111,191 +112,213 @@ LaTeX Font Info:    Redeclaring math symbol \Phi on input line 387.
 LaTeX Font Info:    Redeclaring math symbol \Psi on input line 388.
 LaTeX Font Info:    Redeclaring math symbol \Omega on input line 389.
 LaTeX Info: Redefining \vec on input line 394.
-\tocchpnum=\dimen150
-\tocsecnum=\dimen151
-\tocsectotal=\dimen152
-\tocsubsecnum=\dimen153
-\tocsubsectotal=\dimen154
-\tocsubsubsecnum=\dimen155
-\tocsubsubsectotal=\dimen156
-\tocparanum=\dimen157
-\tocparatotal=\dimen158
-\tocsubparanum=\dimen159
-\@tempcntc=\count272
-\fnindent=\dimen160
-\c@@inst=\count273
-\c@@auth=\count274
-\c@auco=\count275
-\instindent=\dimen161
-\authrun=\box97
+\tocchpnum=\dimen158
+\tocsecnum=\dimen159
+\tocsectotal=\dimen160
+\tocsubsecnum=\dimen161
+\tocsubsectotal=\dimen162
+\tocsubsubsecnum=\dimen163
+\tocsubsubsectotal=\dimen164
+\tocparanum=\dimen165
+\tocparatotal=\dimen166
+\tocsubparanum=\dimen167
+\@tempcntc=\count295
+\fnindent=\dimen168
+\c@@inst=\count296
+\c@@auth=\count297
+\c@auco=\count298
+\instindent=\dimen169
+\authrun=\box99
 \authorrunning=\toks17
 \tocauthor=\toks18
-\titrun=\box98
+\titrun=\box100
 \titlerunning=\toks19
 \toctitle=\toks20
-\c@theorem=\count276
-\c@case=\count277
-\c@conjecture=\count278
-\c@corollary=\count279
-\c@definition=\count280
-\c@example=\count281
-\c@exercise=\count282
-\c@lemma=\count283
-\c@note=\count284
-\c@problem=\count285
-\c@property=\count286
-\c@proposition=\count287
-\c@question=\count288
-\c@solution=\count289
-\c@remark=\count290
-\headlineindent=\dimen162
-) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+\c@theorem=\count299
+\c@case=\count300
+\c@conjecture=\count301
+\c@corollary=\count302
+\c@definition=\count303
+\c@example=\count304
+\c@exercise=\count305
+\c@lemma=\count306
+\c@note=\count307
+\c@problem=\count308
+\c@property=\count309
+\c@proposition=\count310
+\c@question=\count311
+\c@solution=\count312
+\c@remark=\count313
+\headlineindent=\dimen170
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count291
+\c@float@type=\count314
 \float@exts=\toks21
-\float@box=\box99
+\float@box=\box101
 \@float@everytoks=\toks22
-\@floatcapt=\box100
-) (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+\@floatcapt=\box102
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen163
-\Gin@req@width=\dimen164
-) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen165
-\ar@mcellbox=\box101
-\extrarowheight=\dimen166
+\Gin@req@height=\dimen171
+\Gin@req@width=\dimen172
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen173
+\ar@mcellbox=\box103
+\extrarowheight=\dimen174
 \NC@list=\toks24
-\extratabsurround=\skip52
-\backup@length=\skip53
-\ar@cellbox=\box102
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
-\LTleft=\skip54
-\LTright=\skip55
-\LTpre=\skip56
-\LTpost=\skip57
-\LTchunksize=\count292
-\LTcapwidth=\dimen167
-\LT@head=\box103
-\LT@firsthead=\box104
-\LT@foot=\box105
-\LT@lastfoot=\box106
-\LT@gbox=\box107
-\LT@cols=\count293
-\LT@rows=\count294
-\c@LT@tables=\count295
-\c@LT@chunks=\count296
+\extratabsurround=\skip53
+\backup@length=\skip54
+\ar@cellbox=\box104
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count315
+\LTcapwidth=\dimen175
+\LT@head=\box105
+\LT@firsthead=\box106
+\LT@foot=\box107
+\LT@lastfoot=\box108
+\LT@gbox=\box109
+\LT@cols=\count316
+\LT@rows=\count317
+\c@LT@tables=\count318
+\c@LT@chunks=\count319
 \LT@p@ftn=\toks25
-) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2024/01/07 v24.1 The Babel package
-\babel@savecnt=\count297
-\U@D=\dimen168
-\l@unhyphenated=\language89
- (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+) (/usr/local/texlive/2026/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2026/03/08 v26.4 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+\babel@savecnt=\count320
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2078.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2080.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2082.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2083.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2084.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2086.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2111.
+\U@D=\dimen176
+\l@unhyphenated=\language91
+ (/usr/local/texlive/2026/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count298
- (/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuguese.ldf
-Language: portuges 2021/07/09 v1.2t Portuguese support from the babel system
-Package babel Info: Making " an active character on input line 143.
-)) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+\bbl@dirlevel=\count321
+ (/usr/local/texlive/2026/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex)
 Package babel Info: Importing font and identification data for portuguese
-(babel)             from babel-pt.ini. Reported on input line 11.
-) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+(babel)             from babel-pt.ini. Reported on input line 4330.
+ (/usr/local/texlive/2026/texmf-dist/tex/generic/babel-portuges/portuguese.ldf
+Language: portuges 2026/01/24 v1.2u Portuguese support from the babel system
+Package babel Info: Making " an active character on input line 132.
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen169
-\lightrulewidth=\dimen170
-\cmidrulewidth=\dimen171
-\belowrulesep=\dimen172
-\belowbottomsep=\dimen173
-\aboverulesep=\dimen174
-\abovetopsep=\dimen175
-\cmidrulesep=\dimen176
-\cmidrulekern=\dimen177
-\defaultaddspace=\dimen178
-\@cmidla=\count299
-\@cmidlb=\count300
-\@aboverulesep=\dimen179
-\@belowrulesep=\dimen180
-\@thisruleclass=\count301
-\@lastruleclass=\count302
-\@thisrulewidth=\dimen181
-) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count303
-\l__pdf_internal_box=\box108
-) (./relat贸rio.aux)
+\heavyrulewidth=\dimen177
+\lightrulewidth=\dimen178
+\cmidrulewidth=\dimen179
+\belowrulesep=\dimen180
+\belowbottomsep=\dimen181
+\aboverulesep=\dimen182
+\abovetopsep=\dimen183
+\cmidrulesep=\dimen184
+\cmidrulekern=\dimen185
+\defaultaddspace=\dimen186
+\@cmidla=\count322
+\@cmidlb=\count323
+\@aboverulesep=\dimen187
+\@belowrulesep=\dimen188
+\@thisruleclass=\count324
+\@lastruleclass=\count325
+\@thisrulewidth=\dimen189
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks26
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count326
+) (./relat贸rio.aux
+Package babel Info: 'portuguese' activates 'portuges' shorthands.
+(babel)             Reported on input line 5.
+)
 \openout1 = `relat贸rio.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+ (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count304
-\scratchdimen=\dimen182
-\scratchbox=\box109
-\nofMPsegments=\count305
-\nofMParguments=\count306
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count307
-\MPscratchDim=\dimen183
-\MPnumerator=\count308
-\makeMPintoPDFobject=\count309
-\everyMPtoPDFconversion=\toks27
-) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+\scratchcounter=\count327
+\scratchdimen=\dimen190
+\scratchbox=\box110
+\nofMPsegments=\count328
+\nofMParguments=\count329
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count330
+\MPscratchDim=\dimen191
+\MPnumerator=\count331
+\makeMPintoPDFobject=\count332
+\everyMPtoPDFconversion=\toks28
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 <../imagens/UM.png, id=1, 702.625pt x 702.625pt>
 File: ../imagens/UM.png Graphic file (type png)
 <use ../imagens/UM.png>
-Package pdftex.def Info: ../imagens/UM.png  used on input line 38.
+Package pdftex.def Info: ../imagens/UM.png  used on input line 39.
 (pdftex.def)             Requested size: 173.56177pt x 173.56519pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <../imagens/UM.png>]
-Overfull \hbox (3.33307pt too wide) in paragraph at lines 102--103
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <../imagens/UM.png>]
+Overfull \hbox (3.33307pt too wide) in paragraph at lines 103--104
 \T1/cmr/bx/n/9 Palavras-Chave: \T1/cmr/m/n/9 Ba-ses de Da-dos, Di-a-gra-mas Entidade-Relacionamento,
  []
 
 [1] (./relat贸rio.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 2.
- [2
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [2
 
 ])
 \tf@toc=\write3
@@ -309,92 +332,83 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@lot=\write5
 \openout5 = `relat贸rio.lot'.
 
- [5] [1] [2]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 219.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 219.
- [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+ [5] [1] [2] [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--293
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
 
  []
 
 [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
 
  []
 
 [8] [9]
-Overfull \hbox (50.60829pt too wide) in paragraph at lines 451--455
-[]\T1/cmr/m/n/10 O mo-delo con-cep-tual foi cons-tru韉o re-cor-rendo ao \T1/cmr/bx/n/10 Mo-delo Entidade-Relacionamento
+Overfull \hbox (50.60829pt too wide) in paragraph at lines 452--456
+[]\T1/cmr/m/n/10 O mo-delo con-cep-tual foi cons-tru-韉o re-cor-rendo ao \T1/cmr/bx/n/10 Mo-delo Entidade-Relacionamento
  []
 
-[10]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 505.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [11] [12] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
+[10] [11] [12] [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 699--699
+Underfull \hbox (badness 10000) in paragraph at lines 700--700
 []|\T1/cmr/m/n/9 Associa玢o ao
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--702
+Underfull \hbox (badness 10000) in paragraph at lines 703--703
 []|\T1/cmr/m/n/9 Composi玢o do
  []
 
 
-Overfull \hbox (45.59526pt too wide) in paragraph at lines 695--706
+Overfull \hbox (45.59526pt too wide) in paragraph at lines 696--707
  [][] 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 715--716
+Underfull \hbox (badness 10000) in paragraph at lines 716--717
 
  []
 
 <../imagens/participante_realiza_inscricao.png, id=82, 587.19376pt x 198.7425pt>
 File: ../imagens/participante_realiza_inscricao.png Graphic file (type png)
 <use ../imagens/participante_realiza_inscricao.png>
-Package pdftex.def Info: ../imagens/participante_realiza_inscricao.png  used on input line 722.
+Package pdftex.def Info: ../imagens/participante_realiza_inscricao.png  used on input line 723.
 (pdftex.def)             Requested size: 208.27623pt x 70.4919pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 719--725
+Underfull \hbox (badness 10000) in paragraph at lines 720--726
 
  []
 
 <../imagens/inscricao_evento.png, id=84, 759.83875pt x 259.97125pt>
 File: ../imagens/inscricao_evento.png Graphic file (type png)
 <use ../imagens/inscricao_evento.png>
-Package pdftex.def Info: ../imagens/inscricao_evento.png  used on input line 741.
+Package pdftex.def Info: ../imagens/inscricao_evento.png  used on input line 742.
 (pdftex.def)             Requested size: 208.27623pt x 71.26025pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 738--744
+Underfull \hbox (badness 10000) in paragraph at lines 739--745
 
  []
 
 <../imagens/inscricao_precisa_pagamento.png, id=85, 373.395pt x 659.46375pt>
 File: ../imagens/inscricao_precisa_pagamento.png Graphic file (type png)
 <use ../imagens/inscricao_precisa_pagamento.png>
-Package pdftex.def Info: ../imagens/inscricao_precisa_pagamento.png  used on input line 758.
+Package pdftex.def Info: ../imagens/inscricao_precisa_pagamento.png  used on input line 759.
 (pdftex.def)             Requested size: 208.27623pt x 367.8381pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 755--761
+Underfull \hbox (badness 10000) in paragraph at lines 756--762
 
  []
 
@@ -402,10 +416,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 755--761
 <../imagens/organizador_gere_evento.png, id=90, 628.3475pt x 361.35pt>
 File: ../imagens/organizador_gere_evento.png Graphic file (type png)
 <use ../imagens/organizador_gere_evento.png>
-Package pdftex.def Info: ../imagens/organizador_gere_evento.png  used on input line 775.
+Package pdftex.def Info: ../imagens/organizador_gere_evento.png  used on input line 776.
 (pdftex.def)             Requested size: 208.27623pt x 119.77518pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 772--778
+Underfull \hbox (badness 10000) in paragraph at lines 773--779
 
  []
 
@@ -413,10 +427,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 772--778
 <../imagens/rel_evento_tem_sessao.png, id=94, 271.0125pt x 789.95125pt>
 File: ../imagens/rel_evento_tem_sessao.png Graphic file (type png)
 <use ../imagens/rel_evento_tem_sessao.png>
-Package pdftex.def Info: ../imagens/rel_evento_tem_sessao.png  used on input line 792.
+Package pdftex.def Info: ../imagens/rel_evento_tem_sessao.png  used on input line 793.
 (pdftex.def)             Requested size: 104.1381pt x 303.54756pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 789--795
+Underfull \hbox (badness 10000) in paragraph at lines 790--796
 
  []
 
@@ -424,50 +438,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 789--795
 <../imagens/rel_sessao_apr_orador.png, id=98, 737.75626pt x 338.26375pt>
 File: ../imagens/rel_sessao_apr_orador.png Graphic file (type png)
 <use ../imagens/rel_sessao_apr_orador.png>
-Package pdftex.def Info: ../imagens/rel_sessao_apr_orador.png  used on input line 809.
+Package pdftex.def Info: ../imagens/rel_sessao_apr_orador.png  used on input line 810.
 (pdftex.def)             Requested size: 208.27623pt x 95.49258pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 806--812
+Underfull \hbox (badness 10000) in paragraph at lines 807--813
 
  []
 
 [19 <../imagens/rel_evento_tem_sessao.png>] [20 <../imagens/rel_sessao_apr_orador.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 826--827
+Underfull \hbox (badness 10000) in paragraph at lines 827--828
 
  []
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 852--852
+Underfull \hbox (badness 2384) in paragraph at lines 853--853
 []|\T1/cmr/m/n/9 Nome com-pleto do par-ti-ci-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--867
+Underfull \hbox (badness 10000) in paragraph at lines 867--868
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 907--908
+Underfull \hbox (badness 10000) in paragraph at lines 908--909
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 949--950
+Underfull \hbox (badness 10000) in paragraph at lines 950--951
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 991--992
+Underfull \hbox (badness 10000) in paragraph at lines 992--993
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
+Underfull \hbox (badness 10000) in paragraph at lines 1027--1028
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1062--1063
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
 
  []
 
@@ -475,27 +489,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 1062--1063
 <../imagens/mod_conceptual.png, id=128, 1414.28375pt x 606.265pt>
 File: ../imagens/mod_conceptual.png Graphic file (type png)
 <use ../imagens/mod_conceptual.png>
-Package pdftex.def Info: ../imagens/mod_conceptual.png  used on input line 1097.
+Package pdftex.def Info: ../imagens/mod_conceptual.png  used on input line 1098.
 (pdftex.def)             Requested size: 433.90442pt x 186.00677pt.
- [27] [28 <../imagens/mod_conceptual.png>] [29] (./relat贸rio.aux)
+ [27] [28 <../imagens/mod_conceptual.png>]
+<../imagens/modLgico.png, id=136, 494.84875pt x 656.4525pt>
+File: ../imagens/modLgico.png Graphic file (type png)
+<use ../imagens/modLgico.png>
+Package pdftex.def Info: ../imagens/modLgico.png  used on input line 1187.
+(pdftex.def)             Requested size: 381.838pt x 506.53175pt.
+ [29]
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1214
+[]\T1/cmr/bx/n/10 Inscricao\T1/cmr/m/n/10 ($[]$, data_inscricao, es-tado, \T1/cmr/m/it/10 id_participante\T1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 3449) in paragraph at lines 1215--1217
+[]\T1/cmr/bx/n/10 Pagamento\T1/cmr/m/n/10 ($[]$, va-lor, data_pagamento, me-todo, es-tado,
+ []
+
+[30 <../imagens/modLgico.png>] [31] [32]
+Overfull \hbox (38.65446pt too wide) in paragraph at lines 1348--1351
+[]\T1/cmr/bx/n/10 Pagamento\T1/cmr/m/n/10 : \T1/cmtt/m/n/10 valor\T1/cmr/m/n/10 , \T1/cmtt/m/n/10 data_pagamento\T1/cmr/m/n/10 , \T1/cmtt/m/n/10 metodo \T1/cmr/m/n/10 e \T1/cmtt/m/n/10 estado \T1/cmr/m/n/10 de-pen-dem de \T1/cmtt/m/n/10 id_pagamento\T1/cmr/m/n/10 ;
+ []
+
+
+Overfull \hbox (21.44038pt too wide) detected at line 1380
+\OML/cmm/m/it/10 ^^Y[]  []
+ []
+
+
+Overfull \hbox (157.02304pt too wide) detected at line 1389
+\OML/cmm/m/it/10 ^^Y[]  []
+ []
+
+[33]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1410.
+
+Overfull \hbox (90.13556pt too wide) detected at line 1413
+\OMS/cmsy/m/n/10 G[]  []
+ []
+
+
+Overfull \hbox (126.97446pt too wide) detected at line 1423
+[] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 ^^Z[]  []
+ []
+
+
+Overfull \hbox (20.06833pt too wide) detected at line 1436
+\OML/cmm/m/it/10 ^^Y[]  []
+ []
+
+[34] [35] (./relat贸rio.aux)
  ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3522 strings out of 474222
- 58027 string characters out of 5748733
- 1938975 words of memory out of 5000000
- 25743 multiletter control sequences out of 15000+600000
- 568754 words of font info for 55 fonts, out of 8000000 for 9000
+ 4150 strings out of 467525
+ 65861 string characters out of 5418982
+ 490667 words of memory out of 5000000
+ 33007 multiletter control sequences out of 15000+600000
+ 642428 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,13n,65p,723b,346s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on relat贸rio.pdf (35 pages, 673770 bytes).
+ 57i,13n,65p,726b,361s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on relat贸rio.pdf (41 pages, 1048344 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 122 compressed objects within 2 object streams
+ 258 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
