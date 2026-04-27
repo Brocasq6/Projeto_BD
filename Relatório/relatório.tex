@@ -1130,57 +1130,101 @@
 
 
         \section{Modelação Lógica}
- 
-                \subsection{Construção do Modelo de Dados Lógico}
- 
-                A modelação lógica consiste na tradução do Diagrama Entidade-Relacionamento (ER),
-                produzido na fase anterior, para um conjunto de relações (tabelas) que constituem
-                o esquema lógico da base de dados. Esta conversão segue um conjunto de regras
-                formais que asseguram a preservação semântica e a integridade do modelo conceptual
-                original.
- 
-                \vspace{0.3cm}
- 
-                As regras de mapeamento ER-Relacional aplicadas ao modelo do EvenSync foram as seguintes:
- 
+
+                \subsection{Construção e Validação do Modelo de Dados Lógico}
+
+                A modelação lógica tem como objetivo traduzir o modelo conceptual para um
+                modelo relacional, mantendo a coerência com os Requisitos de Descrição (RD),
+                Controlo (RC) e Manipulação (RM) definidos no Capítulo~2.
+
+                \subsubsection{Abordagem de Construção do Modelo Lógico}\mbox{}\\
+
+                O modelo de dados lógico foi construído a partir do Diagrama Entidade-Relacionamento
+                desenvolvido na fase de modelação conceptual (Secção~3.5). A conversão seguiu as
+                regras clássicas de transformação do modelo ER para o modelo lógico relacional.
+                Em termos gerais, foram adotados os seguintes princípios:
+
                 \begin{itemize}
-                    \item \textbf{Regra 1 — Entidade Forte:} cada entidade forte do diagrama ER origina
-                    uma relação com os mesmos atributos, sendo a chave primária da entidade a chave
-                    primária da relação resultante. Esta regra foi aplicada às sete entidades
-                    identificadas: \textit{Participante}, \textit{Evento}, \textit{Organizador},
-                    \textit{Sessão}, \textit{Orador}, \textit{Inscrição} e \textit{Pagamento}.
- 
-                    \item \textbf{Regra 2 — Relacionamento 1:N:} a chave primária da entidade do
-                    lado ``um'' é adicionada como chave estrangeira na relação correspondente à
-                    entidade do lado ``muitos''. Esta regra foi aplicada aos relacionamentos
-                    \textit{realiza} (Participante~$\to$~Inscrição) e \textit{pertence}
-                    (Evento~$\to$~Inscrição), incorporando os atributos \texttt{id\_participante}
-                    e \texttt{id\_evento} como chaves estrangeiras na relação \textit{Inscrição}.
- 
-                    \item \textbf{Regra 3 — Relacionamento 1:1:} a chave primária de uma das
-                    entidades é incluída como chave estrangeira na relação da outra, optando-se
-                    pelo lado de participação total. Para o relacionamento \textit{precisa}
-                    (Inscrição~$\leftrightarrow$~Pagamento), com participação total em ambos os
-                    lados, o atributo \texttt{id\_inscrição} foi incorporado em \textit{Pagamento}
-                    com restrição \texttt{UNIQUE}, o que garante que cada inscrição tem no máximo
-                    um pagamento (RC2).
- 
-                    \item \textbf{Regra 4 — Relacionamento N:M:} é criada uma nova relação
-                    associativa, cuja chave primária composta é formada pelas chaves primárias
-                    das duas entidades participantes, que funcionam igualmente como chaves
-                    estrangeiras. Esta regra foi aplicada aos relacionamentos
-                    \textit{gere} (Organizador~$\leftrightarrow$~Evento),
-                    \textit{tem} (Evento~$\leftrightarrow$~Sessão) e
-                    \textit{apresentada} (Sessão~$\leftrightarrow$~Orador), originando três
-                    relações associativas.
+                    \item Cada entidade do modelo conceptual foi convertida numa tabela, preservando
+                    os seus atributos e identificador único;
+                    \item Os identificadores das entidades passaram a corresponder a chaves primárias
+                    (\textit{Primary Keys});
+                    \item Os relacionamentos do tipo 1:N foram implementados através da introdução de
+                    chaves estrangeiras (\textit{Foreign Keys}) na tabela do lado N;
+                    \item Os relacionamentos do tipo 1:1 foram implementados através da introdução de
+                    uma chave estrangeira com restrição \texttt{UNIQUE} no lado de participação total;
+                    \item Os relacionamentos do tipo N:M deram origem a tabelas associativas, cuja
+                    chave primária composta é formada pelas chaves primárias das entidades participantes;
+                    \item As regras de negócio foram materializadas através de restrições de
+                    integridade (\texttt{UNIQUE}, \texttt{CHECK}, \texttt{NOT NULL}).
                 \end{itemize}
- 
+
+                \noindent A construção do modelo lógico foi realizada manualmente pela equipa, com
+                apoio da ferramenta MySQL Workbench para validação da coerência estrutural do
+                esquema (Figura~\ref{fig:modelo_logico}).
+
+                \subsubsection{Estrutura Geral do Modelo Lógico}\mbox{}\\
+
+                Como resultado do processo descrito, obteve-se um modelo lógico constituído por
+                \textbf{dez tabelas}: sete correspondentes às entidades identificadas no modelo
+                conceptual e três tabelas associativas resultantes dos relacionamentos N:M.
+
+                \noindent\textbf{Tabelas de entidades:}
+                \begin{itemize}
+                    \item \textbf{Participante} --- utilizadores registados na plataforma
+                    \item \textbf{Evento} --- eventos a gerir no sistema
+                    \item \textbf{Organizador} --- responsáveis pela gestão dos eventos
+                    \item \textbf{Sessao} --- atividades individuais que compõem um evento
+                    \item \textbf{Orador} --- especialistas que apresentam sessões
+                    \item \textbf{Inscricao} --- registos de participação em eventos
+                    \item \textbf{Pagamento} --- transações financeiras associadas a inscrições
+                \end{itemize}
+
+                \noindent\textbf{Tabelas associativas:}
+                \begin{itemize}
+                    \item \textbf{Gere} --- materializa o relacionamento N:M entre Organizador e Evento
+                    \item \textbf{Tem} --- materializa o relacionamento N:M entre Evento e Sessao
+                    \item \textbf{Apresentada} --- materializa o relacionamento N:M entre Sessao e Orador
+                \end{itemize}
+
+                \subsubsection{Validação do Modelo de Dados Lógico}\mbox{}\\
+
+                A validação do modelo lógico foi realizada com base em três critérios principais:
+
+                \begin{itemize}
+                    \item \textbf{Coerência com o modelo conceptual:} confirmou-se que todas as
+                    entidades, relacionamentos e regras definidas no diagrama ER estão corretamente
+                    representadas no esquema relacional, nomeadamente as cardinalidades e as
+                    participações totais/parciais;
+
+                    \item \textbf{Cobertura dos requisitos:} verificou-se que o modelo lógico suporta
+                    todos os Requisitos de Descrição (RD1--RD9) e de Controlo (RC1--RC6),
+                    nomeadamente o registo de eventos, sessões, oradores, participantes, inscrições
+                    e pagamentos, bem como as regras de unicidade e integridade referencial;
+
+                    \item \textbf{Suporte às interrogações do utilizador (RMs):} analisou-se se o
+                    esquema relacional permite formular todas as interrogações definidas na Secção~2.2
+                    (RM1--RM7), sem necessidade de informação adicional ou redundante.
+                \end{itemize}
+
+                \noindent O resultado desta validação indica que o modelo de dados lógico é
+                consistente, completo e adequado aos objetivos do sistema EvenSync,
+                encontrando-se preparado para as fases seguintes.
+
+                % ─────────────────────────────────────────────────────────────────────────
                 \subsection{Apresentação e Explicação do Modelo Lógico Produzido}
- 
-                A aplicação das regras descritas na Secção~4.1 resultou num modelo lógico
-                composto por \textbf{10 relações}. Na notação adoptada, os atributos
-                \underline{sublinhados} constituem a chave primária e os atributos em
-                \textit{itálico} representam chaves estrangeiras.
+
+                Para a construção do esquema lógico, a equipa iniciou o processo de derivação de
+                relações a partir do diagrama conceptual. Os atributos simples de cada entidade foram
+                mapeados diretamente para atributos das respetivas relações. Procedeu-se de seguida ao
+                mapeamento dos relacionamentos: conforme a cardinalidade de cada um, foi adicionado um
+                atributo de chave estrangeira na tabela do lado N (relacionamentos 1:N e 1:1) ou criada
+                uma nova tabela associativa (relacionamentos N:M).
+
+                \vspace{0.3cm}
+                O diagrama do modelo lógico produzido encontra-se representado na
+                Figura~\ref{fig:modelo_logico}. Nas subsecções seguintes descreve-se individualmente o
+                processo de criação de cada relação.
 
                 \begin{figure}[H]
                     \centering
@@ -1189,259 +1233,496 @@
                     \label{fig:modelo_logico}
                 \end{figure}
 
-                \vspace{0.4cm}
+                % ── Participante ──────────────────────────────────────────────────────────
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Participante}\mbox{}\\
 
-                \noindent\begin{minipage}{\textwidth}
-                \subsubsection*{Relações derivadas de entidades fortes}
-                \begin{enumerate}
-                    \item \textbf{Participante}\,(\underline{id\_participante}, nome, email,
-                          telemovel, organizacao)
- 
-                    \item \textbf{Evento}\,(\underline{id\_evento}, nome, tipo,
-                          data\_inicio, data\_fim, localizacao, descricao, capacidade)
- 
-                    \item \textbf{Organizador}\,(\underline{id\_organizador}, nome, email,
-                          telefone)
- 
-                    \item \textbf{Sessao}\,(\underline{id\_sessao}, tema, data,
-                          hora\_inicio, hora\_fim, sala)
- 
-                    \item \textbf{Orador}\,(\underline{id\_orador}, nome, email,
-                          especialidade)
- 
-                    \item \textbf{Inscricao}\,(\underline{id\_inscricao}, data\_inscricao,
-                          estado, \textit{id\_participante}, \textit{id\_evento})
- 
-                    \item \textbf{Pagamento}\,(\underline{id\_pagamento}, valor,
-                          data\_pagamento, metodo, estado, \textit{id\_inscricao})
-                \end{enumerate}
-                \end{minipage}
- 
-                \vspace{0.4cm}
- 
-                \noindent\begin{minipage}{\textwidth}
-                \subsubsection*{Relações associativas (relacionamentos N:M)}
-                \begin{enumerate}
-                    \setcounter{enumi}{7}
-                    \item \textbf{Gere}\,(\underline{\textit{id\_organizador}},
-                          \underline{\textit{id\_evento}})
- 
-                    \item \textbf{Tem}\,(\underline{\textit{id\_evento}},
-                          \underline{\textit{id\_sessao}})
- 
-                    \item \textbf{Apresentada}\,(\underline{\textit{id\_sessao}},
-                          \underline{\textit{id\_orador}})
-                \end{enumerate}
-                \end{minipage}
- 
-                \vspace{0.4cm}
- 
-                A Tabela~\ref{tab:fks} sintetiza todas as dependências de integridade referencial
-                do modelo lógico.
- 
+                A relação \textit{Participante} deriva diretamente da entidade homónima do modelo
+                conceptual (RD7). Os seus atributos simples foram mapeados para colunas da tabela.
+                Foram identificadas duas chaves candidatas: \texttt{id\_participante} e
+                \texttt{email} --- ambas identificam univocamente um participante. Optou-se por
+                \texttt{id\_participante} como chave primária por ser controlada internamente pelo
+                sistema. O atributo \texttt{email} mantém a restrição \texttt{UNIQUE} (RC3).
+
                 \begin{table}[H]
                 \centering
                 \renewcommand{\arraystretch}{1.4}
-                \begin{tabular}{|l|l|l|}
+                \begin{tabular}{|l|l|c|c|}
                 \hline
-                \textbf{Relação} & \textbf{Atributo (FK)} & \textbf{Referência} \\ \hline
-                Inscricao   & id\_participante & Participante(id\_participante) \\ \hline
-                Inscricao   & id\_evento       & Evento(id\_evento)             \\ \hline
-                Pagamento   & id\_inscricao    & Inscricao(id\_inscricao)       \\ \hline
-                Gere        & id\_organizador  & Organizador(id\_organizador)   \\ \hline
-                Gere        & id\_evento       & Evento(id\_evento)             \\ \hline
-                Tem         & id\_evento       & Evento(id\_evento)             \\ \hline
-                Tem         & id\_sessao       & Sessao(id\_sessao)             \\ \hline
-                Apresentada & id\_sessao       & Sessao(id\_sessao)             \\ \hline
-                Apresentada & id\_orador       & Orador(id\_orador)             \\ \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_participante & INT              & N & N \\ \hline
+                nome             & VARCHAR(100)     & N & N \\ \hline
+                email            & VARCHAR(100)     & N & N \\ \hline
+                telemovel        & VARCHAR(15)      & S & N \\ \hline
+                organizacao      & VARCHAR(100)     & S & N \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
-                \caption{Restrições de integridade referencial do modelo lógico}
-                \label{tab:fks}
+                \caption{Dicionário de dados da relação Participante}
+                \label{tab:dic_participante}
                 \end{table}
- 
+                \end{minipage}
+
+                % ── Evento ───────────────────────────────────────────────────────────────
                 \vspace{0.3cm}
-                Adicionalmente, as seguintes restrições de unicidade garantem o cumprimento
-                das regras de negócio RC1--RC3:
- 
-                \begin{itemize}
-                    \item \textbf{Participante.email} UNIQUE \hfill (RC3)
-                    \item \textbf{Orador.email} UNIQUE \hfill (RC3)
-                    \item \textbf{Organizador.email} UNIQUE \hfill (RC3)
-                    \item \textbf{Pagamento.id\_inscricao} UNIQUE \hfill (RC2)
-                    \item \textbf{(Inscricao.id\_participante, Inscricao.id\_evento)} UNIQUE \hfill (RC1)
-                \end{itemize}
- 
-                \subsection{Normalização dos Dados}
- 
-                A normalização é o processo de organização dos atributos de uma relação de modo
-                a reduzir a redundância e a garantir a integridade dos dados. O processo segue
-                uma sequência progressiva de formas normais: Primeira Forma Normal (1FN),
-                Segunda Forma Normal (2FN) e Terceira Forma Normal (3FN).
- 
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Evento}\mbox{}\\
+
+                A relação \textit{Evento} é a tabela central do sistema, derivando da entidade
+                homónima (RD1). Agrega toda a informação descritiva de cada evento. A chave
+                primária \texttt{id\_evento} é gerada automaticamente pelo sistema. A restrição
+                \texttt{CHECK(data\_inicio <= data\_fim)} garante a coerência temporal do evento.
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_evento   & INT          & N & N \\ \hline
+                nome         & VARCHAR(150) & N & N \\ \hline
+                tipo         & VARCHAR(50)  & N & N \\ \hline
+                data\_inicio & DATE         & N & N \\ \hline
+                data\_fim    & DATE         & N & N \\ \hline
+                localizacao  & VARCHAR(150) & N & N \\ \hline
+                descricao    & TEXT         & S & N \\ \hline
+                capacidade   & INT          & N & N \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Evento}
+                \label{tab:dic_evento}
+                \end{table}
+                \end{minipage}
+
+                % ── Organizador ──────────────────────────────────────────────────────────
                 \vspace{0.3cm}
- 
-                \subsubsection*{Primeira Forma Normal (1FN)}
- 
-                Uma relação encontra-se em 1FN se todos os seus atributos contêm apenas valores
-                atómicos (não divisíveis) e não existem grupos repetitivos. Analisando as 10
-                relações do modelo:
- 
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Organizador}\mbox{}\\
+
+                A relação \textit{Organizador} deriva da entidade homónima (RD2). Representa as
+                pessoas responsáveis pela gestão dos eventos. Tal como em \textit{Participante},
+                existem duas chaves candidatas (\texttt{id\_organizador} e \texttt{email}),
+                sendo \texttt{id\_organizador} escolhida como chave primária e \texttt{email}
+                mantido como \texttt{UNIQUE} (RC3).
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_organizador & INT          & N & N \\ \hline
+                nome            & VARCHAR(100) & N & N \\ \hline
+                email           & VARCHAR(100) & N & N \\ \hline
+                telefone        & VARCHAR(15)  & S & N \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Organizador}
+                \label{tab:dic_organizador}
+                \end{table}
+                \end{minipage}
+
+                % ── Sessao ───────────────────────────────────────────────────────────────
+                \vspace{0.3cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Sessao}\mbox{}\\
+
+                A relação \textit{Sessao} deriva da entidade homónima (RD4) e representa cada
+                atividade individual que compõe um evento. A chave primária é
+                \texttt{id\_sessao}. A restrição \texttt{CHECK(hora\_inicio < hora\_fim)} garante
+                a validade do intervalo temporal, necessária para suportar a regra de negócio RC6
+                (não sobreposição de horários).
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_sessao   & INT          & N & N \\ \hline
+                tema         & VARCHAR(150) & N & N \\ \hline
+                data         & DATE         & N & N \\ \hline
+                hora\_inicio & TIME         & N & N \\ \hline
+                hora\_fim    & TIME         & N & N \\ \hline
+                sala         & VARCHAR(50)  & S & N \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Sessao}
+                \label{tab:dic_sessao}
+                \end{table}
+                \end{minipage}
+
+                % ── Orador ───────────────────────────────────────────────────────────────
+                \vspace{0.3cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Orador}\mbox{}\\
+
+                A relação \textit{Orador} deriva da entidade homónima (RD5) e regista os
+                especialistas que apresentam sessões. A estrutura é análoga à de
+                \textit{Participante}: \texttt{id\_orador} como chave primária e
+                \texttt{email} com restrição \texttt{UNIQUE} (RC3).
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_orador    & INT          & N & N \\ \hline
+                nome          & VARCHAR(100) & N & N \\ \hline
+                email         & VARCHAR(100) & N & N \\ \hline
+                especialidade & VARCHAR(100) & N & N \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Orador}
+                \label{tab:dic_orador}
+                \end{table}
+                \end{minipage}
+
+                % ── Inscricao ────────────────────────────────────────────────────────────
+                \vspace{0.3cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Inscricao}\mbox{}\\
+
+                A relação \textit{Inscricao} deriva da entidade homónima (RD8) e incorpora duas
+                chaves estrangeiras: \texttt{id\_participante} que referencia
+                \textit{Participante} (R1) e \texttt{id\_evento} que referencia \textit{Evento}
+                (R2). A chave candidata composta \texttt{(id\_participante, id\_evento)} é
+                definida como \texttt{UNIQUE}, garantindo que um participante não se inscreve
+                mais do que uma vez no mesmo evento (RC1). O atributo \texttt{estado} regista a
+                situação da inscrição com os valores possíveis: \texttt{'pendente'},
+                \texttt{'confirmada'} ou \texttt{'cancelada'}.
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_inscricao    & INT          & N & N \\ \hline
+                data\_inscricao  & DATETIME     & N & N \\ \hline
+                estado           & VARCHAR(15)  & N & N \\ \hline
+                id\_participante & INT          & N & S \\ \hline
+                id\_evento       & INT          & N & S \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Inscricao}
+                \label{tab:dic_inscricao}
+                \end{table}
+                \end{minipage}
+
+                % ── Pagamento ────────────────────────────────────────────────────────────
+                \vspace{0.3cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Pagamento}\mbox{}\\
+
+                A relação \textit{Pagamento} deriva da entidade homónima (RD9) e materializa o
+                relacionamento 1:1 \textit{precisa} entre \textit{Inscricao} e
+                \textit{Pagamento}. Incorpora a chave estrangeira \texttt{id\_inscricao} com
+                restrição \texttt{UNIQUE}, garantindo que cada inscrição tem no máximo um
+                pagamento associado (RC2). Os atributos \texttt{metodo} e \texttt{estado}
+                são limitados a conjuntos fixos de valores através de restrições \texttt{CHECK}.
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_pagamento   & INT           & N & N \\ \hline
+                valor           & DECIMAL(8,2)  & N & N \\ \hline
+                data\_pagamento & DATETIME      & N & N \\ \hline
+                metodo          & VARCHAR(20)   & N & N \\ \hline
+                estado          & VARCHAR(15)   & N & N \\ \hline
+                id\_inscricao   & INT           & N & S \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Pagamento}
+                \label{tab:dic_pagamento}
+                \end{table}
+                \end{minipage}
+
+                % ── Gere ─────────────────────────────────────────────────────────────────
+                \vspace{0.3cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Gere}\mbox{}\\
+
+                A relação \textit{Gere} é uma tabela associativa criada para materializar o
+                relacionamento N:M \textit{gere} entre \textit{Organizador} e \textit{Evento}
+                (R4, RD3). A chave primária composta é formada pelos dois atributos, que
+                funcionam também como chaves estrangeiras.
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_organizador & INT & N & S \\ \hline
+                id\_evento      & INT & N & S \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Gere}
+                \label{tab:dic_gere}
+                \end{table}
+                \end{minipage}
+
+                % ── Tem ──────────────────────────────────────────────────────────────────
+                \vspace{0.3cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Tem}\mbox{}\\
+
+                A relação \textit{Tem} é uma tabela associativa que materializa o relacionamento
+                N:M \textit{tem} entre \textit{Evento} e \textit{Sessao} (R5, RD4), permitindo
+                que um evento seja composto por várias sessões e que uma sessão possa ser
+                partilhada por múltiplos eventos.
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_evento & INT & N & S \\ \hline
+                id\_sessao & INT & N & S \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Tem}
+                \label{tab:dic_tem}
+                \end{table}
+                \end{minipage}
+
+                % ── Apresentada ──────────────────────────────────────────────────────────
+                \vspace{0.3cm}
+                \noindent\begin{minipage}{\textwidth}
+                \subsubsection{Relação: Apresentada}\mbox{}\\
+
+                A relação \textit{Apresentada} é uma tabela associativa que materializa o
+                relacionamento N:M \textit{apresentada} entre \textit{Sessao} e \textit{Orador}
+                (R6, RD6), permitindo que uma sessão tenha múltiplos oradores e que um orador
+                apresente em múltiplas sessões.
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.4}
+                \begin{tabular}{|l|l|c|c|}
+                \hline
+                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
+                id\_sessao & INT & N & S \\ \hline
+                id\_orador & INT & N & S \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Dicionário de dados da relação Apresentada}
+                \label{tab:dic_apresentada}
+                \end{table}
+                \end{minipage}
+
+                % ─────────────────────────────────────────────────────────────────────────
+                \subsection{Normalização de Dados}
+
+                O objetivo desta secção é justificar que o modelo lógico relacional definido
+                --- \textit{Participante}, \textit{Evento}, \textit{Organizador}, \textit{Sessao},
+                \textit{Orador}, \textit{Inscricao}, \textit{Pagamento}, \textit{Gere},
+                \textit{Tem} e \textit{Apresentada} --- se encontra normalizado, reduzindo a
+                redundância e prevenindo anomalias de inserção, atualização e remoção.
+
+                A normalização foi verificada com base na identificação das dependências
+                funcionais (DFs), das chaves primárias e alternativas, e na análise das formas
+                normais (1FN, 2FN e 3FN) para cada relação do esquema final.
+
+                \subsubsection{Dependências Funcionais e Chaves Identificadas}\mbox{}\\
+
+                A partir do esquema relacional e das restrições definidas (\texttt{PK},
+                \texttt{UNIQUE}, \texttt{FK}), identificam-se as seguintes DFs principais:
+
+                \vspace{0.2cm}
+                \noindent\textbf{Participante} (\underline{id\_participante}, nome, email, telemovel, organizacao)
                 \begin{itemize}
-                    \item Todos os atributos possuem domínios simples e atómicos (inteiros,
-                    cadeias de caracteres, datas e decimais).
-                    \item Não existem atributos multivalorados nem estruturas aninhadas — os
-                    relacionamentos N:M foram decompostos em relações associativas (Gere, Tem,
-                    Apresentada), eliminando qualquer repetição de grupos.
+                    \item \texttt{id\_participante} $\to$ nome, email, telemovel, organizacao
+                    \item \texttt{email} $\to$ id\_participante, nome, telemovel, organizacao \hfill (\textit{chave alternativa --- UNIQUE})
                 \end{itemize}
- 
+
+                \noindent\textbf{Evento} (\underline{id\_evento}, nome, tipo, data\_inicio, data\_fim, localizacao, descricao, capacidade)
+                \begin{itemize}
+                    \item \texttt{id\_evento} $\to$ nome, tipo, data\_inicio, data\_fim, localizacao, descricao, capacidade
+                \end{itemize}
+
+                \noindent\textbf{Organizador} (\underline{id\_organizador}, nome, email, telefone)
+                \begin{itemize}
+                    \item \texttt{id\_organizador} $\to$ nome, email, telefone
+                    \item \texttt{email} $\to$ id\_organizador, nome, telefone \hfill (\textit{chave alternativa --- UNIQUE})
+                \end{itemize}
+
+                \noindent\textbf{Sessao} (\underline{id\_sessao}, tema, data, hora\_inicio, hora\_fim, sala)
+                \begin{itemize}
+                    \item \texttt{id\_sessao} $\to$ tema, data, hora\_inicio, hora\_fim, sala
+                \end{itemize}
+
+                \noindent\textbf{Orador} (\underline{id\_orador}, nome, email, especialidade)
+                \begin{itemize}
+                    \item \texttt{id\_orador} $\to$ nome, email, especialidade
+                    \item \texttt{email} $\to$ id\_orador, nome, especialidade \hfill (\textit{chave alternativa --- UNIQUE})
+                \end{itemize}
+
+                \noindent\textbf{Inscricao} (\underline{id\_inscricao}, data\_inscricao, estado, id\_participante, id\_evento)
+                \begin{itemize}
+                    \item \texttt{id\_inscricao} $\to$ data\_inscricao, estado, id\_participante, id\_evento
+                    \item \texttt{(id\_participante, id\_evento)} $\to$ id\_inscricao, data\_inscricao, estado \hfill (\textit{chave alternativa --- UNIQUE, RC1})
+                \end{itemize}
+
+                \noindent\textbf{Pagamento} (\underline{id\_pagamento}, valor, data\_pagamento, metodo, estado, id\_inscricao)
+                \begin{itemize}
+                    \item \texttt{id\_pagamento} $\to$ valor, data\_pagamento, metodo, estado, id\_inscricao
+                    \item \texttt{id\_inscricao} $\to$ id\_pagamento, valor, data\_pagamento, metodo, estado \hfill (\textit{chave alternativa --- UNIQUE, RC2})
+                \end{itemize}
+
+                \noindent\textbf{Gere, Tem, Apresentada} --- apenas atributos de chave; não existem DFs adicionais.
+
+                \subsubsection{Verificação das Formas Normais}\mbox{}\\
+
+                \noindent\textbf{A) Primeira Forma Normal (1FN)}
+
+                Todas as relações respeitam a 1FN:
+                \begin{itemize}
+                    \item Os atributos são atómicos --- não existem listas nem valores repetidos num mesmo campo;
+                    \item Cada tabela possui uma chave primária bem definida;
+                    \item Os relacionamentos N:M foram decompostos em tabelas associativas (\textit{Gere},
+                    \textit{Tem}, \textit{Apresentada}), eliminando grupos repetitivos.
+                \end{itemize}
                 \noindent Todas as relações estão em \textbf{1FN}. $\checkmark$
- 
+
                 \vspace{0.3cm}
- 
-                \subsubsection*{Segunda Forma Normal (2FN)}
- 
-                Uma relação em 1FN encontra-se em 2FN se todos os atributos não-chave dependem
-                \textit{funcionalmente} da totalidade da chave primária (ausência de dependências
-                parciais). Esta condição é automaticamente satisfeita para relações com chave
-                primária simples.
- 
+                \noindent\textbf{B) Segunda Forma Normal (2FN)}
+
+                A 2FN é relevante quando existem chaves compostas e dependências parciais:
                 \begin{itemize}
                     \item As relações \textit{Participante}, \textit{Evento}, \textit{Organizador},
                     \textit{Sessao}, \textit{Orador}, \textit{Inscricao} e \textit{Pagamento}
-                    possuem chave primária simples (um único atributo), pelo que estão trivialmente
-                    em 2FN.
-                    \item As relações associativas \textit{Gere}, \textit{Tem} e \textit{Apresentada}
-                    possuem chave primária composta, mas não contêm atributos não-chave — apenas os
-                    dois atributos que formam a chave primária/estrangeira composta. Não existe,
-                    portanto, nenhuma dependência parcial possível.
+                    possuem chave primária simples, pelo que estão trivialmente em 2FN;
+                    \item As relações \textit{Gere}, \textit{Tem} e \textit{Apresentada} possuem
+                    chave primária composta, mas não contêm atributos não-chave --- logo não podem
+                    existir dependências parciais.
                 \end{itemize}
- 
                 \noindent Todas as relações estão em \textbf{2FN}. $\checkmark$
- 
+
                 \vspace{0.3cm}
- 
-                \subsubsection*{Terceira Forma Normal (3FN)}
- 
-                Uma relação em 2FN encontra-se em 3FN se não existem dependências transitivas,
-                ou seja, nenhum atributo não-chave determina outro atributo não-chave.
- 
-                Analisando as relações com atributos não-chave:
- 
+                \noindent\textbf{C) Terceira Forma Normal (3FN)}
+
+                Em 3FN não podem existir dependências transitivas (chave $\to$ A $\to$ B, onde B é
+                não-chave):
                 \begin{itemize}
-                    \item \textbf{Participante}: os atributos \texttt{nome}, \texttt{email},
-                    \texttt{telemovel} e \texttt{organizacao} dependem diretamente de
-                    \texttt{id\_participante} e não entre si.
-                    \item \textbf{Evento}: os atributos \texttt{nome}, \texttt{tipo},
-                    \texttt{data\_inicio}, \texttt{data\_fim}, \texttt{localizacao},
-                    \texttt{descricao} e \texttt{capacidade} dependem diretamente de
-                    \texttt{id\_evento}.
-                    \item \textbf{Organizador}, \textbf{Orador}: estrutura análoga às anteriores,
-                    sem dependências transitivas.
-                    \item \textbf{Sessao}: todos os atributos (\texttt{tema}, \texttt{data},
-                    \texttt{hora\_inicio}, \texttt{hora\_fim}, \texttt{sala}) dependem
-                    diretamente de \texttt{id\_sessao}.
-                    \item \textbf{Inscricao}: \texttt{data\_inscricao} e \texttt{estado}
-                    dependem de \texttt{id\_inscricao}; as chaves estrangeiras
-                    \texttt{id\_participante} e \texttt{id\_evento} são atributos de ligação,
-                    não determinam outros atributos não-chave.
-                    \item \textbf{Pagamento}: \texttt{valor}, \texttt{data\_pagamento},
-                    \texttt{metodo} e \texttt{estado} dependem de \texttt{id\_pagamento};
-                    \texttt{id\_inscricao} é chave estrangeira e não cria transitividade.
+                    \item \textit{Inscricao} não guarda atributos de \textit{Participante} (nome, email)
+                    nem de \textit{Evento} (nome, tipo); guarda apenas as FKs (\texttt{id\_participante},
+                    \texttt{id\_evento}), evitando transitividades e redundância;
+                    \item \textit{Pagamento} guarda apenas a referência à inscrição
+                    (\texttt{id\_inscricao}), não duplicando dados como o nome do participante ou
+                    o nome do evento;
+                    \item Nas restantes relações, todos os atributos não-chave dependem diretamente
+                    da chave primária e não entre si.
                 \end{itemize}
- 
-                \noindent Não foram identificadas dependências transitivas em nenhuma das
-                relações. Todas as relações estão em \textbf{3FN}. $\checkmark$
- 
-                \vspace{0.3cm}
-                Conclui-se que o modelo lógico do EvenSync se encontra normalizado até à 3FN,
-                garantindo a eliminação de redundâncias desnecessárias e a integridade estrutural
-                da base de dados.
- 
+                \noindent Todas as relações estão em \textbf{3FN}. $\checkmark$
+
+                \subsubsection{Anomalias Evitadas}\mbox{}\\
+
+                A normalização até 3FN elimina as seguintes anomalias do modelo:
+
+                \begin{itemize}
+                    \item \textbf{Inserção:} é possível registar um \textit{Evento} sem inscrições
+                    associadas, e um \textit{Participante} sem ter ainda realizado qualquer inscrição,
+                    sem violar a integridade do sistema;
+
+                    \item \textbf{Atualização:} alterar dados de um \textit{Participante} (por exemplo,
+                    o email ou o nome) não implica atualizar registos em \textit{Inscricao} ou
+                    \textit{Pagamento}, pois esses atributos não são replicados --- apenas a FK
+                    \texttt{id\_participante} está presente;
+
+                    \item \textbf{Remoção:} eliminar um \textit{Evento} não remove os dados do
+                    \textit{Organizador} nem do \textit{Participante}; os registos dependentes
+                    (\textit{Inscricao}, \textit{Pagamento}) são geridos de forma controlada
+                    pelas regras de integridade referencial (\texttt{ON DELETE RESTRICT}).
+                \end{itemize}
+
+                \subsubsection{Conclusão}\mbox{}\\
+
+                O modelo lógico relacional do EvenSync encontra-se normalizado até à 3FN,
+                garantindo integridade, consistência e eficiência nas operações de manipulação
+                de dados. A estrutura está preparada para a fase de implementação física
+                (Capítulo~5).
+
+                % ─────────────────────────────────────────────────────────────────────────
                 \subsection{Validação do Modelo com Interrogações do Utilizador}
- 
-                A validação do modelo lógico é realizada através da expressão dos Requisitos de
-                Manipulação (RM1--RM7), identificados no Capítulo~2, em álgebra relacional.
-                O objetivo é verificar que todas as consultas previstas pelo utilizador são
-                respondíveis com as relações e atributos definidos no modelo lógico, confirmando
-                a sua completude e correcção.
- 
+
+                A equipa validou o modelo lógico produzido através da implementação das
+                interrogações definidas pelos Requisitos de Manipulação (RM1--RM7) identificados
+                no Capítulo~2. Para assegurar a correção do raciocínio e testar as interrogações
+                antes da implementação em SQL, foi utilizada a calculadora de álgebra relacional
+                \textbf{RelaX}.
+
                 \vspace{0.3cm}
                 Na notação utilizada: $\sigma$ representa a selecção, $\pi$ a projecção,
                 $\bowtie$ a junção natural e $\mathcal{G}$ a operação de agrupamento com função
-                de agregação. Os parâmetros de condição variável são indicados por letras
-                maiúsculas ($X$, $T$, etc.).
- 
+                de agregação. Os parâmetros variáveis são indicados por letras maiúsculas
+                ($X$, $T$, etc.).
+
                 \vspace{0.4cm}
- 
                 \noindent\textbf{RM1 — Consultar todos os eventos, com filtro por tipo $T$:}
                 \[
-                \pi_{\,\texttt{id\_evento},\,\texttt{nome},\,\texttt{tipo},\,\texttt{data\_inicio},\,\texttt{data\_fim},\,\texttt{localizacao}}\!\left(\,\sigma_{\texttt{tipo}\,=\,T}\left(\mathit{Evento}\right)\right)
+                \pi_{\,\texttt{id\_evento},\,\texttt{nome},\,\texttt{tipo},\,\texttt{data\_inicio},\,\texttt{data\_fim},\,\texttt{localizacao}}\!\left(\,\sigma_{\texttt{tipo}\,=\,T}\!\left(\mathit{Evento}\right)\right)
                 \]
-                Para listar \textit{todos} os eventos, omite-se a selecção $\sigma$, retendo
-                apenas a projecção sobre os atributos desejados.
- 
+                Para listar todos os eventos, omite-se a selecção $\sigma$, retendo apenas a
+                projecção sobre os atributos desejados.
+
                 \vspace{0.4cm}
- 
                 \noindent\textbf{RM2 — Programa completo do evento $X$ (sessões, oradores, salas e horários):}
                 \[
                 \pi_{\,S.\texttt{tema},\,S.\texttt{sala},\,S.\texttt{data},\,S.\texttt{hora\_inicio},\,S.\texttt{hora\_fim},\,O.\texttt{nome}}\!\left(\,\sigma_{E.\texttt{id\_evento}\,=\,X}\!\left(E \bowtie \mathit{Tem} \bowtie S \bowtie \mathit{Apresentada} \bowtie O\right)\right)
                 \]
                 onde $E = \mathit{Evento}$, $S = \mathit{Sessao}$, $O = \mathit{Orador}$.
- 
+
                 \vspace{0.4cm}
- 
                 \noindent\textbf{RM3 — Lista de inscritos no evento $X$ com o estado da inscrição:}
                 \[
                 \pi_{\,P.\texttt{nome},\,P.\texttt{email},\,I.\texttt{estado}}\!\left(\,\sigma_{I.\texttt{id\_evento}\,=\,X}\!\left(\mathit{Participante} \bowtie \mathit{Inscricao}\right)\right)
                 \]
                 onde $P = \mathit{Participante}$, $I = \mathit{Inscricao}$.
- 
+
                 \vspace{0.4cm}
- 
                 \noindent\textbf{RM4 — Histórico de inscrições do participante $X$:}
                 \[
                 \pi_{\,E.\texttt{nome},\,I.\texttt{data\_inscricao},\,I.\texttt{estado}}\!\left(\,\sigma_{P.\texttt{id\_participante}\,=\,X}\!\left(P \bowtie I \bowtie E\right)\right)
                 \]
                 onde $P = \mathit{Participante}$, $I = \mathit{Inscricao}$, $E = \mathit{Evento}$.
- 
+
                 \vspace{0.4cm}
- 
-                \noindent\textbf{RM5 — Total de receitas do evento $X$ (apenas pagamentos com estado \texttt{'pago'}):}
+                \noindent\textbf{RM5 — Total de receitas do evento $X$ (pagamentos com estado \texttt{'pago'}):}
                 \[
                 \mathcal{G}_{\,SUM(\texttt{Pg.valor})}\!\left(\,\pi_{\,\texttt{Pg.valor}}\!\left(\,\sigma_{I.\texttt{id\_evento}\,=\,X\;\wedge\;\texttt{Pg.estado}\,=\,\texttt{'pago'}}\!\left(\mathit{Inscricao} \bowtie \mathit{Pagamento}\right)\right)\right)
                 \]
                 onde $I = \mathit{Inscricao}$, $Pg = \mathit{Pagamento}$.
- 
+
                 \vspace{0.4cm}
- 
                 \noindent\textbf{RM6 — Eventos com maior taxa de ocupação (inscrições confirmadas / capacidade):}
- 
-                Definindo a relação auxiliar de contagem de inscrições confirmadas:
+
+                \noindent Definindo a relação auxiliar de contagem de inscrições confirmadas:
                 \[
                 \mathit{Contagem} \leftarrow \rho_{\,(\texttt{id\_evento},\;\texttt{n\_confirmadas})}\!\left(\mathcal{G}_{\,\texttt{id\_evento};\;COUNT(*)}\!\left(\,\sigma_{\texttt{estado}\,=\,\texttt{'confirmada'}}\!\left(\mathit{Inscricao}\right)\right)\right)
                 \]
-                A taxa de ocupação de cada evento é obtida por:
                 \[
                 \pi_{\,E.\texttt{nome},\;C.\texttt{n\_confirmadas},\;E.\texttt{capacidade}}\!\left(\mathit{Evento} \bowtie_{\texttt{id\_evento}} \mathit{Contagem}\right)
                 \]
-                Ordenando pelo rácio $\texttt{n\_confirmadas} / \texttt{capacidade}$ de forma decrescente,
-                obtêm-se os eventos com maior taxa de ocupação.
- 
+                \noindent Ordenando pelo rácio $\texttt{n\_confirmadas} / \texttt{capacidade}$ de forma decrescente, obtêm-se os eventos com maior taxa de ocupação.
+
                 \vspace{0.4cm}
- 
                 \noindent\textbf{RM7 — Oradores que apresentam sessões do evento $X$:}
                 \[
                 \pi_{\,O.\texttt{nome},\,O.\texttt{especialidade}}\!\left(\,\sigma_{E.\texttt{id\_evento}\,=\,X}\!\left(E \bowtie \mathit{Tem} \bowtie S \bowtie \mathit{Apresentada} \bowtie O\right)\right)
                 \]
                 onde $E = \mathit{Evento}$, $S = \mathit{Sessao}$, $O = \mathit{Orador}$.
- 
+
                 \vspace{0.3cm}
- 
-                A expressibilidade de todos os sete requisitos de manipulação em álgebra relacional,
-                usando exclusivamente as relações e atributos definidos no modelo lógico, confirma
-                que o modelo produzido é \textbf{completo e válido} face ao conjunto de
-                necessidades identificadas pelo utilizador.
+                A expressibilidade de todos os sete requisitos de manipulação em álgebra
+                relacional, usando exclusivamente as relações e atributos do modelo lógico,
+                confirma que o modelo produzido é \textbf{completo e válido} face ao conjunto
+                de necessidades identificadas pelo utilizador.
         %PONTO 5
         \section{Implementação Fisica}
                 \subsection{Apresentação e Explicação da Base de Dados Implementada}

@@ -80,23 +80,58 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Diagrama Entidade-Relacionamento do sistema EvenSync}}{28}{}\protected@file@percent }
 \newlabel{fig:diagrama_er}{{7}{28}{}{figure.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Modelação Lógica}{29}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Construção do Modelo de Dados Lógico}{29}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Apresentação e Explicação do Modelo Lógico Produzido}{29}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Diagrama do Modelo Lógico do sistema EvenSync (gerado com MySQL Workbench)}}{30}{}\protected@file@percent }
-\newlabel{fig:modelo_logico}{{8}{30}{}{figure.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Restrições de integridade referencial do modelo lógico}}{31}{}\protected@file@percent }
-\newlabel{tab:fks}{{14}{31}{}{table.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Normalização dos Dados}{32}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogações do Utilizador}{33}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Implementação Fisica}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Bibliografia}{35}{}\protected@file@percent }
-\gdef \@abspage@last{41}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Construção e Validação do Modelo de Dados Lógico}{29}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Abordagem de Construção do Modelo Lógico}{29}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Estrutura Geral do Modelo Lógico}{29}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Validação do Modelo de Dados Lógico}{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Apresentação e Explicação do Modelo Lógico Produzido}{30}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Diagrama do Modelo Lógico do sistema EvenSync (gerado com MySQL Workbench)}}{31}{}\protected@file@percent }
+\newlabel{fig:modelo_logico}{{8}{31}{}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Relação: Participante}{32}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Dicionário de dados da relação Participante}}{32}{}\protected@file@percent }
+\newlabel{tab:dic_participante}{{14}{32}{}{table.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Relação: Evento}{32}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Dicionário de dados da relação Evento}}{32}{}\protected@file@percent }
+\newlabel{tab:dic_evento}{{15}{32}{}{table.15}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Relação: Organizador}{33}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Dicionário de dados da relação Organizador}}{33}{}\protected@file@percent }
+\newlabel{tab:dic_organizador}{{16}{33}{}{table.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Relação: Sessao}{33}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces Dicionário de dados da relação Sessao}}{33}{}\protected@file@percent }
+\newlabel{tab:dic_sessao}{{17}{33}{}{table.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5}Relação: Orador}{34}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Dicionário de dados da relação Orador}}{34}{}\protected@file@percent }
+\newlabel{tab:dic_orador}{{18}{34}{}{table.18}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.6}Relação: Inscricao}{34}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {19}{\ignorespaces Dicionário de dados da relação Inscricao}}{34}{}\protected@file@percent }
+\newlabel{tab:dic_inscricao}{{19}{34}{}{table.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.7}Relação: Pagamento}{35}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {20}{\ignorespaces Dicionário de dados da relação Pagamento}}{35}{}\protected@file@percent }
+\newlabel{tab:dic_pagamento}{{20}{35}{}{table.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.8}Relação: Gere}{35}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {21}{\ignorespaces Dicionário de dados da relação Gere}}{35}{}\protected@file@percent }
+\newlabel{tab:dic_gere}{{21}{35}{}{table.21}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.9}Relação: Tem}{36}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {22}{\ignorespaces Dicionário de dados da relação Tem}}{36}{}\protected@file@percent }
+\newlabel{tab:dic_tem}{{22}{36}{}{table.22}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.10}Relação: Apresentada}{36}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {23}{\ignorespaces Dicionário de dados da relação Apresentada}}{36}{}\protected@file@percent }
+\newlabel{tab:dic_apresentada}{{23}{36}{}{table.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Normalização de Dados}{36}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Dependências Funcionais e Chaves Identificadas}{36}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Verificação das Formas Normais}{37}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Anomalias Evitadas}{38}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Conclusão}{38}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogações do Utilizador}{39}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Implementação Fisica}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Bibliografia}{40}{}\protected@file@percent }
+\gdef \@abspage@last{46}
