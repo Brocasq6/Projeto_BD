@@ -1,24 +1,24 @@
-\babel@toc {portuguese}{}\relax 
+\babel@toc {nil}{}\relax 
 \contentsline {table}{\numberline {1}{\ignorespaces Plano de Execução do Projeto}}{4}{}%
 \contentsline {table}{\numberline {2}{\ignorespaces Requisitos de Descrição do EvenSync}}{6}{}%
 \contentsline {table}{\numberline {3}{\ignorespaces Requisitos de Manipulação do EvenSync}}{7}{}%
-\contentsline {table}{\numberline {4}{\ignorespaces Requisitos de Controlo do EvenSync}}{7}{}%
-\contentsline {table}{\numberline {5}{\ignorespaces Entidades do Sistema EvenSync}}{11}{}%
-\contentsline {table}{\numberline {6}{\ignorespaces Síntese dos Relacionamentos do Sistema EvenSync}}{15}{}%
-\contentsline {table}{\numberline {7}{\ignorespaces Atributos da entidade Participante}}{21}{}%
-\contentsline {table}{\numberline {8}{\ignorespaces Atributos da entidade Inscrição}}{22}{}%
-\contentsline {table}{\numberline {9}{\ignorespaces Atributos da entidade Pagamento}}{23}{}%
-\contentsline {table}{\numberline {10}{\ignorespaces Atributos da entidade Evento}}{24}{}%
-\contentsline {table}{\numberline {11}{\ignorespaces Atributos da entidade Organizador}}{25}{}%
-\contentsline {table}{\numberline {12}{\ignorespaces Atributos da entidade Sessão}}{26}{}%
-\contentsline {table}{\numberline {13}{\ignorespaces Atributos da entidade Orador}}{27}{}%
-\contentsline {table}{\numberline {14}{\ignorespaces Dicionário de dados da relação Participante}}{32}{}%
-\contentsline {table}{\numberline {15}{\ignorespaces Dicionário de dados da relação Evento}}{32}{}%
-\contentsline {table}{\numberline {16}{\ignorespaces Dicionário de dados da relação Organizador}}{33}{}%
-\contentsline {table}{\numberline {17}{\ignorespaces Dicionário de dados da relação Sessao}}{33}{}%
-\contentsline {table}{\numberline {18}{\ignorespaces Dicionário de dados da relação Orador}}{34}{}%
-\contentsline {table}{\numberline {19}{\ignorespaces Dicionário de dados da relação Inscricao}}{34}{}%
-\contentsline {table}{\numberline {20}{\ignorespaces Dicionário de dados da relação Pagamento}}{35}{}%
-\contentsline {table}{\numberline {21}{\ignorespaces Dicionário de dados da relação Gere}}{35}{}%
-\contentsline {table}{\numberline {22}{\ignorespaces Dicionário de dados da relação Tem}}{36}{}%
-\contentsline {table}{\numberline {23}{\ignorespaces Dicionário de dados da relação Apresentada}}{36}{}%
+\contentsline {table}{\numberline {4}{\ignorespaces Requisitos de Controlo do EvenSync}}{8}{}%
+\contentsline {table}{\numberline {5}{\ignorespaces Entidades do Sistema EvenSync}}{12}{}%
+\contentsline {table}{\numberline {6}{\ignorespaces Síntese dos Relacionamentos do Sistema EvenSync}}{16}{}%
+\contentsline {table}{\numberline {7}{\ignorespaces Atributos da entidade Participante}}{22}{}%
+\contentsline {table}{\numberline {8}{\ignorespaces Atributos da entidade Inscrição}}{23}{}%
+\contentsline {table}{\numberline {9}{\ignorespaces Atributos da entidade Pagamento}}{24}{}%
+\contentsline {table}{\numberline {10}{\ignorespaces Atributos da entidade Evento}}{25}{}%
+\contentsline {table}{\numberline {11}{\ignorespaces Atributos da entidade Organizador}}{26}{}%
+\contentsline {table}{\numberline {12}{\ignorespaces Atributos da entidade Sessão}}{27}{}%
+\contentsline {table}{\numberline {13}{\ignorespaces Atributos da entidade Orador}}{28}{}%
+\contentsline {table}{\numberline {14}{\ignorespaces Dicionário de dados da relação Participante}}{33}{}%
+\contentsline {table}{\numberline {15}{\ignorespaces Dicionário de dados da relação Evento}}{33}{}%
+\contentsline {table}{\numberline {16}{\ignorespaces Dicionário de dados da relação Organizador}}{34}{}%
+\contentsline {table}{\numberline {17}{\ignorespaces Dicionário de dados da relação Sessao}}{34}{}%
+\contentsline {table}{\numberline {18}{\ignorespaces Dicionário de dados da relação Orador}}{35}{}%
+\contentsline {table}{\numberline {19}{\ignorespaces Dicionário de dados da relação Inscricao}}{35}{}%
+\contentsline {table}{\numberline {20}{\ignorespaces Dicionário de dados da relação Pagamento}}{36}{}%
+\contentsline {table}{\numberline {21}{\ignorespaces Dicionário de dados da relação Gere}}{36}{}%
+\contentsline {table}{\numberline {22}{\ignorespaces Dicionário de dados da relação Tem}}{37}{}%
+\contentsline {table}{\numberline {23}{\ignorespaces Dicionário de dados da relação Apresentada}}{37}{}%

@@ -1,55 +1,57 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.23)  27 APR 2026 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  1 MAY 2026 18:46
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/andremarques44/Projeto_BD/RelatÃ³rio/relatÃ³rio.tex
-(/Users/andremarques44/Projeto_BD/RelatÃ³rio/relatÃ³rio.tex
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
-(/usr/local/texlive/2026/texmf-dist/tex/latex/llncs/llncs.cls
-Document Class: llncs 2025/02/25 v2.26 
+**relatÃ³rio.tex
+(./relatÃ³rio.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/llncs/llncs.cls
+Document Class: llncs 2024/01/29 v2.24 
  LaTeX document class for Lecture Notes in Computer Science
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@section=\count276
-\c@subsection=\count277
-\c@subsubsection=\count278
-\c@paragraph=\count279
-\c@subparagraph=\count280
-\c@figure=\count281
-\c@table=\count282
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen148
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
-\c@tracingmulticols=\count283
-\mult@box=\box53
-\multicol@leftmargin=\dimen149
-\c@unbalance=\count284
-\c@collectmore=\count285
-\doublecol@number=\count286
-\multicoltolerance=\count287
-\multicolpretolerance=\count288
-\full@width=\dimen150
-\page@free=\dimen151
-\premulticols=\dimen152
-\postmulticols=\dimen153
-\multicolsep=\skip51
-\multicolbaselineskip=\skip52
-\partial@page=\box54
-\last@line=\box55
-\mc@boxedresult=\box56
-\maxbalancingoverflow=\dimen154
-\mult@rightbox=\box57
-\mult@grightbox=\box58
-\mult@firstbox=\box59
-\mult@gfirstbox=\box60
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
+\c@tracingmulticols=\count195
+\mult@box=\box51
+\multicol@leftmargin=\dimen141
+\c@unbalance=\count196
+\c@collectmore=\count197
+\doublecol@number=\count198
+\multicoltolerance=\count199
+\multicolpretolerance=\count266
+\full@width=\dimen142
+\page@free=\dimen143
+\premulticols=\dimen144
+\postmulticols=\dimen145
+\multicolsep=\skip50
+\multicolbaselineskip=\skip51
+\partial@page=\box52
+\last@line=\box53
+\mc@boxedresult=\box54
+\maxbalancingoverflow=\dimen146
+\mult@rightbox=\box55
+\mult@grightbox=\box56
+\mult@firstbox=\box57
+\mult@gfirstbox=\box58
+\@tempa=\box59
+\@tempa=\box60
 \@tempa=\box61
 \@tempa=\box62
 \@tempa=\box63
@@ -84,22 +86,20 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 \@tempa=\box92
 \@tempa=\box93
 \@tempa=\box94
-\@tempa=\box95
-\@tempa=\box96
-\c@minrows=\count289
-\c@columnbadness=\count290
-\c@finalcolumnbadness=\count291
-\last@try=\dimen155
-\multicolovershoot=\dimen156
-\multicolundershoot=\dimen157
-\mult@nat@firstbox=\box97
-\colbreak@box=\box98
-\mc@col@check@num=\count292
-\g__mc_curr_col_int=\count293
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/aliascnt/aliascnt.sty
-Package: aliascnt 2026-03-08 v1.7 Alias counters (HO)
+\c@minrows=\count267
+\c@columnbadness=\count268
+\c@finalcolumnbadness=\count269
+\last@try=\dimen147
+\multicolovershoot=\dimen148
+\multicolundershoot=\dimen149
+\mult@nat@firstbox=\box95
+\colbreak@box=\box96
+\mc@col@check@num=\count270
 )
-\c@chapter=\count294
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/aliascnt.sty
+Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
+)
+\c@chapter=\count271
 LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 379.
 LaTeX Font Info:    Redeclaring math symbol \Delta on input line 380.
 LaTeX Font Info:    Redeclaring math symbol \Theta on input line 381.
@@ -112,143 +112,170 @@ LaTeX Font Info:    Redeclaring math symbol \Phi on input line 387.
 LaTeX Font Info:    Redeclaring math symbol \Psi on input line 388.
 LaTeX Font Info:    Redeclaring math symbol \Omega on input line 389.
 LaTeX Info: Redefining \vec on input line 394.
-\tocchpnum=\dimen158
-\tocsecnum=\dimen159
-\tocsectotal=\dimen160
-\tocsubsecnum=\dimen161
-\tocsubsectotal=\dimen162
-\tocsubsubsecnum=\dimen163
-\tocsubsubsectotal=\dimen164
-\tocparanum=\dimen165
-\tocparatotal=\dimen166
-\tocsubparanum=\dimen167
-\@tempcntc=\count295
-\fnindent=\dimen168
-\c@@inst=\count296
-\c@@auth=\count297
-\c@auco=\count298
-\instindent=\dimen169
-\authrun=\box99
+\tocchpnum=\dimen150
+\tocsecnum=\dimen151
+\tocsectotal=\dimen152
+\tocsubsecnum=\dimen153
+\tocsubsectotal=\dimen154
+\tocsubsubsecnum=\dimen155
+\tocsubsubsectotal=\dimen156
+\tocparanum=\dimen157
+\tocparatotal=\dimen158
+\tocsubparanum=\dimen159
+\@tempcntc=\count272
+\fnindent=\dimen160
+\c@@inst=\count273
+\c@@auth=\count274
+\c@auco=\count275
+\instindent=\dimen161
+\authrun=\box97
 \authorrunning=\toks17
 \tocauthor=\toks18
-\titrun=\box100
+\titrun=\box98
 \titlerunning=\toks19
 \toctitle=\toks20
-\c@theorem=\count299
-\c@case=\count300
-\c@conjecture=\count301
-\c@corollary=\count302
-\c@definition=\count303
-\c@example=\count304
-\c@exercise=\count305
-\c@lemma=\count306
-\c@note=\count307
-\c@problem=\count308
-\c@property=\count309
-\c@proposition=\count310
-\c@question=\count311
-\c@solution=\count312
-\c@remark=\count313
-\headlineindent=\dimen170
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
+\c@theorem=\count276
+\c@case=\count277
+\c@conjecture=\count278
+\c@corollary=\count279
+\c@definition=\count280
+\c@example=\count281
+\c@exercise=\count282
+\c@lemma=\count283
+\c@note=\count284
+\c@problem=\count285
+\c@property=\count286
+\c@proposition=\count287
+\c@question=\count288
+\c@solution=\count289
+\c@remark=\count290
+\headlineindent=\dimen162
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count314
+\c@float@type=\count291
 \float@exts=\toks21
-\float@box=\box101
+\float@box=\box99
 \@float@everytoks=\toks22
-\@floatcapt=\box102
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/placeins/placeins.sty
+\@floatcapt=\box100
+)
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen171
-\Gin@req@width=\dimen172
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen173
-\ar@mcellbox=\box103
-\extrarowheight=\dimen174
+\Gin@req@height=\dimen163
+\Gin@req@width=\dimen164
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen165
+\ar@mcellbox=\box101
+\extrarowheight=\dimen166
 \NC@list=\toks24
-\extratabsurround=\skip53
-\backup@length=\skip54
-\ar@cellbox=\box104
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
-\LTleft=\skip55
-\LTright=\skip56
-\LTpre=\skip57
-\LTpost=\skip58
-\LTchunksize=\count315
-\LTcapwidth=\dimen175
-\LT@head=\box105
-\LT@firsthead=\box106
-\LT@foot=\box107
-\LT@lastfoot=\box108
-\LT@gbox=\box109
-\LT@cols=\count316
-\LT@rows=\count317
-\c@LT@tables=\count318
-\c@LT@chunks=\count319
+\extratabsurround=\skip52
+\backup@length=\skip53
+\ar@cellbox=\box102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count292
+\LTcapwidth=\dimen167
+\LT@head=\box103
+\LT@firsthead=\box104
+\LT@foot=\box105
+\LT@lastfoot=\box106
+\LT@gbox=\box107
+\LT@cols=\count293
+\LT@rows=\count294
+\c@LT@tables=\count295
+\c@LT@chunks=\count296
 \LT@p@ftn=\toks25
-) (/usr/local/texlive/2026/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2026/03/08 v26.4 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
-\babel@savecnt=\count320
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2078.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2080.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2082.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2083.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2084.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2086.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2111.
-\U@D=\dimen176
-\l@unhyphenated=\language91
- (/usr/local/texlive/2026/texmf-dist/tex/generic/babel/txtbabel.def)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count297
+\U@D=\dimen168
+\l@unhyphenated=\language5
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count321
- (/usr/local/texlive/2026/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex)
-Package babel Info: Importing font and identification data for portuguese
-(babel)             from babel-pt.ini. Reported on input line 4330.
- (/usr/local/texlive/2026/texmf-dist/tex/generic/babel-portuges/portuguese.ldf
-Language: portuges 2026/01/24 v1.2u Portuguese support from the babel system
-Package babel Info: Making " an active character on input line 132.
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
+\bbl@dirlevel=\count298
+
+
+! Package babel Error: Unknown option 'portuguese'. Either you misspelled it
+(babel)                or the language definition file portuguese.ldf
+(babel)                was not found.
+(babel)                There is a locale ini file for this language.
+(babel)                If itâ€™s the main language, try adding `provide=*'
+(babel)                to the babel package options.
+
+See the babel package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4291 \ProcessOptions*
+                       
+Valid options are, among others: shorthands=, KeepShorthandsActive,
+activeacute, activegrave, noconfigs, safe=, main=, math=
+headfoot=, strings=, config=, hyphenmap=, or a language name.
+
+Package babel Info: You haven't specified a language as a class or package
+(babel)             option. I'll load 'nil'. Reported on input line 4342.
+(/usr/share/texlive/texmf-dist/tex/generic/babel/nil.ldf
+Language: nil 2024/01/07 v24.1 Nil language
+\l@nil=\language6
+))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen177
-\lightrulewidth=\dimen178
-\cmidrulewidth=\dimen179
-\belowrulesep=\dimen180
-\belowbottomsep=\dimen181
-\aboverulesep=\dimen182
-\abovetopsep=\dimen183
-\cmidrulesep=\dimen184
-\cmidrulekern=\dimen185
-\defaultaddspace=\dimen186
-\@cmidla=\count322
-\@cmidlb=\count323
-\@aboverulesep=\dimen187
-\@belowrulesep=\dimen188
-\@thisruleclass=\count324
-\@lastruleclass=\count325
-\@thisrulewidth=\dimen189
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
+\heavyrulewidth=\dimen169
+\lightrulewidth=\dimen170
+\cmidrulewidth=\dimen171
+\belowrulesep=\dimen172
+\belowbottomsep=\dimen173
+\aboverulesep=\dimen174
+\abovetopsep=\dimen175
+\cmidrulesep=\dimen176
+\cmidrulekern=\dimen177
+\defaultaddspace=\dimen178
+\@cmidla=\count299
+\@cmidlb=\count300
+\@aboverulesep=\dimen179
+\@belowrulesep=\dimen180
+\@thisruleclass=\count301
+\@lastruleclass=\count302
+\@thisrulewidth=\dimen181
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks26
 \symAMSa=\mathgroup4
@@ -256,12 +283,43 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count326
-) (./relatÃ³rio.aux
-Package babel Info: 'portuguese' activates 'portuges' shorthands.
-(babel)             Reported on input line 5.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count303
+\l__pdf_internal_box=\box108
+)
+(./relatÃ³rio.aux
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+Package babel Info: Importing basic data for portuguese
+(babel)             from babel-pt.ini. Reported on input line 11.
+)
+Package babel Info: Hyphen rules for 'portuguese' set to \l@nil
+(babel)             (\language6). Reported on input line 5.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 \babel@aux{portuguese}{}
+                            
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+\bbl@vforeach ...cmd ##1{#2}\bbl@fornext #1,\@nil 
+                                                  ,
+l.5 \babel@aux{portuguese}{}
+                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 )
 \openout1 = `relatÃ³rio.aux'.
 
@@ -279,44 +337,96 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
- (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count327
-\scratchdimen=\dimen190
-\scratchbox=\box110
-\nofMPsegments=\count328
-\nofMParguments=\count329
+\scratchcounter=\count304
+\scratchdimen=\dimen182
+\scratchbox=\box109
+\nofMPsegments=\count305
+\nofMParguments=\count306
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count330
-\MPscratchDim=\dimen191
-\MPnumerator=\count331
-\makeMPintoPDFobject=\count332
+\MPscratchCnt=\count307
+\MPscratchDim=\dimen183
+\MPnumerator=\count308
+\makeMPintoPDFobject=\count309
 \everyMPtoPDFconversion=\toks28
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
 <../imagens/UM.png, id=1, 702.625pt x 702.625pt>
 File: ../imagens/UM.png Graphic file (type png)
 <use ../imagens/UM.png>
 Package pdftex.def Info: ../imagens/UM.png  used on input line 39.
 (pdftex.def)             Requested size: 173.56177pt x 173.56519pt.
- [1
 
-{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <../imagens/UM.png>]
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../imagens/UM.png>]
+Overfull \hbox (15.6119pt too wide) in paragraph at lines 70--77
+[]\T1/cmr/m/n/9 José Bumblebee demonstrou, ao longo da sua carreira académica,
+ []
+
+
+Overfull \hbox (14.38371pt too wide) in paragraph at lines 70--77
+\T1/cmr/m/n/9 uma grande paixão por partilhar conhecimento e organizar eventos.
+ Contudo,
+ []
+
+
+Overfull \hbox (7.81076pt too wide) in paragraph at lines 70--77
+\T1/cmr/m/n/9 criação de um Sistema de Gestão de Bases de Dados (SGBD) que perm
+itisse
+ []
+
+
+Overfull \hbox (12.86887pt too wide) in paragraph at lines 70--77
+\T1/cmr/m/n/9 grupo de alunos da Licenciatura em Engenharia Informática da Univ
+ersidade
+ []
+
+
+Overfull \hbox (1.44661pt too wide) in paragraph at lines 79--85
+\T1/cmr/m/n/9 consolidados através de uma abordagem híbrida que combinou entrev
+istas
+ []
+
+
+Overfull \hbox (10.9887pt too wide) in paragraph at lines 87--91
+[]\T1/cmr/m/n/9 Com base nos requisitos identificados, procedeu-se à criação e 
+documentação
+ []
+
+
+Overfull \hbox (5.88443pt too wide) in paragraph at lines 93--99
+\T1/cmr/m/n/9 de Gestão de Bases de Dados MySQL. Nesta fase foram criados utili
+zadores
+ []
+
+
 Overfull \hbox (3.33307pt too wide) in paragraph at lines 103--104
-\T1/cmr/bx/n/9 Palavras-Chave: \T1/cmr/m/n/9 Ba-ses de Da-dos, Di-a-gra-mas Entidade-Relacionamento,
+\T1/cmr/bx/n/9 Palavras-Chave: \T1/cmr/m/n/9 Bases de Dados, Diagramas Entidade
+-Relacionamento,
+ []
+
+
+Overfull \hbox (0.83644pt too wide) in paragraph at lines 103--104
+\T1/cmr/m/n/9 Modelo Relacional, Normalização de Bases de Dados Relacionais, Ál
+gebra
  []
 
 [1] (./relatÃ³rio.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2
 
@@ -324,7 +434,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write3
 \openout3 = `relatÃ³rio.toc'.
 
- [3] (./relatÃ³rio.lof)
+ [3]
+(./relatÃ³rio.lof)
 \tf@lof=\write4
 \openout4 = `relatÃ³rio.lof'.
 
@@ -332,7 +443,79 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lot=\write5
 \openout5 = `relatÃ³rio.lot'.
 
- [5] [1] [2] [3] [4]
+ [5]
+Overfull \hbox (0.87482pt too wide) in paragraph at lines 145--153
+\T1/cmr/m/n/10 cenário que José Bumblebee, professor universitário durante mais
+ de três décadas,
+ []
+
+
+Overfull \hbox (7.56763pt too wide) in paragraph at lines 145--153
+\T1/cmr/m/n/10 encontrou ao continuar ligado ao mundo dos eventos após a sua re
+forma. Habituado
+ []
+
+[1]
+Overfull \hbox (11.54303pt too wide) in paragraph at lines 169--170
+[]\T1/cmr/m/n/10 Facilitar o armazenamento e recuperação de dados, garantindo q
+ue a informação
+ []
+
+
+Overfull \hbox (14.50064pt too wide) in paragraph at lines 172--173
+[]\T1/cmr/m/n/10 Garantir o crescimento contínuo do sistema sem comprometer o s
+eu desempenho,
+ []
+
+
+Overfull \hbox (11.8005pt too wide) in paragraph at lines 181--185
+\T1/cmr/m/n/10 selecionadas ^^V nomeadamente o MySQL como SGBD relacional ^^V s
+ão amplamente
+ []
+
+
+Overfull \hbox (0.7915pt too wide) in paragraph at lines 192--195
+\T1/cmr/m/n/10 entrega definido pelo docente. Este período considera-se suficie
+nte para completar
+ []
+
+[2]
+Overfull \hbox (14.19516pt too wide) in paragraph at lines 203--204
+\T1/cmr/m/n/10 Mestre em Informática de Gestão e Doutorado em Informática pela 
+Universidade
+ []
+
+
+Overfull \hbox (25.64655pt too wide) in paragraph at lines 207--211
+\T1/cmr/m/n/10 Computação recrutada pelo próprio José Bumblebee, responsável pe
+lo desenvolvimento
+ []
+
+
+Overfull \hbox (2.65216pt too wide) in paragraph at lines 207--211
+\T1/cmr/m/n/10 sólidos em modelação de bases de dados, programação em SQL, desi
+gn de sistemas
+ []
+
+[3]
+Overfull \hbox (20.8977pt too wide) in paragraph at lines 248--253
+\T1/cmr/m/n/10 requisitos explícitos, preferências e restrições operacionais qu
+e dificilmente emergiriam
+ []
+
+
+Overfull \hbox (6.43268pt too wide) in paragraph at lines 256--261
+[]\T1/cmr/m/n/10 Estas entrevistas decorreram ao longo da terceira semana do pl
+ano de execução.
+ []
+
+
+Overfull \hbox (2.18005pt too wide) in paragraph at lines 273--279
+\T1/cmr/m/n/10 validados e organizados de forma estruturada, conforme apresenta
+do na subsecção
+ []
+
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
@@ -342,301 +525,704 @@ Underfull \hbox (badness 10000) in paragraph at lines 293--294
 
  []
 
-[5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 358--359
+
+Underfull \hbox (badness 4132) in paragraph at lines 306--306
+[]|\T1/cmr/m/n/9 O sistema deve permitir registar eventos com
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 306--306
+\T1/cmr/m/n/9 um identificador único, nome, tipo (conferência,
+ []
+
+
+Underfull \hbox (badness 1616) in paragraph at lines 306--306
+\T1/cmr/m/n/9 workshop, corporativo, entre outros), número de
+ []
+
+
+Underfull \hbox (badness 2726) in paragraph at lines 308--308
+[]|\T1/cmr/m/n/9 O sistema deve permitir associar um ou mais
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
+\T1/cmr/m/n/9 organizadores a cada evento, sendo que um
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 310--310
+[]|\T1/cmr/m/n/9 O sistema deve permitir registar oradores com
+ []
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 310--310
+\T1/cmr/m/n/9 um identificador único, nome, email, biografia e
+ []
+
+
+Underfull \hbox (badness 2245) in paragraph at lines 312--312
+\T1/cmr/m/n/9 um identificador único, nome, email, telefone e
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 313--313
+[]|\T1/cmr/m/n/9 O sistema deve permitir registar inscrições de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--314
+[]|\T1/cmr/m/n/9 O sistema deve permitir registar pagamentos
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
+[]|\T1/cmr/m/n/9 Deve ser possível consultar os oradores que
+ []
+
+[6]
+Underfull \hbox (badness 2326) in paragraph at lines 351--351
+[]|\T1/cmr/m/n/9 O sistema deve garantir que o email de cada
+ []
+
+
+Underfull \hbox (badness 1303) in paragraph at lines 352--352
+[]|\T1/cmr/m/n/9 Apenas os organizadores podem criar, editar ou
+ []
+
+[7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--373
-
+Overfull \hbox (1.06812pt too wide) in paragraph at lines 371--374
+\T1/cmr/m/n/10 Pagamento. A análise e validação geral dos requisitos é apresent
+ada na Secção 2.3. 
  []
 
-[8] [9]
-Overfull \hbox (50.60829pt too wide) in paragraph at lines 452--456
-[]\T1/cmr/m/n/10 O mo-delo con-cep-tual foi cons-tru-ído re-cor-rendo ao \T1/cmr/bx/n/10 Mo-delo Entidade-Relacionamento
- []
 
-[10] [11] [12] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 688--689
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 700--700
-[]|\T1/cmr/m/n/9 Associação ao
+Overfull \hbox (13.98273pt too wide) in paragraph at lines 377--383
+\T1/cmr/m/n/10 Entidade-Relacionamento decorre diretamente de um ou mais requis
+itos de descrição
+ []
+
+
+Overfull \hbox (19.23145pt too wide) in paragraph at lines 400--405
+\T1/cmr/m/n/10 complementar e coerente com os requisitos de descrição (RD1--RD9
+) e de manipulação
+ []
+
+
+Overfull \hbox (1.87347pt too wide) in paragraph at lines 400--405
+\T1/cmr/m/n/10 (RM1--RM10), não existindo qualquer contradição entre eles. A tí
+tulo de exemplo,
+ []
+
+[9] [10]
+Overfull \hbox (8.9395pt too wide) in paragraph at lines 444--445
+[]\T1/cmr/bx/n/10 Evento \T1/cmr/m/n/10 (RD1, RD3) --- entidade central do sist
+ema; representa as conferências,
+ []
+
+
+Overfull \hbox (7.51762pt too wide) in paragraph at lines 449--450
+[]\T1/cmr/bx/n/10 Inscrição \T1/cmr/m/n/10 (RD8, RC1, RC2) --- registo formal d
+a participação de um utilizador
+ []
+
+
+Overfull \hbox (50.60829pt too wide) in paragraph at lines 455--459
+[]\T1/cmr/m/n/10 O modelo conceptual foi construído recorrendo ao \T1/cmr/bx/n/
+10 Modelo Entidade-Relacionamento
+ []
+
+
+Overfull \hbox (16.42548pt too wide) in paragraph at lines 462--465
+\T1/cmr/m/n/10 (Secção 3.4), e finalmente produziu o Diagrama ER completo do si
+stema (Secção 3.5). 
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 483--483
+[]|\T1/cmr/m/n/9 Conferência, workshop ou evento
+ []
+
+
+Underfull \hbox (badness 6876) in paragraph at lines 484--484
+[]|\T1/cmr/m/n/9 Pessoa responsável pela gestão e
+ []
+
+
+Underfull \hbox (badness 5726) in paragraph at lines 485--485
+[]|\T1/cmr/m/n/9 Atividade ou palestra que ocorre
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 486--486
+[]|\T1/cmr/m/n/9 Especialista ou convidado que
+ []
+
+
+Underfull \hbox (badness 4378) in paragraph at lines 489--489
+[]|\T1/cmr/m/n/9 Transação financeira que valida e
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
+09.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [12] [13] [14]
+[15]
+Overfull \hbox (9.48383pt too wide) in paragraph at lines 686--690
+\T1/cmr/m/n/10 do sistema EvenSync (Evento, Organizador, Sessão, Orador, Partic
+ipante, Inscrição
+ []
+
+
+Overfull \hbox (18.73157pt too wide) in paragraph at lines 686--690
+\T1/cmr/m/n/10 e Pagamento), incluindo o seu significado, cardinalidades, parti
+cipação (total/parcial)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 702--702
+[]|\T1/cmr/m/n/9 Registo de
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 703--703
+[]|\T1/cmr/m/n/9 Associação ao
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 704--704
+[]|\T1/cmr/m/n/9 Ligação da
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 706--706
 []|\T1/cmr/m/n/9 Composição do
  []
 
 
-Overfull \hbox (45.59526pt too wide) in paragraph at lines 696--707
+Underfull \hbox (badness 10000) in paragraph at lines 707--707
+[]|\T1/cmr/m/n/9 Atribuição de
+ []
+
+
+Overfull \hbox (45.59526pt too wide) in paragraph at lines 699--710
  [][] 
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 716--717
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 719--720
 
  []
 
-<../imagens/participante_realiza_inscricao.png, id=82, 587.19376pt x 198.7425pt>
+<../imagens/participante_realiza_inscricao.png, id=85, 587.19376pt x 198.7425pt
+>
 File: ../imagens/participante_realiza_inscricao.png Graphic file (type png)
 <use ../imagens/participante_realiza_inscricao.png>
-Package pdftex.def Info: ../imagens/participante_realiza_inscricao.png  used on input line 723.
+Package pdftex.def Info: ../imagens/participante_realiza_inscricao.png  used on
+ input line 726.
 (pdftex.def)             Requested size: 208.27623pt x 70.4919pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 720--726
+Underfull \hbox (badness 10000) in paragraph at lines 723--729
 
  []
 
-<../imagens/inscricao_evento.png, id=84, 759.83875pt x 259.97125pt>
+
+Overfull \hbox (13.78833pt too wide) in paragraph at lines 732--740
+\T1/cmr/m/n/10 inscrito em múltiplos eventos ao longo do tempo. Do lado da insc
+rição, a participação
+ []
+
+<../imagens/inscricao_evento.png, id=87, 759.83875pt x 259.97125pt>
 File: ../imagens/inscricao_evento.png Graphic file (type png)
 <use ../imagens/inscricao_evento.png>
-Package pdftex.def Info: ../imagens/inscricao_evento.png  used on input line 742.
+Package pdftex.def Info: ../imagens/inscricao_evento.png  used on input line 74
+5.
 (pdftex.def)             Requested size: 208.27623pt x 71.26025pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--745
+Underfull \hbox (badness 10000) in paragraph at lines 742--748
 
  []
 
-<../imagens/inscricao_precisa_pagamento.png, id=85, 373.395pt x 659.46375pt>
+<../imagens/inscricao_precisa_pagamento.png, id=88, 373.395pt x 659.46375pt>
 File: ../imagens/inscricao_precisa_pagamento.png Graphic file (type png)
 <use ../imagens/inscricao_precisa_pagamento.png>
-Package pdftex.def Info: ../imagens/inscricao_precisa_pagamento.png  used on input line 759.
+Package pdftex.def Info: ../imagens/inscricao_precisa_pagamento.png  used on in
+put line 762.
 (pdftex.def)             Requested size: 208.27623pt x 367.8381pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 756--762
+Underfull \hbox (badness 10000) in paragraph at lines 759--765
 
  []
 
-[16 <../imagens/participante_realiza_inscricao.png> <../imagens/inscricao_evento.png>]
-<../imagens/organizador_gere_evento.png, id=90, 628.3475pt x 361.35pt>
+[17 <../imagens/participante_realiza_inscricao.png> <../imagens/inscricao_event
+o.png>]
+<../imagens/organizador_gere_evento.png, id=93, 628.3475pt x 361.35pt>
 File: ../imagens/organizador_gere_evento.png Graphic file (type png)
 <use ../imagens/organizador_gere_evento.png>
-Package pdftex.def Info: ../imagens/organizador_gere_evento.png  used on input line 776.
+Package pdftex.def Info: ../imagens/organizador_gere_evento.png  used on input 
+line 779.
 (pdftex.def)             Requested size: 208.27623pt x 119.77518pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 773--779
+Underfull \hbox (badness 10000) in paragraph at lines 776--782
 
  []
 
-[17 <../imagens/inscricao_precisa_pagamento.png>]
-<../imagens/rel_evento_tem_sessao.png, id=94, 271.0125pt x 789.95125pt>
+[18 <../imagens/inscricao_precisa_pagamento.png>]
+Overfull \hbox (6.87225pt too wide) in paragraph at lines 785--791
+\T1/cmr/m/n/10 organizador responsável. Por ser um relacionamento N:M com estas
+ características,
+ []
+
+
+Overfull \hbox (1.34692pt too wide) in paragraph at lines 785--791
+\T1/cmr/m/n/10 a sua implementação no modelo lógico exigirá a criação de uma ta
+bela associativa.
+ []
+
+<../imagens/rel_evento_tem_sessao.png, id=97, 271.0125pt x 789.95125pt>
 File: ../imagens/rel_evento_tem_sessao.png Graphic file (type png)
 <use ../imagens/rel_evento_tem_sessao.png>
-Package pdftex.def Info: ../imagens/rel_evento_tem_sessao.png  used on input line 793.
+Package pdftex.def Info: ../imagens/rel_evento_tem_sessao.png  used on input li
+ne 796.
 (pdftex.def)             Requested size: 104.1381pt x 303.54756pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 790--796
+Underfull \hbox (badness 10000) in paragraph at lines 793--799
 
  []
 
-[18 <../imagens/organizador_gere_evento.png>]
-<../imagens/rel_sessao_apr_orador.png, id=98, 737.75626pt x 338.26375pt>
+[19 <../imagens/organizador_gere_evento.png>]
+<../imagens/rel_sessao_apr_orador.png, id=102, 737.75626pt x 338.26375pt>
 File: ../imagens/rel_sessao_apr_orador.png Graphic file (type png)
 <use ../imagens/rel_sessao_apr_orador.png>
-Package pdftex.def Info: ../imagens/rel_sessao_apr_orador.png  used on input line 810.
+Package pdftex.def Info: ../imagens/rel_sessao_apr_orador.png  used on input li
+ne 813.
 (pdftex.def)             Requested size: 208.27623pt x 95.49258pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--813
+Underfull \hbox (badness 10000) in paragraph at lines 810--816
 
  []
 
-[19 <../imagens/rel_evento_tem_sessao.png>] [20 <../imagens/rel_sessao_apr_orador.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 827--828
+[20 <../imagens/rel_evento_tem_sessao.png>]
+Overfull \hbox (6.95557pt too wide) in paragraph at lines 819--825
+\T1/cmr/m/n/10 especialistas podem ser convidados a intervir em múltiplas ocasi
+ões. A participação
+ []
+
+[21 <../imagens/rel_sessao_apr_orador.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 830--831
 
  []
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 853--853
-[]|\T1/cmr/m/n/9 Nome com-pleto do par-ti-ci-
+Underfull \hbox (badness 1406) in paragraph at lines 832--842
+\T1/cmr/m/n/10 do participante, devendo ser único no sistema dado que serve tam
+bém
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 867--868
+Underfull \hbox (badness 1052) in paragraph at lines 832--842
+\T1/cmr/m/n/10 como meio de identificação e contacto. O atributo \T1/cmtt/m/n/1
+0 telemovel \T1/cmr/m/n/10 guarda o
+ []
+
+
+Underfull \hbox (badness 1281) in paragraph at lines 832--842
+\T1/cmr/m/n/10 sendo igualmente opcional, pois nem todos os participantes repre
+sentam
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--856
+[]|\T1/cmr/m/n/9 Nome completo do
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 870--871
 
  []
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 908--909
 
+Underfull \hbox (badness 1259) in paragraph at lines 872--881
+\T1/cmr/m/n/10 participante num evento. O atributo \T1/cmtt/m/n/10 id_inscrição
+ \T1/cmr/m/n/10 é a chave primária,
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 950--951
+Underfull \hbox (badness 10000) in paragraph at lines 911--912
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
+Underfull \hbox (badness 10000) in paragraph at lines 953--954
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1027--1028
+Underfull \hbox (badness 10000) in paragraph at lines 995--996
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
+Underfull \hbox (badness 10000) in paragraph at lines 1030--1031
 
  []
 
 [26]
-<../imagens/mod_conceptual.png, id=128, 1414.28375pt x 606.265pt>
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1067
+
+ []
+
+[27]
+<../imagens/mod_conceptual.png, id=131, 1414.28375pt x 606.265pt>
 File: ../imagens/mod_conceptual.png Graphic file (type png)
 <use ../imagens/mod_conceptual.png>
-Package pdftex.def Info: ../imagens/mod_conceptual.png  used on input line 1098.
+Package pdftex.def Info: ../imagens/mod_conceptual.png  used on input line 1101
+.
 (pdftex.def)             Requested size: 433.90442pt x 186.00677pt.
- [27] [28 <../imagens/mod_conceptual.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1140--1141
+ [28]
+Overfull \hbox (5.3881pt too wide) in paragraph at lines 1114--1118
+\T1/cmr/m/it/10 Evento\T1/cmr/m/n/10 , \T1/cmr/m/it/10 Organizador\T1/cmr/m/n/1
+0 , \T1/cmr/m/it/10 Sessão \T1/cmr/m/n/10 e \T1/cmr/m/it/10 Orador\T1/cmr/m/n/1
+0 , interligadas através de seis relacionamentos
+ []
+
+
+Overfull \hbox (1.25656pt too wide) in paragraph at lines 1119--1125
+\T1/cmr/m/n/10 outro, relaciona-se com \T1/cmr/m/it/10 Organizador \T1/cmr/m/n/
+10 através de \T1/cmr/m/it/10 gere\T1/cmr/m/n/10 , refletindo a responsabilidad
+e
+ []
+
+
+Overfull \hbox (2.96204pt too wide) in paragraph at lines 1126--1133
+\T1/cmr/m/it/10 realiza\T1/cmr/m/n/10 , formalizando o ato de um participante s
+e inscrever num evento. A entidade
+ []
+
+[29 <../imagens/mod_conceptual.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1166--1167
+Overfull \hbox (5.95691pt too wide) in paragraph at lines 1145--1149
+\T1/cmr/m/n/10 modelo lógico relacional. Em termos gerais, foram adotados os se
+guintes princípios: 
+ []
+
+
+Overfull \hbox (0.21246pt too wide) in paragraph at lines 1151--1153
+[]\T1/cmr/m/n/10 Cada entidade do modelo conceptual foi convertida numa tabela,
+ preservando
+ []
+
+
+Overfull \hbox (0.90674pt too wide) in paragraph at lines 1161--1163
+[]\T1/cmr/m/n/10 As regras de negócio foram materializadas através de restriçõe
+s de integridade
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1169--1170
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1190--1191
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1193--1194
 
  []
 
-<../imagens/modLgico.png, id=139, 494.84875pt x 656.4525pt>
+
+Overfull \hbox (4.82086pt too wide) in paragraph at lines 1195--1196
+[]\T1/cmr/m/n/10 A validação do modelo lógico foi realizada com base em três cr
+itérios principais: 
+ []
+
+
+Overfull \hbox (7.01636pt too wide) in paragraph at lines 1198--1202
+[]\T1/cmr/bx/n/10 Coerência com o modelo conceptual: \T1/cmr/m/n/10 confirmou-s
+e que todas as entidades,
+ []
+
+
+Overfull \hbox (32.56458pt too wide) in paragraph at lines 1198--1202
+\T1/cmr/m/n/10 relacionamentos e regras definidas no diagrama ER estão corretam
+ente representadas
+ []
+
+
+Overfull \hbox (20.06873pt too wide) in paragraph at lines 1203--1207
+\T1/cmr/m/n/10 os Requisitos de Descrição (RD1--RD9) e de Controlo (RC1--RC6), 
+nomeadamente
+ []
+
+
+Overfull \hbox (0.268pt too wide) in paragraph at lines 1203--1207
+\T1/cmr/m/n/10 o registo de eventos, sessões, oradores, participantes, inscriçõ
+es e pagamentos,
+ []
+
+
+Overfull \hbox (1.95926pt too wide) in paragraph at lines 1208--1211
+[]\T1/cmr/bx/n/10 Suporte às interrogações do utilizador (RMs): \T1/cmr/m/n/10 
+analisou-se se o esquema
+ []
+
+
+Overfull \hbox (8.8451pt too wide) in paragraph at lines 1213--1216
+\T1/cmr/m/n/10 completo e adequado aos objetivos do sistema EvenSync, encontran
+do-se preparado
+ []
+
+
+Overfull \hbox (8.6496pt too wide) in paragraph at lines 1220--1226
+\T1/cmr/m/n/10 (relacionamentos 1:N e 1:1) ou criada uma nova tabela associativ
+a (relacionamentos
+ []
+
+
+Overfull \hbox (0.71075pt too wide) in paragraph at lines 1228--1231
+[]\T1/cmr/m/n/10 O diagrama do modelo lógico produzido encontra-se representado
+ na Figura 8[].
+ []
+
+<../imagens/modLgico.png, id=142, 494.84875pt x 656.4525pt>
 File: ../imagens/modLgico.png Graphic file (type png)
 <use ../imagens/modLgico.png>
-Package pdftex.def Info: ../imagens/modLgico.png  used on input line 1231.
+Package pdftex.def Info: ../imagens/modLgico.png  used on input line 1234.
 (pdftex.def)             Requested size: 381.838pt x 506.53175pt.
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 1238--1239
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1241--1242
 
  []
 
-[31 <../imagens/modLgico.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1268--1269
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
-
- []
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 1327--1328
+[32 <../imagens/modLgico.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1271--1272
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1357--1358
+Underfull \hbox (badness 1033) in paragraph at lines 1273--1277
+[]\T1/cmr/m/n/10 A relação \T1/cmr/m/it/10 Evento \T1/cmr/m/n/10 é a tabela cen
+tral do sistema, derivando da entidade
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1302--1303
 
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1384--1385
+Underfull \hbox (badness 10000) in paragraph at lines 1330--1331
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1416--1417
+Underfull \hbox (badness 10000) in paragraph at lines 1360--1361
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1447--1448
+Underfull \hbox (badness 10000) in paragraph at lines 1387--1388
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1472--1473
+Underfull \hbox (badness 10000) in paragraph at lines 1419--1420
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1497--1498
+Underfull \hbox (badness 10000) in paragraph at lines 1450--1451
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1532--1533
+Underfull \hbox (badness 3375) in paragraph at lines 1452--1456
+[]\T1/cmr/m/n/10 A relação \T1/cmr/m/it/10 Gere \T1/cmr/m/n/10 é uma tabela ass
+ociativa criada para materializar o
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1476
 
  []
 
 [36]
-Overfull \hbox (17.46104pt too wide) in paragraph at lines 1572--1573
-\T1/cmr/bx/n/10 Pagamento \T1/cmr/m/n/10 ($[]$, va-lor, data_pagamento, me-todo, es-tado, id_inscricao) 
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1501
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1580--1581
+Underfull \hbox (badness 10000) in paragraph at lines 1535--1536
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1624--1625
-
+Overfull \hbox (17.46104pt too wide) in paragraph at lines 1575--1576
+\T1/cmr/bx/n/10 Pagamento \T1/cmr/m/n/10 ($[]$, valor, data_pagamento, metodo, 
+estado, id_inscricao) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1644--1645
+Underfull \hbox (badness 10000) in paragraph at lines 1583--1584
 
  []
 
 [38]
-Overfull \hbox (19.77376pt too wide) detected at line 1670
+Overfull \hbox (5.57227pt too wide) in paragraph at lines 1616--1619
+\T1/cmr/m/n/10 (nome, tipo); guarda apenas as FKs (\T1/cmtt/m/n/10 id_participa
+nte\T1/cmr/m/n/10 , \T1/cmtt/m/n/10 id_evento\T1/cmr/m/n/10 ), evitando
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1627--1628
+
+ []
+
+
+Overfull \hbox (11.52211pt too wide) in paragraph at lines 1632--1635
+\T1/cmr/m/it/10 Participante \T1/cmr/m/n/10 sem ter ainda realizado qualquer in
+scrição, sem violar a integridade
+ []
+
+
+Overfull \hbox (13.20929pt too wide) in paragraph at lines 1641--1645
+\T1/cmr/m/n/10 forma controlada pelas regras de integridade referencial (\T1/cm
+tt/m/n/10 ON DELETE RESTRICT\T1/cmr/m/n/10 ). 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1647--1648
+
+ []
+
+
+Overfull \hbox (7.64984pt too wide) in paragraph at lines 1649--1653
+\T1/cmr/m/n/10 dados. A estrutura está preparada para a fase de implementação f
+ísica (Capítulo 5). 
+ []
+
+
+Overfull \hbox (11.92767pt too wide) in paragraph at lines 1657--1662
+\T1/cmr/m/n/10 interrogações definidas pelos Requisitos de Manipulação (RM1--RM
+10) identificados
+ []
+
+[39]
+Overfull \hbox (19.77376pt too wide) detected at line 1673
 \OML/cmm/m/it/10 ^^Y[]  []
  []
 
 
-Overfull \hbox (157.02304pt too wide) detected at line 1678
+Overfull \hbox (157.02304pt too wide) detected at line 1681
 \OML/cmm/m/it/10 ^^Y[]  []
  []
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1696.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1699.
 
-Overfull \hbox (2.47107pt too wide) in paragraph at lines 1696--1697
-\T1/cmr/bx/n/10 RM5 ^^V To-tal de re-cei-tas do evento $\OML/cmm/m/it/10 X$ \T1/cmr/bx/n/10 (pa-ga-men-tos com es-tado \T1/cmtt/m/n/10 'pago'\T1/cmr/bx/n/10 ): 
+Overfull \hbox (2.47107pt too wide) in paragraph at lines 1699--1700
+\T1/cmr/bx/n/10 RM5 ^^V Total de receitas do evento $\OML/cmm/m/it/10 X$ \T1/cm
+r/bx/n/10 (pagamentos com estado \T1/cmtt/m/n/10 'pago'\T1/cmr/bx/n/10 ): 
  []
 
 
-Overfull \hbox (90.13556pt too wide) detected at line 1699
+Overfull \hbox (90.13556pt too wide) detected at line 1702
 \OMS/cmsy/m/n/10 G[]  []
  []
 
 
-Overfull \hbox (126.97446pt too wide) detected at line 1708
+Overfull \hbox (126.97446pt too wide) detected at line 1711
 [] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 ^^Z[]  []
  []
 
-[39]
-Overfull \hbox (20.06833pt too wide) detected at line 1718
+
+Overfull \hbox (20.06833pt too wide) detected at line 1721
 \OML/cmm/m/it/10 ^^Y[]  []
  []
 
-[40] (./relatÃ³rio.aux)
+[40]
+Overfull \hbox (106.38696pt too wide) detected at line 1728
+\OML/cmm/m/it/10 ^^Y[]  []
+ []
+
+
+Overfull \hbox (7.59856pt too wide) detected at line 1735
+\OML/cmm/m/it/10 ^^Y[]  []
+ []
+
+
+Overfull \hbox (238.8994pt too wide) detected at line 1742
+\OML/cmm/m/it/10 ^^Y[]  []
+ []
+
+
+Overfull \hbox (10.12256pt too wide) in paragraph at lines 1746--1751
+\T1/cmr/m/n/10 relacional, usando exclusivamente as relações e atributos do mod
+elo lógico, confirma
+ []
+
+[41] (./relatÃ³rio.aux)
  ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4157 strings out of 467525
- 65967 string characters out of 5418982
- 490883 words of memory out of 5000000
- 33014 multiletter control sequences out of 15000+600000
- 642428 words of font info for 76 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 57i,13n,65p,726b,361s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on relatÃ³rio.pdf (46 pages, 1064188 bytes).
+ 4161 strings out of 476182
+ 66390 string characters out of 5795596
+ 1937975 words of memory out of 5000000
+ 26109 multiletter control sequences out of 15000+600000
+ 572776 words of font info for 72 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 57i,13n,65p,682b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1000.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600p
+k> </home/jota/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600p
+k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msam10.pfb>
+Output written on relatÃ³rio.pdf (47 pages, 942130 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
+ 805 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

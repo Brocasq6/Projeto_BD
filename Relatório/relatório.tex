@@ -331,6 +331,9 @@
                 RM5 & Deve ser possível consultar o total de receitas geradas por um evento, com base nos pagamentos com estado pago. & Nelson Antunes \\ \hline
                 RM6 & Deve ser possível obter a lista de eventos com maior taxa de ocupação, calculada com base no rácio entre o número de inscrições confirmadas e a capacidade máxima do evento. & Nelson Antunes \\ \hline
                 RM7 & Deve ser possível consultar os oradores que apresentam sessões de um determinado evento. & Nelson Antunes \\ \hline
+                RM8 & Deve ser possível consultar todas as sessões agendadas numa determinada sala ou num intervalo de datas. & Tiago Santos \\ \hline
+                RM9 & Deve ser possível consultar os oradores atribuídos a uma determinada sessão. & Bruno Freitas \\ \hline
+                RM10 & Deve ser possível consultar os pagamentos com estado pendente ou reembolsado, identificando o participante e o evento associados. & André Marques \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
                 \caption{Requisitos de Manipulação do EvenSync} \label{tab:requisitos_rm}
@@ -346,8 +349,8 @@
                 RC1 & O sistema deve garantir que um participante não pode ter mais do que uma inscrição ativa no mesmo evento. & Tiago Santos \\ \hline
                 RC2 & O sistema deve garantir que cada inscrição tem, no máximo, um pagamento associado. & Tiago Santos \\ \hline
                 RC3 & O sistema deve garantir que o email de cada participante, orador e organizador é único no sistema. & João Ribeiro \\ \hline
-                RC4 & Apenas os utilizadores com perfil de administrador ou organizador podem criar, editar ou eliminar eventos. & João Ribeiro \\ \hline
-                RC5 & Apenas os utilizadores com perfil de administrador ou organizador podem gerir os dados de participantes e emitir relatórios financeiros. & João Ribeiro \\ \hline
+                RC4 & Apenas os organizadores podem criar, editar ou eliminar eventos. & João Ribeiro \\ \hline
+                RC5 & Apenas os organizadores podem gerir os dados de participantes e emitir relatórios financeiros. & João Ribeiro \\ \hline
                 RC6 & O sistema deve impedir o registo de sessões com sobreposição de horário na mesma sala e no mesmo evento. & João Ribeiro \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
@@ -357,11 +360,11 @@
                 \newpage
                 \subsubsection{Resumo dos Requisitos Identificados}\mbox{}\\
 
-                O processo de levantamento resultou na identificação de um total de 22 requisitos,
+                O processo de levantamento resultou na identificação de um total de 25 requisitos,
                 distribuídos da seguinte forma:
                 \begin{itemize}
                     \item Requisitos de Descrição (RD): 9 requisitos
-                    \item Requisitos de Manipulação (RM): 7 requisitos
+                    \item Requisitos de Manipulação (RM): 10 requisitos
                     \item Requisitos de Controlo (RC): 6 requisitos
                 \end{itemize}
 
@@ -395,7 +398,7 @@
                 \vspace{0.2cm}
 
                 \textbf{Consistência.} As regras de controlo (RC1--RC6) foram definidas de forma complementar
-                e coerente com os requisitos de descrição (RD1--RD9) e de manipulação (RM1--RM7), não existindo
+                e coerente com os requisitos de descrição (RD1--RD9) e de manipulação (RM1--RM10), não existindo
                 qualquer contradição entre eles. A título de exemplo, a restrição RC3 (unicidade de email)
                 decorre naturalmente da existência dos atributos de email definidos em RD2, RD5 e RD7,
                 reforçando a integridade do sistema sem criar conflitos.
@@ -430,7 +433,7 @@
                 \textbf{\textit{bottom-up}}. A partir dos Requisitos de Descrição (RD1--RD9) e da narrativa do
                 caso de estudo, foram identificados os objetos com identidade própria e relevância
                 operacional. Os Requisitos de Controlo (RC1--RC6) orientaram a definição de restrições de
-                cardinalidade e regras de negócio. Os Requisitos de Manipulação (RM1--RM7) serviram como
+                cardinalidade e regras de negócio. Os Requisitos de Manipulação (RM1--RM10) serviram como
                 critério de validação, garantindo que cada consulta prevista é respondível através das
                 entidades e relacionamentos modelados.
 
@@ -1204,7 +1207,7 @@
 
                     \item \textbf{Suporte às interrogações do utilizador (RMs):} analisou-se se o
                     esquema relacional permite formular todas as interrogações definidas na Secção~2.2
-                    (RM1--RM7), sem necessidade de informação adicional ou redundante.
+                    (RM1--RM10), sem necessidade de informação adicional ou redundante.
                 \end{itemize}
 
                 \noindent O resultado desta validação indica que o modelo de dados lógico é
@@ -1652,7 +1655,7 @@
                 \subsection{Validação do Modelo com Interrogações do Utilizador}
 
                 A equipa validou o modelo lógico produzido através da implementação das
-                interrogações definidas pelos Requisitos de Manipulação (RM1--RM7) identificados
+                interrogações definidas pelos Requisitos de Manipulação (RM1--RM10) identificados
                 no Capítulo~2. Para assegurar a correção do raciocínio e testar as interrogações
                 antes da implementação em SQL, foi utilizada a calculadora de álgebra relacional
                 \textbf{RelaX}.
@@ -1718,8 +1721,29 @@
                 \]
                 onde $E = \mathit{Evento}$, $S = \mathit{Sessao}$, $O = \mathit{Orador}$.
 
+                \vspace{0.4cm}
+                \noindent\textbf{RM8 — Consultar sessões por sala ou intervalo de datas:}
+                \[
+                \pi_{\,S.\texttt{tema},\,S.\texttt{sala},\,S.\texttt{data},\,S.\texttt{hora\_inicio},\,S.\texttt{hora\_fim}}\!\left(\,\sigma_{(S.\texttt{sala}=\,R)\;\vee\;(S.\texttt{data} \ge D_{ini} \wedge S.\texttt{data} \le D_{fim})}\!\left(\mathit{Sessao}\right)\right)
+                \]
+                onde $R$ é a sala e $D_{ini}$/$D_{fim}$ definem o intervalo de datas.
+
+                \vspace{0.4cm}
+                \noindent\textbf{RM9 — Oradores de uma sessão $Y$:}
+                \[
+                \pi_{\,O.\texttt{nome},\,O.\texttt{especialidade}}\!\left(\,\sigma_{S.\texttt{id\_sessao}=\,Y}\!\left(\mathit{Sessao} \bowtie \mathit{Apresentada} \bowtie \mathit{Orador}\right)\right)
+                \]
+                onde $S = \mathit{Sessao}$ e $O = \mathit{Orador}$.
+
+                \vspace{0.4cm}
+                \noindent\textbf{RM10 — Pagamentos pendentes ou reembolsados:}
+                \[
+                \pi_{\,P.\texttt{nome},\,E.\texttt{nome},\,Pg.\texttt{valor},\,Pg.\texttt{estado}}\!\left(\,\sigma_{Pg.\texttt{estado} \in \{\texttt{'pendente'},\,\texttt{'reembolsado'}\}}\!\left(\mathit{Pagamento} \bowtie \mathit{Inscricao} \bowtie \mathit{Participante} \bowtie \mathit{Evento}\right)\right)
+                \]
+                onde $P = \mathit{Participante}$, $Pg = \mathit{Pagamento}$ e $E = \mathit{Evento}$.
+
                 \vspace{0.3cm}
-                A expressibilidade de todos os sete requisitos de manipulação em álgebra
+                A expressibilidade de todos os dez requisitos de manipulação em álgebra
                 relacional, usando exclusivamente as relações e atributos do modelo lógico,
                 confirma que o modelo produzido é \textbf{completo e válido} face ao conjunto
                 de necessidades identificadas pelo utilizador.

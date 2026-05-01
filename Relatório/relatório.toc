@@ -1,4 +1,4 @@
-\babel@toc {portuguese}{}\relax 
+\babel@toc {nil}{}\relax 
 \contentsline {section}{\numberline {1}Definição do Sistema}{1}{}%
 \contentsline {subsection}{\numberline {1.1}Contexto de aplicação}{1}{}%
 \contentsline {subsection}{\numberline {1.2}Motivação e Objetivos do Trabalho}{1}{}%
@@ -10,61 +10,61 @@
 \contentsline {subsection}{\numberline {2.2}Organização dos Requisitos Levantados}{5}{}%
 \contentsline {subsubsection}{\numberline {2.2.1}Critérios de Classificação}{5}{}%
 \contentsline {subsubsection}{\numberline {2.2.2}Organização dos Requisitos Levantados}{5}{}%
-\contentsline {subsubsection}{\numberline {2.2.3}Resumo dos Requisitos Identificados}{8}{}%
-\contentsline {subsubsection}{\numberline {2.2.4}Ligação à Fase Seguinte}{8}{}%
-\contentsline {subsection}{\numberline {2.3}Análise e Validação Geral dos Requisitos}{8}{}%
-\contentsline {section}{\numberline {3}Modelação Conceptual}{10}{}%
-\contentsline {subsection}{\numberline {3.1}Apresentação da Abordagem de Modelação Realizada}{10}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}Resumo dos Requisitos Identificados}{9}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Ligação à Fase Seguinte}{9}{}%
+\contentsline {subsection}{\numberline {2.3}Análise e Validação Geral dos Requisitos}{9}{}%
+\contentsline {section}{\numberline {3}Modelação Conceptual}{11}{}%
+\contentsline {subsection}{\numberline {3.1}Apresentação da Abordagem de Modelação Realizada}{11}{}%
 \contentsline {subsection}{\numberline {3.2}Identificação e Caracterização das Entidades}{11}{}%
-\contentsline {subsubsection}{\numberline {3.2.1}Entidade: Evento}{12}{}%
-\contentsline {subsubsection}{\numberline {3.2.2}Entidade: Organizador}{12}{}%
-\contentsline {subsubsection}{\numberline {3.2.3}Entidade: Sessão}{13}{}%
-\contentsline {subsubsection}{\numberline {3.2.4}Entidade: Orador}{13}{}%
-\contentsline {subsubsection}{\numberline {3.2.5}Entidade: Participante}{13}{}%
-\contentsline {subsubsection}{\numberline {3.2.6}Entidade: Inscrição}{14}{}%
-\contentsline {subsubsection}{\numberline {3.2.7}Entidade: Pagamento}{14}{}%
-\contentsline {subsection}{\numberline {3.3}Identificação e Caracterização dos Relacionamentos}{15}{}%
-\contentsline {subsubsection}{\numberline {3.3.1}Visão Global dos Relacionamentos}{15}{}%
-\contentsline {subsubsection}{\numberline {3.3.2}Caracterização Detalhada dos Relacionamentos}{16}{}%
-\contentsline {subsection}{\numberline {3.4}Identificação e Caracterização dos Atributos das Entidades}{21}{}%
-\contentsline {subsubsection}{\numberline {3.4.1}Entidade: Participante}{21}{}%
-\contentsline {subsubsection}{\numberline {3.4.2}Entidade: Inscrição}{22}{}%
-\contentsline {subsubsection}{\numberline {3.4.3}Entidade: Pagamento}{23}{}%
-\contentsline {subsubsection}{\numberline {3.4.4}Entidade: Evento}{24}{}%
-\contentsline {subsubsection}{\numberline {3.4.5}Entidade: Organizador}{25}{}%
-\contentsline {subsubsection}{\numberline {3.4.6}Entidade: Sessão}{26}{}%
-\contentsline {subsubsection}{\numberline {3.4.7}Entidade: Orador}{27}{}%
-\contentsline {subsection}{\numberline {3.5}Apresentação e Explicação do Diagrama ER Produzido}{28}{}%
-\contentsline {section}{\numberline {4}Modelação Lógica}{29}{}%
-\contentsline {subsection}{\numberline {4.1}Construção e Validação do Modelo de Dados Lógico}{29}{}%
-\contentsline {subsubsection}{\numberline {4.1.1}Abordagem de Construção do Modelo Lógico}{29}{}%
-\contentsline {subsubsection}{\numberline {4.1.2}Estrutura Geral do Modelo Lógico}{29}{}%
-\contentsline {subsubsection}{\numberline {4.1.3}Validação do Modelo de Dados Lógico}{30}{}%
-\contentsline {subsection}{\numberline {4.2}Apresentação e Explicação do Modelo Lógico Produzido}{30}{}%
-\contentsline {subsubsection}{\numberline {4.2.1}Relação: Participante}{32}{}%
-\contentsline {subsubsection}{\numberline {4.2.2}Relação: Evento}{32}{}%
-\contentsline {subsubsection}{\numberline {4.2.3}Relação: Organizador}{33}{}%
-\contentsline {subsubsection}{\numberline {4.2.4}Relação: Sessao}{33}{}%
-\contentsline {subsubsection}{\numberline {4.2.5}Relação: Orador}{34}{}%
-\contentsline {subsubsection}{\numberline {4.2.6}Relação: Inscricao}{34}{}%
-\contentsline {subsubsection}{\numberline {4.2.7}Relação: Pagamento}{35}{}%
-\contentsline {subsubsection}{\numberline {4.2.8}Relação: Gere}{35}{}%
-\contentsline {subsubsection}{\numberline {4.2.9}Relação: Tem}{36}{}%
-\contentsline {subsubsection}{\numberline {4.2.10}Relação: Apresentada}{36}{}%
-\contentsline {subsection}{\numberline {4.3}Normalização de Dados}{36}{}%
-\contentsline {subsubsection}{\numberline {4.3.1}Dependências Funcionais e Chaves Identificadas}{36}{}%
-\contentsline {subsubsection}{\numberline {4.3.2}Verificação das Formas Normais}{37}{}%
-\contentsline {subsubsection}{\numberline {4.3.3}Anomalias Evitadas}{38}{}%
-\contentsline {subsubsection}{\numberline {4.3.4}Conclusão}{38}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Entidade: Evento}{13}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Entidade: Organizador}{13}{}%
+\contentsline {subsubsection}{\numberline {3.2.3}Entidade: Sessão}{14}{}%
+\contentsline {subsubsection}{\numberline {3.2.4}Entidade: Orador}{14}{}%
+\contentsline {subsubsection}{\numberline {3.2.5}Entidade: Participante}{14}{}%
+\contentsline {subsubsection}{\numberline {3.2.6}Entidade: Inscrição}{15}{}%
+\contentsline {subsubsection}{\numberline {3.2.7}Entidade: Pagamento}{15}{}%
+\contentsline {subsection}{\numberline {3.3}Identificação e Caracterização dos Relacionamentos}{16}{}%
+\contentsline {subsubsection}{\numberline {3.3.1}Visão Global dos Relacionamentos}{16}{}%
+\contentsline {subsubsection}{\numberline {3.3.2}Caracterização Detalhada dos Relacionamentos}{17}{}%
+\contentsline {subsection}{\numberline {3.4}Identificação e Caracterização dos Atributos das Entidades}{22}{}%
+\contentsline {subsubsection}{\numberline {3.4.1}Entidade: Participante}{22}{}%
+\contentsline {subsubsection}{\numberline {3.4.2}Entidade: Inscrição}{23}{}%
+\contentsline {subsubsection}{\numberline {3.4.3}Entidade: Pagamento}{24}{}%
+\contentsline {subsubsection}{\numberline {3.4.4}Entidade: Evento}{25}{}%
+\contentsline {subsubsection}{\numberline {3.4.5}Entidade: Organizador}{26}{}%
+\contentsline {subsubsection}{\numberline {3.4.6}Entidade: Sessão}{27}{}%
+\contentsline {subsubsection}{\numberline {3.4.7}Entidade: Orador}{28}{}%
+\contentsline {subsection}{\numberline {3.5}Apresentação e Explicação do Diagrama ER Produzido}{29}{}%
+\contentsline {section}{\numberline {4}Modelação Lógica}{30}{}%
+\contentsline {subsection}{\numberline {4.1}Construção e Validação do Modelo de Dados Lógico}{30}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Abordagem de Construção do Modelo Lógico}{30}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Estrutura Geral do Modelo Lógico}{30}{}%
+\contentsline {subsubsection}{\numberline {4.1.3}Validação do Modelo de Dados Lógico}{31}{}%
+\contentsline {subsection}{\numberline {4.2}Apresentação e Explicação do Modelo Lógico Produzido}{31}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Relação: Participante}{33}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Relação: Evento}{33}{}%
+\contentsline {subsubsection}{\numberline {4.2.3}Relação: Organizador}{34}{}%
+\contentsline {subsubsection}{\numberline {4.2.4}Relação: Sessao}{34}{}%
+\contentsline {subsubsection}{\numberline {4.2.5}Relação: Orador}{35}{}%
+\contentsline {subsubsection}{\numberline {4.2.6}Relação: Inscricao}{35}{}%
+\contentsline {subsubsection}{\numberline {4.2.7}Relação: Pagamento}{36}{}%
+\contentsline {subsubsection}{\numberline {4.2.8}Relação: Gere}{36}{}%
+\contentsline {subsubsection}{\numberline {4.2.9}Relação: Tem}{37}{}%
+\contentsline {subsubsection}{\numberline {4.2.10}Relação: Apresentada}{37}{}%
+\contentsline {subsection}{\numberline {4.3}Normalização de Dados}{37}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}Dependências Funcionais e Chaves Identificadas}{37}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}Verificação das Formas Normais}{38}{}%
+\contentsline {subsubsection}{\numberline {4.3.3}Anomalias Evitadas}{39}{}%
+\contentsline {subsubsection}{\numberline {4.3.4}Conclusão}{39}{}%
 \contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogações do Utilizador}{39}{}%
-\contentsline {section}{\numberline {5}Implementação Fisica}{40}{}%
-\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{40}{}%
-\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{40}{}%
-\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{40}{}%
-\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{40}{}%
-\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{40}{}%
-\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{40}{}%
-\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{40}{}%
-\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{40}{}%
-\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{40}{}%
-\contentsline {section}{\numberline {7}Bibliografia}{40}{}%
+\contentsline {section}{\numberline {5}Implementação Fisica}{41}{}%
+\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{41}{}%
+\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{41}{}%
+\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{41}{}%
+\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{41}{}%
+\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{41}{}%
+\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{41}{}%
+\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{41}{}%
+\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{41}{}%
+\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{41}{}%
+\contentsline {section}{\numberline {7}Bibliografia}{41}{}%
