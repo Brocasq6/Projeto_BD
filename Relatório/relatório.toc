@@ -1,4 +1,4 @@
-\babel@toc {nil}{}\relax 
+\babel@toc {portuguese}{}\relax 
 \contentsline {section}{\numberline {1}Definição do Sistema}{1}{}%
 \contentsline {subsection}{\numberline {1.1}Contexto de aplicação}{1}{}%
 \contentsline {subsection}{\numberline {1.2}Motivação e Objetivos do Trabalho}{1}{}%
@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {2.3}Análise e Validação Geral dos Requisitos}{9}{}%
 \contentsline {section}{\numberline {3}Modelação Conceptual}{11}{}%
 \contentsline {subsection}{\numberline {3.1}Apresentação da Abordagem de Modelação Realizada}{11}{}%
-\contentsline {subsection}{\numberline {3.2}Identificação e Caracterização das Entidades}{11}{}%
+\contentsline {subsection}{\numberline {3.2}Identificação e Caracterização das Entidades}{12}{}%
 \contentsline {subsubsection}{\numberline {3.2.1}Entidade: Evento}{13}{}%
 \contentsline {subsubsection}{\numberline {3.2.2}Entidade: Organizador}{13}{}%
 \contentsline {subsubsection}{\numberline {3.2.3}Entidade: Sessão}{14}{}%
@@ -49,8 +49,7 @@
 \contentsline {subsubsection}{\numberline {4.2.6}Relação: Inscricao}{35}{}%
 \contentsline {subsubsection}{\numberline {4.2.7}Relação: Pagamento}{36}{}%
 \contentsline {subsubsection}{\numberline {4.2.8}Relação: Gere}{36}{}%
-\contentsline {subsubsection}{\numberline {4.2.9}Relação: Tem}{37}{}%
-\contentsline {subsubsection}{\numberline {4.2.10}Relação: Apresentada}{37}{}%
+\contentsline {subsubsection}{\numberline {4.2.9}Relação: Apresentada}{37}{}%
 \contentsline {subsection}{\numberline {4.3}Normalização de Dados}{37}{}%
 \contentsline {subsubsection}{\numberline {4.3.1}Dependências Funcionais e Chaves Identificadas}{37}{}%
 \contentsline {subsubsection}{\numberline {4.3.2}Verificação das Formas Normais}{38}{}%

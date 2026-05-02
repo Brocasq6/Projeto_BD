@@ -703,7 +703,7 @@
                 \textbf{R2} & pertence    & Inscrição $\rightarrow$ Evento       & N:1 & T:P & RD8      & Associação ao evento. \\ \hline
                 \textbf{R3} & precisa     & Inscrição $\rightarrow$ Pagamento    & 1:1 & T:T & RD9, RC2 & Ligação da transação. \\ \hline
                 \textbf{R4} & gere        & Organizador $\rightarrow$ Evento     & N:M & T:T & RD3      & Gestão do evento. \\ \hline
-                \textbf{R5} & tem         & Evento $\rightarrow$ Sessão          & N:M & T:T & RD4      & Composição do evento. \\ \hline
+                \textbf{R5} & tem         & Evento $\rightarrow$ Sessão          & 1:N & T:T & RD4      & Composição do evento. \\ \hline
                 \textbf{R6} & apresentada & Sessão $\rightarrow$ Orador          & N:M & T:T & RD6      & Atribuição de oradores. \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
@@ -765,11 +765,14 @@
                     \end{figure}
                     \end{minipage}
 
-                        O relacionamento precisa representa a dependência direta e obrigatória entre uma inscrição e o respetivo pagamento. 
-                        Trata-se do único relacionamento do tipo 1:1 neste modelo, com participação total em ambos os lados: toda a inscrição 
-                        necessita de um pagamento associado para ser válida, e todo o pagamento existe no contexto de uma inscrição específica. 
-                        Esta restrição reflete uma regra de negócio clara — não é possível concluir uma inscrição sem que exista um registo de 
+                        O relacionamento precisa representa a dependência direta e obrigatória entre uma inscrição e o respetivo pagamento.
+                        Trata-se do único relacionamento do tipo 1:1 neste modelo, com participação total em ambos os lados: toda a inscrição
+                        necessita de um pagamento associado para ser válida, e todo o pagamento existe no contexto de uma inscrição específica.
+                        Esta restrição reflete uma regra de negócio clara — não é possível concluir uma inscrição sem que exista um registo de
                         pagamento correspondente, nem pode existir um pagamento que não esteja associado a nenhuma inscrição.
+                        Esta participação total pressupõe que o registo de pagamento é criado
+                        automaticamente no momento da inscrição, podendo ficar com estado
+                        \texttt{pendente} até à confirmação da transação financeira.
                     \vspace{0.4cm}
                     
                     \noindent\begin{minipage}{\textwidth}
@@ -799,11 +802,15 @@
                         \end{figure}
                     \end{minipage}
 
-                        O relacionamento tem expressa a composição de um evento em sessões. Um evento é constituído por uma ou várias sessões, e 
-                        uma sessão pode estar associada a um ou vários eventos, o que permite, por exemplo, que uma sessão plenária seja partilhada 
-                        por múltiplos eventos. A participação é total em ambos os lados: um evento tem obrigatoriamente pelo menos uma sessão, e uma 
-                        sessão existe sempre no âmbito de pelo menos um evento. Trata-se de um relacionamento N:M, que no modelo lógico dará 
-                        igualmente origem a uma tabela associativa.
+                        O relacionamento \textit{tem} expressa a composição de um evento em sessões.
+                        Um evento é constituído por uma ou várias sessões, e cada sessão pertence
+                        obrigatoriamente a um único evento --- conforme expresso em RD4, que define
+                        sessões como ``associadas a um evento''. A participação é total em ambos os
+                        lados: um evento tem obrigatoriamente pelo menos uma sessão, e uma sessão
+                        existe sempre no âmbito de exatamente um evento. Por se tratar de um
+                        relacionamento 1:N, a sua implementação no modelo lógico é feita através
+                        de uma chave estrangeira \texttt{id\_evento} na tabela \textit{Sessao},
+                        sem necessidade de tabela associativa.
                     \vspace{0.4cm}
                     
                     \noindent\begin{minipage}{\textwidth}
@@ -1169,8 +1176,8 @@
                 \subsubsection{Estrutura Geral do Modelo Lógico}\mbox{}\\
 
                 Como resultado do processo descrito, obteve-se um modelo lógico constituído por
-                \textbf{dez tabelas}: sete correspondentes às entidades identificadas no modelo
-                conceptual e três tabelas associativas resultantes dos relacionamentos N:M.
+                \textbf{nove tabelas}: sete correspondentes às entidades identificadas no modelo
+                conceptual e duas tabelas associativas resultantes dos relacionamentos N:M.
 
                 \noindent\textbf{Tabelas de entidades:}
                 \begin{itemize}
@@ -1186,7 +1193,6 @@
                 \noindent\textbf{Tabelas associativas:}
                 \begin{itemize}
                     \item \textbf{Gere} --- materializa o relacionamento N:M entre Organizador e Evento
-                    \item \textbf{Tem} --- materializa o relacionamento N:M entre Evento e Sessao
                     \item \textbf{Apresentada} --- materializa o relacionamento N:M entre Sessao e Orador
                 \end{itemize}
 
@@ -1331,9 +1337,11 @@
 
                 A relação \textit{Sessao} deriva da entidade homónima (RD4) e representa cada
                 atividade individual que compõe um evento. A chave primária é
-                \texttt{id\_sessao}. A restrição \texttt{CHECK(hora\_inicio < hora\_fim)} garante
-                a validade do intervalo temporal, necessária para suportar a regra de negócio RC6
-                (não sobreposição de horários).
+                \texttt{id\_sessao}. O relacionamento 1:N \textit{tem} (R5) é implementado através
+                da chave estrangeira \texttt{id\_evento}, que referencia \textit{Evento} e garante
+                que cada sessão pertence a exatamente um evento. A restrição
+                \texttt{CHECK(hora\_inicio < hora\_fim)} garante a validade do intervalo temporal,
+                necessária para suportar a regra de negócio RC6 (não sobreposição de horários).
 
                 \begin{table}[H]
                 \centering
@@ -1347,11 +1355,13 @@
                 hora\_inicio & TIME         & N & N \\ \hline
                 hora\_fim    & TIME         & N & N \\ \hline
                 sala         & VARCHAR(50)  & S & N \\ \hline
+                id\_evento   & INT          & N & S \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
                 \caption{Dicionário de dados da relação Sessao}
                 \label{tab:dic_sessao}
                 \end{table}
+                \noindent\textbf{Restrições:} \texttt{id\_evento} FK $\rightarrow$ Evento(id\_evento)
                 \end{minipage}
 
                 % ── Orador ───────────────────────────────────────────────────────────────
@@ -1469,32 +1479,7 @@
                 \end{table}
                 \end{minipage}
 
-                % ── Tem ──────────────────────────────────────────────────────────────────
-                \vspace{0.3cm}
-                \noindent\begin{minipage}{\textwidth}
-                \subsubsection{Relação: Tem}\mbox{}\\
-
-                A relação \textit{Tem} é uma tabela associativa que materializa o relacionamento
-                N:M \textit{tem} entre \textit{Evento} e \textit{Sessao} (R5, RD4), permitindo
-                que um evento seja composto por várias sessões e que uma sessão possa ser
-                partilhada por múltiplos eventos.
-
-                \begin{table}[H]
-                \centering
-                \renewcommand{\arraystretch}{1.4}
-                \begin{tabular}{|l|l|c|c|}
-                \hline
-                \textbf{Atributo} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Chave Estrangeira} \\ \hline
-                id\_evento & INT & N & S \\ \hline
-                id\_sessao & INT & N & S \\ \hline
-                \end{tabular}
-                \vspace{0.2cm}
-                \caption{Dicionário de dados da relação Tem}
-                \label{tab:dic_tem}
-                \end{table}
-                \end{minipage}
-
-                % ── Apresentada ──────────────────────────────────────────────────────────
+% ── Apresentada ──────────────────────────────────────────────────────────
                 \vspace{0.3cm}
                 \noindent\begin{minipage}{\textwidth}
                 \subsubsection{Relação: Apresentada}\mbox{}\\
@@ -1524,8 +1509,8 @@
 
                 O objetivo desta secção é justificar que o modelo lógico relacional definido
                 --- \textit{Participante}, \textit{Evento}, \textit{Organizador}, \textit{Sessao},
-                \textit{Orador}, \textit{Inscricao}, \textit{Pagamento}, \textit{Gere},
-                \textit{Tem} e \textit{Apresentada} --- se encontra normalizado, reduzindo a
+                \textit{Orador}, \textit{Inscricao}, \textit{Pagamento}, \textit{Gere}
+                e \textit{Apresentada} --- se encontra normalizado, reduzindo a
                 redundância e prevenindo anomalias de inserção, atualização e remoção.
 
                 A normalização foi verificada com base na identificação das dependências
@@ -1555,9 +1540,9 @@
                     \item \texttt{email} $\to$ id\_organizador, nome, telefone \hfill (\textit{chave alternativa --- UNIQUE})
                 \end{itemize}
 
-                \noindent\textbf{Sessao} (\underline{id\_sessao}, tema, data, hora\_inicio, hora\_fim, sala)
+                \noindent\textbf{Sessao} (\underline{id\_sessao}, tema, data, hora\_inicio, hora\_fim, sala, id\_evento)
                 \begin{itemize}
-                    \item \texttt{id\_sessao} $\to$ tema, data, hora\_inicio, hora\_fim, sala
+                    \item \texttt{id\_sessao} $\to$ tema, data, hora\_inicio, hora\_fim, sala, id\_evento
                 \end{itemize}
 
                 \noindent\textbf{Orador} (\underline{id\_orador}, nome, email, especialidade)
@@ -1578,7 +1563,7 @@
                     \item \texttt{id\_inscricao} $\to$ id\_pagamento, valor, data\_pagamento, metodo, estado \hfill (\textit{chave alternativa --- UNIQUE, RC2})
                 \end{itemize}
 
-                \noindent\textbf{Gere, Tem, Apresentada} --- apenas atributos de chave; não existem DFs adicionais.
+                \noindent\textbf{Gere, Apresentada} --- apenas atributos de chave; não existem DFs adicionais.
 
                 \subsubsection{Verificação das Formas Normais}\mbox{}\\
 
@@ -1589,7 +1574,7 @@
                     \item Os atributos são atómicos --- não existem listas nem valores repetidos num mesmo campo;
                     \item Cada tabela possui uma chave primária bem definida;
                     \item Os relacionamentos N:M foram decompostos em tabelas associativas (\textit{Gere},
-                    \textit{Tem}, \textit{Apresentada}), eliminando grupos repetitivos.
+                    \textit{Apresentada}), eliminando grupos repetitivos.
                 \end{itemize}
                 \noindent Todas as relações estão em \textbf{1FN}. $\checkmark$
 
@@ -1601,7 +1586,7 @@
                     \item As relações \textit{Participante}, \textit{Evento}, \textit{Organizador},
                     \textit{Sessao}, \textit{Orador}, \textit{Inscricao} e \textit{Pagamento}
                     possuem chave primária simples, pelo que estão trivialmente em 2FN;
-                    \item As relações \textit{Gere}, \textit{Tem} e \textit{Apresentada} possuem
+                    \item As relações \textit{Gere} e \textit{Apresentada} possuem
                     chave primária composta, mas não contêm atributos não-chave --- logo não podem
                     existir dependências parciais.
                 \end{itemize}
@@ -1677,7 +1662,7 @@
                 \vspace{0.4cm}
                 \noindent\textbf{RM2 — Programa completo do evento $X$ (sessões, oradores, salas e horários):}
                 \[
-                \pi_{\,S.\texttt{tema},\,S.\texttt{sala},\,S.\texttt{data},\,S.\texttt{hora\_inicio},\,S.\texttt{hora\_fim},\,O.\texttt{nome}}\!\left(\,\sigma_{E.\texttt{id\_evento}\,=\,X}\!\left(E \bowtie \mathit{Tem} \bowtie S \bowtie \mathit{Apresentada} \bowtie O\right)\right)
+                \pi_{\,S.\texttt{tema},\,S.\texttt{sala},\,S.\texttt{data},\,S.\texttt{hora\_inicio},\,S.\texttt{hora\_fim},\,O.\texttt{nome}}\!\left(\,\sigma_{E.\texttt{id\_evento}\,=\,X}\!\left(E \bowtie S \bowtie \mathit{Apresentada} \bowtie O\right)\right)
                 \]
                 onde $E = \mathit{Evento}$, $S = \mathit{Sessao}$, $O = \mathit{Orador}$.
 
@@ -1717,7 +1702,7 @@
                 \vspace{0.4cm}
                 \noindent\textbf{RM7 — Oradores que apresentam sessões do evento $X$:}
                 \[
-                \pi_{\,O.\texttt{nome},\,O.\texttt{especialidade}}\!\left(\,\sigma_{E.\texttt{id\_evento}\,=\,X}\!\left(E \bowtie \mathit{Tem} \bowtie S \bowtie \mathit{Apresentada} \bowtie O\right)\right)
+                \pi_{\,O.\texttt{nome},\,O.\texttt{especialidade}}\!\left(\,\sigma_{E.\texttt{id\_evento}\,=\,X}\!\left(E \bowtie S \bowtie \mathit{Apresentada} \bowtie O\right)\right)
                 \]
                 onde $E = \mathit{Evento}$, $S = \mathit{Sessao}$, $O = \mathit{Orador}$.
 
