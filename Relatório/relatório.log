@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.23)  2 MAY 2026 13:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.23)  2 MAY 2026 14:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -470,156 +470,156 @@ Underfull \hbox (badness 10000) in paragraph at lines 960--961
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1005
 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 1037--1038
+[25{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1040
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1074
+Underfull \hbox (badness 10000) in paragraph at lines 1075--1076
 
  []
 
 [27]
-<../imagens/mod_conceptual.png, id=131, 1414.28375pt x 606.265pt>
+<../imagens/mod_conceptual.png, id=132, 1414.28375pt x 606.265pt>
 File: ../imagens/mod_conceptual.png Graphic file (type png)
 <use ../imagens/mod_conceptual.png>
-Package pdftex.def Info: ../imagens/mod_conceptual.png  used on input line 1108.
+Package pdftex.def Info: ../imagens/mod_conceptual.png  used on input line 1110.
 (pdftex.def)             Requested size: 433.90442pt x 186.00677pt.
  [28] [29 <../imagens/mod_conceptual.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1150--1151
+Underfull \hbox (badness 10000) in paragraph at lines 1152--1153
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1176--1177
+Underfull \hbox (badness 10000) in paragraph at lines 1178--1179
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1199--1200
+Underfull \hbox (badness 10000) in paragraph at lines 1201--1202
 
  []
 
-<../imagens/modLgico.png, id=142, 693.59125pt x 734.745pt>
+<../imagens/modLgico.png, id=143, 784.9325pt x 734.745pt>
 File: ../imagens/modLgico.png Graphic file (type png)
 <use ../imagens/modLgico.png>
-Package pdftex.def Info: ../imagens/modLgico.png  used on input line 1240.
-(pdftex.def)             Requested size: 381.838pt x 404.50339pt.
+Package pdftex.def Info: ../imagens/modLgico.png  used on input line 1242.
+(pdftex.def)             Requested size: 381.838pt x 357.42717pt.
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1247--1248
+Underfull \hbox (badness 10000) in paragraph at lines 1249--1250
 
  []
 
 [32 <../imagens/modLgico.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1277--1278
+Underfull \hbox (badness 10000) in paragraph at lines 1279--1280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1308--1309
+Underfull \hbox (badness 10000) in paragraph at lines 1312--1313
 
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1336--1337
+Underfull \hbox (badness 10000) in paragraph at lines 1340--1341
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1370--1371
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1375
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1397--1398
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1429--1430
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1434
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1460--1461
+Underfull \hbox (badness 10000) in paragraph at lines 1464--1465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1485--1486
+Underfull \hbox (badness 10000) in paragraph at lines 1489--1490
 
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1520--1521
+Underfull \hbox (badness 10000) in paragraph at lines 1524--1525
 
  []
 
 [37]
-Overfull \hbox (17.46104pt too wide) in paragraph at lines 1560--1561
+Overfull \hbox (17.46104pt too wide) in paragraph at lines 1564--1565
 \T1/cmr/bx/n/10 Pagamento \T1/cmr/m/n/10 ($[]$, va-lor, data_pagamento, me-todo, es-tado, id_inscricao) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1568--1569
+Underfull \hbox (badness 10000) in paragraph at lines 1572--1573
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1612--1613
+Underfull \hbox (badness 10000) in paragraph at lines 1616--1617
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1632--1633
+Underfull \hbox (badness 10000) in paragraph at lines 1636--1637
 
  []
 
 
-Overfull \hbox (19.77376pt too wide) detected at line 1658
+Overfull \hbox (19.77376pt too wide) detected at line 1662
 \OML/cmm/m/it/10 ^^Y[]  []
  []
 
 
-Overfull \hbox (123.20055pt too wide) detected at line 1666
+Overfull \hbox (123.20055pt too wide) detected at line 1670
 \OML/cmm/m/it/10 ^^Y[]  []
  []
 
 [39]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1684.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1688.
 
-Overfull \hbox (2.47107pt too wide) in paragraph at lines 1684--1685
+Overfull \hbox (2.47107pt too wide) in paragraph at lines 1688--1689
 \T1/cmr/bx/n/10 RM5 ^^V To-tal de re-cei-tas do evento $\OML/cmm/m/it/10 X$ \T1/cmr/bx/n/10 (pa-ga-men-tos com es-tado \T1/cmtt/m/n/10 'pago'\T1/cmr/bx/n/10 ): 
  []
 
 
-Overfull \hbox (90.13556pt too wide) detected at line 1687
+Overfull \hbox (90.13556pt too wide) detected at line 1691
 \OMS/cmsy/m/n/10 G[]  []
  []
 
 
-Overfull \hbox (126.97446pt too wide) detected at line 1696
+Overfull \hbox (126.97446pt too wide) detected at line 1700
 [] \OMS/cmsy/m/n/10   \OML/cmm/m/it/10 ^^Z[]  []
  []
 
 
-Overfull \hbox (106.38696pt too wide) detected at line 1713
+Overfull \hbox (106.38696pt too wide) detected at line 1717
 \OML/cmm/m/it/10 ^^Y[]  []
  []
 
 
-Overfull \hbox (7.59856pt too wide) detected at line 1720
+Overfull \hbox (7.59856pt too wide) detected at line 1724
 \OML/cmm/m/it/10 ^^Y[]  []
  []
 
 
-Overfull \hbox (238.8994pt too wide) detected at line 1727
+Overfull \hbox (238.8994pt too wide) detected at line 1731
 \OML/cmm/m/it/10 ^^Y[]  []
  []
 
@@ -630,18 +630,18 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4156 strings out of 467525
- 65954 string characters out of 5418982
- 490859 words of memory out of 5000000
- 33013 multiletter control sequences out of 15000+600000
- 642428 words of font info for 76 fonts, out of 8000000 for 9000
+ 4160 strings out of 467525
+ 66010 string characters out of 5418982
+ 491859 words of memory out of 5000000
+ 33015 multiletter control sequences out of 15000+600000
+ 642763 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,13n,65p,726b,361s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on relatório.pdf (47 pages, 1268822 bytes).
+Output written on relatório.pdf (47 pages, 1352535 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
+ 286 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

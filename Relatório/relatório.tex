@@ -842,8 +842,8 @@
                     distinguir inequivocamente cada participante. O atributo \texttt{nome} regista o nome completo 
                     do participante, sendo de preenchimento obrigatório. O atributo \texttt{e-mail} armazena o 
                     endereço de correio eletrónico do participante, devendo ser único no sistema dado que serve 
-                    também como meio de identificação e contacto. O atributo \texttt{telemovel} guarda o número 
-                    de contacto telefónico, de preenchimento opcional. Por fim, o atributo 
+                    também como meio de identificação e contacto. O atributo \texttt{telemovel} guarda o número
+                    de contacto telefónico, sendo de preenchimento obrigatório (RD7). Por fim, o atributo 
                     \texttt{organização/instituição} indica a entidade à qual o participante está afiliado, sendo 
                     igualmente opcional, pois nem todos os participantes representam necessariamente uma organização.
 
@@ -857,7 +857,7 @@
                     \texttt{id\_participante}        & Identificador sequencial & \texttt{INT} & N & 1 & --- \\ \hline
                     \texttt{nome}                    & Nome completo do participante & \texttt{VARCHAR(100)} & N & Tiago Santos & RD1 \\ \hline
                     \texttt{e-mail}                  & Endereço eletrónico & \texttt{VARCHAR(100)} & N & tiago@email.com & RD1 \\ \hline
-                    \texttt{telemovel}               & Número de telemóvel & \texttt{VARCHAR(15)} & S & 912345678 & RD1 \\ \hline
+                    \texttt{telemovel}               & Número de telemóvel & \texttt{VARCHAR(15)} & N & 912345678 & RD7 \\ \hline
                     \texttt{organização}             & Instituição que representa & \texttt{VARCHAR(100)} & S & UMinho & RD1 \\ \hline
                     \end{tabular}
                     }
@@ -962,7 +962,8 @@
                     A entidade \textit{Evento} é a entidade central do modelo, agregando a informação descritiva 
                     de cada evento gerido pelo sistema. O atributo \texttt{id\_evento} é a chave primária. 
                     O atributo \texttt{Nome} identifica o evento de forma textual. O atributo \texttt{Tipo} 
-                    classifica o evento segundo a sua natureza (por exemplo: conferência, workshop, seminário). 
+                    classifica o evento segundo a sua natureza (por exemplo: conferência, workshop, seminário).
+                    O atributo \texttt{numero\_edicao} identifica a edição do evento (por exemplo: 1.ª, 2.ª edição).
                     Os atributos \texttt{data\_inicio} e \texttt{data\_fim} delimitam o período de realização 
                     do evento. O atributo \texttt{localização} indica o local onde o evento decorre. O atributo 
                     \texttt{descrição} permite registar uma apresentação mais detalhada do evento. Por último, 
@@ -979,6 +980,7 @@
                     \texttt{id\_evento}   & Identificador sequencial & \texttt{INT} & N & 5 & --- \\ \hline
                     \texttt{Nome}         & Nome do evento & \texttt{VARCHAR(150)} & N & FestivaliUM & RD1 \\ \hline
                     \texttt{Tipo}         & Categoria do evento & \texttt{VARCHAR(50)} & N & Conferência & RD1 \\ \hline
+                    \texttt{numero\_edicao} & Número de edição & \texttt{INT} & N & 3 & RD1 \\ \hline
                     \texttt{data\_inicio} & Data de início & \texttt{DATE} & N & 2026-06-01 & RD1 \\ \hline
                     \texttt{data\_fim}    & Data de término & \texttt{DATE} & N & 2026-06-05 & RD1 \\ \hline
                     \texttt{localização}  & Sede principal & \texttt{VARCHAR(150)} & N & Braga & RD1 \\ \hline
@@ -1055,7 +1057,7 @@
                     \texttt{data}         & Data de realização & \texttt{DATE} & N & 2026-06-02 & RD4 \\ \hline
                     \texttt{hora\_inicio} & Início da sessão & \texttt{TIME} & N & 14:00 & RD4 \\ \hline
                     \texttt{hora\_fim}    & Fim da sessão & \texttt{TIME} & N & 16:00 & RD4 \\ \hline
-                    \texttt{sala}         & Espaço físico alocado & \texttt{VARCHAR(50)} & S & Auditório B1 & RD4 \\ \hline
+                    \texttt{sala}         & Espaço físico alocado & \texttt{VARCHAR(50)} & N & Auditório B1 & RD4 \\ \hline
                     \end{tabular}
                     }
                     \vspace{0.2cm}
@@ -1262,7 +1264,7 @@
                 id\_participante & INT              & N & N \\ \hline
                 nome             & VARCHAR(100)     & N & N \\ \hline
                 email            & VARCHAR(100)     & N & N \\ \hline
-                telemovel        & VARCHAR(15)      & S & N \\ \hline
+                telemovel        & VARCHAR(15)      & N & N \\ \hline
                 organizacao      & VARCHAR(100)     & S & N \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
@@ -1280,6 +1282,7 @@
                 homónima (RD1). Agrega toda a informação descritiva de cada evento. A chave
                 primária \texttt{id\_evento} é gerada automaticamente pelo sistema. A restrição
                 \texttt{CHECK(data\_inicio <= data\_fim)} garante a coerência temporal do evento.
+                O atributo \texttt{numero\_edicao} regista a edição do evento, sendo de preenchimento obrigatório.
 
                 \begin{table}[H]
                 \centering
@@ -1290,6 +1293,7 @@
                 id\_evento   & INT          & N & N \\ \hline
                 nome         & VARCHAR(150) & N & N \\ \hline
                 tipo         & VARCHAR(50)  & N & N \\ \hline
+                numero\_edicao & INT          & N & N \\ \hline
                 data\_inicio & DATE         & N & N \\ \hline
                 data\_fim    & DATE         & N & N \\ \hline
                 localizacao  & VARCHAR(150) & N & N \\ \hline
@@ -1354,7 +1358,7 @@
                 data         & DATE         & N & N \\ \hline
                 hora\_inicio & TIME         & N & N \\ \hline
                 hora\_fim    & TIME         & N & N \\ \hline
-                sala         & VARCHAR(50)  & S & N \\ \hline
+                sala         & VARCHAR(50)  & N & N \\ \hline
                 id\_evento   & INT          & N & S \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
@@ -1529,9 +1533,9 @@
                     \item \texttt{email} $\to$ id\_participante, nome, telemovel, organizacao \hfill (\textit{chave alternativa --- UNIQUE})
                 \end{itemize}
 
-                \noindent\textbf{Evento} (\underline{id\_evento}, nome, tipo, data\_inicio, data\_fim, localizacao, descricao, capacidade)
+                \noindent\textbf{Evento} (\underline{id\_evento}, nome, tipo, numero\_edicao, data\_inicio, data\_fim, localizacao, descricao, capacidade)
                 \begin{itemize}
-                    \item \texttt{id\_evento} $\to$ nome, tipo, data\_inicio, data\_fim, localizacao, descricao, capacidade
+                    \item \texttt{id\_evento} $\to$ nome, tipo, numero\_edicao, data\_inicio, data\_fim, localizacao, descricao, capacidade
                 \end{itemize}
 
                 \noindent\textbf{Organizador} (\underline{id\_organizador}, nome, email, telefone)
