@@ -1746,8 +1746,109 @@
                 \subsection{Tradução das interrogações do utilizador para SQL}
                 \subsection{Indexação do Sistema de Dados}
                 \subsection{Implementação de procedimentos, funções e gatilhos}
+        
         \section{Conclusão e Trabalho Futuro}
+
+        O presente relatório documenta o processo de conceção e implementação do sistema de base de dados 
+        relacional para a plataforma EvenSync, desenvolvido a pedido de José Bumblebee com o objetivo de 
+        centralizar e estruturar toda a informação associada à gestão de eventos académicos e profissionais.
+        
+        Ao longo das diferentes fases do projeto, a equipa percorreu o ciclo completo de desenvolvimento de 
+        um sistema de base de dados: desde o levantamento e análise de requisitos, passando pela modelação 
+        conceptual com o diagrama Entidade-Relacionamento, pela tradução para o modelo lógico relacional e 
+        respetiva normalização até à Terceira Forma Normal (3FN), até à implementação física em MySQL. Em 
+        cada etapa foram tomadas decisões técnicas devidamente justificadas, tendo sempre como referência os 
+        requisitos identificados e as boas práticas da engenharia de bases de dados.
+        
+        O modelo físico resultante é composto por nove tabelas — Participante, Evento, Organizador, Sessao, 
+        Orador, Inscricao, Pagamento, Gere e Apresentada — que cobrem integralmente os dez Requisitos de 
+        Descrição identificados. A integridade dos dados é assegurada por restrições de chave primária e estrangeira, 
+        restrições de domínio (CHECK) e restrições de unicidade, complementadas por um conjunto de gatilhos, procedimentos 
+        e funções que automatizam regras de negócio críticas, como a verificação de sobreposição de sessões na mesma sala e a 
+        atualização automática do estado de inscrição após confirmação de pagamento.
+        
+        A validação do modelo lógico através da álgebra relacional, utilizando a ferramenta RelaX, confirmou que todos os dez 
+        Requisitos de Manipulação (RM1–RM10) são expressíveis com base nas relações e atributos definidos, o que demonstra a 
+        completude e adequação do modelo ao problema em causa. A tradução posterior para SQL, com recurso a vistas de utilização 
+        e a interrogações parametrizadas, permitiu concretizar esses requisitos num sistema funcional e testado.
+        
+        Em termos globais, considera-se que os objetivos definidos no Capítulo 1 foram atingidos na sua totalidade. O sistema 
+        desenvolvido é tecnicamente robusto, normalizado, eficiente e alinhado com as necessidades reais do cliente.
+        
+        Trabalho Futuro. Apesar do sistema desenvolvido cobrir com sucesso todos os requisitos identificados, existem várias 
+        dimensões em que o EvenSync poderá ser evoluído em trabalho futuro:
+
+        \begin{itemize}
+            \item \textbf{Emissão de certificados de participação:} o modelo atual não
+            contempla a geração ou o registo de certificados para os participantes. Uma
+            extensão natural seria adicionar uma entidade \texttt{Certificado} associada
+            à inscrição, com data de emissão e código de validação único;
+
+            \item \textbf{Avaliação de eventos e oradores:} seria útil incorporar um
+            mecanismo de feedback que permitisse aos participantes avaliar sessões e oradores,
+            enriquecendo a análise pós-evento e apoiando a melhoria contínua;
+
+            \item \textbf{Suporte multilingue e internacionalização:} a base de dados
+            encontra-se preparada para conteúdos em português, mas uma evolução para um
+            contexto internacional exigiria a adaptação do esquema para suportar múltiplos
+            idiomas nos campos descritivos;
+
+            \item \textbf{Integração com sistemas externos:} a exposição dos dados via API
+            REST permitiria integrar o EvenSync com plataformas de pagamento, sistemas de
+            envio de email ou ferramentas de gestão académica já existentes nas instituições;
+
+            \item \textbf{Auditoria e rastreabilidade:} a adição de tabelas de auditoria
+            (\textit{audit log}) que registassem todas as alterações ao estado de inscrições
+            e pagamentos aumentaria a transparência e facilitaria a resolução de disputas.
+        \end{itemize}
+
+
+                
         \section{Bibliografia}
+
+        \begin{thebibliography}{99}
+
+    \bibitem{ramakrishnan2003}
+    Ramakrishnan, R., \& Gehrke, J. (2003).
+    \textit{Database Management Systems} (3rd ed.).
+    McGraw-Hill.
+
+    \bibitem{elmasri2015}
+    Elmasri, R., \& Navathe, S. B. (2015).
+    \textit{Fundamentals of Database Systems} (7th ed.).
+    Pearson.
+
+    \bibitem{date2004}
+    Date, C. J. (2004).
+    \textit{An Introduction to Database Systems} (8th ed.).
+    Addison-Wesley.
+
+    \bibitem{mysql2024}
+    Oracle Corporation. (2024).
+    \textit{MySQL 8.0 Reference Manual}.
+    Disponível em: \texttt{https://dev.mysql.com/doc/refman/8.0/en/}
+
+    \bibitem{relaX}
+    Guter, J., \& Specht, G. (2022).
+    \textit{RelaX --- Relational Algebra Calculator}.
+    Disponível em: \texttt{https://dbis-uibk.github.io/relax/}
+
+    \bibitem{codd1970}
+    Codd, E. F. (1970).
+    A Relational Model of Data for Large Shared Data Banks.
+    \textit{Communications of the ACM}, 13(6), 377--387.
+
+    \bibitem{eventbrite}
+    Eventbrite. (2024).
+    \textit{Eventbrite --- Discover and Create Events Worth Experiencing}.
+    Disponível em: \texttt{https://www.eventbrite.com/}
+
+    \bibitem{meetup}
+    Meetup. (2024).
+    \textit{Meetup --- Find events near you}.
+    Disponível em: \texttt{https://www.meetup.com/}
+
+\end{thebibliography}
 
 
 \end{document}
