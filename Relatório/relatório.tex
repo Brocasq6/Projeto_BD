@@ -303,7 +303,7 @@
                 \begin{tabular}{|c|p{0.62\textwidth}|c|}
                 \hline
                 \textbf{ID} & \textbf{Requisitos de Descrição (RD)} & \textbf{Analista} \\ \hline
-                RD1 & O sistema deve permitir registar eventos com um identificador único, nome, tipo (conferência, workshop, corporativo, entre outros), número de edição, datas de início e fim, localização, capacidade máxima e descrição. & João Ribeiro \\ \hline
+                RD1 & O sistema deve permitir registar eventos com um identificador único, nome, tipo (conferências, workshops, eventos corporativos, seminários), número de edição, datas de início e fim, localização, capacidade máxima e descrição. & João Ribeiro \\ \hline
                 RD2 & O sistema deve permitir registar organizadores com um identificador único, nome, email e telefone. & João Ribeiro \\ \hline
                 RD3 & O sistema deve permitir associar um ou mais organizadores a cada evento, sendo que um organizador pode gerir múltiplos eventos. & João Ribeiro \\ \hline
                 RD4 & O sistema deve permitir registar sessões associadas a um evento, com um identificador único, título, sala, data, hora de início, hora de fim e descrição. & João Ribeiro \\ \hline
@@ -508,7 +508,7 @@
                 \begin{itemize}
                     \item \texttt{id\_evento} (chave primária)
                     \item \texttt{nome} (obrigatório --- RD1)
-                    \item \texttt{tipo} (obrigatório --- RD1: conferência, workshop, corporativo, entre outros)
+                    \item \texttt{tipo} (obrigatório --- RD1: conferências, workshops, eventos corporativos, seminários --- para garantir a integridade dos dados, evitando a entrada de tipos não padronizados que poderiam comprometer a consistência das consultas e relatórios do sistema)
                     \item \texttt{capacidade} (obrigatório --- RD1: número máximo de participantes)
                     \item \texttt{descricao} (opcional --- RD1)
                     \item \texttt{data\_inicio} e \texttt{data\_fim} (obrigatórios --- RD1)
@@ -962,7 +962,7 @@
                     A entidade \textit{Evento} é a entidade central do modelo, agregando a informação descritiva 
                     de cada evento gerido pelo sistema. O atributo \texttt{id\_evento} é a chave primária. 
                     O atributo \texttt{Nome} identifica o evento de forma textual. O atributo \texttt{Tipo} 
-                    classifica o evento segundo a sua natureza (por exemplo: conferência, workshop, seminário).
+                    classifica o evento segundo a sua natureza (conferências, workshops, eventos corporativos, seminários), para garantir a integridade dos dados ao restringir os valores permitidos e prevenir inconsistências que poderiam afetar a análise estatística e a geração de relatórios precisos.
                     O atributo \texttt{numero\_edicao} identifica a edição do evento (por exemplo: 1.ª, 2.ª edição).
                     Os atributos \texttt{data\_inicio} e \texttt{data\_fim} delimitam o período de realização 
                     do evento. O atributo \texttt{localização} indica o local onde o evento decorre. O atributo 

@@ -1,4 +1,4 @@
-\babel@toc {portuguese}{}\relax 
+\babel@toc {nil}{}\relax 
 \contentsline {section}{\numberline {1}Definição do Sistema}{1}{}%
 \contentsline {subsection}{\numberline {1.1}Contexto de aplicação}{1}{}%
 \contentsline {subsection}{\numberline {1.2}Motivação e Objetivos do Trabalho}{1}{}%
@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {2.3}Análise e Validação Geral dos Requisitos}{9}{}%
 \contentsline {section}{\numberline {3}Modelação Conceptual}{11}{}%
 \contentsline {subsection}{\numberline {3.1}Apresentação da Abordagem de Modelação Realizada}{11}{}%
-\contentsline {subsection}{\numberline {3.2}Identificação e Caracterização das Entidades}{12}{}%
+\contentsline {subsection}{\numberline {3.2}Identificação e Caracterização das Entidades}{11}{}%
 \contentsline {subsubsection}{\numberline {3.2.1}Entidade: Evento}{13}{}%
 \contentsline {subsubsection}{\numberline {3.2.2}Entidade: Organizador}{13}{}%
 \contentsline {subsubsection}{\numberline {3.2.3}Entidade: Sessão}{14}{}%

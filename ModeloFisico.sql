@@ -56,7 +56,8 @@ CREATE TABLE Evento (
     CONSTRAINT pk_evento           PRIMARY KEY (id_evento),
     CONSTRAINT ck_evento_datas     CHECK (data_inicio <= data_fim),
     CONSTRAINT ck_evento_capacidade CHECK (capacidade > 0),
-    CONSTRAINT ck_evento_edicao    CHECK (numero_edicao > 0)
+    CONSTRAINT ck_evento_edicao    CHECK (numero_edicao > 0),
+    CONSTRAINT ck_tipo_valido      CHECK (tipo IN ('Conferência', 'Workshop', 'Evento Corporativo', 'Seminário'))
 );
 
 -- -------------------------------------------------------------
@@ -199,4 +200,5 @@ CREATE TABLE Apresentada (
 --  Participante, Evento, Organizador, Sessao, Orador,
 --  Inscricao, Pagamento, Gere, Apresentada
 -- =============================================================
+
 SHOW TABLES;
