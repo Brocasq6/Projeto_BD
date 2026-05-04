@@ -43,10 +43,10 @@ BEGIN
     IF EXISTS (
         SELECT 1 FROM Sessao
         WHERE sala = NEW.sala 
-          AND data = NEW.data
-          AND (
+            AND data = NEW.data
+            AND (
             (NEW.hora_inicio < hora_fim AND NEW.hora_fim > hora_inicio)
-          )
+        )
     ) THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Erro: A sala já está ocupada neste horário!';
