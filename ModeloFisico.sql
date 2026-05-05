@@ -11,6 +11,11 @@
 --  [C4] Tabela Tem  — REMOVIDA (era N:M sem base nos requisitos;
 --                     substituída pela FK id_evento em Sessao)
 --  [OK] Pagamento   — uq_pag_inscricao (UNIQUE) já garantia o 1:1; mantido
+--
+--  CORREÇÕES APLICADAS (v3):
+--  [C5] Evento.tipo — CONSTRAINT CHECK adicionada para restringir os
+--                     valores aceites a: 'conferencia', 'workshop',
+--                     'corporativo', 'seminario'
 -- =============================================================
 
 DROP DATABASE IF EXISTS eventsync;
@@ -41,6 +46,7 @@ CREATE TABLE Participante (
 --    RD1: id, nome, tipo, numero_edicao, data_inicio, data_fim,
 --         localizacao, capacidade, descricao
 --    [C1] numero_edicao: campo novo (estava omitido)
+--    [C5] tipo: restrito a conferencia | workshop | corporativo | seminario
 -- -------------------------------------------------------------
 CREATE TABLE Evento (
     id_evento      INT          NOT NULL AUTO_INCREMENT,
@@ -53,11 +59,11 @@ CREATE TABLE Evento (
     descricao      TEXT             NULL,
     capacidade     INT          NOT NULL,
 
-    CONSTRAINT pk_evento           PRIMARY KEY (id_evento),
-    CONSTRAINT ck_evento_datas     CHECK (data_inicio <= data_fim),
+    CONSTRAINT pk_evento            PRIMARY KEY (id_evento),
+    CONSTRAINT ck_evento_tipo       CHECK (tipo IN ('conferencia','workshop','corporativo','seminario')),  -- [C5]
+    CONSTRAINT ck_evento_datas      CHECK (data_inicio <= data_fim),
     CONSTRAINT ck_evento_capacidade CHECK (capacidade > 0),
-    CONSTRAINT ck_evento_edicao    CHECK (numero_edicao > 0),
-    CONSTRAINT ck_tipo_valido      CHECK (tipo IN ('Conferência', 'Workshop', 'Evento Corporativo', 'Seminário'))
+    CONSTRAINT ck_evento_edicao     CHECK (numero_edicao > 0)
 );
 
 -- -------------------------------------------------------------
@@ -200,5 +206,4 @@ CREATE TABLE Apresentada (
 --  Participante, Evento, Organizador, Sessao, Orador,
 --  Inscricao, Pagamento, Gere, Apresentada
 -- =============================================================
-
 SHOW TABLES;
