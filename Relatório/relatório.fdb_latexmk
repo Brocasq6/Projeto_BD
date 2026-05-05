@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1777800019.30976 "/Users/bino/Desktop/UNI/2ano/2s/BD/Projeto_BD/Relatório/relatório.tex" "relatório.pdf" "relatório" 1777800020.52946 0
+["pdflatex"] 1777972103.26576 "/Users/bino/Desktop/UNI/2ano/2s/BD/Projeto_BD/Relatório/relatório.tex" "relatório.pdf" "relatório" 1777972104.40698 0
   "../imagens/UM.png" 1777742582.04409 22313 723f6c8cbcf1f2d5d893f7dc5637aea9 ""
   "../imagens/inscricao_evento.png" 1777742582.04423 39658 f3af5cc8cef175bd6a34c5c6b5817491 ""
   "../imagens/inscricao_precisa_pagamento.png" 1777742582.04437 42770 46ade6f9acd8dbb5a6f9c174368c93cb ""
@@ -9,7 +9,7 @@
   "../imagens/participante_realiza_inscricao.png" 1777742582.04787 19931 0104c27bcb8f07bca8b476a2bb45bf16 ""
   "../imagens/rel_evento_tem_sessao.png" 1777742582.048 40775 5f4ed6a30155dd485c4d8d6a41a58dcb ""
   "../imagens/rel_sessao_apr_orador.png" 1777742582.04812 39064 0374d3c79b59e6d5330d2ef35f0e92d4 ""
-  "/Users/bino/Desktop/UNI/2ano/2s/BD/Projeto_BD/Relatório/relatório.tex" 1777800019.46209 121766 55b5f5e7dd82af7885cb76c706e35414 ""
+  "/Users/bino/Desktop/UNI/2ano/2s/BD/Projeto_BD/Relatório/relatório.tex" 1777972099.51135 143706 f73bb84e22e5c938a5592add109d8c0c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -43,6 +43,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1136768653 1116 25a7bf822c58caf309a702ef79f4afbb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1136768653 1492 86331993fe614793f5e7e755835c31c5 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti9.tfm" 1136768653 1476 cccc6cc4935c18ec3d5623b77ecb8b74 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1248133631 37912 77d683123f92148345f3fc36a38d9ab1 ""
@@ -99,11 +100,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1772367947 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1772367865 3345729 819f55dd6359d075d252d7b9697395e8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "relatório.aux" 1777800020.45176 14950 e69607cc921867731d871bf1c3d5cb80 "pdflatex"
-  "relatório.lof" 1777800020.45294 1017 8071c2b4e2eb63cb19408c5b7da8ad0c "pdflatex"
-  "relatório.lot" 1777800020.45297 2219 c254a2e8901b28323874ca01af1a4fe9 "pdflatex"
-  "relatório.tex" 1777800019.46209 121766 55b5f5e7dd82af7885cb76c706e35414 ""
-  "relatório.toc" 1777800020.45289 5950 1f4b907c9fab100ca466d69ffde3f298 "pdflatex"
+  "relatório.aux" 1777972104.338 16421 0c963f53f61a36ba436acc785ed2bd96 "pdflatex"
+  "relatório.lof" 1777972104.33931 1017 8071c2b4e2eb63cb19408c5b7da8ad0c "pdflatex"
+  "relatório.lot" 1777972104.33933 2777 d17c8c66fda5dae2e45d6f8792afb25c "pdflatex"
+  "relatório.tex" 1777972099.51135 143706 f73bb84e22e5c938a5592add109d8c0c ""
+  "relatório.toc" 1777972104.33927 6280 635e902d7f2094d9904d01d4ed0cc119 "pdflatex"
   (generated)
   "relatório.aux"
   "relatório.lof"

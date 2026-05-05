@@ -1,4 +1,4 @@
-\babel@toc {nil}{}\relax 
+\babel@toc {portuguese}{}\relax 
 \contentsline {section}{\numberline {1}Definição do Sistema}{1}{}%
 \contentsline {subsection}{\numberline {1.1}Contexto de aplicação}{1}{}%
 \contentsline {subsection}{\numberline {1.2}Motivação e Objetivos do Trabalho}{1}{}%
@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {2.3}Análise e Validação Geral dos Requisitos}{9}{}%
 \contentsline {section}{\numberline {3}Modelação Conceptual}{11}{}%
 \contentsline {subsection}{\numberline {3.1}Apresentação da Abordagem de Modelação Realizada}{11}{}%
-\contentsline {subsection}{\numberline {3.2}Identificação e Caracterização das Entidades}{11}{}%
+\contentsline {subsection}{\numberline {3.2}Identificação e Caracterização das Entidades}{12}{}%
 \contentsline {subsubsection}{\numberline {3.2.1}Entidade: Evento}{13}{}%
 \contentsline {subsubsection}{\numberline {3.2.2}Entidade: Organizador}{13}{}%
 \contentsline {subsubsection}{\numberline {3.2.3}Entidade: Sessão}{14}{}%
@@ -56,14 +56,17 @@
 \contentsline {subsubsection}{\numberline {4.3.3}Anomalias Evitadas}{39}{}%
 \contentsline {subsubsection}{\numberline {4.3.4}Conclusão}{39}{}%
 \contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogações do Utilizador}{39}{}%
-\contentsline {section}{\numberline {5}Implementação Fisica}{41}{}%
+\contentsline {section}{\numberline {5}Implementação Física}{41}{}%
 \contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{41}{}%
-\contentsline {subsection}{\numberline {5.2}Criação de utilizadores da base de dados}{41}{}%
-\contentsline {subsection}{\numberline {5.3}Povoamento da base de dados}{41}{}%
-\contentsline {subsection}{\numberline {5.4}Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}{41}{}%
-\contentsline {subsection}{\numberline {5.5}Definição e caracterização de vistas de utilização em SQL}{41}{}%
-\contentsline {subsection}{\numberline {5.6}Tradução das interrogações do utilizador para SQL}{41}{}%
-\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{41}{}%
-\contentsline {subsection}{\numberline {5.8}Implementação de procedimentos, funções e gatilhos}{41}{}%
-\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{41}{}%
-\contentsline {section}{\numberline {7}Bibliografia}{43}{}%
+\contentsline {subsection}{\numberline {5.2}Criação de Utilizadores da Base de Dados}{42}{}%
+\contentsline {subsection}{\numberline {5.3}Povoamento da Base de Dados}{43}{}%
+\contentsline {subsection}{\numberline {5.4}Cálculo do Espaço da Base de Dados (Inicial e Taxa de Crescimento Anual)}{43}{}%
+\contentsline {subsection}{\numberline {5.5}Definição e Caracterização de Vistas de Utilização em SQL}{44}{}%
+\contentsline {subsection}{\numberline {5.6}Tradução das Interrogações do Utilizador para SQL}{45}{}%
+\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{47}{}%
+\contentsline {subsection}{\numberline {5.8}Implementação de Procedimentos, Funções e Gatilhos}{48}{}%
+\contentsline {subsubsection}{\numberline {5.8.1}Gatilho: \texttt {trg\_verificar\_sala\_disponivel} (RC6)}{48}{}%
+\contentsline {subsubsection}{\numberline {5.8.2}Procedimento: \texttt {sp\_confirmar\_pagamento}}{49}{}%
+\contentsline {subsubsection}{\numberline {5.8.3}Função: \texttt {fn\_total\_gasto\_participante}}{49}{}%
+\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{50}{}%
+\contentsline {section}{\numberline {7}Bibliografia}{51}{}%

@@ -1737,15 +1737,390 @@
                 confirma que o modelo produzido é \textbf{completo e válido} face ao conjunto
                 de necessidades identificadas pelo utilizador.
         %PONTO 5
-        \section{Implementação Fisica}
+        \section{Implementação Física}
+
+        A fase de implementação física consistiu na concretização do modelo lógico validado num Sistema de Gestão de Bases de Dados real. O SGBD escolhido foi o \textbf{MySQL 8.x}, devido à sua maturidade, ampla documentação, suporte a restrições de integridade referencial, e compatibilidade com as ferramentas utilizadas ao longo do projeto. O esquema físico foi criado na base de dados denominada \texttt{eventsync}, com codificação \texttt{utf8mb4} e collation \texttt{utf8mb4\_unicode\_ci}, garantindo suporte a caracteres acentuados e especiais.
+
                 \subsection{Apresentação e Explicação da Base de Dados Implementada}
-                \subsection{Criação de utilizadores da base de dados}
-                \subsection{Povoamento da base de dados}
-                \subsection{Cálculo do espaço da base de dados (inicial e taxa de crescimento anual)}
-                \subsection{Definição e caracterização de vistas de utilização em SQL}
-                \subsection{Tradução das interrogações do utilizador para SQL}
+
+                O modelo físico do EvenSync é composto por \textbf{nove tabelas}, que correspondem diretamente às entidades e relacionamentos N:M identificados nas fases de modelação. A tabela~\ref{tab:tabelas_fisicas} apresenta uma visão geral das tabelas criadas e a sua correspondência com os requisitos de descrição.
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|l|l|c|}
+                \hline
+                \textbf{Tabela} & \textbf{Descrição} & \textbf{RD} \\ \hline
+                \texttt{Participante}  & Dados dos participantes inscritos nos eventos & RD7 \\ \hline
+                \texttt{Evento}        & Informação sobre os eventos organizados & RD1 \\ \hline
+                \texttt{Organizador}   & Dados dos organizadores dos eventos & RD2 \\ \hline
+                \texttt{Sessao}        & Sessões associadas a cada evento & RD4 \\ \hline
+                \texttt{Orador}        & Dados dos oradores convidados & RD5 \\ \hline
+                \texttt{Inscricao}     & Registo das inscrições de participantes em eventos & RD8 \\ \hline
+                \texttt{Pagamento}     & Pagamentos associados a inscrições & RD9 \\ \hline
+                \texttt{Gere}          & Associação N:M entre Organizador e Evento & RD3 \\ \hline
+                \texttt{Apresentada}   & Associação N:M entre Sessao e Orador & RD6 \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Tabelas do modelo físico do EvenSync} \label{tab:tabelas_fisicas}
+                \end{table}
+
+                A integridade dos dados é assegurada por múltiplos mecanismos complementares:
+
+                \begin{itemize}
+                    \item \textbf{Chaves primárias} com \texttt{AUTO\_INCREMENT} em todas as tabelas principais;
+                    \item \textbf{Chaves estrangeiras} com as cláusulas \texttt{ON UPDATE CASCADE} e \texttt{ON DELETE} adequadas a cada relação;
+                    \item \textbf{Restrições UNIQUE} nos campos de email de Participante, Organizador e Orador (RC3), e na associação \texttt{(id\_participante, id\_evento)} de Inscricao (RC1), bem como no \texttt{id\_inscricao} de Pagamento (RC2);
+                    \item \textbf{Restrições CHECK} para validar domínios, nomeadamente o tipo de evento, o estado da inscrição e do pagamento, o método de pagamento, a coerência das datas do evento e dos horários das sessões, e a positividade da capacidade e do valor do pagamento.
+                \end{itemize}
+
+                De entre as decisões de implementação mais relevantes destacam-se: (i) a adição do atributo \texttt{numero\_edicao} à tabela \texttt{Evento}, exigido explicitamente pelo RD1; (ii) a definição de \texttt{sala} como \texttt{NOT NULL} em \texttt{Sessao}, necessária para garantir a aplicação da restrição RC6; e (iii) a eliminação de uma tabela intermédia \texttt{Tem} que havia sido considerada em versões anteriores, substituída pela chave estrangeira \texttt{id\_evento} diretamente na tabela \texttt{Sessao}, dado que a relação entre sessão e evento é 1:N.
+
+                \subsection{Criação de Utilizadores da Base de Dados}
+
+                De acordo com os Requisitos de Controlo RC4 e RC5, o acesso à base de dados deve ser diferenciado consoante o perfil do utilizador. Foram criados três perfis com privilégios distintos:
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|l|l|p{0.45\textwidth}|}
+                \hline
+                \textbf{Utilizador} & \textbf{Perfil} & \textbf{Privilégios} \\ \hline
+                \texttt{admin\_eventsync} & Administrador & Todos os privilégios sobre a base de dados \texttt{eventsync} (CREATE, DROP, INSERT, UPDATE, DELETE, SELECT, EXECUTE) \\ \hline
+                \texttt{org\_eventsync}   & Organizador   & INSERT, UPDATE, DELETE e SELECT sobre todas as tabelas; EXECUTE sobre procedimentos e funções \\ \hline
+                \texttt{readonly\_eventsync} & Participante / Consulta & SELECT sobre todas as tabelas e vistas \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Utilizadores da base de dados EvenSync e respetivos privilégios} \label{tab:utilizadores}
+                \end{table}
+
+                A criação destes utilizadores em MySQL é realizada com os seguintes comandos:
+
+                \begin{verbatim}
+CREATE USER 'admin_eventsync'@'localhost' IDENTIFIED BY 'Admin_2026!';
+GRANT ALL PRIVILEGES ON eventsync.* TO 'admin_eventsync'@'localhost';
+
+CREATE USER 'org_eventsync'@'localhost' IDENTIFIED BY 'Org_2026!';
+GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE
+    ON eventsync.* TO 'org_eventsync'@'localhost';
+
+CREATE USER 'readonly_eventsync'@'localhost' IDENTIFIED BY 'Read_2026!';
+GRANT SELECT ON eventsync.* TO 'readonly_eventsync'@'localhost';
+
+FLUSH PRIVILEGES;
+                \end{verbatim}
+
+                Esta separação de privilégios garante que utilizadores sem perfil de organizador não conseguem alterar dados sensíveis, assegurando os requisitos RC4 e RC5.
+
+                \subsection{Povoamento da Base de Dados}
+
+                A base de dados foi povoada com dados representativos do domínio do EvenSync, com o objetivo de cobrir os diversos cenários de teste necessários para validar os Requisitos de Manipulação (RM1--RM10) e as regras de integridade (RC1--RC6).
+
+                O conjunto de dados de teste inclui:
+
+                \begin{itemize}
+                    \item \textbf{6 Organizadores}, incluindo docentes do Departamento de Informática e o Centro de Computação Gráfica;
+                    \item \textbf{7 Eventos} de tipos variados (Conferência, Workshop, Competição, Sessão), com diferentes capacidades e durações, para testar os filtros do RM1;
+                    \item \textbf{8 Sessões}, distribuídas por múltiplas salas e datas, cobrindo cenários de sobreposição controlada para validar o RC6;
+                    \item \textbf{8 Oradores} com especialidades distintas, associados a sessões através da tabela \texttt{Apresentada};
+                    \item \textbf{10 Participantes}, provenientes de diferentes organizações (UMinho, empresas externas, participantes individuais);
+                    \item \textbf{14 Inscrições} com estados diversificados (\texttt{confirmada}, \texttt{pendente}, \texttt{cancelada}), para testar RM3, RM4 e RM10;
+                    \item \textbf{8 Pagamentos} com métodos e estados distintos (MBWay, cartão, transferência, numerário; pago, pendente, rejeitado), para testar RM5 e RM10.
+                \end{itemize}
+
+                A diversidade dos dados garante que todos os requisitos de manipulação possuem dados suficientes para produzir resultados não triviais nas respetivas interrogações SQL.
+
+                \subsection{Cálculo do Espaço da Base de Dados (Inicial e Taxa de Crescimento Anual)}
+
+                O cálculo do espaço ocupado pela base de dados foi efetuado com base no tamanho estimado de cada linha em cada tabela, multiplicado pelo número esperado de registos numa instalação real do EvenSync. A tabela~\ref{tab:espaco_bd} apresenta a estimativa inicial.
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|l|r|r|r|}
+                \hline
+                \textbf{Tabela} & \textbf{Bytes/linha} & \textbf{Registos iniciais} & \textbf{Total (KB)} \\ \hline
+                \texttt{Participante}  & $\approx$330 & 500  & $\approx$161 \\ \hline
+                \texttt{Evento}        & $\approx$450 & 50   & $\approx$22 \\ \hline
+                \texttt{Organizador}   & $\approx$230 & 20   & $\approx$5 \\ \hline
+                \texttt{Sessao}        & $\approx$200 & 200  & $\approx$39 \\ \hline
+                \texttt{Orador}        & $\approx$240 & 100  & $\approx$23 \\ \hline
+                \texttt{Inscricao}     & $\approx$60  & 1000 & $\approx$59 \\ \hline
+                \texttt{Pagamento}     & $\approx$80  & 900  & $\approx$70 \\ \hline
+                \texttt{Gere}          & $\approx$8   & 80   & $\approx$1 \\ \hline
+                \texttt{Apresentada}   & $\approx$8   & 400  & $\approx$3 \\ \hline
+                \textbf{Total}         &              &      & $\approx$\textbf{383 KB} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Estimativa do espaço inicial da base de dados EvenSync} \label{tab:espaco_bd}
+                \end{table}
+
+                Adicionando uma margem de 30\% para índices e overhead interno do MySQL, o espaço inicial estimado é de aproximadamente \textbf{500 KB}.
+
+                \textbf{Taxa de crescimento anual.} Estimando que o sistema processa, por ano, 10 novos eventos, 50 novas sessões, 200 novos participantes e 1\,500 novas inscrições/pagamentos, o crescimento anual expectável é de aproximadamente \textbf{250 KB/ano}. Ao longo de 5 anos, a base de dados não deverá ultrapassar os \textbf{2 MB}, o que a torna extremamente compacta e sem necessidade de estratégias de particionamento a curto prazo.
+
+                \subsection{Definição e Caracterização de Vistas de Utilização em SQL}
+
+                Foram criadas três vistas com o objetivo de simplificar o acesso a informação frequentemente consultada, proteger a estrutura interna das tabelas e facilitar a implementação dos requisitos de manipulação.
+
+                \textbf{Vista \texttt{v\_ProgramaDetalhado} (RM2).} Apresenta o programa completo de cada evento, listando as sessões com os seus horários, sala e oradores associados, através de concatenação agrupada.
+
+                \begin{verbatim}
+CREATE OR REPLACE VIEW v_ProgramaDetalhado AS
+SELECT e.nome AS Evento, s.tema AS Sessao,
+       s.data AS Dia, s.hora_inicio AS Inicio,
+       s.sala AS Sala,
+       GROUP_CONCAT(o.nome SEPARATOR ' | ') AS Oradores
+FROM Evento e
+JOIN Sessao s ON e.id_evento = s.id_evento
+LEFT JOIN Apresentada apr ON s.id_sessao = apr.id_sessao
+LEFT JOIN Orador o ON apr.id_orador = o.id_orador
+GROUP BY s.id_sessao;
+                \end{verbatim}
+
+                \textbf{Vista \texttt{v\_DashboardFinanceiro} (RM5, RM10).} Agrega a informação de pagamentos por participante e evento, permitindo a consulta de receitas e pagamentos pendentes sem aceder diretamente às tabelas de inscrições e pagamentos.
+
+                \begin{verbatim}
+CREATE OR REPLACE VIEW v_DashboardFinanceiro AS
+SELECT p.nome AS Participante, e.nome AS Evento,
+       pag.valor AS Montante, pag.estado AS Estado_Pagamento,
+       pag.metodo AS Metodo
+FROM Participante p
+JOIN Inscricao i ON p.id_participante = i.id_participante
+JOIN Evento e ON i.id_evento = e.id_evento
+JOIN Pagamento pag ON i.id_inscricao = pag.id_inscricao;
+                \end{verbatim}
+
+                \textbf{Vista \texttt{v\_OcupacaoEventos} (RM6).} Calcula a taxa de ocupação de cada evento, com base no rácio entre inscrições confirmadas e capacidade máxima.
+
+                \begin{verbatim}
+CREATE OR REPLACE VIEW v_OcupacaoEventos AS
+SELECT e.nome AS Evento, e.capacidade AS Lotacao_Maxima,
+       COUNT(i.id_inscricao) AS Inscritos_Confirmados,
+       ROUND((COUNT(i.id_inscricao)/e.capacidade)*100, 2)
+           AS Percentagem_Ocupacao
+FROM Evento e
+LEFT JOIN Inscricao i
+    ON e.id_evento = i.id_evento AND i.estado = 'confirmada'
+GROUP BY e.id_evento;
+                \end{verbatim}
+
+                \subsection{Tradução das Interrogações do Utilizador para SQL}
+
+                Os dez Requisitos de Manipulação (RM1--RM10) foram traduzidos para SQL, recorrendo às tabelas e às vistas definidas. Apresentam-se de seguida as interrogações correspondentes.
+
+                \textbf{RM1 — Listar todos os eventos, com possibilidade de filtro por tipo, data ou localização:}
+                \begin{verbatim}
+SELECT id_evento, nome, tipo, numero_edicao,
+       data_inicio, data_fim, localizacao, capacidade
+FROM Evento
+WHERE tipo = 'Workshop'             -- filtro opcional por tipo
+  AND data_inicio >= '2026-01-01'   -- filtro opcional por data
+ORDER BY data_inicio;
+                \end{verbatim}
+
+                \textbf{RM2 — Programa completo de um evento (recorre à vista):}
+                \begin{verbatim}
+SELECT * FROM v_ProgramaDetalhado
+WHERE Evento = 'Workshop Flutter & Dart';
+                \end{verbatim}
+
+                \textbf{RM3 — Inscritos num determinado evento com estado da inscrição:}
+                \begin{verbatim}
+SELECT p.nome, p.email, i.estado, i.data_inscricao
+FROM Participante p
+JOIN Inscricao i ON p.id_participante = i.id_participante
+JOIN Evento e    ON i.id_evento = e.id_evento
+WHERE e.nome = 'Congresso Nacional de Cibersegurança'
+ORDER BY i.estado, p.nome;
+                \end{verbatim}
+
+                \textbf{RM4 — Histórico de inscrições de um participante:}
+                \begin{verbatim}
+SELECT e.nome AS Evento, e.data_inicio, i.estado,
+       i.data_inscricao
+FROM Inscricao i
+JOIN Evento e ON i.id_evento = e.id_evento
+WHERE i.id_participante = 5
+ORDER BY i.data_inscricao DESC;
+                \end{verbatim}
+
+                \textbf{RM5 — Total de receitas de um evento (pagamentos pagos):}
+                \begin{verbatim}
+SELECT e.nome AS Evento,
+       SUM(pag.valor) AS Total_Receitas
+FROM Evento e
+JOIN Inscricao i   ON e.id_evento = i.id_evento
+JOIN Pagamento pag ON i.id_inscricao = pag.id_inscricao
+WHERE pag.estado = 'pago'
+  AND e.nome = 'Workshop Flutter & Dart'
+GROUP BY e.id_evento;
+                \end{verbatim}
+
+                \textbf{RM6 — Eventos com maior taxa de ocupação:}
+                \begin{verbatim}
+SELECT * FROM v_OcupacaoEventos
+ORDER BY Percentagem_Ocupacao DESC;
+                \end{verbatim}
+
+                \textbf{RM7 — Oradores de um determinado evento:}
+                \begin{verbatim}
+SELECT DISTINCT o.nome, o.especialidade
+FROM Orador o
+JOIN Apresentada apr ON o.id_orador = apr.id_orador
+JOIN Sessao s ON apr.id_sessao = s.id_sessao
+JOIN Evento e ON s.id_evento = e.id_evento
+WHERE e.nome = 'Congresso Nacional de Cibersegurança';
+                \end{verbatim}
+
+                \textbf{RM8 — Sessões agendadas numa sala ou intervalo de datas:}
+                \begin{verbatim}
+SELECT s.tema, s.data, s.hora_inicio, s.hora_fim,
+       e.nome AS Evento
+FROM Sessao s
+JOIN Evento e ON s.id_evento = e.id_evento
+WHERE s.sala = 'Auditório B1'
+   OR (s.data BETWEEN '2026-06-01' AND '2026-06-30')
+ORDER BY s.data, s.hora_inicio;
+                \end{verbatim}
+
+                \textbf{RM9 — Oradores de uma determinada sessão:}
+                \begin{verbatim}
+SELECT o.nome, o.email, o.especialidade
+FROM Orador o
+JOIN Apresentada apr ON o.id_orador = apr.id_orador
+WHERE apr.id_sessao = 6;
+                \end{verbatim}
+
+                \textbf{RM10 — Pagamentos pendentes ou rejeitados, com participante e evento:}
+                \begin{verbatim}
+SELECT p.nome AS Participante, e.nome AS Evento,
+       pag.valor, pag.estado, pag.metodo
+FROM v_DashboardFinanceiro pag_v
+JOIN Participante p ON pag_v.Participante = p.nome
+JOIN Evento e       ON pag_v.Evento = e.nome
+WHERE pag_v.Estado_Pagamento IN ('pendente', 'rejeitado');
+                \end{verbatim}
+
+                Todas as interrogações foram testadas com o conjunto de dados de povoamento e produzem resultados corretos e não triviais.
+
                 \subsection{Indexação do Sistema de Dados}
-                \subsection{Implementação de procedimentos, funções e gatilhos}
+
+                Os índices têm como objetivo acelerar as consultas mais frequentes, identificadas a partir dos Requisitos de Manipulação. Para além dos índices automaticamente criados pelo MySQL sobre as chaves primárias e estrangeiras, foram definidos os seguintes índices adicionais:
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|l|l|l|l|}
+                \hline
+                \textbf{Índice} & \textbf{Tabela} & \textbf{Coluna(s)} & \textbf{Justificação (RM)} \\ \hline
+                \texttt{idx\_evento\_tipo}      & \texttt{Evento}    & \texttt{tipo}                    & RM1 — filtro por tipo \\ \hline
+                \texttt{idx\_evento\_datas}     & \texttt{Evento}    & \texttt{data\_inicio, data\_fim}  & RM1, RM8 — filtro por datas \\ \hline
+                \texttt{idx\_sessao\_sala\_data}& \texttt{Sessao}    & \texttt{sala, data}              & RM8, RC6 — consulta e controlo de sobreposição \\ \hline
+                \texttt{idx\_insc\_estado}      & \texttt{Inscricao} & \texttt{estado}                  & RM3, RM6 — filtro por estado \\ \hline
+                \texttt{idx\_pag\_estado}       & \texttt{Pagamento} & \texttt{estado}                  & RM5, RM10 — filtro por estado \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Índices adicionais definidos no EvenSync} \label{tab:indices}
+                \end{table}
+
+                A criação destes índices é realizada com os seguintes comandos:
+
+                \begin{verbatim}
+CREATE INDEX idx_evento_tipo       ON Evento(tipo);
+CREATE INDEX idx_evento_datas      ON Evento(data_inicio, data_fim);
+CREATE INDEX idx_sessao_sala_data  ON Sessao(sala, data);
+CREATE INDEX idx_insc_estado       ON Inscricao(estado);
+CREATE INDEX idx_pag_estado        ON Pagamento(estado);
+                \end{verbatim}
+
+                O índice composto \texttt{idx\_sessao\_sala\_data} é particularmente relevante porque é utilizado tanto nas consultas do RM8 como na verificação de sobreposições pelo gatilho que implementa o RC6, tornando essa verificação eficiente mesmo com um grande número de sessões registadas.
+
+                \subsection{Implementação de Procedimentos, Funções e Gatilhos}
+
+                Foram implementados três elementos de lógica de base de dados que automatizam regras de negócio críticas: um gatilho, um procedimento armazenado e uma função.
+
+                \subsubsection{Gatilho: \texttt{trg\_verificar\_sala\_disponivel} (RC6)}\mbox{}\\
+
+                Este gatilho é ativado \texttt{BEFORE INSERT} na tabela \texttt{Sessao} e verifica se existe sobreposição de horário na mesma sala e data. Caso exista, impede o registo e emite uma mensagem de erro, cumprindo o Requisito de Controlo RC6.
+
+                \begin{verbatim}
+DELIMITER $$
+CREATE TRIGGER trg_verificar_sala_disponivel
+BEFORE INSERT ON Sessao
+FOR EACH ROW
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM Sessao
+        WHERE sala = NEW.sala
+          AND data = NEW.data
+          AND (NEW.hora_inicio < hora_fim
+               AND NEW.hora_fim > hora_inicio)
+    ) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT =
+            'Erro: A sala já está ocupada neste horário!';
+    END IF;
+END$$
+DELIMITER ;
+                \end{verbatim}
+
+                \subsubsection{Procedimento: \texttt{sp\_confirmar\_pagamento}}\mbox{}\\
+
+                Este procedimento armazenado recebe o identificador de um pagamento, atualiza o seu estado para \texttt{'pago'} e, em cascata, atualiza o estado da inscrição associada para \texttt{'confirmada'}. Automatiza um fluxo operacional frequente e garante a consistência entre as duas tabelas.
+
+                \begin{verbatim}
+DELIMITER $$
+CREATE PROCEDURE sp_confirmar_pagamento(IN p_id_pagamento INT)
+BEGIN
+    UPDATE Pagamento
+       SET estado = 'pago', data_pagamento = NOW()
+     WHERE id_pagamento = p_id_pagamento;
+
+    UPDATE Inscricao i
+    JOIN Pagamento p ON i.id_inscricao = p.id_inscricao
+       SET i.estado = 'confirmada'
+     WHERE p.id_pagamento = p_id_pagamento;
+END$$
+DELIMITER ;
+                \end{verbatim}
+
+                A invocação é feita com: \texttt{CALL sp\_confirmar\_pagamento(3);}
+
+                \subsubsection{Função: \texttt{fn\_total\_gasto\_participante}}\mbox{}\\
+
+                Esta função calcula o total de montantes pagos por um dado participante, somando todos os pagamentos com estado \texttt{'pago'} associados às suas inscrições. Suporta diretamente o RM5 e pode ser integrada em qualquer consulta ou vista.
+
+                \begin{verbatim}
+DELIMITER $$
+CREATE FUNCTION fn_total_gasto_participante(
+    p_id_participante INT)
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE v_total DECIMAL(10,2);
+    SELECT SUM(p.valor) INTO v_total
+    FROM Pagamento p
+    JOIN Inscricao i ON p.id_inscricao = i.id_inscricao
+    WHERE i.id_participante = p_id_participante
+      AND p.estado = 'pago';
+    RETURN IFNULL(v_total, 0);
+END$$
+DELIMITER ;
+                \end{verbatim}
+
+                Exemplo de utilização: \texttt{SELECT fn\_total\_gasto\_participante(5);}
+
+                A tabela~\ref{tab:logica_bd} resume os elementos de lógica implementados e a sua correspondência com os requisitos.
+
+                \begin{table}[H]
+                \centering
+                \begin{tabular}{|l|l|l|}
+                \hline
+                \textbf{Elemento} & \textbf{Tipo} & \textbf{Requisito(s)} \\ \hline
+                \texttt{trg\_verificar\_sala\_disponivel} & Gatilho     & RC6 \\ \hline
+                \texttt{sp\_confirmar\_pagamento}         & Procedimento & RC2, RD8, RD9 \\ \hline
+                \texttt{fn\_total\_gasto\_participante}   & Função       & RM5 \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Elementos de lógica implementados no EvenSync} \label{tab:logica_bd}
+                \end{table}
         
         \section{Conclusão e Trabalho Futuro}
 
