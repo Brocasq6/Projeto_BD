@@ -23,6 +23,16 @@
 \contentsline {table}{\numberline {22}{\ignorespaces Dicionário de dados da relação Apresentada}}{37}{}%
 \contentsline {table}{\numberline {23}{\ignorespaces Tabelas do modelo físico do EvenSync}}{41}{}%
 \contentsline {table}{\numberline {24}{\ignorespaces Utilizadores da base de dados EvenSync e respetivos privilégios}}{42}{}%
-\contentsline {table}{\numberline {25}{\ignorespaces Estimativa do espaço inicial da base de dados EvenSync}}{44}{}%
-\contentsline {table}{\numberline {26}{\ignorespaces Índices adicionais definidos no EvenSync}}{48}{}%
-\contentsline {table}{\numberline {27}{\ignorespaces Elementos de lógica implementados no EvenSync}}{50}{}%
+\contentsline {table}{\numberline {25}{\ignorespaces Regras de ocupação dos tipos de dados no MySQL~8}}{44}{}%
+\contentsline {table}{\numberline {26}{\ignorespaces Espaço por linha na tabela Participante}}{44}{}%
+\contentsline {table}{\numberline {27}{\ignorespaces Espaço por linha na tabela Evento}}{45}{}%
+\contentsline {table}{\numberline {28}{\ignorespaces Espaço por linha na tabela Organizador}}{45}{}%
+\contentsline {table}{\numberline {29}{\ignorespaces Espaço por linha na tabela Sessao}}{46}{}%
+\contentsline {table}{\numberline {30}{\ignorespaces Espaço por linha na tabela Orador}}{46}{}%
+\contentsline {table}{\numberline {31}{\ignorespaces Espaço por linha na tabela Inscricao}}{47}{}%
+\contentsline {table}{\numberline {32}{\ignorespaces Espaço por linha na tabela Pagamento}}{47}{}%
+\contentsline {table}{\numberline {33}{\ignorespaces Espaço por linha nas tabelas associativas}}{47}{}%
+\contentsline {table}{\numberline {34}{\ignorespaces Estimativa global do espaço inicial da base de dados EvenSync}}{48}{}%
+\contentsline {table}{\numberline {35}{\ignorespaces Taxa de crescimento anual estimada da base de dados EvenSync}}{49}{}%
+\contentsline {table}{\numberline {36}{\ignorespaces Índices adicionais definidos no EvenSync}}{52}{}%
+\contentsline {table}{\numberline {37}{\ignorespaces Elementos de lógica implementados no EvenSync}}{55}{}%

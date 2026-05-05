@@ -88,4 +88,77 @@ END$$
 
 DELIMITER ;
 
--- RM1
+-- ============================================================
+-- TRADUÇÃO DAS INTERROGAÇÕES DO UTILIZADOR PARA SQL (RM1-RM10)
+-- ============================================================
+
+-- RM1: Listar todos os eventos, com filtro por tipo, data ou localização
+SELECT id_evento, nome, tipo, numero_edicao,
+       data_inicio, data_fim, localizacao, capacidade
+FROM Evento
+WHERE tipo = 'Workshop'             -- filtro opcional por tipo
+  AND data_inicio >= '2026-01-01'   -- filtro opcional por data
+ORDER BY data_inicio;
+
+-- RM2: Programa completo de um evento (recorre à vista)
+SELECT * FROM v_ProgramaDetalhado
+WHERE Evento = 'Workshop Flutter & Dart';
+
+-- RM3: Inscritos num determinado evento com estado da inscrição
+SELECT p.nome, p.email, i.estado, i.data_inscricao
+FROM Participante p
+JOIN Inscricao i ON p.id_participante = i.id_participante
+JOIN Evento e    ON i.id_evento = e.id_evento
+WHERE e.nome = 'Congresso Nacional de Cibersegurança'
+ORDER BY i.estado, p.nome;
+
+-- RM4: Histórico de inscrições de um participante
+SELECT e.nome AS Evento, e.data_inicio, i.estado,
+       i.data_inscricao
+FROM Inscricao i
+JOIN Evento e ON i.id_evento = e.id_evento
+WHERE i.id_participante = 5
+ORDER BY i.data_inscricao DESC;
+
+-- RM5: Total de receitas de um evento (pagamentos com estado 'pago')
+SELECT e.nome AS Evento,
+       SUM(pag.valor) AS Total_Receitas
+FROM Evento e
+JOIN Inscricao i   ON e.id_evento = i.id_evento
+JOIN Pagamento pag ON i.id_inscricao = pag.id_inscricao
+WHERE pag.estado = 'pago'
+  AND e.nome = 'Workshop Flutter & Dart'
+GROUP BY e.id_evento;
+
+-- RM6: Eventos com maior taxa de ocupação (recorre à vista)
+SELECT * FROM v_OcupacaoEventos
+ORDER BY Percentagem_Ocupacao DESC;
+
+-- RM7: Oradores de um determinado evento
+SELECT DISTINCT o.nome, o.especialidade
+FROM Orador o
+JOIN Apresentada apr ON o.id_orador = apr.id_orador
+JOIN Sessao s ON apr.id_sessao = s.id_sessao
+JOIN Evento e ON s.id_evento = e.id_evento
+WHERE e.nome = 'Congresso Nacional de Cibersegurança';
+
+-- RM8: Sessões agendadas numa sala ou intervalo de datas
+SELECT s.tema, s.data, s.hora_inicio, s.hora_fim,
+       e.nome AS Evento
+FROM Sessao s
+JOIN Evento e ON s.id_evento = e.id_evento
+WHERE s.sala = 'Auditório B1'
+   OR (s.data BETWEEN '2026-06-01' AND '2026-06-30')
+ORDER BY s.data, s.hora_inicio;
+
+-- RM9: Oradores de uma determinada sessão
+SELECT o.nome, o.email, o.especialidade
+FROM Orador o
+JOIN Apresentada apr ON o.id_orador = apr.id_orador
+WHERE apr.id_sessao = 6;
+
+-- RM10: Pagamentos pendentes ou rejeitados, com participante e evento
+SELECT pag_v.Participante, pag_v.Evento,
+       pag_v.Montante, pag_v.Estado_Pagamento, pag_v.Metodo
+FROM v_DashboardFinanceiro pag_v
+WHERE pag_v.Estado_Pagamento IN ('pendente', 'rejeitado');

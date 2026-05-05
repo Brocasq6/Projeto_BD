@@ -1830,31 +1830,273 @@ FLUSH PRIVILEGES;
 
                 \subsection{Cálculo do Espaço da Base de Dados (Inicial e Taxa de Crescimento Anual)}
 
-                O cálculo do espaço ocupado pela base de dados foi efetuado com base no tamanho estimado de cada linha em cada tabela, multiplicado pelo número esperado de registos numa instalação real do EvenSync. A tabela~\ref{tab:espaco_bd} apresenta a estimativa inicial.
+                Para estimar o espaço ocupado pela base de dados EvenSync, foi efetuado um cálculo
+                detalhado do número de bytes por linha em cada tabela, com base nos tipos de dados
+                definidos no modelo físico. De seguida apresentam-se as regras de ocupação dos
+                principais tipos utilizados no MySQL~8:
 
                 \begin{table}[H]
                 \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|}
+                \hline
+                \textbf{Tipo de dados} & \textbf{Espaço ocupado} \\ \hline
+                \texttt{INT}             & 4 B (fixo) \\ \hline
+                \texttt{DATE}            & 3 B (fixo) \\ \hline
+                \texttt{TIME}            & 3 B (fixo) \\ \hline
+                \texttt{DATETIME}        & 8 B (fixo) \\ \hline
+                \texttt{DECIMAL(8,2)}    & 4 B (parte inteira 6 dígitos = 3B + parte decimal 2 dígitos = 1B) \\ \hline
+                \texttt{VARCHAR(N)}      & até $N + 1$ B (pior caso; 1 B para armazenar o comprimento) \\ \hline
+                \texttt{TEXT}            & $\approx$500 B (estimativa média conservadora) \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Regras de ocupação dos tipos de dados no MySQL~8} \label{tab:tipos_bytes}
+                \end{table}
+
+                Para o tipo \texttt{VARCHAR(N)}, é adotado o pior caso em todas as colunas ($N + 1$ bytes), garantindo que a estimativa seja conservadora e não subestime o espaço necessário.
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \noindent\textbf{Tabela: Participante}\\[0.2cm]
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|r|}
+                \hline
+                \textbf{Atributo} & \textbf{Tipo} & \textbf{Bytes} \\ \hline
+                \texttt{id\_participante} & \texttt{INT}          & 4 B \\ \hline
+                \texttt{nome}             & \texttt{VARCHAR(100)} & 101 B \\ \hline
+                \texttt{email}            & \texttt{VARCHAR(100)} & 101 B \\ \hline
+                \texttt{telemovel}        & \texttt{VARCHAR(15)}  & 16 B \\ \hline
+                \texttt{organizacao}      & \texttt{VARCHAR(100)} & 101 B \\ \hline
+                \textbf{Total por linha}  & & \textbf{323 B} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Espaço por linha na tabela Participante} \label{tab:bytes_participante}
+                \end{table}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \noindent\textbf{Tabela: Evento}\\[0.2cm]
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|r|}
+                \hline
+                \textbf{Atributo} & \textbf{Tipo} & \textbf{Bytes} \\ \hline
+                \texttt{id\_evento}     & \texttt{INT}          & 4 B \\ \hline
+                \texttt{nome}           & \texttt{VARCHAR(150)} & 151 B \\ \hline
+                \texttt{tipo}           & \texttt{VARCHAR(50)}  & 51 B \\ \hline
+                \texttt{numero\_edicao} & \texttt{INT}          & 4 B \\ \hline
+                \texttt{data\_inicio}   & \texttt{DATE}         & 3 B \\ \hline
+                \texttt{data\_fim}      & \texttt{DATE}         & 3 B \\ \hline
+                \texttt{localizacao}    & \texttt{VARCHAR(150)} & 151 B \\ \hline
+                \texttt{descricao}      & \texttt{TEXT}         & $\approx$500 B \\ \hline
+                \texttt{capacidade}     & \texttt{INT}          & 4 B \\ \hline
+                \textbf{Total por linha} & & \textbf{$\approx$871 B} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Espaço por linha na tabela Evento} \label{tab:bytes_evento}
+                \end{table}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \noindent\textbf{Tabela: Organizador}\\[0.2cm]
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|r|}
+                \hline
+                \textbf{Atributo} & \textbf{Tipo} & \textbf{Bytes} \\ \hline
+                \texttt{id\_organizador} & \texttt{INT}          & 4 B \\ \hline
+                \texttt{nome}            & \texttt{VARCHAR(100)} & 101 B \\ \hline
+                \texttt{email}           & \texttt{VARCHAR(100)} & 101 B \\ \hline
+                \texttt{telefone}        & \texttt{VARCHAR(15)}  & 16 B \\ \hline
+                \textbf{Total por linha} & & \textbf{222 B} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Espaço por linha na tabela Organizador} \label{tab:bytes_organizador}
+                \end{table}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \noindent\textbf{Tabela: Sessao}\\[0.2cm]
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|r|}
+                \hline
+                \textbf{Atributo} & \textbf{Tipo} & \textbf{Bytes} \\ \hline
+                \texttt{id\_sessao}    & \texttt{INT}          & 4 B \\ \hline
+                \texttt{tema}          & \texttt{VARCHAR(150)} & 151 B \\ \hline
+                \texttt{data}          & \texttt{DATE}         & 3 B \\ \hline
+                \texttt{hora\_inicio}  & \texttt{TIME}         & 3 B \\ \hline
+                \texttt{hora\_fim}     & \texttt{TIME}         & 3 B \\ \hline
+                \texttt{sala}          & \texttt{VARCHAR(50)}  & 51 B \\ \hline
+                \texttt{id\_evento}    & \texttt{INT}          & 4 B \\ \hline
+                \textbf{Total por linha} & & \textbf{219 B} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Espaço por linha na tabela Sessao} \label{tab:bytes_sessao}
+                \end{table}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \noindent\textbf{Tabela: Orador}\\[0.2cm]
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|r|}
+                \hline
+                \textbf{Atributo} & \textbf{Tipo} & \textbf{Bytes} \\ \hline
+                \texttt{id\_orador}     & \texttt{INT}          & 4 B \\ \hline
+                \texttt{nome}           & \texttt{VARCHAR(100)} & 101 B \\ \hline
+                \texttt{email}          & \texttt{VARCHAR(100)} & 101 B \\ \hline
+                \texttt{especialidade}  & \texttt{VARCHAR(100)} & 101 B \\ \hline
+                \textbf{Total por linha} & & \textbf{307 B} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Espaço por linha na tabela Orador} \label{tab:bytes_orador}
+                \end{table}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \noindent\textbf{Tabela: Inscricao}\\[0.2cm]
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|r|}
+                \hline
+                \textbf{Atributo} & \textbf{Tipo} & \textbf{Bytes} \\ \hline
+                \texttt{id\_inscricao}    & \texttt{INT}          & 4 B \\ \hline
+                \texttt{data\_inscricao}  & \texttt{DATETIME}     & 8 B \\ \hline
+                \texttt{estado}           & \texttt{VARCHAR(15)}  & 16 B \\ \hline
+                \texttt{id\_participante} & \texttt{INT}          & 4 B \\ \hline
+                \texttt{id\_evento}       & \texttt{INT}          & 4 B \\ \hline
+                \textbf{Total por linha}  & & \textbf{36 B} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Espaço por linha na tabela Inscricao} \label{tab:bytes_inscricao}
+                \end{table}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \noindent\textbf{Tabela: Pagamento}\\[0.2cm]
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|r|}
+                \hline
+                \textbf{Atributo} & \textbf{Tipo} & \textbf{Bytes} \\ \hline
+                \texttt{id\_pagamento}   & \texttt{INT}          & 4 B \\ \hline
+                \texttt{valor}           & \texttt{DECIMAL(8,2)} & 4 B \\ \hline
+                \texttt{data\_pagamento} & \texttt{DATETIME}     & 8 B \\ \hline
+                \texttt{metodo}          & \texttt{VARCHAR(20)}  & 21 B \\ \hline
+                \texttt{estado}          & \texttt{VARCHAR(15)}  & 16 B \\ \hline
+                \texttt{id\_inscricao}   & \texttt{INT}          & 4 B \\ \hline
+                \textbf{Total por linha} & & \textbf{57 B} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Espaço por linha na tabela Pagamento} \label{tab:bytes_pagamento}
+                \end{table}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\begin{minipage}{\textwidth}
+                \noindent\textbf{Tabelas Associativas: Gere e Apresentada}\\[0.2cm]
+
+                As tabelas associativas contêm apenas chaves estrangeiras do tipo \texttt{INT} (4~B cada):
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|l|r|}
+                \hline
+                \textbf{Tabela} & \textbf{Atributos} & \textbf{Bytes/linha} \\ \hline
+                \texttt{Gere}        & \texttt{id\_organizador} (4B) + \texttt{id\_evento} (4B)  & 8 B \\ \hline
+                \texttt{Apresentada} & \texttt{id\_sessao} (4B) + \texttt{id\_orador} (4B)       & 8 B \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Espaço por linha nas tabelas associativas} \label{tab:bytes_assoc}
+                \end{table}
+                \end{minipage}
+
+                \vspace{0.4cm}
+                \noindent\textbf{Estimativa Global do Espaço Inicial}\\[0.2cm]
+
+                Com base nos valores calculados acima e nas estimativas de número de registos
+                iniciais numa instalação real do EvenSync, obtém-se a seguinte estimativa global:
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
                 \begin{tabular}{|l|r|r|r|}
                 \hline
                 \textbf{Tabela} & \textbf{Bytes/linha} & \textbf{Registos iniciais} & \textbf{Total (KB)} \\ \hline
-                \texttt{Participante}  & $\approx$330 & 500  & $\approx$161 \\ \hline
-                \texttt{Evento}        & $\approx$450 & 50   & $\approx$22 \\ \hline
-                \texttt{Organizador}   & $\approx$230 & 20   & $\approx$5 \\ \hline
-                \texttt{Sessao}        & $\approx$200 & 200  & $\approx$39 \\ \hline
-                \texttt{Orador}        & $\approx$240 & 100  & $\approx$23 \\ \hline
-                \texttt{Inscricao}     & $\approx$60  & 1000 & $\approx$59 \\ \hline
-                \texttt{Pagamento}     & $\approx$80  & 900  & $\approx$70 \\ \hline
-                \texttt{Gere}          & $\approx$8   & 80   & $\approx$1 \\ \hline
-                \texttt{Apresentada}   & $\approx$8   & 400  & $\approx$3 \\ \hline
-                \textbf{Total}         &              &      & $\approx$\textbf{383 KB} \\ \hline
+                \texttt{Participante}  & 323  & 500   & $\approx$158 KB \\ \hline
+                \texttt{Evento}        & 871  & 50    & $\approx$43 KB \\ \hline
+                \texttt{Organizador}   & 222  & 20    & $\approx$4 KB \\ \hline
+                \texttt{Sessao}        & 219  & 200   & $\approx$43 KB \\ \hline
+                \texttt{Orador}        & 307  & 100   & $\approx$30 KB \\ \hline
+                \texttt{Inscricao}     & 36   & 1\,000 & $\approx$35 KB \\ \hline
+                \texttt{Pagamento}     & 57   & 900   & $\approx$50 KB \\ \hline
+                \texttt{Gere}          & 8    & 80    & $<$1 KB \\ \hline
+                \texttt{Apresentada}   & 8    & 400   & $\approx$3 KB \\ \hline
+                \textbf{Subtotal}      &      &       & $\approx$\textbf{367 KB} \\ \hline
+                \textbf{+ 30\% (índices e overhead MySQL)} & & & $\approx$\textbf{477 KB} \\ \hline
+                \textbf{Total estimado} & & & $\approx$\textbf{500 KB} \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
-                \caption{Estimativa do espaço inicial da base de dados EvenSync} \label{tab:espaco_bd}
+                \caption{Estimativa global do espaço inicial da base de dados EvenSync} \label{tab:espaco_bd}
                 \end{table}
 
-                Adicionando uma margem de 30\% para índices e overhead interno do MySQL, o espaço inicial estimado é de aproximadamente \textbf{500 KB}.
+                A margem de 30\% sobre o subtotal deve-se ao overhead interno do MySQL (cabeçalhos
+                de página InnoDB, metadados de índices, espaço livre pré-alocado por página). Esta
+                margem é conservadora e adequada para instalações de pequena e média dimensão.
 
-                \textbf{Taxa de crescimento anual.} Estimando que o sistema processa, por ano, 10 novos eventos, 50 novas sessões, 200 novos participantes e 1\,500 novas inscrições/pagamentos, o crescimento anual expectável é de aproximadamente \textbf{250 KB/ano}. Ao longo de 5 anos, a base de dados não deverá ultrapassar os \textbf{2 MB}, o que a torna extremamente compacta e sem necessidade de estratégias de particionamento a curto prazo.
+                \vspace{0.4cm}
+                \noindent\textbf{Taxa de Crescimento Anual}\\[0.2cm]
+
+                Estimando a atividade anual típica do sistema EvenSync, com base nos requisitos
+                levantados, projeta-se o seguinte crescimento:
+
+                \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.3}
+                \begin{tabular}{|l|r|r|r|}
+                \hline
+                \textbf{Tabela} & \textbf{Novos registos/ano} & \textbf{Bytes/linha} & \textbf{Crescimento (KB/ano)} \\ \hline
+                \texttt{Participante}  & 200   & 323 & $\approx$63 KB \\ \hline
+                \texttt{Evento}        & 10    & 871 & $\approx$9 KB \\ \hline
+                \texttt{Sessao}        & 50    & 219 & $\approx$11 KB \\ \hline
+                \texttt{Orador}        & 20    & 307 & $\approx$6 KB \\ \hline
+                \texttt{Inscricao}     & 1\,500 & 36  & $\approx$53 KB \\ \hline
+                \texttt{Pagamento}     & 1\,500 & 57  & $\approx$83 KB \\ \hline
+                \texttt{Gere + Apresentada} & 200 & 8  & $\approx$2 KB \\ \hline
+                \textbf{Total anual}   &       &    & $\approx$\textbf{227 KB/ano} \\ \hline
+                \textbf{+ 30\% overhead} &     &    & $\approx$\textbf{295 KB/ano} \\ \hline
+                \end{tabular}
+                \vspace{0.2cm}
+                \caption{Taxa de crescimento anual estimada da base de dados EvenSync} \label{tab:crescimento_bd}
+                \end{table}
+
+                Ao fim de 5 anos de operação, o volume total estimado da base de dados não deverá
+                ultrapassar os \textbf{2 MB} ($\approx 500\,\text{KB} + 5 \times 295\,\text{KB}$),
+                o que confirma que a base de dados do EvenSync é extremamente compacta, não
+                requerendo estratégias de particionamento ou arquivamento de dados a curto ou médio
+                prazo.
 
                 \subsection{Definição e Caracterização de Vistas de Utilização em SQL}
 
@@ -1906,6 +2148,7 @@ GROUP BY e.id_evento;
 
                 Os dez Requisitos de Manipulação (RM1--RM10) foram traduzidos para SQL, recorrendo às tabelas e às vistas definidas. Apresentam-se de seguida as interrogações correspondentes.
 
+                \vspace{0.3cm}
                 \textbf{RM1 — Listar todos os eventos, com possibilidade de filtro por tipo, data ou localização:}
                 \begin{verbatim}
 SELECT id_evento, nome, tipo, numero_edicao,

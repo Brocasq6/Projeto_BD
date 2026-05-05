@@ -61,12 +61,12 @@
 \contentsline {subsection}{\numberline {5.2}Criação de Utilizadores da Base de Dados}{42}{}%
 \contentsline {subsection}{\numberline {5.3}Povoamento da Base de Dados}{43}{}%
 \contentsline {subsection}{\numberline {5.4}Cálculo do Espaço da Base de Dados (Inicial e Taxa de Crescimento Anual)}{43}{}%
-\contentsline {subsection}{\numberline {5.5}Definição e Caracterização de Vistas de Utilização em SQL}{44}{}%
-\contentsline {subsection}{\numberline {5.6}Tradução das Interrogações do Utilizador para SQL}{45}{}%
-\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{47}{}%
-\contentsline {subsection}{\numberline {5.8}Implementação de Procedimentos, Funções e Gatilhos}{48}{}%
-\contentsline {subsubsection}{\numberline {5.8.1}Gatilho: \texttt {trg\_verificar\_sala\_disponivel} (RC6)}{48}{}%
-\contentsline {subsubsection}{\numberline {5.8.2}Procedimento: \texttt {sp\_confirmar\_pagamento}}{49}{}%
-\contentsline {subsubsection}{\numberline {5.8.3}Função: \texttt {fn\_total\_gasto\_participante}}{49}{}%
-\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{50}{}%
-\contentsline {section}{\numberline {7}Bibliografia}{51}{}%
+\contentsline {subsection}{\numberline {5.5}Definição e Caracterização de Vistas de Utilização em SQL}{49}{}%
+\contentsline {subsection}{\numberline {5.6}Tradução das Interrogações do Utilizador para SQL}{50}{}%
+\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{52}{}%
+\contentsline {subsection}{\numberline {5.8}Implementação de Procedimentos, Funções e Gatilhos}{53}{}%
+\contentsline {subsubsection}{\numberline {5.8.1}Gatilho: \texttt {trg\_verificar\_sala\_disponivel} (RC6)}{53}{}%
+\contentsline {subsubsection}{\numberline {5.8.2}Procedimento: \texttt {sp\_confirmar\_pagamento}}{54}{}%
+\contentsline {subsubsection}{\numberline {5.8.3}Função: \texttt {fn\_total\_gasto\_participante}}{54}{}%
+\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{55}{}%
+\contentsline {section}{\numberline {7}Bibliografia}{56}{}%
