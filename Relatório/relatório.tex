@@ -2107,7 +2107,7 @@ FLUSH PRIVILEGES;
                 \begin{verbatim}
 CREATE OR REPLACE VIEW v_ProgramaDetalhado AS
 SELECT e.nome AS Evento, s.tema AS Sessao,
-       s.data AS Dia, s.hora_inicio AS Inicio,
+        s.data AS Dia, s.hora_inicio AS Inicio,
        s.sala AS Sala,
        GROUP_CONCAT(o.nome SEPARATOR ' | ') AS Oradores
 FROM Evento e
@@ -2331,21 +2331,21 @@ DELIMITER ;
                 Esta função calcula o total de montantes pagos por um dado participante, somando todos os pagamentos com estado \texttt{'pago'} associados às suas inscrições. Suporta diretamente o RM5 e pode ser integrada em qualquer consulta ou vista.
 
                 \begin{verbatim}
-DELIMITER $$
-CREATE FUNCTION fn_total_gasto_participante(
-    p_id_participante INT)
-RETURNS DECIMAL(10,2)
-DETERMINISTIC
-BEGIN
-    DECLARE v_total DECIMAL(10,2);
-    SELECT SUM(p.valor) INTO v_total
-    FROM Pagamento p
-    JOIN Inscricao i ON p.id_inscricao = i.id_inscricao
-    WHERE i.id_participante = p_id_participante
-      AND p.estado = 'pago';
-    RETURN IFNULL(v_total, 0);
-END$$
-DELIMITER ;
+                DELIMITER $$
+                CREATE FUNCTION fn_total_gasto_participante(
+                    p_id_participante INT)
+                RETURNS DECIMAL(10,2)
+                DETERMINISTIC
+                BEGIN
+                    DECLARE v_total DECIMAL(10,2);
+                    SELECT SUM(p.valor) INTO v_total
+                    FROM Pagamento p
+                    JOIN Inscricao i ON p.id_inscricao = i.id_inscricao
+                    WHERE i.id_participante = p_id_participante
+                    AND p.estado = 'pago';
+                    RETURN IFNULL(v_total, 0);
+                END$$
+                DELIMITER ;
                 \end{verbatim}
 
                 Exemplo de utilização: \texttt{SELECT fn\_total\_gasto\_participante(5);}
@@ -2419,8 +2419,6 @@ DELIMITER ;
             (\textit{audit log}) que registassem todas as alterações ao estado de inscrições
             e pagamentos aumentaria a transparência e facilitaria a resolução de disputas.
         \end{itemize}
-
-
                 
         \section{Bibliografia}
 

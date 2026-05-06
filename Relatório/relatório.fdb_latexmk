@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1777972103.26576 "/Users/bino/Desktop/UNI/2ano/2s/BD/Projeto_BD/Relatório/relatório.tex" "relatório.pdf" "relatório" 1777972104.40698 0
+["pdflatex"] 1778057650.08372 "/Users/bino/Desktop/UNI/2ano/2s/BD/Projeto_BD/Relatório/relatório.tex" "relatório.pdf" "relatório" 1778057651.22935 2
   "../imagens/UM.png" 1777742582.04409 22313 723f6c8cbcf1f2d5d893f7dc5637aea9 ""
   "../imagens/inscricao_evento.png" 1777742582.04423 39658 f3af5cc8cef175bd6a34c5c6b5817491 ""
   "../imagens/inscricao_precisa_pagamento.png" 1777742582.04437 42770 46ade6f9acd8dbb5a6f9c174368c93cb ""
@@ -9,7 +9,7 @@
   "../imagens/participante_realiza_inscricao.png" 1777742582.04787 19931 0104c27bcb8f07bca8b476a2bb45bf16 ""
   "../imagens/rel_evento_tem_sessao.png" 1777742582.048 40775 5f4ed6a30155dd485c4d8d6a41a58dcb ""
   "../imagens/rel_sessao_apr_orador.png" 1777742582.04812 39064 0374d3c79b59e6d5330d2ef35f0e92d4 ""
-  "/Users/bino/Desktop/UNI/2ano/2s/BD/Projeto_BD/Relatório/relatório.tex" 1777972099.51135 143706 f73bb84e22e5c938a5592add109d8c0c ""
+  "/Users/bino/Desktop/UNI/2ano/2s/BD/Projeto_BD/Relatório/relatório.tex" 1778057649.02462 156410 8a2caf76cdce651be7ffb84920e09471 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -48,8 +48,10 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1248133631 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb" 1248133631 36094 798f80770b3b148ceedd006d487db67c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
@@ -100,11 +102,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1772367947 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1772367865 3345729 819f55dd6359d075d252d7b9697395e8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "relatório.aux" 1777972104.338 16421 0c963f53f61a36ba436acc785ed2bd96 "pdflatex"
-  "relatório.lof" 1777972104.33931 1017 8071c2b4e2eb63cb19408c5b7da8ad0c "pdflatex"
-  "relatório.lot" 1777972104.33933 2777 d17c8c66fda5dae2e45d6f8792afb25c "pdflatex"
-  "relatório.tex" 1777972099.51135 143706 f73bb84e22e5c938a5592add109d8c0c ""
-  "relatório.toc" 1777972104.33927 6280 635e902d7f2094d9904d01d4ed0cc119 "pdflatex"
+  "relatório.aux" 1778057651.15896 18412 fd451293aa3c7f1c090df9d974fb04cf "pdflatex"
+  "relatório.lof" 1778057651.16034 1017 8071c2b4e2eb63cb19408c5b7da8ad0c "pdflatex"
+  "relatório.lot" 1778057651.16036 3821 403fa82681d3745690f0a1e47a520d85 "pdflatex"
+  "relatório.tex" 1778057649.02462 156410 8a2caf76cdce651be7ffb84920e09471 ""
+  "relatório.toc" 1778057651.16029 6280 971d751e8fc0f721763c4c424bd17ca2 "pdflatex"
   (generated)
   "relatório.aux"
   "relatório.lof"
