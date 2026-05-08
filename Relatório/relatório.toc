@@ -26,7 +26,7 @@
 \contentsline {subsection}{\numberline {3.3}Identificação e Caracterização dos Relacionamentos}{17}{}%
 \contentsline {subsubsection}{\numberline {3.3.1}Visão Global dos Relacionamentos}{17}{}%
 \contentsline {subsubsection}{\numberline {3.3.2}Caracterização Detalhada dos Relacionamentos}{18}{}%
-\contentsline {subsection}{\numberline {3.4}Identificação e Caracterização dos Atributos das Entidades}{23}{}%
+\contentsline {subsection}{\numberline {3.4}Identificação e Caracterização dos Atributos das Entidades e dos Relacionamentos}{23}{}%
 \contentsline {subsubsection}{\numberline {3.4.1}Entidade: Participante}{23}{}%
 \contentsline {subsubsection}{\numberline {3.4.2}Entidade: Inscrição}{24}{}%
 \contentsline {subsubsection}{\numberline {3.4.3}Entidade: Pagamento}{25}{}%

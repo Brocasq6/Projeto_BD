@@ -815,8 +815,11 @@
                     \vspace{0.4cm}
                 
                 \newpage
-                \subsection{Identificação e Caracterização dos Atributos das Entidades}
-                
+                \subsection{Identificação e Caracterização dos Atributos das Entidades e dos Relacionamentos}
+
+                    Nas subsecções seguintes caracterizam-se detalhadamente os atributos de cada uma das sete entidades do sistema. Quanto aos relacionamentos, os dois relacionamentos N:M identificados — \textit{Gere} (Organizador–Evento) e \textit{Apresentada} (Sessão–Orador) — não possuem atributos próprios para além das chaves estrangeiras que compõem as suas chaves primárias compostas, pelo que não é necessária uma caracterização adicional de atributos de relacionamento.
+
+                    \vspace{0.4cm}
                     \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Participante}\mbox{}\\
 
@@ -1088,6 +1091,9 @@
                     \indent $\triangleright$ \texttt{e-mail} UNIQUE
                     \end{minipage}
                     \vspace{0.4cm}
+
+                    Os identificadores utilizam \texttt{INT} com \texttt{AUTO\_INCREMENT}, garantindo unicidade automática. Para texto com limite previsível empregou-se \texttt{VARCHAR} com dimensão ajustada ao contexto (15 para telefones, 100 para nomes e e-mails, 150 para temas e nomes de evento). Para descrições sem limite fixo usou-se \texttt{TEXT}. Datas são representadas com \texttt{DATE} e horários de sessão com \texttt{TIME}. O valor do pagamento usa \texttt{DECIMAL(6,2)}, assegurando precisão monetária. Para atributos com conjunto fixo de valores --- como \texttt{tipo} do Evento, \texttt{estado} da Inscrição e \texttt{metodo} do Pagamento --- aplicou-se \texttt{VARCHAR} com restrição \texttt{CHECK}, impedindo a inserção de valores inválidos ao nível da base de dados.
+
                 \subsection{Apresentação e Explicação do Diagrama ER Produzido}
                     \begin{figure}[H]
                         \centering
