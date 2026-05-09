@@ -291,7 +291,7 @@
                 RD2 & O sistema deve permitir registar organizadores com um identificador único, nome, email e telefone. & João Ribeiro \\ \hline
                 RD3 & O sistema deve permitir associar um ou mais organizadores a cada evento, sendo que um organizador pode gerir múltiplos eventos. & João Ribeiro \\ \hline
                 RD4 & O sistema deve permitir registar sessões associadas a um evento, com um identificador único, título, sala, data, hora de início, hora de fim e descrição. & João Ribeiro \\ \hline
-                RD5 & O sistema deve permitir registar oradores com um identificador único, nome, email, biografia e especialidade. & Tiago Santos \\ \hline
+                RD5 & O sistema deve permitir registar oradores com um identificador único, nome, email e especialidade. & Tiago Santos \\ \hline
                 RD6 & O sistema deve permitir associar um ou mais oradores a cada sessão, sendo que um orador pode apresentar múltiplas sessões. & Bruno Freitas \\ \hline
                 RD7 & O sistema deve permitir registar participantes com um identificador único, nome, email, telefone e organização ou instituição. & Bruno Freitas \\ \hline
                 RD8 & O sistema deve permitir registar inscrições de participantes em eventos, com um identificador único, data de inscrição e estado (confirmada, pendente ou cancelada). & João Ribeiro \\ \hline
@@ -685,7 +685,7 @@
                 \textbf{ID} & \textbf{Relacionamento} & \textbf{Entidades} & \textbf{Card.} & \textbf{Partic.} & \textbf{Requisitos} & \textbf{Descrição} \\ \hline
                 \textbf{R1} & realiza     & Participante $\rightarrow$ Inscrição & 1:N & P:T & RD8, RC1 & Registo de inscrições. \\ \hline
                 \textbf{R2} & pertence    & Inscrição $\rightarrow$ Evento       & N:1 & T:P & RD8      & Associação ao evento. \\ \hline
-                \textbf{R3} & precisa     & Inscrição $\rightarrow$ Pagamento    & 1:1 & T:T & RD9, RC2 & Ligação da transação. \\ \hline
+                \textbf{R3} & precisa     & Inscrição $\rightarrow$ Pagamento    & 1:1 & P:T & RD9, RC2 & Ligação da transação. \\ \hline
                 \textbf{R4} & gere        & Organizador $\rightarrow$ Evento     & N:M & T:T & RD3      & Gestão do evento. \\ \hline
                 \textbf{R5} & tem         & Evento $\rightarrow$ Sessão          & 1:N & T:T & RD4      & Composição do evento. \\ \hline
                 \textbf{R6} & apresentada & Sessão $\rightarrow$ Orador          & N:M & T:T & RD6      & Atribuição de oradores. \\ \hline
@@ -749,14 +749,12 @@
                     \end{figure}
                     \end{minipage}
 
-                        O relacionamento precisa representa a dependência direta e obrigatória entre uma inscrição e o respetivo pagamento.
-                        Trata-se do único relacionamento do tipo 1:1 neste modelo, com participação total em ambos os lados: toda a inscrição
-                        necessita de um pagamento associado para ser válida, e todo o pagamento existe no contexto de uma inscrição específica.
-                        Esta restrição reflete uma regra de negócio clara — não é possível concluir uma inscrição sem que exista um registo de
-                        pagamento correspondente, nem pode existir um pagamento que não esteja associado a nenhuma inscrição.
-                        Esta participação total pressupõe que o registo de pagamento é criado
-                        automaticamente no momento da inscrição, podendo ficar com estado
-                        \texttt{pendente} até à confirmação da transação financeira.
+                        O relacionamento \textit{precisa} representa a ligação entre uma inscrição e o respetivo pagamento.
+                        Trata-se do único relacionamento do tipo 1:1 neste modelo, com participação parcial do lado da \textit{Inscrição}
+                        e participação total do lado do \textit{Pagamento} (P:T): uma inscrição pode existir sem que ainda tenha um pagamento
+                        associado (estado \texttt{pendente}), mas todo o pagamento está obrigatoriamente associado a uma inscrição específica.
+                        Esta assimetria reflete a regra de negócio em que o registo de inscrição é criado primeiro e o pagamento pode ser
+                        formalizado posteriormente, não podendo, no entanto, existir um pagamento sem uma inscrição correspondente.
                     \vspace{0.4cm}
                     
                     \noindent\begin{minipage}{\textwidth}
@@ -1076,9 +1074,9 @@
                     \hline
                     \textbf{Atributo} & \textbf{Descrição} & \textbf{Domínio} & \textbf{Nulo} & \textbf{Exemplo} & \textbf{Req} \\ \hline
                     \texttt{id\_orador}    & Identificador sequencial & \texttt{INT} & N & 20 & --- \\ \hline
-                    \texttt{nome}          & Nome completo & \texttt{VARCHAR(100)} & N & João Oliveira & RD3 \\ \hline
-                    \texttt{e-mail}        & Endereço eletrónico & \texttt{VARCHAR(100)} & N & joao@email.pt & RD3 \\ \hline
-                    \texttt{especialidade} & Área de atuação & \texttt{VARCHAR(100)} & N & Cibersegurança & RD3 \\ \hline
+                    \texttt{nome}          & Nome completo & \texttt{VARCHAR(100)} & N & João Oliveira & RD5 \\ \hline
+                    \texttt{e-mail}        & Endereço eletrónico & \texttt{VARCHAR(100)} & N & joao@email.pt & RD5 \\ \hline
+                    \texttt{especialidade} & Área de atuação & \texttt{VARCHAR(100)} & N & Cibersegurança & RD5 \\ \hline
                     \end{tabular}
                     }
                     \vspace{0.2cm}
@@ -1092,7 +1090,7 @@
                     \end{minipage}
                     \vspace{0.4cm}
 
-                    Os identificadores utilizam \texttt{INT} com \texttt{AUTO\_INCREMENT}, garantindo unicidade automática. Para texto com limite previsível empregou-se \texttt{VARCHAR} com dimensão ajustada ao contexto (15 para telefones, 100 para nomes e e-mails, 150 para temas e nomes de evento). Para descrições sem limite fixo usou-se \texttt{TEXT}. Datas são representadas com \texttt{DATE} e horários de sessão com \texttt{TIME}. O valor do pagamento usa \texttt{DECIMAL(6,2)}, assegurando precisão monetária. Para atributos com conjunto fixo de valores --- como \texttt{tipo} do Evento, \texttt{estado} da Inscrição e \texttt{metodo} do Pagamento --- aplicou-se \texttt{VARCHAR} com restrição \texttt{CHECK}, impedindo a inserção de valores inválidos ao nível da base de dados.
+                    Os identificadores utilizam \texttt{INT} com \texttt{AUTO\_INCREMENT}, garantindo unicidade automática. Para texto com limite previsível empregou-se \texttt{VARCHAR} com dimensão ajustada ao contexto (15 para telefones, 100 para nomes e e-mails, 150 para temas e nomes de evento). Para descrições sem limite fixo usou-se \texttt{TEXT}. Datas são representadas com \texttt{DATE} e horários de sessão com \texttt{TIME}. O valor do pagamento usa \texttt{DECIMAL(8,2)}, assegurando precisão monetária. Para atributos com conjunto fixo de valores --- como \texttt{tipo} do Evento, \texttt{estado} da Inscrição e \texttt{metodo} do Pagamento --- aplicou-se \texttt{VARCHAR} com restrição \texttt{CHECK}, impedindo a inserção de valores inválidos ao nível da base de dados.
 
                 \subsection{Apresentação e Explicação do Diagrama ER Produzido}
                     \begin{figure}[H]
@@ -1316,7 +1314,7 @@
                 id\_organizador & INT          & N & N \\ \hline
                 nome            & VARCHAR(100) & N & N \\ \hline
                 email           & VARCHAR(100) & N & N \\ \hline
-                telefone        & VARCHAR(15)  & S & N \\ \hline
+                telefone        & VARCHAR(15)  & N & N \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
                 \caption{Dicionário de dados da relação Organizador}

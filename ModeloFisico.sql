@@ -74,7 +74,7 @@ CREATE TABLE Organizador (
     id_organizador INT          NOT NULL AUTO_INCREMENT,
     nome           VARCHAR(100) NOT NULL,
     email          VARCHAR(100) NOT NULL,
-    telefone       VARCHAR(15)      NULL,
+    telefone       VARCHAR(15)  NOT NULL,
 
     CONSTRAINT pk_organizador       PRIMARY KEY (id_organizador),
     CONSTRAINT uq_organizador_email UNIQUE      (email)

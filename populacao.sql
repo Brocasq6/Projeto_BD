@@ -2,7 +2,7 @@
 --  EvenSync — Povoamento da Base de Dados
 --  Base de Dados — LCC 2025/2026
 --  6 Organizadores | 7 Eventos | 8 Sessões | 8 Oradores
---  10 Participantes | 14 Inscrições | 8 Pagamentos
+--  10 Participantes | 14 Inscrições | 14 Pagamentos
 -- =============================================================
 
 USE eventsync;
@@ -108,16 +108,23 @@ INSERT INTO Inscricao (id_participante, id_evento, estado) VALUES
 (1, 4, 'confirmada'), (10, 4, 'confirmada');                        -- Sessão Solene
 
 -- -------------------------------------------------------------
--- 9. PAGAMENTOS (IDs 1–8)
+-- 9. PAGAMENTOS (IDs 1–14)
 --    Métodos e estados distintos para testar RM5, RM10
 --    uq_pag_inscricao garante RC2 (1 pagamento por inscrição)
+--    Todas as inscrições têm pagamento (R3 P:T — Inscrição parcial, Pagamento total)
 -- -------------------------------------------------------------
 INSERT INTO Pagamento (valor, metodo, estado, id_inscricao) VALUES
 (10.00, 'MBWay',        'pago',      1),  -- Tiago pagou Workshop
 (10.00, 'cartao',       'pago',      2),  -- Bruno pagou Workshop
+(10.00, 'transferencia','pendente',  3),  -- João Silva pagamento pendente (inscrição pendente)
 (25.00, 'transferencia','pago',      4),  -- Tiago pagou Congresso
 (25.00, 'MBWay',        'pendente',  5),  -- Maria pagamento pendente
-(25.00, 'cartao',       'pago',      7),  -- Sílvia pagou Congresso
-(25.00, 'MBWay',        'rejeitado', 9),  -- Beatriz pagamento rejeitado
+(25.00, 'cartao',       'pago',      6),  -- Sílvia pagou Congresso
+(25.00, 'cartao',       'pago',      7),  -- Nuno pagou Congresso
+(25.00, 'transferencia','pago',      8),  -- Beatriz pagou Congresso
+(25.00, 'MBWay',        'rejeitado', 9),  -- Beatriz 2.º pagamento rejeitado
 (5.00,  'numerario',    'pago',      10), -- Tiago pagou Hackathon
-(5.00,  'numerario',    'pago',      13); -- Tiago pagou Sessão Solene
+(5.00,  'MBWay',        'pago',      11), -- Fernando Pessoa pagou Hackathon
+(5.00,  'cartao',       'pago',      12), -- Marta pagou Hackathon
+(5.00,  'numerario',    'pago',      13), -- Tiago pagou Sessão Solene
+(5.00,  'MBWay',        'pago',      14); -- Marta pagou Sessão Solene
