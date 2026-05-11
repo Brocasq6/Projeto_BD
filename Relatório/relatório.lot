@@ -4,34 +4,34 @@
 \contentsline {table}{\numberline {3}{\ignorespaces Requisitos de Controlo do EvenSync}}{9}{}%
 \contentsline {table}{\numberline {4}{\ignorespaces Entidades do Sistema EvenSync}}{13}{}%
 \contentsline {table}{\numberline {5}{\ignorespaces Síntese dos Relacionamentos do Sistema EvenSync}}{17}{}%
-\contentsline {table}{\numberline {6}{\ignorespaces Atributos da entidade Participante}}{23}{}%
-\contentsline {table}{\numberline {7}{\ignorespaces Atributos da entidade Inscrição}}{24}{}%
-\contentsline {table}{\numberline {8}{\ignorespaces Atributos da entidade Pagamento}}{25}{}%
-\contentsline {table}{\numberline {9}{\ignorespaces Atributos da entidade Evento}}{26}{}%
-\contentsline {table}{\numberline {10}{\ignorespaces Atributos da entidade Organizador}}{27}{}%
-\contentsline {table}{\numberline {11}{\ignorespaces Atributos da entidade Sessão}}{28}{}%
-\contentsline {table}{\numberline {12}{\ignorespaces Atributos da entidade Orador}}{29}{}%
-\contentsline {table}{\numberline {13}{\ignorespaces Dicionário de dados da relação Participante}}{34}{}%
-\contentsline {table}{\numberline {14}{\ignorespaces Dicionário de dados da relação Evento}}{34}{}%
-\contentsline {table}{\numberline {15}{\ignorespaces Dicionário de dados da relação Organizador}}{35}{}%
-\contentsline {table}{\numberline {16}{\ignorespaces Dicionário de dados da relação Sessao}}{35}{}%
-\contentsline {table}{\numberline {17}{\ignorespaces Dicionário de dados da relação Orador}}{36}{}%
-\contentsline {table}{\numberline {18}{\ignorespaces Dicionário de dados da relação Inscricao}}{36}{}%
-\contentsline {table}{\numberline {19}{\ignorespaces Dicionário de dados da relação Pagamento}}{37}{}%
-\contentsline {table}{\numberline {20}{\ignorespaces Dicionário de dados da relação Gere}}{37}{}%
-\contentsline {table}{\numberline {21}{\ignorespaces Dicionário de dados da relação Apresentada}}{38}{}%
-\contentsline {table}{\numberline {22}{\ignorespaces Tabelas do modelo físico do EvenSync}}{42}{}%
-\contentsline {table}{\numberline {23}{\ignorespaces Utilizadores da base de dados EvenSync e respetivos privilégios}}{43}{}%
-\contentsline {table}{\numberline {24}{\ignorespaces Regras de ocupação dos tipos de dados no MySQL~8}}{45}{}%
-\contentsline {table}{\numberline {25}{\ignorespaces Espaço por linha na tabela Participante}}{45}{}%
-\contentsline {table}{\numberline {26}{\ignorespaces Espaço por linha na tabela Evento}}{46}{}%
-\contentsline {table}{\numberline {27}{\ignorespaces Espaço por linha na tabela Organizador}}{46}{}%
-\contentsline {table}{\numberline {28}{\ignorespaces Espaço por linha na tabela Sessao}}{47}{}%
-\contentsline {table}{\numberline {29}{\ignorespaces Espaço por linha na tabela Orador}}{47}{}%
-\contentsline {table}{\numberline {30}{\ignorespaces Espaço por linha na tabela Inscricao}}{48}{}%
-\contentsline {table}{\numberline {31}{\ignorespaces Espaço por linha na tabela Pagamento}}{48}{}%
-\contentsline {table}{\numberline {32}{\ignorespaces Espaço por linha nas tabelas associativas}}{48}{}%
-\contentsline {table}{\numberline {33}{\ignorespaces Estimativa global do espaço inicial da base de dados EvenSync}}{49}{}%
-\contentsline {table}{\numberline {34}{\ignorespaces Taxa de crescimento anual estimada da base de dados EvenSync}}{50}{}%
-\contentsline {table}{\numberline {35}{\ignorespaces Índices adicionais definidos no EvenSync}}{53}{}%
-\contentsline {table}{\numberline {36}{\ignorespaces Elementos de lógica implementados no EvenSync}}{56}{}%
+\contentsline {table}{\numberline {6}{\ignorespaces Atributos da entidade Participante}}{22}{}%
+\contentsline {table}{\numberline {7}{\ignorespaces Atributos da entidade Inscrição}}{23}{}%
+\contentsline {table}{\numberline {8}{\ignorespaces Atributos da entidade Pagamento}}{24}{}%
+\contentsline {table}{\numberline {9}{\ignorespaces Atributos da entidade Evento}}{25}{}%
+\contentsline {table}{\numberline {10}{\ignorespaces Atributos da entidade Organizador}}{26}{}%
+\contentsline {table}{\numberline {11}{\ignorespaces Atributos da entidade Sessão}}{27}{}%
+\contentsline {table}{\numberline {12}{\ignorespaces Atributos da entidade Orador}}{28}{}%
+\contentsline {table}{\numberline {13}{\ignorespaces Dicionário de dados da relação Participante}}{33}{}%
+\contentsline {table}{\numberline {14}{\ignorespaces Dicionário de dados da relação Evento}}{33}{}%
+\contentsline {table}{\numberline {15}{\ignorespaces Dicionário de dados da relação Organizador}}{34}{}%
+\contentsline {table}{\numberline {16}{\ignorespaces Dicionário de dados da relação Sessao}}{34}{}%
+\contentsline {table}{\numberline {17}{\ignorespaces Dicionário de dados da relação Orador}}{35}{}%
+\contentsline {table}{\numberline {18}{\ignorespaces Dicionário de dados da relação Inscricao}}{35}{}%
+\contentsline {table}{\numberline {19}{\ignorespaces Dicionário de dados da relação Pagamento}}{36}{}%
+\contentsline {table}{\numberline {20}{\ignorespaces Dicionário de dados da relação Gere}}{36}{}%
+\contentsline {table}{\numberline {21}{\ignorespaces Dicionário de dados da relação Apresentada}}{37}{}%
+\contentsline {table}{\numberline {22}{\ignorespaces Tabelas do modelo físico do EvenSync}}{41}{}%
+\contentsline {table}{\numberline {23}{\ignorespaces Utilizadores da base de dados EvenSync e respetivos privilégios}}{42}{}%
+\contentsline {table}{\numberline {24}{\ignorespaces Regras de ocupação dos tipos de dados no MySQL~8}}{44}{}%
+\contentsline {table}{\numberline {25}{\ignorespaces Espaço por linha na tabela Participante}}{44}{}%
+\contentsline {table}{\numberline {26}{\ignorespaces Espaço por linha na tabela Evento}}{45}{}%
+\contentsline {table}{\numberline {27}{\ignorespaces Espaço por linha na tabela Organizador}}{45}{}%
+\contentsline {table}{\numberline {28}{\ignorespaces Espaço por linha na tabela Sessao}}{46}{}%
+\contentsline {table}{\numberline {29}{\ignorespaces Espaço por linha na tabela Orador}}{46}{}%
+\contentsline {table}{\numberline {30}{\ignorespaces Espaço por linha na tabela Inscricao}}{47}{}%
+\contentsline {table}{\numberline {31}{\ignorespaces Espaço por linha na tabela Pagamento}}{47}{}%
+\contentsline {table}{\numberline {32}{\ignorespaces Espaço por linha nas tabelas associativas}}{47}{}%
+\contentsline {table}{\numberline {33}{\ignorespaces Estimativa global do espaço inicial da base de dados EvenSync}}{48}{}%
+\contentsline {table}{\numberline {34}{\ignorespaces Taxa de crescimento anual estimada da base de dados EvenSync}}{49}{}%
+\contentsline {table}{\numberline {35}{\ignorespaces Índices adicionais definidos no EvenSync}}{52}{}%
+\contentsline {table}{\numberline {36}{\ignorespaces Elementos de lógica implementados no EvenSync}}{55}{}%

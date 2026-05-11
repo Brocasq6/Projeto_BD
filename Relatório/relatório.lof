@@ -4,7 +4,7 @@
 \contentsline {figure}{\numberline {3}{\ignorespaces Relacionamento \textit {pertence} entre Inscrição e Evento}}{18}{}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Relacionamento \textit {precisa} entre Inscrição e Pagamento}}{19}{}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Relacionamento \textit {gere} entre Organizador e Evento}}{20}{}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Relacionamento \textit {tem} entre Evento e Sessão}}{21}{}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Relacionamento \textit {tem} entre Evento e Sessão}}{20}{}%
 \contentsline {figure}{\numberline {7}{\ignorespaces Relacionamento \textit {apresentada} entre Sessão e Orador}}{21}{}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Diagrama Entidade-Relacionamento do sistema EvenSync}}{30}{}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Diagrama do Modelo Lógico do sistema EvenSync (gerado com MySQL Workbench)}}{33}{}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Diagrama Entidade-Relacionamento do sistema EvenSync}}{29}{}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Diagrama do Modelo Lógico do sistema EvenSync (gerado com MySQL Workbench)}}{32}{}%

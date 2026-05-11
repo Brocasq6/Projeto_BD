@@ -26,47 +26,47 @@
 \contentsline {subsection}{\numberline {3.3}Identificação e Caracterização dos Relacionamentos}{17}{}%
 \contentsline {subsubsection}{\numberline {3.3.1}Visão Global dos Relacionamentos}{17}{}%
 \contentsline {subsubsection}{\numberline {3.3.2}Caracterização Detalhada dos Relacionamentos}{18}{}%
-\contentsline {subsection}{\numberline {3.4}Identificação e Caracterização dos Atributos das Entidades e dos Relacionamentos}{23}{}%
-\contentsline {subsubsection}{\numberline {3.4.1}Entidade: Participante}{23}{}%
-\contentsline {subsubsection}{\numberline {3.4.2}Entidade: Inscrição}{24}{}%
-\contentsline {subsubsection}{\numberline {3.4.3}Entidade: Pagamento}{25}{}%
-\contentsline {subsubsection}{\numberline {3.4.4}Entidade: Evento}{26}{}%
-\contentsline {subsubsection}{\numberline {3.4.5}Entidade: Organizador}{27}{}%
-\contentsline {subsubsection}{\numberline {3.4.6}Entidade: Sessão}{28}{}%
-\contentsline {subsubsection}{\numberline {3.4.7}Entidade: Orador}{29}{}%
-\contentsline {subsection}{\numberline {3.5}Apresentação e Explicação do Diagrama ER Produzido}{30}{}%
-\contentsline {section}{\numberline {4}Modelação Lógica}{31}{}%
-\contentsline {subsection}{\numberline {4.1}Construção e Validação do Modelo de Dados Lógico}{31}{}%
-\contentsline {subsubsection}{\numberline {4.1.1}Abordagem de Construção do Modelo Lógico}{31}{}%
-\contentsline {subsubsection}{\numberline {4.1.2}Estrutura Geral do Modelo Lógico}{31}{}%
-\contentsline {subsubsection}{\numberline {4.1.3}Validação do Modelo de Dados Lógico}{32}{}%
-\contentsline {subsection}{\numberline {4.2}Apresentação e Explicação do Modelo Lógico Produzido}{32}{}%
-\contentsline {subsubsection}{\numberline {4.2.1}Relação: Participante}{34}{}%
-\contentsline {subsubsection}{\numberline {4.2.2}Relação: Evento}{34}{}%
-\contentsline {subsubsection}{\numberline {4.2.3}Relação: Organizador}{35}{}%
-\contentsline {subsubsection}{\numberline {4.2.4}Relação: Sessao}{35}{}%
-\contentsline {subsubsection}{\numberline {4.2.5}Relação: Orador}{36}{}%
-\contentsline {subsubsection}{\numberline {4.2.6}Relação: Inscricao}{36}{}%
-\contentsline {subsubsection}{\numberline {4.2.7}Relação: Pagamento}{37}{}%
-\contentsline {subsubsection}{\numberline {4.2.8}Relação: Gere}{37}{}%
-\contentsline {subsubsection}{\numberline {4.2.9}Relação: Apresentada}{38}{}%
-\contentsline {subsection}{\numberline {4.3}Normalização de Dados}{38}{}%
-\contentsline {subsubsection}{\numberline {4.3.1}Dependências Funcionais e Chaves Identificadas}{38}{}%
-\contentsline {subsubsection}{\numberline {4.3.2}Verificação das Formas Normais}{39}{}%
-\contentsline {subsubsection}{\numberline {4.3.3}Anomalias Evitadas}{40}{}%
-\contentsline {subsubsection}{\numberline {4.3.4}Conclusão}{40}{}%
-\contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogações do Utilizador}{40}{}%
-\contentsline {section}{\numberline {5}Implementação Física}{42}{}%
-\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{42}{}%
-\contentsline {subsection}{\numberline {5.2}Criação de Utilizadores da Base de Dados}{43}{}%
-\contentsline {subsection}{\numberline {5.3}Povoamento da Base de Dados}{44}{}%
-\contentsline {subsection}{\numberline {5.4}Cálculo do Espaço da Base de Dados (Inicial e Taxa de Crescimento Anual)}{44}{}%
-\contentsline {subsection}{\numberline {5.5}Definição e Caracterização de Vistas de Utilização em SQL}{50}{}%
-\contentsline {subsection}{\numberline {5.6}Tradução das Interrogações do Utilizador para SQL}{51}{}%
-\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{53}{}%
-\contentsline {subsection}{\numberline {5.8}Implementação de Procedimentos, Funções e Gatilhos}{54}{}%
-\contentsline {subsubsection}{\numberline {5.8.1}Gatilho: \texttt {trg\_verificar\_sala\_disponivel} (RC6)}{54}{}%
-\contentsline {subsubsection}{\numberline {5.8.2}Procedimento: \texttt {sp\_confirmar\_pagamento}}{55}{}%
-\contentsline {subsubsection}{\numberline {5.8.3}Função: \texttt {fn\_total\_gasto\_participante}}{55}{}%
-\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{56}{}%
-\contentsline {section}{\numberline {7}Bibliografia}{57}{}%
+\contentsline {subsection}{\numberline {3.4}Identificação e Caracterização dos Atributos das Entidades e dos Relacionamentos}{22}{}%
+\contentsline {subsubsection}{\numberline {3.4.1}Entidade: Participante}{22}{}%
+\contentsline {subsubsection}{\numberline {3.4.2}Entidade: Inscrição}{23}{}%
+\contentsline {subsubsection}{\numberline {3.4.3}Entidade: Pagamento}{24}{}%
+\contentsline {subsubsection}{\numberline {3.4.4}Entidade: Evento}{25}{}%
+\contentsline {subsubsection}{\numberline {3.4.5}Entidade: Organizador}{26}{}%
+\contentsline {subsubsection}{\numberline {3.4.6}Entidade: Sessão}{27}{}%
+\contentsline {subsubsection}{\numberline {3.4.7}Entidade: Orador}{28}{}%
+\contentsline {subsection}{\numberline {3.5}Apresentação e Explicação do Diagrama ER Produzido}{29}{}%
+\contentsline {section}{\numberline {4}Modelação Lógica}{30}{}%
+\contentsline {subsection}{\numberline {4.1}Construção e Validação do Modelo de Dados Lógico}{30}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Abordagem de Construção do Modelo Lógico}{30}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Estrutura Geral do Modelo Lógico}{30}{}%
+\contentsline {subsubsection}{\numberline {4.1.3}Validação do Modelo de Dados Lógico}{31}{}%
+\contentsline {subsection}{\numberline {4.2}Apresentação e Explicação do Modelo Lógico Produzido}{31}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Relação: Participante}{33}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Relação: Evento}{33}{}%
+\contentsline {subsubsection}{\numberline {4.2.3}Relação: Organizador}{34}{}%
+\contentsline {subsubsection}{\numberline {4.2.4}Relação: Sessao}{34}{}%
+\contentsline {subsubsection}{\numberline {4.2.5}Relação: Orador}{35}{}%
+\contentsline {subsubsection}{\numberline {4.2.6}Relação: Inscricao}{35}{}%
+\contentsline {subsubsection}{\numberline {4.2.7}Relação: Pagamento}{36}{}%
+\contentsline {subsubsection}{\numberline {4.2.8}Relação: Gere}{36}{}%
+\contentsline {subsubsection}{\numberline {4.2.9}Relação: Apresentada}{37}{}%
+\contentsline {subsection}{\numberline {4.3}Normalização de Dados}{37}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}Dependências Funcionais e Chaves Identificadas}{37}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}Verificação das Formas Normais}{38}{}%
+\contentsline {subsubsection}{\numberline {4.3.3}Anomalias Evitadas}{39}{}%
+\contentsline {subsubsection}{\numberline {4.3.4}Conclusão}{39}{}%
+\contentsline {subsection}{\numberline {4.4}Validação do Modelo com Interrogações do Utilizador}{39}{}%
+\contentsline {section}{\numberline {5}Implementação Física}{41}{}%
+\contentsline {subsection}{\numberline {5.1}Apresentação e Explicação da Base de Dados Implementada}{41}{}%
+\contentsline {subsection}{\numberline {5.2}Criação de Utilizadores da Base de Dados}{42}{}%
+\contentsline {subsection}{\numberline {5.3}Povoamento da Base de Dados}{43}{}%
+\contentsline {subsection}{\numberline {5.4}Cálculo do Espaço da Base de Dados (Inicial e Taxa de Crescimento Anual)}{43}{}%
+\contentsline {subsection}{\numberline {5.5}Definição e Caracterização de Vistas de Utilização em SQL}{49}{}%
+\contentsline {subsection}{\numberline {5.6}Tradução das Interrogações do Utilizador para SQL}{50}{}%
+\contentsline {subsection}{\numberline {5.7}Indexação do Sistema de Dados}{52}{}%
+\contentsline {subsection}{\numberline {5.8}Implementação de Procedimentos, Funções e Gatilhos}{53}{}%
+\contentsline {subsubsection}{\numberline {5.8.1}Gatilho: \texttt {trg\_verificar\_sala\_disponivel} (RC6)}{53}{}%
+\contentsline {subsubsection}{\numberline {5.8.2}Procedimento: \texttt {sp\_confirmar\_pagamento}}{54}{}%
+\contentsline {subsubsection}{\numberline {5.8.3}Função: \texttt {fn\_total\_gasto\_participante}}{54}{}%
+\contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{55}{}%
+\contentsline {section}{\numberline {7}Bibliografia}{56}{}%
