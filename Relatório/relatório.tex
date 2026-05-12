@@ -861,15 +861,12 @@
                     \noindent\begin{minipage}{\textwidth}
                     \subsubsection{Entidade: Inscrição}\mbox{}\\
 
-                    A entidade \textit{Inscrição} regista os dados relativos ao ato de inscrição de um participante 
-                    num evento. O atributo \texttt{id\_inscrição} é a chave primária, identificando de forma única 
-                    cada registo de inscrição no sistema. O atributo \texttt{data\_inscrição} armazena a data em 
-                    que a inscrição foi efetuada, sendo obrigatório para fins de controlo e rastreabilidade. 
-                    O atributo \texttt{estado} indica a situação atual da inscrição (por exemplo: pendente, 
-                    confirmada ou cancelada), sendo fundamental para a gestão do processo. Os atributos 
-                    \texttt{id\_participante} e \texttt{id\_evento} surgem como atributos derivados do relacionamento, 
-                    funcionando como chaves estrangeiras que estabelecem a ligação desta entidade às entidades 
-                    \textit{Participante} e \textit{Evento}, respetivamente.
+                    A entidade \textit{Inscrição} regista os dados relativos ao ato de inscrição de um participante
+                    num evento. O atributo \texttt{id\_inscrição} é a chave primária, identificando de forma única
+                    cada registo de inscrição no sistema. O atributo \texttt{data\_inscrição} armazena a data em
+                    que a inscrição foi efetuada, sendo obrigatório para fins de controlo e rastreabilidade.
+                    O atributo \texttt{estado} indica a situação atual da inscrição (por exemplo: pendente,
+                    confirmada ou cancelada), sendo fundamental para a gestão do processo.
 
                     \begin{table}[H]
                     \centering
@@ -881,8 +878,6 @@
                     \texttt{id\_inscrição}    & Identificador sequencial & \texttt{INT} & N & 100 & --- \\ \hline
                     \texttt{data\_inscrição}  & Data do registo & \texttt{DATETIME} & N & 2026-05-10 10:00 & RD8 \\ \hline
                     \texttt{estado}           & Situação atual & \texttt{VARCHAR(15)} & N & confirmada & RC1 \\ \hline
-                    \texttt{id\_participante} & Participante associado & \texttt{INT} & N & 1 & R1 \\ \hline
-                    \texttt{id\_evento}       & Evento de destino & \texttt{INT} & N & 5 & R2 \\ \hline
                     \end{tabular}
                     }
                     \vspace{0.2cm}
@@ -892,8 +887,6 @@
                     \vspace{0.1cm}
                     \noindent\textbf{Restrições:}\\
                     \indent $\triangleright$ \texttt{id\_inscrição} PRIMARY KEY\\
-                    \indent $\triangleright$ \texttt{id\_participante} FK $\rightarrow$ Participante(id\_participante)\\
-                    \indent $\triangleright$ \texttt{id\_evento} FK $\rightarrow$ Evento(id\_evento)\\
                     \indent $\triangleright$ \texttt{estado} IN \{'pendente', 'confirmada', 'cancelada'\}
                     \end{minipage}
                     \vspace{0.4cm}
@@ -908,9 +901,7 @@
                     está pendente ou foi rejeitado. O atributo \texttt{metodo} especifica a forma de pagamento 
                     utilizada (por exemplo: cartão de crédito, transferência bancária ou MB Way). O atributo 
                     \texttt{data\_pagamento} regista a data em que o pagamento foi processado. O atributo 
-                    \texttt{valor} indica o montante pago. Por fim, o atributo \texttt{id\_inscrição} surge como 
-                    chave estrangeira que liga o pagamento à inscrição correspondente, garantindo a integridade 
-                    referencial com a entidade \textit{Inscrição}.
+                    \texttt{valor} indica o montante pago.
 
                     \begin{table}[H]
                     \centering
@@ -923,8 +914,7 @@
                     \texttt{estado}          & Ponto de situação & \texttt{VARCHAR(15)} & N & pago & RD9 \\ \hline
                     \texttt{metodo}          & Forma de pagamento & \texttt{VARCHAR(20)} & N & MBWay & RD9 \\ \hline
                     \texttt{data\_pagamento} & Data de processamento & \texttt{DATETIME} & N & 2026-05-10 10:05 & RD9 \\ \hline
-                    \texttt{valor}           & Montante em euros & \texttt{DECIMAL(6,2)} & N & 25.50 & RD9 \\ \hline
-                    \texttt{id\_inscrição}   & Inscrição a pagar & \texttt{INT} & N & 100 & R3 \\ \hline
+                    \texttt{valor}           & Montante em euros & \texttt{DECIMAL(8,2)} & N & 25.50 & RD9 \\ \hline
                     \end{tabular}
                     }
                     \vspace{0.2cm}
@@ -934,7 +924,6 @@
                     \vspace{0.1cm}
                     \noindent\textbf{Restrições:}\\
                     \indent $\triangleright$ \texttt{id\_pagamento} PRIMARY KEY\\
-                    \indent $\triangleright$ \texttt{id\_inscrição} FK $\rightarrow$ Inscrição(id\_inscrição)\\
                     \indent $\triangleright$ \texttt{estado} IN \{'pago', 'pendente', 'rejeitado'\}\\
                     \indent $\triangleright$ \texttt{metodo} IN \{'cartão', 'transferência', 'MBWay'\}
                     \end{minipage}
