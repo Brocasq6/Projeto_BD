@@ -64,7 +64,7 @@
         \end{center}
 
         \begin{center}
-                {\normalsize{Data de Entrega : 10 de Maio de 2026}}
+                {\normalsize{Data de Entrega : 15 de Maio de 2026}}
         \end{center}
 
         \newpage
@@ -2440,6 +2440,574 @@ DELIMITER ;
     Disponível em: \texttt{https://www.meetup.com/}
 
 \end{thebibliography}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\appendix
+
+\section{Script DDL --- Criação do Esquema Físico}
+\label{apx:ddl}
+
+O script seguinte cria a base de dados \texttt{eventsync} e todas as tabelas,
+restrições e chaves estrangeiras do modelo físico do EvenSync (MySQL~8.x).
+
+\begin{small}
+\begin{verbatim}
+-- =============================================================
+--  EvenSync — Script de Criação do Esquema (Modelo Físico)
+--  Base de Dados — LCC 2025/2026
+--  SGBD: MySQL 8.x
+--
+--  CORREÇÕES APLICADAS (v2):
+--  [C1] Evento      — adicionado numero_edicao (RD1 exige-o explicitamente)
+--  [C2] Participante — telemovel passou a NOT NULL (RD7: campo obrigatório)
+--  [C3] Sessao      — adicionado id_evento FK (1:N em vez de N:M)
+--                   — sala passou a NOT NULL (RC6: controlo de sobreposição)
+--  [C4] Tabela Tem  — REMOVIDA (era N:M sem base nos requisitos;
+--                     substituída pela FK id_evento em Sessao)
+--  [OK] Pagamento   — uq_pag_inscricao (UNIQUE) já garantia o 1:1; mantido
+--
+--  CORREÇÕES APLICADAS (v3):
+--  [C5] Evento.tipo — CONSTRAINT CHECK adicionada para restringir os
+--                     valores aceites a: 'conferencia', 'workshop',
+--                     'corporativo', 'seminario'
+-- =============================================================
+
+DROP DATABASE IF EXISTS eventsync;
+CREATE DATABASE eventsync
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+USE eventsync;
+
+-- -------------------------------------------------------------
+-- 1. Participante
+--    RD7: nome, email, telefone e organização
+--    [C2] telemovel: NULL → NOT NULL
+-- -------------------------------------------------------------
+CREATE TABLE Participante (
+    id_participante INT          NOT NULL AUTO_INCREMENT,
+    nome            VARCHAR(100) NOT NULL,
+    email           VARCHAR(100) NOT NULL,
+    telemovel       VARCHAR(15)  NOT NULL,          -- [C2] era NULL
+    organizacao     VARCHAR(100)     NULL,
+
+    CONSTRAINT pk_participante       PRIMARY KEY (id_participante),
+    CONSTRAINT uq_participante_email UNIQUE      (email)
+);
+
+-- -------------------------------------------------------------
+-- 2. Evento
+--    RD1: id, nome, tipo, numero_edicao, data_inicio, data_fim,
+--         localizacao, capacidade, descricao
+--    [C1] numero_edicao: campo novo (estava omitido)
+--    [C5] tipo: restrito a conferencia | workshop | corporativo | seminario
+-- -------------------------------------------------------------
+CREATE TABLE Evento (
+    id_evento      INT          NOT NULL AUTO_INCREMENT,
+    nome           VARCHAR(150) NOT NULL,
+    tipo           VARCHAR(50)  NOT NULL,
+    numero_edicao  INT          NOT NULL,           -- [C1] novo campo
+    data_inicio    DATE         NOT NULL,
+    data_fim       DATE         NOT NULL,
+    localizacao    VARCHAR(150) NOT NULL,
+    descricao      TEXT             NULL,
+    capacidade     INT          NOT NULL,
+
+    CONSTRAINT pk_evento            PRIMARY KEY (id_evento),
+    CONSTRAINT ck_evento_tipo       CHECK (tipo IN ('conferencia','workshop','corporativo','seminario')),  -- [C5]
+    CONSTRAINT ck_evento_datas      CHECK (data_inicio <= data_fim),
+    CONSTRAINT ck_evento_capacidade CHECK (capacidade > 0),
+    CONSTRAINT ck_evento_edicao     CHECK (numero_edicao > 0)
+);
+
+-- -------------------------------------------------------------
+-- 3. Organizador
+--    RD2: id, nome, email, telefone
+-- -------------------------------------------------------------
+CREATE TABLE Organizador (
+    id_organizador INT          NOT NULL AUTO_INCREMENT,
+    nome           VARCHAR(100) NOT NULL,
+    email          VARCHAR(100) NOT NULL,
+    telefone       VARCHAR(15)  NOT NULL,
+
+    CONSTRAINT pk_organizador       PRIMARY KEY (id_organizador),
+    CONSTRAINT uq_organizador_email UNIQUE      (email)
+);
+
+-- -------------------------------------------------------------
+-- 4. Sessao
+--    RD4: id, titulo, sala, data, hora_inicio, hora_fim, descricao
+--    RC6: não pode haver sobreposição de sessões na mesma sala
+--    [C3a] id_evento INT NOT NULL FK → Evento  (1:N — RD4 "associadas a UM evento")
+--    [C3b] sala: NULL → NOT NULL  (RC6 pressupõe sala sempre preenchida)
+--    [C4]  tabela Tem removida; relação gerida por este FK
+-- -------------------------------------------------------------
+CREATE TABLE Sessao (
+    id_sessao   INT          NOT NULL AUTO_INCREMENT,
+    tema        VARCHAR(150) NOT NULL,
+    data        DATE         NOT NULL,
+    hora_inicio TIME         NOT NULL,
+    hora_fim    TIME         NOT NULL,
+    sala        VARCHAR(50)  NOT NULL,              -- [C3b] era NULL
+    id_evento   INT          NOT NULL,              -- [C3a] novo FK
+
+    CONSTRAINT pk_sessao        PRIMARY KEY (id_sessao),
+    CONSTRAINT fk_sessao_evento FOREIGN KEY (id_evento)
+        REFERENCES Evento(id_evento)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT ck_sessao_horas  CHECK (hora_inicio < hora_fim)
+);
+
+-- -------------------------------------------------------------
+-- 5. Orador
+--    RD5: id, nome, email, biografia, especialidade
+-- -------------------------------------------------------------
+CREATE TABLE Orador (
+    id_orador     INT          NOT NULL AUTO_INCREMENT,
+    nome          VARCHAR(100) NOT NULL,
+    email         VARCHAR(100) NOT NULL,
+    especialidade VARCHAR(100) NOT NULL,
+
+    CONSTRAINT pk_orador       PRIMARY KEY (id_orador),
+    CONSTRAINT uq_orador_email UNIQUE      (email)
+);
+
+-- -------------------------------------------------------------
+-- 6. Inscricao  (R1: Participante 1—N; R2: Evento 1—N)
+--    RD8: id, data_inscricao, estado
+--    RC1: um participante não pode ter mais de uma inscrição activa
+--         no mesmo evento → UNIQUE(id_participante, id_evento)
+-- -------------------------------------------------------------
+CREATE TABLE Inscricao (
+    id_inscricao    INT         NOT NULL AUTO_INCREMENT,
+    data_inscricao  DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    estado          VARCHAR(15) NOT NULL DEFAULT 'pendente',
+    id_participante INT         NOT NULL,
+    id_evento       INT         NOT NULL,
+
+    CONSTRAINT pk_inscricao        PRIMARY KEY (id_inscricao),
+    CONSTRAINT fk_insc_part        FOREIGN KEY (id_participante)
+        REFERENCES Participante(id_participante)
+        ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT fk_insc_evento      FOREIGN KEY (id_evento)
+        REFERENCES Evento(id_evento)
+        ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT uq_insc_part_evento UNIQUE (id_participante, id_evento),  -- RC1
+    CONSTRAINT ck_insc_estado      CHECK  (estado IN ('pendente','confirmada','cancelada'))
+);
+
+-- -------------------------------------------------------------
+-- 7. Pagamento  (R3: Inscricao 1—1)
+--    RD9: id, valor, data_pagamento, metodo, estado
+--    RC2: cada inscrição tem no máximo um pagamento
+--    [OK] uq_pag_inscricao (UNIQUE) já existia e garante o 1:1
+-- -------------------------------------------------------------
+CREATE TABLE Pagamento (
+    id_pagamento   INT          NOT NULL AUTO_INCREMENT,
+    valor          DECIMAL(8,2) NOT NULL,
+    data_pagamento DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    metodo         VARCHAR(20)  NOT NULL,
+    estado         VARCHAR(15)  NOT NULL DEFAULT 'pendente',
+    id_inscricao   INT          NOT NULL,
+
+    CONSTRAINT pk_pagamento     PRIMARY KEY (id_pagamento),
+    CONSTRAINT fk_pag_insc      FOREIGN KEY (id_inscricao)
+        REFERENCES Inscricao(id_inscricao)
+        ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT uq_pag_inscricao UNIQUE (id_inscricao),                    -- RC2 / 1:1
+    CONSTRAINT ck_pag_metodo    CHECK  (metodo IN ('cartao','transferencia','MBWay','numerario')),
+    CONSTRAINT ck_pag_estado    CHECK  (estado IN ('pendente','pago','rejeitado')),
+    CONSTRAINT ck_pag_valor     CHECK  (valor > 0)
+);
+
+-- -------------------------------------------------------------
+-- 8. Gere  (R4: Organizador N—M Evento)
+--    RD3: um organizador pode gerir múltiplos eventos e vice-versa
+-- -------------------------------------------------------------
+CREATE TABLE Gere (
+    id_organizador INT NOT NULL,
+    id_evento      INT NOT NULL,
+
+    CONSTRAINT pk_gere        PRIMARY KEY (id_organizador, id_evento),
+    CONSTRAINT fk_gere_org    FOREIGN KEY (id_organizador)
+        REFERENCES Organizador(id_organizador)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_gere_evento FOREIGN KEY (id_evento)
+        REFERENCES Evento(id_evento)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+-- -------------------------------------------------------------
+-- 9. Apresentada  (R6: Sessao N—M Orador)
+--    RD6: uma sessão pode ter vários oradores; um orador pode
+--         apresentar em várias sessões
+-- -------------------------------------------------------------
+CREATE TABLE Apresentada (
+    id_sessao INT NOT NULL,
+    id_orador INT NOT NULL,
+
+    CONSTRAINT pk_apresentada PRIMARY KEY (id_sessao, id_orador),
+    CONSTRAINT fk_apr_sessao  FOREIGN KEY (id_sessao)
+        REFERENCES Sessao(id_sessao)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_apr_orador  FOREIGN KEY (id_orador)
+        REFERENCES Orador(id_orador)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+-- =============================================================
+--  Verificação: listar tabelas criadas (deve mostrar 9 tabelas)
+--  Participante, Evento, Organizador, Sessao, Orador,
+--  Inscricao, Pagamento, Gere, Apresentada
+-- =============================================================
+SHOW TABLES;
+\end{verbatim}
+\end{small}
+
+\newpage
+\section{Script de Povoamento}
+\label{apx:populacao}
+
+O script seguinte insere o conjunto de dados de teste utilizado para validar
+os Requisitos de Manipulação (RM1--RM10) e as regras de integridade
+(RC1--RC6).
+
+\begin{small}
+\begin{verbatim}
+-- =============================================================
+--  EvenSync — Povoamento da Base de Dados
+--  Base de Dados — LCC 2025/2026
+--  6 Organizadores | 7 Eventos | 8 Sessões | 8 Oradores
+--  10 Participantes | 14 Inscrições | 14 Pagamentos
+-- =============================================================
+
+USE eventsync;
+
+-- -------------------------------------------------------------
+-- 1. ORGANIZADORES (IDs 1–6)
+-- -------------------------------------------------------------
+INSERT INTO Organizador (nome, email, telefone) VALUES
+('José Bumblebee',  'jose.bumblebee@eventsync.pt',      '253000001'),
+('André Marques',   'a111634@alunos.uminho.pt',          '253604401'),
+('Bruno Freitas',   'a110016@alunos.uminho.pt',          '253604402'),
+('João Ribeiro',    'a111041@alunos.uminho.pt',          '253604403'),
+('Tiago Santos',    'a110313@alunos.uminho.pt',          '253604404'),
+('Nelson Antunes',  'a110360@alunos.uminho.pt',          '253604405');
+
+-- -------------------------------------------------------------
+-- 2. EVENTOS (IDs 1–7)
+--    Cobre os 4 tipos permitidos: conferencia, workshop,
+--    corporativo, seminario
+-- -------------------------------------------------------------
+INSERT INTO Evento (nome, tipo, numero_edicao, data_inicio, data_fim, localizacao, capacidade, descricao) VALUES
+('Workshop Flutter & Dart',              'workshop',    2,  '2026-05-25', '2026-05-25', 'DI-A1',       45,  'Desenvolvimento mobile multiplataforma.'),
+('Congresso Nacional de Cibersegurança', 'conferencia', 5,  '2026-06-10', '2026-06-12', 'Auditório B1',300, 'Debate sobre ameaças e defesa digital.'),
+('Hackathon UMinho 2026',                'workshop',    1,  '2026-09-01', '2026-09-03', 'CP1',         100, '48 horas de código sem parar.'),
+('Sessão Solene de Abertura LCC',        'corporativo', 32, '2026-09-15', '2026-09-15', 'Auditório B2',150, 'Boas-vindas aos novos alunos.'),
+('Seminário de Bases de Dados',          'seminario',   3,  '2026-10-05', '2026-10-05', 'DI-B1',       60,  'Tendências e práticas em SGBD relacionais.'),
+('Encontro de Inovação Empresarial',     'corporativo', 7,  '2026-10-20', '2026-10-21', 'Auditório B2',200, 'Networking e apresentação de casos de sucesso.'),
+('Conferência de Inteligência Artificial','conferencia', 2,  '2026-11-20', '2026-11-22', 'Auditório B1',250, 'Avanços recentes em IA e Machine Learning.');
+
+-- -------------------------------------------------------------
+-- 3. GERE — Organizador gere Evento (N:M)
+-- -------------------------------------------------------------
+INSERT INTO Gere (id_organizador, id_evento) VALUES
+(1, 1), (1, 2),   -- José gere Workshop e Congresso
+(2, 3),           -- André gere Hackathon
+(3, 4), (6, 4),   -- Bruno e Nelson gerem Sessão Solene
+(4, 5), (4, 6),   -- João gere Seminário e Encontro
+(5, 7);           -- Tiago gere Conferência de IA
+
+-- -------------------------------------------------------------
+-- 4. ORADORES (IDs 1–8)
+-- -------------------------------------------------------------
+INSERT INTO Orador (nome, email, especialidade) VALUES
+('Prof. Alberto Silva',  'alberto@di.uminho.pt',     'Engenharia de Software'),
+('Eng. Maria Fontes',    'mfontes@checkpoint.com',   'Network Security'),
+('Dr. Ricardo Jorge',    'rjorge@google.com',        'Cloud Computing'),
+('Sara Antunes',         'sara@flutter.dev',         'Mobile Dev'),
+('Nelson Antunes',       'nantunes@di.uminho.pt',    'Distributed Databases'),
+('Prof. Paulo Martins',  'pmartins@di.uminho.pt',    'Inteligência Artificial'),
+('Dra. Sofia Costa',     'scosta@inovacao.pt',       'Inovação Empresarial'),
+('Eng. Rui Pereira',     'rpereira@checkpoint.com',  'Cibersegurança');
+
+-- -------------------------------------------------------------
+-- 5. SESSÕES (IDs 1–8)
+-- -------------------------------------------------------------
+INSERT INTO Sessao (tema, data, hora_inicio, hora_fim, sala, id_evento) VALUES
+('Introdução ao Flutter',           '2026-05-25', '09:00:00', '11:00:00', 'DI-A1',       1),
+('Widgets Avançados',               '2026-05-25', '11:30:00', '13:00:00', 'DI-A1',       1),
+('Painel: IA e Cibersegurança',     '2026-06-10', '14:30:00', '16:00:00', 'Auditório B1',2),
+('Criptografia Quântica',           '2026-06-11', '10:00:00', '12:00:00', 'Auditório B1',2),
+('Final Pitch & Demo Day',          '2026-09-03', '15:00:00', '18:00:00', 'CP1',         3),
+('Abertura Oficial',                '2026-09-15', '09:00:00', '10:00:00', 'Auditório B2',4),
+('Fundamentos de BD Relacionais',   '2026-10-05', '10:00:00', '12:00:00', 'DI-B1',       5),
+('Tendências em Machine Learning',  '2026-11-20', '14:00:00', '16:00:00', 'Auditório B1',7);
+
+-- -------------------------------------------------------------
+-- 6. APRESENTADA — Orador apresenta Sessão (N:M)
+-- -------------------------------------------------------------
+INSERT INTO Apresentada (id_sessao, id_orador) VALUES
+(1, 4),         -- Sara na sessão de Flutter Intro
+(2, 4),         -- Sara em Widgets Avançados
+(3, 1), (3, 2), -- Alberto e Maria no painel de IA
+(4, 8),         -- Rui na Criptografia Quântica
+(5, 5),         -- Nelson no Hackathon
+(7, 5),         -- Nelson no Seminário de BD
+(8, 6);         -- Paulo em Machine Learning
+
+-- -------------------------------------------------------------
+-- 7. PARTICIPANTES (IDs 1–10)
+-- -------------------------------------------------------------
+INSERT INTO Participante (nome, email, telemovel, organizacao) VALUES
+('Tiago Santos',    'tiago.a110313@alunos.uminho.pt', '910000001', 'UMinho'),
+('Bruno Freitas',   'bruno.a110016@alunos.uminho.pt', '910000002', 'UMinho'),
+('João Silva',      'jsilva@empresa.pt',               '920000001', 'TechCorp'),
+('Maria Oliveira',  'moliveira@gmail.com',             '930000001',  NULL),
+('Ricardo Costa',   'rcosta@hotmail.com',              '960000001', 'IT Solutions'),
+('Sílvia Mendes',   'smendes@alunos.uminho.pt',        '910000003', 'UMinho'),
+('Nuno Rocha',      'nuno.rocha@ieee.org',             '910000004', 'IEEE Student Branch'),
+('Beatriz Dias',    'beatriz@gmail.com',               '920000002',  NULL),
+('Fernando Pessoa', 'fpessoa@literatura.pt',           '910000005', 'Casa Fernando Pessoa'),
+('Marta Ferreira',  'marta.f@uminho.pt',               '253000010', 'UMinho');
+
+-- -------------------------------------------------------------
+-- 8. INSCRIÇÕES (IDs 1–14)
+--    Estados variados para testar RM3, RM4, RM10
+--    UNIQUE(id_participante, id_evento) garante RC1
+-- -------------------------------------------------------------
+INSERT INTO Inscricao (id_participante, id_evento, estado) VALUES
+(1, 1, 'confirmada'), (2, 1, 'confirmada'), (3, 1, 'pendente'),     -- Workshop Flutter
+(1, 2, 'confirmada'), (4, 2, 'confirmada'), (5, 2, 'cancelada'),    -- Congresso
+(6, 2, 'confirmada'), (7, 2, 'confirmada'), (8, 2, 'confirmada'),   -- Congresso (cont.)
+(1, 3, 'confirmada'), (9, 3, 'confirmada'), (10, 3, 'confirmada'),  -- Hackathon
+(1, 4, 'confirmada'), (10, 4, 'confirmada');                        -- Sessão Solene
+
+-- -------------------------------------------------------------
+-- 9. PAGAMENTOS (IDs 1–14)
+--    Métodos e estados distintos para testar RM5, RM10
+--    uq_pag_inscricao garante RC2 (1 pagamento por inscrição)
+--    Todas as inscrições têm pagamento (R3 P:T — Inscrição parcial, Pagamento total)
+-- -------------------------------------------------------------
+INSERT INTO Pagamento (valor, metodo, estado, id_inscricao) VALUES
+(10.00, 'MBWay',        'pago',      1),  -- Tiago pagou Workshop
+(10.00, 'cartao',       'pago',      2),  -- Bruno pagou Workshop
+(10.00, 'transferencia','pendente',  3),  -- João Silva pagamento pendente (inscrição pendente)
+(25.00, 'transferencia','pago',      4),  -- Tiago pagou Congresso
+(25.00, 'MBWay',        'pendente',  5),  -- Maria pagamento pendente
+(25.00, 'cartao',       'pago',      6),  -- Sílvia pagou Congresso
+(25.00, 'cartao',       'pago',      7),  -- Nuno pagou Congresso
+(25.00, 'transferencia','pago',      8),  -- Beatriz pagou Congresso
+(25.00, 'MBWay',        'rejeitado', 9),  -- Beatriz 2.º pagamento rejeitado
+(5.00,  'numerario',    'pago',      10), -- Tiago pagou Hackathon
+(5.00,  'MBWay',        'pago',      11), -- Fernando Pessoa pagou Hackathon
+(5.00,  'cartao',       'pago',      12), -- Marta pagou Hackathon
+(5.00,  'numerario',    'pago',      13), -- Tiago pagou Sessão Solene
+(5.00,  'MBWay',        'pago',      14); -- Marta pagou Sessão Solene
+
+\end{verbatim}
+\end{small}
+
+\newpage
+\section{Vistas, Gatilho, Procedimento, Função e Interrogações SQL}
+\label{apx:queries}
+
+O script seguinte contém as três vistas de utilização, o gatilho de
+verificação de sala, o procedimento de confirmação de pagamento, a função
+de cálculo de total gasto e a tradução das interrogações RM1--RM10 para SQL.
+
+\begin{small}
+\begin{verbatim}
+CREATE OR REPLACE VIEW v_ProgramaDetalhado AS
+SELECT 
+    e.nome AS Evento,
+    s.tema AS Sessao,
+    s.data AS Dia,
+    s.hora_inicio AS Inicio,
+    s.sala AS Sala,
+    GROUP_CONCAT(o.nome SEPARATOR ' | ') AS Oradores
+FROM Evento e
+JOIN Sessao s ON e.id_evento = s.id_evento
+LEFT JOIN Apresentada apr ON s.id_sessao = apr.id_sessao
+LEFT JOIN Orador o ON apr.id_orador = o.id_orador
+GROUP BY s.id_sessao;
+
+CREATE OR REPLACE VIEW v_DashboardFinanceiro AS
+SELECT 
+    p.nome AS Participante,
+    e.nome AS Evento,
+    pag.valor AS Montante,
+    pag.estado AS Estado_Pagamento,
+    pag.metodo AS Metodo
+FROM Participante p
+JOIN Inscricao i ON p.id_participante = i.id_participante
+JOIN Evento e ON i.id_evento = e.id_evento
+JOIN Pagamento pag ON i.id_inscricao = pag.id_inscricao;
+
+CREATE OR REPLACE VIEW v_OcupacaoEventos AS
+SELECT 
+    e.nome AS Evento,
+    e.capacidade AS Lotação_Máxima,
+    COUNT(i.id_inscricao) AS Inscritos_Confirmados,
+    ROUND((COUNT(i.id_inscricao) / e.capacidade) * 100, 2) AS Percentagem_Ocupacao
+FROM Evento e
+LEFT JOIN Inscricao i ON e.id_evento = i.id_evento AND i.estado = 'confirmada'
+GROUP BY e.id_evento;
+
+DELIMITER $$
+
+CREATE TRIGGER trg_verificar_sala_disponivel
+BEFORE INSERT ON Sessao
+FOR EACH ROW
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM Sessao
+        WHERE sala = NEW.sala 
+            AND data = NEW.data
+            AND (
+            (NEW.hora_inicio < hora_fim AND NEW.hora_fim > hora_inicio)
+        )
+    ) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Erro: A sala já está ocupada neste horário!';
+    END IF;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE sp_confirmar_pagamento(IN p_id_pagamento INT)
+BEGIN
+    -- 1. Atualiza o pagamento
+    UPDATE Pagamento SET estado = 'pago', data_pagamento = NOW() 
+    WHERE id_pagamento = p_id_pagamento;
+    
+    -- 2. Atualiza a inscrição associada
+    UPDATE Inscricao i
+    JOIN Pagamento p ON i.id_inscricao = p.id_inscricao
+    SET i.estado = 'confirmada'
+    WHERE p.id_pagamento = p_id_pagamento;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE FUNCTION fn_total_gasto_participante(p_id_participante INT) 
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE v_total DECIMAL(10,2);
+    SELECT SUM(p.valor) INTO v_total
+    FROM Pagamento p
+    JOIN Inscricao i ON p.id_inscricao = i.id_inscricao
+    WHERE i.id_participante = p_id_participante AND p.estado = 'pago';
+    RETURN IFNULL(v_total, 0);
+END$$
+
+DELIMITER ;
+
+-- ============================================================
+-- TRADUÇÃO DAS INTERROGAÇÕES DO UTILIZADOR PARA SQL (RM1-RM10)
+-- ============================================================
+
+-- RM1: Listar todos os eventos, com filtro por tipo, data ou localização
+SELECT id_evento, nome, tipo, numero_edicao,
+       data_inicio, data_fim, localizacao, capacidade
+FROM Evento
+WHERE tipo = 'Workshop'             -- filtro opcional por tipo
+  AND data_inicio >= '2026-01-01'   -- filtro opcional por data
+ORDER BY data_inicio;
+
+-- RM2: Programa completo de um evento (recorre à vista)
+SELECT * FROM v_ProgramaDetalhado
+WHERE Evento = 'Workshop Flutter & Dart';
+
+-- RM3: Inscritos num determinado evento com estado da inscrição
+SELECT p.nome, p.email, i.estado, i.data_inscricao
+FROM Participante p
+JOIN Inscricao i ON p.id_participante = i.id_participante
+JOIN Evento e    ON i.id_evento = e.id_evento
+WHERE e.nome = 'Congresso Nacional de Cibersegurança'
+ORDER BY i.estado, p.nome;
+
+-- RM4: Histórico de inscrições de um participante
+SELECT e.nome AS Evento, e.data_inicio, i.estado,
+       i.data_inscricao
+FROM Inscricao i
+JOIN Evento e ON i.id_evento = e.id_evento
+WHERE i.id_participante = 5
+ORDER BY i.data_inscricao DESC;
+
+-- RM5: Total de receitas de um evento (pagamentos com estado 'pago')
+SELECT e.nome AS Evento,
+       SUM(pag.valor) AS Total_Receitas
+FROM Evento e
+JOIN Inscricao i   ON e.id_evento = i.id_evento
+JOIN Pagamento pag ON i.id_inscricao = pag.id_inscricao
+WHERE pag.estado = 'pago'
+  AND e.nome = 'Workshop Flutter & Dart'
+GROUP BY e.id_evento;
+
+-- RM6: Eventos com maior taxa de ocupação (recorre à vista)
+SELECT * FROM v_OcupacaoEventos
+ORDER BY Percentagem_Ocupacao DESC;
+
+-- RM7: Oradores de um determinado evento
+SELECT DISTINCT o.nome, o.especialidade
+FROM Orador o
+JOIN Apresentada apr ON o.id_orador = apr.id_orador
+JOIN Sessao s ON apr.id_sessao = s.id_sessao
+JOIN Evento e ON s.id_evento = e.id_evento
+WHERE e.nome = 'Congresso Nacional de Cibersegurança';
+
+-- RM8: Sessões agendadas numa sala ou intervalo de datas
+SELECT s.tema, s.data, s.hora_inicio, s.hora_fim,
+       e.nome AS Evento
+FROM Sessao s
+JOIN Evento e ON s.id_evento = e.id_evento
+WHERE s.sala = 'Auditório B1'
+   OR (s.data BETWEEN '2026-06-01' AND '2026-06-30')
+ORDER BY s.data, s.hora_inicio;
+
+-- RM9: Oradores de uma determinada sessão
+SELECT o.nome, o.email, o.especialidade
+FROM Orador o
+JOIN Apresentada apr ON o.id_orador = apr.id_orador
+WHERE apr.id_sessao = 6;
+
+-- RM10: Pagamentos pendentes ou rejeitados, com participante e evento
+SELECT pag_v.Participante, pag_v.Evento,
+       pag_v.Montante, pag_v.Estado_Pagamento, pag_v.Metodo
+FROM v_DashboardFinanceiro pag_v
+WHERE pag_v.Estado_Pagamento IN ('pendente', 'rejeitado');
+
+\end{verbatim}
+\end{small}
+
+\newpage
+\section{Diagrama Entidade-Relacionamento (tamanho completo)}
+\label{apx:er}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{%
+        \includegraphics[width=1.3\textwidth]{../imagens/mod_conceptual.png}%
+    }
+    \caption{Diagrama ER completo do sistema EvenSync (notação de Chen)}
+\end{figure}
+
+\newpage
+\section{Modelo Lógico (tamanho completo)}
+\label{apx:logico}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{%
+        \includegraphics[width=1.2\textwidth]{../imagens/modLgico.png}%
+    }
+    \caption{Modelo lógico do sistema EvenSync (gerado com MySQL Workbench)}
+\end{figure}
 
 
 \end{document}
