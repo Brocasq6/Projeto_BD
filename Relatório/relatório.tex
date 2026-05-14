@@ -317,7 +317,7 @@
                 RM7 & Deve ser possível consultar os oradores que apresentam sessões de um determinado evento. & Nelson Antunes \\ \hline
                 RM8 & Deve ser possível consultar todas as sessões agendadas numa determinada sala ou num intervalo de datas. & Tiago Santos \\ \hline
                 RM9 & Deve ser possível consultar os oradores atribuídos a uma determinada sessão. & Bruno Freitas \\ \hline
-                RM10 & Deve ser possível consultar os pagamentos com estado pendente ou reembolsado, identificando o participante e o evento associados. & André Marques \\ \hline
+                RM10 & Deve ser possível consultar os pagamentos com estado pendente ou rejeitado, identificando o participante e o evento associados. & André Marques \\ \hline
                 \end{tabular}
                 \vspace{0.2cm}
                 \caption{Requisitos de Manipulação do EvenSync} \label{tab:requisitos_rm}
@@ -645,7 +645,7 @@
                     \item \texttt{valor} (obrigatório --- RD9)
                     \item \texttt{data\_pagamento} (obrigatório --- RD9)
                     \item \texttt{metodo} (obrigatório --- RD9: cartão, transferência, MBWay, entre outros)
-                    \item \texttt{estado} (obrigatório --- RD9: pago, pendente, reembolsado)
+                    \item \texttt{estado} (obrigatório --- RD9: pago, pendente, rejeitado)
                 \end{itemize}
 
                 \vspace{0.2cm}
@@ -1702,9 +1702,9 @@
                 onde $S = \mathit{Sessao}$ e $O = \mathit{Orador}$.
 
                 \vspace{0.4cm}
-                \noindent\textbf{RM10 — Pagamentos pendentes ou reembolsados:}
+                \noindent\textbf{RM10 — Pagamentos pendentes ou rejeitados:}
                 \[
-                \pi_{\,P.\texttt{nome},\,E.\texttt{nome},\,Pg.\texttt{valor},\,Pg.\texttt{estado}}\!\left(\,\sigma_{Pg.\texttt{estado} \in \{\texttt{'pendente'},\,\texttt{'reembolsado'}\}}\!\left(\mathit{Pagamento} \bowtie \mathit{Inscricao} \bowtie \mathit{Participante} \bowtie \mathit{Evento}\right)\right)
+                \pi_{\,P.\texttt{nome},\,E.\texttt{nome},\,Pg.\texttt{valor},\,Pg.\texttt{estado}}\!\left(\,\sigma_{Pg.\texttt{estado} \in \{\texttt{'pendente'},\,\texttt{'rejeitado'}\}}\!\left(\mathit{Pagamento} \bowtie \mathit{Inscricao} \bowtie \mathit{Participante} \bowtie \mathit{Evento}\right)\right)
                 \]
                 onde $P = \mathit{Participante}$, $Pg = \mathit{Pagamento}$ e $E = \mathit{Evento}$.
 
@@ -1800,7 +1800,7 @@ FLUSH PRIVILEGES;
                     \item \textbf{8 Oradores} com especialidades distintas, associados a sessões através da tabela \texttt{Apresentada};
                     \item \textbf{10 Participantes}, provenientes de diferentes organizações (UMinho, empresas externas, participantes individuais);
                     \item \textbf{14 Inscrições} com estados diversificados (\texttt{confirmada}, \texttt{pendente}, \texttt{cancelada}), para testar RM3, RM4 e RM10;
-                    \item \textbf{8 Pagamentos} com métodos e estados distintos (MBWay, cartão, transferência, numerário; pago, pendente, rejeitado), para testar RM5 e RM10.
+                    \item \textbf{14 Pagamentos} com métodos e estados distintos (MBWay, cartão, transferência, numerário; pago, pendente, rejeitado), para testar RM5 e RM10. Todas as inscrições têm um pagamento associado, refletindo a participação total do lado do Pagamento no relacionamento~R3.
                 \end{itemize}
 
                 A diversidade dos dados garante que todos os requisitos de manipulação possuem dados suficientes para produzir resultados não triviais nas respetivas interrogações SQL.
@@ -2211,11 +2211,9 @@ WHERE apr.id_sessao = 6;
 
                 \textbf{RM10 — Pagamentos pendentes ou rejeitados, com participante e evento:}
                 \begin{verbatim}
-SELECT p.nome AS Participante, e.nome AS Evento,
-       pag.valor, pag.estado, pag.metodo
+SELECT pag_v.Participante, pag_v.Evento,
+       pag_v.Montante, pag_v.Estado_Pagamento, pag_v.Metodo
 FROM v_DashboardFinanceiro pag_v
-JOIN Participante p ON pag_v.Participante = p.nome
-JOIN Evento e       ON pag_v.Evento = e.nome
 WHERE pag_v.Estado_Pagamento IN ('pendente', 'rejeitado');
                 \end{verbatim}
 
