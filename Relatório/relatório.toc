@@ -1,4 +1,5 @@
 \babel@toc {portuguese}{}\relax 
+\thispagestyle {plain}
 \contentsline {section}{\numberline {1}Definição do Sistema}{1}{}%
 \contentsline {subsection}{\numberline {1.1}Contexto de aplicação}{1}{}%
 \contentsline {subsection}{\numberline {1.2}Motivação e Objetivos do Trabalho}{1}{}%
@@ -70,3 +71,10 @@
 \contentsline {subsubsection}{\numberline {5.8.3}Função: \texttt {fn\_total\_gasto\_participante}}{54}{}%
 \contentsline {section}{\numberline {6}Conclusão e Trabalho Futuro}{55}{}%
 \contentsline {section}{\numberline {7}Bibliografia}{56}{}%
+\contentsline {section}{\numberline {8}Lista de Siglas e Acrónimos}{57}{}%
+\contentsline {section}{\numberline {9}Anexos}{58}{}%
+\contentsline {section}{\numberline {A}Script DDL --- Criação do Esquema Físico}{58}{}%
+\contentsline {section}{\numberline {B}Script de Povoamento}{63}{}%
+\contentsline {section}{\numberline {C}Vistas, Gatilho, Procedimento, Função e Interrogações SQL}{66}{}%
+\contentsline {section}{\numberline {D}Diagrama Entidade-Relacionamento (tamanho completo)}{70}{}%
+\contentsline {section}{\numberline {E}Modelo Lógico (tamanho completo)}{71}{}%
