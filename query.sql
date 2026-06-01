@@ -1,3 +1,5 @@
+USE eventsync;
+
 CREATE OR REPLACE VIEW v_ProgramaDetalhado AS
 SELECT 
     e.nome AS Evento,
